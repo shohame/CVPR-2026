@@ -1,0 +1,2528 @@
+{
+  "slugs": {
+    "SINT4CH": [
+      [
+        "Documentation Infrastructure and Ethical Challenges in Spatial AI for Cultural Heritage",
+        "content/CVPR2026W/SINT4CH/html/Yin_Documentation_Infrastructure_and_Ethical_Challenges_in_Spatial_AI_for_Cultural_CVPRW_2026_paper.html",
+        "Shuyi Yin"
+      ],
+      [
+        "Bag of Bags: Adaptive Visual Vocabularies for Genizah Join Image Retrieval",
+        "content/CVPR2026W/SINT4CH/html/Gogawale_Bag_of_Bags_Adaptive_Visual_Vocabularies_for_Genizah_Join_Image_CVPRW_2026_paper.html",
+        "Sharva Gogawale, Gal Grudka, Daria Vasyutinsky-Shapira, Omer Ventura, Berat Kurar-Barakat, Nachum Dershowitz"
+      ]
+    ],
+    "USM3D": [
+      [
+        "Text Reconstruction in 3D Scenes: An Empirical Study of Gaussian Splatting vs. Neural Radiance Fields",
+        "content/CVPR2026W/USM3D/html/Todi_Text_Reconstruction_in_3D_Scenes_An_Empirical_Study_of_Gaussian_CVPRW_2026_paper.html",
+        "Agastya Todi, Pasan Gunawardena, Zhengming Yu, Wenping Wang"
+      ],
+      [
+        "GS4City: Hierarchical Semantic Gaussian Splatting via City-Model Priors",
+        "content/CVPR2026W/USM3D/html/Zhang_GS4City_Hierarchical_Semantic_Gaussian_Splatting_via_City-Model_Priors_CVPRW_2026_paper.html",
+        "Qilin Zhang, Jinyu Zhu, Olaf Wysocki, Benjamin Busam, Boris Jutzi"
+      ],
+      [
+        "EditSSC: Toward Editable Semantic Occupancy Scenes with Unconditional Diffusion Models",
+        "content/CVPR2026W/USM3D/html/Balde_EditSSC_Toward_Editable_Semantic_Occupancy_Scenes_with_Unconditional_Diffusion_Models_CVPRW_2026_paper.html",
+        "Fatima Balde, Raoul de Charette, Alexandre Boulch"
+      ],
+      [
+        "DALES 2 : A Renovated Aerial LiDAR Benchmark for 3D Scene Understanding",
+        "content/CVPR2026W/USM3D/html/Bendjilali_DALES_2__A_Renovated_Aerial_LiDAR_Benchmark_for_3D_CVPRW_2026_paper.html",
+        "Moussa Bendjilali, Claire Peyran, Kaaviya Velumani, Antoine Mauri, Nicola Luminari, Pierre Alliez"
+      ],
+      [
+        "City-Mesh3R: Simulation-Ready City-Scale 3D Mesh Reconstruction from Multi-View Images",
+        "content/CVPR2026W/USM3D/html/Paul_City-Mesh3R_Simulation-Ready_City-Scale_3D_Mesh_Reconstruction_from_Multi-View_Images_CVPRW_2026_paper.html",
+        "Sayan Paul, Sourav Ghosh, Siddharth Katageri, Soumyadip Maity, Sanjana Sinha, Brojeshwar Bhowmick"
+      ],
+      [
+        "GeoPriorPC: Nadir-view to 3D Point Cloud Reconstruction for buildings via Two-Stage Diffusion Priors",
+        "content/CVPR2026W/USM3D/html/Korny_GeoPriorPC_Nadir-view_to_3D_Point_Cloud_Reconstruction_for_buildings_via_CVPRW_2026_paper.html",
+        "Youssef Korny, Sunghwan Yoo, Daniel Panangian, Ksenia Bittner, Andreas Wichmann, Gunho Sohn"
+      ]
+    ],
+    "IMW": [
+      [
+        "Can we make NeRF-based visual localization privacy-preserving?",
+        "content/CVPR2026W/IMW/html/Pietrantoni_Can_we_make_NeRF-based_visual_localization_privacy-preserving_CVPRW_2026_paper.html",
+        "Maxime Pietrantoni, Martin Humenberger, Torsten Sattler, Gabriela Csurka"
+      ],
+      [
+        "Covisibility-Aware Token Pruning for Scalable Semi-Dense Image Matching",
+        "content/CVPR2026W/IMW/html/Toida_Covisibility-Aware_Token_Pruning_for_Scalable_Semi-Dense_Image_Matching_CVPRW_2026_paper.html",
+        "Keisuke Toida, Kazuhiro Hotta"
+      ],
+      [
+        "Turntable-Constrained Camera Pose Estimation",
+        "content/CVPR2026W/IMW/html/Kosaka_Turntable-Constrained_Camera_Pose_Estimation_CVPRW_2026_paper.html",
+        "Norio Kosaka, Shinichi Higashino, Shuji Yamaguchi"
+      ],
+      [
+        "Are Pretrained Image Matchers Good Enough for SAR-Optical Satellite Registration?",
+        "content/CVPR2026W/IMW/html/Corley_Are_Pretrained_Image_Matchers_Good_Enough_for_SAR-Optical_Satellite_Registration_CVPRW_2026_paper.html",
+        "Isaac Corley, Alex Stoken, Gabriele Berton"
+      ],
+      [
+        "Who Handles Orientation? Investigating Invariance in Feature Matching",
+        "content/CVPR2026W/IMW/html/Nordstrom_Who_Handles_Orientation_Investigating_Invariance_in_Feature_Matching_CVPRW_2026_paper.html",
+        "David Nordstrom, Johan Edstedt, Fredrik Kahl, Georg Bokman"
+      ],
+      [
+        "GOOP-PnPL: Global optimization of orthogonal projection error based PnPL",
+        "content/CVPR2026W/IMW/html/Sugaya_GOOP-PnPL_Global_optimization_of_orthogonal_projection_error_based_PnPL_CVPRW_2026_paper.html",
+        "Yasuyuki Sugaya, Fumiya Okamoto, Norio Kosaka, Sakiko Nishi, Kazuhiro Ninomiya"
+      ],
+      [
+        "RetailGlue: Semantic Product-Level Image Stitching for Retail Shelf Panoramas",
+        "content/CVPR2026W/IMW/html/Oztuner_RetailGlue_Semantic_Product-Level_Image_Stitching_for_Retail_Shelf_Panoramas_CVPRW_2026_paper.html",
+        "Arda Oztuner, Ayberk Celik, Ibrahim Samil Yalciner, Server Calap"
+      ],
+      [
+        "Privacy-Preserving Structureless Visual Localization via Image Obfuscation",
+        "content/CVPR2026W/IMW/html/Panek_Privacy-Preserving_Structureless_Visual_Localization_via_Image_Obfuscation_CVPRW_2026_paper.html",
+        "Vojtech Panek, Patrik Beliansky, Zuzana Kukelova, Torsten Sattler"
+      ],
+      [
+        "DeepShapeMatchingKit: Accelerated Functional Map Solver and Shape Matching Pipelines Revisited",
+        "content/CVPR2026W/IMW/html/Xie_DeepShapeMatchingKit_Accelerated_Functional_Map_Solver_and_Shape_Matching_Pipelines_Revisited_CVPRW_2026_paper.html",
+        "Yizheng Xie, Lennart Bastian, Congyue Deng, Thomas W. Mitchel, Maolin Gao, Daniel Cremers"
+      ]
+    ],
+    "SAFE": [
+      [
+        "AWPD: Frequency Shield Network for Agnostic Watermark Presence Detection",
+        "content/CVPR2026W/SAFE/html/Ao_AWPD_Frequency_Shield_Network_for_Agnostic_Watermark_Presence_Detection_CVPRW_2026_paper.html",
+        "Xiang Ao, Yilin Du, Zidan Wang, MengRu Chen, Siyang Lu"
+      ],
+      [
+        "AI-generated Image Detection: Passive or Watermark?",
+        "content/CVPR2026W/SAFE/html/Guo_AI-generated_Image_Detection_Passive_or_Watermark_CVPRW_2026_paper.html",
+        "Moyang Guo, Yuepeng Hu, Zhengyuan Jiang, Zeyu Li, Amir Sadovnik, Arka Daw, Neil Zhenqiang Gong"
+      ],
+      [
+        "MorphoMod: Visible Watermark Removal with Morphological Dilation",
+        "content/CVPR2026W/SAFE/html/Robinette_MorphoMod_Visible_Watermark_Removal_with_Morphological_Dilation_CVPRW_2026_paper.html",
+        "Preston K. Robinette, Dung Thuy Nguyen, Taylor T. Johnson"
+      ],
+      [
+        "The Purification Paradox: Dissecting and Exploiting Generative Vulnerability Bands in Diffusion Trajectories",
+        "content/CVPR2026W/SAFE/html/Kamble_The_Purification_Paradox_Dissecting_and_Exploiting_Generative_Vulnerability_Bands_in_CVPRW_2026_paper.html",
+        "Dhammadip Kamble, Anil Kumar Sao, Raghavendra Ramachandra"
+      ],
+      [
+        "A Hybrid CLIP-Diffusion Architecture for Transparent Deepfake Detection and Explainability Evaluation",
+        "content/CVPR2026W/SAFE/html/Specker_A_Hybrid_CLIP-Diffusion_Architecture_for_Transparent_Deepfake_Detection_and_Explainability_CVPRW_2026_paper.html",
+        "Andreas Specker, Manjunatha Veerappa, Thomas Golda, Nadia Burkart, Dominik Alveen, Anna Wilhelm"
+      ],
+      [
+        "HIDE: Detecting Diffusion-Based Inpainting via Latent h-Space Representation",
+        "content/CVPR2026W/SAFE/html/Ji_HIDE_Detecting_Diffusion-Based_Inpainting_via_Latent_h-Space_Representation_CVPRW_2026_paper.html",
+        "Seunghwan Ji, Geonho Son, Simon S. Woo"
+      ],
+      [
+        "TAP into the Patch Tokens: Leveraging Vision Foundation Model Features for AI-Generated Image Detection",
+        "content/CVPR2026W/SAFE/html/Abdullah_TAP_into_the_Patch_Tokens_Leveraging_Vision_Foundation_Model_Features_CVPRW_2026_paper.html",
+        "Ahmed Abdullah, Nikolas Ebert, Oliver Wasenmüller"
+      ],
+      [
+        "EMO-BOOST: Emotion-Augmented Audio-Visual Features for Improved Generalization in Deepfake Detection",
+        "content/CVPR2026W/SAFE/html/Marik_EMO-BOOST_Emotion-Augmented_Audio-Visual_Features_for_Improved_Generalization_in_Deepfake_Detection_CVPRW_2026_paper.html",
+        "Aritra Marik, Marcel Klemt, Anna Rohrbach"
+      ],
+      [
+        "DiFA: Dictionary-guided Feature Attacks for Transferable Adversarial Perturbations",
+        "content/CVPR2026W/SAFE/html/Khalid_DiFA_Dictionary-guided_Feature_Attacks_for_Transferable_Adversarial_Perturbations_CVPRW_2026_paper.html",
+        "Fatima Khalid, Muhammad Hanif, Karl Mason, Usman Haider"
+      ],
+      [
+        "Perceptually-Guided Adversarial Interpretability of Pruned AIGC Image Quality Assessment Models",
+        "content/CVPR2026W/SAFE/html/Shinde_Perceptually-Guided_Adversarial_Interpretability_of_Pruned_AIGC_Image_Quality_Assessment_Models_CVPRW_2026_paper.html",
+        "Tushar Shinde"
+      ],
+      [
+        "FRAME: Forensic Routing and Adaptive Multi-path Evidence Fusion for Image Manipulation Detection",
+        "content/CVPR2026W/SAFE/html/Zhao_FRAME_Forensic_Routing_and_Adaptive_Multi-path_Evidence_Fusion_for_Image_CVPRW_2026_paper.html",
+        "Kaixiang Zhao, Tianrun Yu, Aoxu Zhang, Junhao Su, Porter Jenkins, Amanda Hughes"
+      ]
+    ],
+    "WiCV": [
+      [
+        "VIPER: Video-Informed PDE Extraction and Recovery",
+        "content/CVPR2026W/WiCV/html/Shaikh_VIPER_Video-Informed_PDE_Extraction_and_Recovery_CVPRW_2026_paper.html",
+        "Farhat Shaikh, Ayan Banerjee, Sandeep Gupta"
+      ],
+      [
+        "A Survey of Spatial Memory Representations for Efficient Robot Navigation",
+        "content/CVPR2026W/WiCV/html/Pangaliman_A_Survey_of_Spatial_Memory_Representations_for_Efficient_Robot_Navigation_CVPRW_2026_paper.html",
+        "Ma. Madecheen S. Pangaliman, Steven S. Sison, Erwin P. Quilloy, Rowel Atienza"
+      ],
+      [
+        "Contrast-Enhanced Gating in GRUs for Robust Low-Data Sequence Learning",
+        "content/CVPR2026W/WiCV/html/Subramanian_Contrast-Enhanced_Gating_in_GRUs_for_Robust_Low-Data_Sequence_Learning_CVPRW_2026_paper.html",
+        "Barathi Subramanian, Rathinaraja Jeyaraj, Anand Paul"
+      ],
+      [
+        "SAM3Count for Zero-Shot Open Vocabulary Counting in Images and Videos",
+        "content/CVPR2026W/WiCV/html/Owusu_SAM3Count_for_Zero-Shot_Open_Vocabulary_Counting_in_Images_and_Videos_CVPRW_2026_paper.html",
+        "Joana Konadu Owusu, Shivanand Venkanna Sheshappanavar"
+      ],
+      [
+        "Structured Multivariate Time-Series Modeling for Diffusion-Based EEG-to-Image Reconstruction",
+        "content/CVPR2026W/WiCV/html/Nigam_Structured_Multivariate_Time-Series_Modeling_for_Diffusion-Based_EEG-to-Image_Reconstruction_CVPRW_2026_paper.html",
+        "Jyoti Nigam, Asmita Ankush Kamble, Arnav Bhavsar"
+      ],
+      [
+        "Agentic Causal Disentanglement (ACD) Framework: Reversing the Generalization-Tail Trade-Off via Clinical Knowledge Integration in Medical AI",
+        "content/CVPR2026W/WiCV/html/Urooj_Agentic_Causal_Disentanglement_ACD_Framework_Reversing_the_Generalization-Tail_Trade-Off_via_CVPRW_2026_paper.html",
+        "Midhat Urooj, Ayan Banerjee, Sandeep Gupta"
+      ],
+      [
+        "Hardware-Aware Low Light Image Enhancement on Edge",
+        "content/CVPR2026W/WiCV/html/Vajrala_Hardware-Aware_Low_Light_Image_Enhancement_on_Edge_CVPRW_2026_paper.html",
+        "Sowmya Vajrala, Sravanth Kodavanti, Srinivas Soumitri Miriyala"
+      ],
+      [
+        "Beyond Gradients: Curvature-Aware Part-Level Explanations for Vision Models",
+        "content/CVPR2026W/WiCV/html/Maliha_Beyond_Gradients_Curvature-Aware_Part-Level_Explanations_for_Vision_Models_CVPRW_2026_paper.html",
+        "Maisha Maliha, Dean F. Hougen"
+      ],
+      [
+        "AdaMSCoL: Adaptive Multi-Scale Structural Consistency for Unsupervised Underwater Image Enhancement",
+        "content/CVPR2026W/WiCV/html/Aparna_AdaMSCoL_Adaptive_Multi-Scale_Structural_Consistency_for_Unsupervised_Underwater_Image_Enhancement_CVPRW_2026_paper.html",
+        "Aparna Aparna, Hitika Tiwari, Dong-Lin Li"
+      ]
+    ],
+    "VOCVALC": [
+      [
+        "SCAR: Satellite Imagery-Based Calibration for Aerial Recordings",
+        "content/CVPR2026W/VOCVALC/html/Holzemann_SCAR_Satellite_Imagery-Based_Calibration_for_Aerial_Recordings_CVPRW_2026_paper.html",
+        "Henry Hölzemann, Michael Schleiss"
+      ],
+      [
+        "VGGT-SLAM++",
+        "content/CVPR2026W/VOCVALC/html/Mandal_VGGT-SLAM_CVPRW_2026_paper.html",
+        "Avilasha Mandal, Rajesh Kumar, Sudarshan Sunil Harithas, Chetan Arora"
+      ],
+      [
+        "RF-Loc: Robust Visual-Radio Frequency Localization via Hierarchical Point Cloud Registration in Large-Scale Environments",
+        "content/CVPR2026W/VOCVALC/html/Jozsa_RF-Loc_Robust_Visual-Radio_Frequency_Localization_via_Hierarchical_Point_Cloud_Registration_CVPRW_2026_paper.html",
+        "Csaba M. Józsa, Attila Bóta, Krisztián Zs. Varga, Ferenc Kovács"
+      ],
+      [
+        "Gram-Schmidt Feature Reduction for Local Feature Descriptor Compression",
+        "content/CVPR2026W/VOCVALC/html/Safavigerdini_Gram-Schmidt_Feature_Reduction_for_Local_Feature_Descriptor_Compression_CVPRW_2026_paper.html",
+        "Kaveh Safavigerdini, Bahram Yaghooti, Bruno Sinopoli, Kannappan Palaniappan"
+      ]
+    ],
+    "MEIS": [
+      [
+        "Bridging the Pretrain-to-Real Gap: Alignment Challenges in Deploying Generalist VLA Models for Additive Manufacturing",
+        "content/CVPR2026W/MEIS/html/Liu_Bridging_the_Pretrain-to-Real_Gap_Alignment_Challenges_in_Deploying_Generalist_VLA_CVPRW_2026_paper.html",
+        "Zhugang Liu, Kaichuang Zhang, Qi Lu, Efren Saenz, Martha Asare, Maxim Ermolinsky, Jose Hernandez, Jinghao Yang"
+      ],
+      [
+        "Mitigating Multi-Module Errors for Reliable Navigation in Dynamic Environments via Online Trajectory Refinement",
+        "content/CVPR2026W/MEIS/html/Yin_Mitigating_Multi-Module_Errors_for_Reliable_Navigation_in_Dynamic_Environments_via_CVPRW_2026_paper.html",
+        "Qi Yin, Yangming Shi"
+      ],
+      [
+        "HeckNav: Interpretable Heuristic Knowledge Navigation via Bayesian Probabilistic Inference",
+        "content/CVPR2026W/MEIS/html/Jiang_HeckNav_Interpretable_Heuristic_Knowledge_Navigation_via_Bayesian_Probabilistic_Inference_CVPRW_2026_paper.html",
+        "Xianshun Jiang, Yao Xiong, Xiangbo Gao, Yanjia Huang, Zhengzhong Tu"
+      ],
+      [
+        "Multi-Agent Video Prediction: Self-Correcting Conditional Frames for Dynamic Scene Forecasting",
+        "content/CVPR2026W/MEIS/html/Zhang_Multi-Agent_Video_Prediction_Self-Correcting_Conditional_Frames_for_Dynamic_Scene_Forecasting_CVPRW_2026_paper.html",
+        "Qixin Zhang, Ajay Kumar Gurumadaiah, Zhi-Li Zhang"
+      ],
+      [
+        "Fine-Tuning Large Language Models for Cooperative Tactical Deconfliction of Small Unmanned Aerial Systems",
+        "content/CVPR2026W/MEIS/html/Sharifi_Fine-Tuning_Large_Language_Models_for_Cooperative_Tactical_Deconfliction_of_Small_CVPRW_2026_paper.html",
+        "Iman Sharifi, Alex Zongo, Peng Wei"
+      ],
+      [
+        "Diverse Yet Consistent: Context-Guided Diffusion with Energy-Based Joint Refinement for Multi-Agent Motion Prediction",
+        "content/CVPR2026W/MEIS/html/Chu_Diverse_Yet_Consistent_Context-Guided_Diffusion_with_Energy-Based_Joint_Refinement_for_CVPRW_2026_paper.html",
+        "Lei Chu, Yuhuan zhao"
+      ],
+      [
+        "CoSA-3D: Vision-Only Automatic 3D Annotation for Cooperative Perception",
+        "content/CVPR2026W/MEIS/html/Lu_CoSA-3D_Vision-Only_Automatic_3D_Annotation_for_Cooperative_Perception_CVPRW_2026_paper.html",
+        "Chenyang Lu, Jiahao Wang, Mingda Yu, Dianqiao Lei, Shaobing Xu, Jianqiang Wang"
+      ]
+    ],
+    "AERO-HPR": [
+      [
+        "Enhancing Aerial Pedestrian Detection via High-Resolution P2 Feature Integration in YOLOv12",
+        "content/CVPR2026W/AERO-HPR/html/S_Enhancing_Aerial_Pedestrian_Detection_via_High-Resolution_P2_Feature_Integration_in_CVPRW_2026_paper.html",
+        "Sukesh Babu V S, Rahul Raman, Sambit Bakshi"
+      ],
+      [
+        "Quantifying Operational Drivers of Multimodal Biometric Verification in Aerial Surveillance",
+        "content/CVPR2026W/AERO-HPR/html/Peluso_Quantifying_Operational_Drivers_of_Multimodal_Biometric_Verification_in_Aerial_Surveillance_CVPRW_2026_paper.html",
+        "Alina Peluso, David Bolme, Gavin Glenn, Jairus Hines, Nicholas Burchfield, Andrew Duncan, Youngrock Yoon, Joel Brogan, Deniz Aykac, Ryan Shivers, Gavin Jager, Gio Pascascio, Leanne Thompson, Scott Dolvin, David Cornett"
+      ],
+      [
+        "SAFE-Net: Scale-Aware Feature Enhancement for Aerial Person Detection in Flood Disaster Imagery",
+        "content/CVPR2026W/AERO-HPR/html/Sivapuram_SAFE-Net_Scale-Aware_Feature_Enhancement_for_Aerial_Person_Detection_in_Flood_CVPRW_2026_paper.html",
+        "Arun Kumar Sivapuram, Prashanth Komuravelli, Janipireddy Ganesh Mouli, Rama Krishna Sai Gorthi"
+      ],
+      [
+        "Scale-Aware Vision-Language Adaptation for Extreme Far-Distance Video Person Re-identification",
+        "content/CVPR2026W/AERO-HPR/html/Rajbhandari_Scale-Aware_Vision-Language_Adaptation_for_Extreme_Far-Distance_Video_Person_Re-identification_CVPRW_2026_paper.html",
+        "Ashwat Rajbhandari, Bharatesh Chakravarthi"
+      ]
+    ],
+    "FoundGen-Bio": [
+      [
+        "FPBench: A Comprehensive Benchmark of Multimodal Large Language Models for Fingerprint Analysis",
+        "content/CVPR2026W/FoundGen-Bio/html/Gavas_FPBench_A_Comprehensive_Benchmark_of_Multimodal_Large_Language_Models_for_CVPRW_2026_paper.html",
+        "Ekta Gavas, Sudipta Banerjee, Chinmay Hegde, Nasir Memon"
+      ],
+      [
+        "PaCo-FR: Patch-Pixel Aligned End-to-End Codebook Learning for Facial Representation Pre-training",
+        "content/CVPR2026W/FoundGen-Bio/html/Xie_PaCo-FR_Patch-Pixel_Aligned_End-to-End_Codebook_Learning_for_Facial_Representation_Pre-training_CVPRW_2026_paper.html",
+        "Yin Xie, Zhichao Chen, Zeyu Xiao, Yongle Zhao, Xiang An, Kaicheng Yang, Zimin Ran, Jia Guo, Ziyong Feng, Jiankang Deng"
+      ],
+      [
+        "NPTFace: Native Pose-aligned Transformer for Face Recognition",
+        "content/CVPR2026W/FoundGen-Bio/html/Ran_NPTFace_Native_Pose-aligned_Transformer_for_Face_Recognition_CVPRW_2026_paper.html",
+        "Zimin Ran, Xuhan Zhu, Xiang An, Xingyu Ren, Kaicheng Yang, Feilong Tang, Zhichao Chen, Yumeng Wang, Ziyong Feng, Xianzhi Wang, Yin Xie, Linchao Zhu, Jiankang Deng"
+      ],
+      [
+        "Frontal Face Synthesis by Using Vision Transformers",
+        "content/CVPR2026W/FoundGen-Bio/html/Cevikalp_Frontal_Face_Synthesis_by_Using_Vision_Transformers_CVPRW_2026_paper.html",
+        "Hakan Cevikalp, Hasan Saribas, Kaya Turgut"
+      ],
+      [
+        "SKULPT Yourself: A Data-Driven Facial Reconstruction Pipeline and Expert-Guided Evaluation Study",
+        "content/CVPR2026W/FoundGen-Bio/html/Aizaz_SKULPT_Yourself_A_Data-Driven_Facial_Reconstruction_Pipeline_and_Expert-Guided_Evaluation_CVPRW_2026_paper.html",
+        "Maida Aizaz, Khadija Rajabova, Seon Gyeom Kim, Won Joon Lee, Joon Yeol Ryu, Hyobong Jang, Soojung Park, Kiwan Jeon, Hyoung Suk Park, Sung Ho Kang, Tak Yeon Lee"
+      ],
+      [
+        "Demographic Fairness in Multimodal LLMs: A Benchmark of Gender and Ethnicity Bias in Face Verification",
+        "content/CVPR2026W/FoundGen-Bio/html/Ozturk_Demographic_Fairness_in_Multimodal_LLMs_A_Benchmark_of_Gender_and_CVPRW_2026_paper.html",
+        "Unsal Ozturk, Hatef Otroshi Shahreza, Sébastien Marcel"
+      ],
+      [
+        "Intra-finger Variability of Diffusion-based Latent Fingerprint Generation",
+        "content/CVPR2026W/FoundGen-Bio/html/Hussein_Intra-finger_Variability_of_Diffusion-based_Latent_Fingerprint_Generation_CVPRW_2026_paper.html",
+        "Noor Hussein, Anil K Jain, Karthik Nandakumar"
+      ],
+      [
+        "AgeMoVLE: Age Estimation with Mixture of VL Experts",
+        "content/CVPR2026W/FoundGen-Bio/html/Chiu_AgeMoVLE_Age_Estimation_with_Mixture_of_VL_Experts_CVPRW_2026_paper.html",
+        "Yu-Hsuan Chiu, Aldo Acevedo Onieva, Gee-Sern Jison Hsu"
+      ],
+      [
+        "From Detector Evidence to Language: Explainable Deepfake Video Detection",
+        "content/CVPR2026W/FoundGen-Bio/html/Panahi_From_Detector_Evidence_to_Language_Explainable_Deepfake_Video_Detection_CVPRW_2026_paper.html",
+        "Amirhossein Panahi, Virginia R. de Sa"
+      ]
+    ],
+    "CVPR-NAS26": [
+      [
+        "CoLLM-NAS: Collaborative Large Language Models for Efficient Knowledge-Guided Neural Architecture Search",
+        "content/CVPR2026W/CVPR-NAS26/html/Li_CoLLM-NAS_Collaborative_Large_Language_Models_for_Efficient_Knowledge-Guided_Neural_Architecture_CVPRW_2026_paper.html",
+        "Zhe Li, Zhiwei Lin, Yongtao Wang"
+      ],
+      [
+        "LEMUR 2: Unlocking Neural Network Diversity for AI",
+        "content/CVPR2026W/CVPR-NAS26/html/Uzun_LEMUR_2_Unlocking_Neural_Network_Diversity_for_AI_CVPRW_2026_paper.html",
+        "Tolgay Atinc Uzun, Waleed Khalid, Saif U Din, Sai Revanth Mulukuledu, Akashdeep Singh, Chandini Vysyaraju, Raghuvir Duvvuri, Avi Goyal, Yashkumar R. Lukhi, Muhammad A Hussain, Krunal Jesani, Usha Shrestha, Yash Mittal, Roman Kochnev, Pritam Kadam, Mohsin Ikram, Harsh Moradiya, Alice Arslanian, Dmitry Ignatov, Radu Timofte"
+      ],
+      [
+        "NNGPT: Rethinking AutoML with Large Language Models",
+        "content/CVPR2026W/CVPR-NAS26/html/Kochnev_NNGPT_Rethinking_AutoML_with_Large_Language_Models_CVPRW_2026_paper.html",
+        "Roman Kochnev, Waleed Khalid, Tolgay Atinc Uzun, Xi Zhang, Yashkumar Sanjaybhai Dhameliya, Furui Qin, Chandini Vysyaraju, Raghuvir Duvvuri, Avi Goyal, Dmitry Ignatov, Radu Timofte"
+      ],
+      [
+        "From Memorization to Creativity: LLM as a Designer of Novel Neural Architectures",
+        "content/CVPR2026W/CVPR-NAS26/html/Khalid_From_Memorization_to_Creativity_LLM_as_a_Designer_of_Novel_CVPRW_2026_paper.html",
+        "Waleed Khalid, Dmitry Ignatov, Radu Timofte"
+      ],
+      [
+        "Enhancing LLM-Based Neural Network Generation: Few-Shot Prompting and Efficient Validation for Automated Architecture Design",
+        "content/CVPR2026W/CVPR-NAS26/html/Duvvuri_Enhancing_LLM-Based_Neural_Network_Generation_Few-Shot_Prompting_and_Efficient_Validation_CVPRW_2026_paper.html",
+        "Raghuvir Duvvuri, Chandini Vysyaraju, Avi Goyal, Dmitry Ignatov, Radu Timofte"
+      ],
+      [
+        "YOLO-NAS-Bench: A Surrogate Benchmark with Self-Evolving Predictors for YOLO Architecture Search",
+        "content/CVPR2026W/CVPR-NAS26/html/Li_YOLO-NAS-Bench_A_Surrogate_Benchmark_with_Self-Evolving_Predictors_for_YOLO_Architecture_CVPRW_2026_paper.html",
+        "Zhe Li, Xiaoyu Ding, Jiaxin Zheng, Yongtao Wang"
+      ]
+    ],
+    "FedVision": [
+      [
+        "DynaMu: Loss-Guided Adaptive Proximal Regularization for Federated Learning",
+        "content/CVPR2026W/FedVision/html/Hajarizadeh_DynaMu_Loss-Guided_Adaptive_Proximal_Regularization_for_Federated_Learning_CVPRW_2026_paper.html",
+        "Armaan Hajarizadeh, Suyash Gupta"
+      ],
+      [
+        "Data-Free Contribution Estimation in Federated Learning using Gradient von Neumann Entropy",
+        "content/CVPR2026W/FedVision/html/Ukaye_Data-Free_Contribution_Estimation_in_Federated_Learning_using_Gradient_von_Neumann_CVPRW_2026_paper.html",
+        "Asim Ukaye, Mubarak Abdu-Aguye, Nurbek Tastan, Karthik Nandakumar"
+      ],
+      [
+        "FedPoisonTTP: A Threat Model and Poisoning Attack for Federated Test-Time Personalization",
+        "content/CVPR2026W/FedVision/html/Iftee_FedPoisonTTP_A_Threat_Model_and_Poisoning_Attack_for_Federated_Test-Time_CVPRW_2026_paper.html",
+        "Md. Akil Raihan Iftee, Syed Md. Ahnaf Hasan, Amin Ahsan Ali, A K M Mahbubur Rahman, Sajib Mistry, Aneesh Krishna"
+      ],
+      [
+        "UniFed-LoRA: Exploiting Semantic Task Correlation for Heterogeneous Multimodal Federated Fine-Tuning",
+        "content/CVPR2026W/FedVision/html/Milasheuski_UniFed-LoRA_Exploiting_Semantic_Task_Correlation_for_Heterogeneous_Multimodal_Federated_Fine-Tuning_CVPRW_2026_paper.html",
+        "Usevalad Milasheuski, Charles Lu, Pradyumna Chari, Monica Nicoli, Stefano Savazzi, Ramesh Raskar"
+      ],
+      [
+        "DART: A Server-side Plug-in for Resource-efficient Robust Federated Learning",
+        "content/CVPR2026W/FedVision/html/Bekdache_DART_A_Server-side_Plug-in_for_Resource-efficient_Robust_Federated_Learning_CVPRW_2026_paper.html",
+        "Omar Bekdache, Naresh Shanbhag"
+      ],
+      [
+        "DALSE: Drift-Aware Latent State Estimation for Robust Federated Learning under Dynamic Participation",
+        "content/CVPR2026W/FedVision/html/Chang_DALSE_Drift-Aware_Latent_State_Estimation_for_Robust_Federated_Learning_under_CVPRW_2026_paper.html",
+        "Ching-Hwa Chang, Ming-Lun Lee, Cheng-Kuan Lin, Yu-Chee Tseng"
+      ],
+      [
+        "Conditional Imputation for Within-Modality Missingness in Multi-Modal Federated Learning",
+        "content/CVPR2026W/FedVision/html/Zheng_Conditional_Imputation_for_Within-Modality_Missingness_in_Multi-Modal_Federated_Learning_CVPRW_2026_paper.html",
+        "Wugeng Zheng, Ziwen Kan, Katie Wang, Chen Chen, Song Wang"
+      ],
+      [
+        "SCOPE: Shared Content Orchestration of Parameter-Efficient Experts for Federated Domain Generalization",
+        "content/CVPR2026W/FedVision/html/Soliman_SCOPE_Shared_Content_Orchestration_of_Parameter-Efficient_Experts_for_Federated_Domain_CVPRW_2026_paper.html",
+        "Mahmoud Soliman, Ahmed Radwan, Omar Abdelaziz, Mohamed S. Shehata"
+      ],
+      [
+        "FedSIR: Spectral Client Identification and Relabeling for Federated Learning with Noisy Labels",
+        "content/CVPR2026W/FedVision/html/Gholami_FedSIR_Spectral_Client_Identification_and_Relabeling_for_Federated_Learning_with_CVPRW_2026_paper.html",
+        "Sina Gholami, Abudlmoneam Ali, Tania Haghighi, Ahmed Arafa, Minhaj Nur Alam"
+      ]
+    ],
+    "EmbodiedAIinLife": [
+      [
+        "AoE: Always-on Egocentric Human Video Collection for Embodied AI",
+        "content/CVPR2026W/EmbodiedAIinLife/html/Yang_AoE_Always-on_Egocentric_Human_Video_Collection_for_Embodied_AI_CVPRW_2026_paper.html",
+        "Bowen Yang, Zishuo Li, Yang Sun, Changtao Miao, Yifan Yang, Man Luo, Xiaotong Yan, Feng Jiang, Jinchuan Shi, Yankai Fu, Ning Chen, Junkai Zhao, Pengwei Wang, Guocai Yao, Shanghang Zhang, Hao Chen, Zhe Li, Kai Zhu"
+      ],
+      [
+        "Chain of Uncertain Rewards with Large Language Models for Reinforcement Learning",
+        "content/CVPR2026W/EmbodiedAIinLife/html/Mo_Chain_of_Uncertain_Rewards_with_Large_Language_Models_for_Reinforcement_CVPRW_2026_paper.html",
+        "Shentong Mo"
+      ]
+    ],
+    "IPA": [
+      [
+        "Gesture2Music: A Low-Latency Real-Time Framework for Continuous Gesture-Driven Music Generation",
+        "content/CVPR2026W/IPA/html/Jeyaraj_Gesture2Music_A_Low-Latency_Real-Time_Framework_for_Continuous_Gesture-Driven_Music_Generation_CVPRW_2026_paper.html",
+        "Rathinaraja Jeyaraj, Barathi Subramanian, Kapilya Gangadharan, Anand Paul"
+      ],
+      [
+        "Learning Physical Principles from Interaction with Test-Time Memory",
+        "content/CVPR2026W/IPA/html/Li_Learning_Physical_Principles_from_Interaction_with_Test-Time_Memory_CVPRW_2026_paper.html",
+        "Haoyang Li, Yang You, Hao Su, Leonidas Guibas"
+      ]
+    ],
+    "XAI4CV": [
+      [
+        "A Mechanistic Analysis of Training-Time Image Protection in Diffusion Models",
+        "content/CVPR2026W/XAI4CV/html/Martin_A_Mechanistic_Analysis_of_Training-Time_Image_Protection_in_Diffusion_Models_CVPRW_2026_paper.html",
+        "Michael Martin, Garrick Chan, Kwan-Liu Ma"
+      ],
+      [
+        "Can Cross-Layer Transcoders Replace Vision Transformer Activations? An Interpretable Perspective on Vision",
+        "content/CVPR2026W/XAI4CV/html/Chatzoudis_Can_Cross-Layer_Transcoders_Replace_Vision_Transformer_Activations_An_Interpretable_Perspective_CVPRW_2026_paper.html",
+        "Gerasimos Chatzoudis, Konstantinos D. Polyzos, Zhuowei Li, Difei Gu, Gemma E. Moran, Hao Wang, Dimitris N. Metaxas"
+      ],
+      [
+        "From Attribution to Action: A Human-Centered Application of Activation Steering",
+        "content/CVPR2026W/XAI4CV/html/Labarta_From_Attribution_to_Action_A_Human-Centered_Application_of_Activation_Steering_CVPRW_2026_paper.html",
+        "Tobias Labarta, Maximilian Dreyer, Katharina Weitz, Wojciech Samek, Sebastian Lapuschkin"
+      ],
+      [
+        "Feature Attribution Stability Suite: How Stable Are Post-Hoc Attributions?",
+        "content/CVPR2026W/XAI4CV/html/Subramaniakuppusamy_Feature_Attribution_Stability_Suite_How_Stable_Are_Post-Hoc_Attributions_CVPRW_2026_paper.html",
+        "Kamalasankari Subramaniakuppusamy, Jugal Gajjar"
+      ],
+      [
+        "Investigating Anisotropy in Visual Grounding under Controlled Counterfactual Perturbations",
+        "content/CVPR2026W/XAI4CV/html/Lombardo_Investigating_Anisotropy_in_Visual_Grounding_under_Controlled_Counterfactual_Perturbations_CVPRW_2026_paper.html",
+        "Gabriele Lombardo, Luigi Maiorana, Liliana Lo Presti, Marco La Cascia"
+      ],
+      [
+        "DINO-QPM: Adapting Visual Foundation Models for Globally Interpretable Image Classification",
+        "content/CVPR2026W/XAI4CV/html/Zimmermann_DINO-QPM_Adapting_Visual_Foundation_Models_for_Globally_Interpretable_Image_Classification_CVPRW_2026_paper.html",
+        "Robert Zimmermann, Thomas Norrenbrock, Bodo Rosenhahn"
+      ],
+      [
+        "GLEaN: A Text-to-image Bias Detection Approach for Public Comprehension",
+        "content/CVPR2026W/XAI4CV/html/Ding_GLEaN_A_Text-to-image_Bias_Detection_Approach_for_Public_Comprehension_CVPRW_2026_paper.html",
+        "Bochu Ding, Brinnae Bent, Augustus Wendell"
+      ],
+      [
+        "Multi-Granularity Concept Whitening for Neural Network Interpretability",
+        "content/CVPR2026W/XAI4CV/html/Barton_Multi-Granularity_Concept_Whitening_for_Neural_Network_Interpretability_CVPRW_2026_paper.html",
+        "Russell Barton, Viet Hung Le, Yunhong Shan, Alexander Katopodis, Jon Donnelly, Eric Chen, Chaofan Chen, Cynthia Rudin"
+      ],
+      [
+        "Activation-Based Concept Extraction for Explainability in Image Classification",
+        "content/CVPR2026W/XAI4CV/html/Bianchi_Activation-Based_Concept_Extraction_for_Explainability_in_Image_Classification_CVPRW_2026_paper.html",
+        "Matteo Bianchi, Riccardo Campi, Antonio De Santis, Sara Merengo, Marco Brambilla"
+      ],
+      [
+        "How does My Model Fail? Automatic Identification and Interpretation of Physical Plausibility Failure Modes with Matryoshka Transcoders",
+        "content/CVPR2026W/XAI4CV/html/Tang_How_does_My_Model_Fail_Automatic_Identification_and_Interpretation_of_CVPRW_2026_paper.html",
+        "Yiming Tang, Abhijeet Sinha, Dianbo Liu"
+      ],
+      [
+        "Why Fake? Unveiling the Semantic Vocabulary of Deepfake Detectors",
+        "content/CVPR2026W/XAI4CV/html/Vanian_Why_Fake_Unveiling_the_Semantic_Vocabulary_of_Deepfake_Detectors_CVPRW_2026_paper.html",
+        "Vazgken Vanian, Alexandros Doumanoglou, Dimitris Zarpalas"
+      ],
+      [
+        "FAME: Feature Activation Map Explanation on Image Classification and Face Recognition",
+        "content/CVPR2026W/XAI4CV/html/Zhang_FAME_Feature_Activation_Map_Explanation_on_Image_Classification_and_Face_CVPRW_2026_paper.html",
+        "Xinyi Zhang, Manuel Günther"
+      ],
+      [
+        "Faces in Focus: Evaluating Generalizability and Transferability of Facial Recognition Explainability Techniques for CNN-based Models",
+        "content/CVPR2026W/XAI4CV/html/Borsukiewicz_Faces_in_Focus_Evaluating_Generalizability_and_Transferability_of_Facial_Recognition_CVPRW_2026_paper.html",
+        "Pawel Borsukiewicz, El-hacen Diallo, Abdoul Aziz Bonkoungou, Wendkuuni C Ouedraogo, Jacques Klein, Charles Beumier, Tegawendé F. Bissyande"
+      ],
+      [
+        "A Benchmark Study on the Reliability of Explainability Methods",
+        "content/CVPR2026W/XAI4CV/html/Kowsar_A_Benchmark_Study_on_the_Reliability_of_Explainability_Methods_CVPRW_2026_paper.html",
+        "Ibna Kowsar, Shahbaz Rezaei, Fanyu Meng, Xin Liu"
+      ]
+    ],
+    "HOW": [
+      [
+        "I Walk the Line: Examining the Role of Gestalt Continuity in Object Binding for Vision Transformers",
+        "content/CVPR2026W/HOW/html/Tartaglini_I_Walk_the_Line_Examining_the_Role_of_Gestalt_Continuity_CVPRW_2026_paper.html",
+        "Alexa R. Tartaglini, Michael A Lepori"
+      ],
+      [
+        "Differences in Detection: Explainability Where it Matters",
+        "content/CVPR2026W/HOW/html/Theodoridis_Differences_in_Detection_Explainability_Where_it_Matters_CVPRW_2026_paper.html",
+        "Johannes Theodoridis, Johannes Maucher, Andreas Schilling"
+      ],
+      [
+        "LogitDynamics: Reliable ViT Error Detection from Layerwise Logit Trajectories",
+        "content/CVPR2026W/HOW/html/Beigelman_LogitDynamics_Reliable_ViT_Error_Detection_from_Layerwise_Logit_Trajectories_CVPRW_2026_paper.html",
+        "Ido Beigelman, Moti Freiman"
+      ],
+      [
+        "Toward Faithful Segmentation Attribution via Benchmarking and Dual-Evidence Fusion",
+        "content/CVPR2026W/HOW/html/Sakib_Toward_Faithful_Segmentation_Attribution_via_Benchmarking_and_Dual-Evidence_Fusion_CVPRW_2026_paper.html",
+        "Abu Noman Md Sakib, OFM Riaz Rahman Aranya, Kevin Desai, Zijie Zhang"
+      ],
+      [
+        "When Geometry Reverses Topological Conclusions: Evaluating Persistent Homology in Sparse Autoencoders",
+        "content/CVPR2026W/HOW/html/Zhang_When_Geometry_Reverses_Topological_Conclusions_Evaluating_Persistent_Homology_in_Sparse_CVPRW_2026_paper.html",
+        "Teresa Zhang"
+      ],
+      [
+        "Concept Spaces in the Residual Stream of Diffusion Transformers",
+        "content/CVPR2026W/HOW/html/Ohib_Concept_Spaces_in_the_Residual_Stream_of_Diffusion_Transformers_CVPRW_2026_paper.html",
+        "Riyasat Ohib, Meera Hahn, Mani Malek"
+      ],
+      [
+        "Simple Localized Counterfactuals for Visual Explanation",
+        "content/CVPR2026W/HOW/html/Carlyn_Simple_Localized_Counterfactuals_for_Visual_Explanation_CVPRW_2026_paper.html",
+        "David Carlyn, Jianyang Gu, Wei-Lun Chao"
+      ],
+      [
+        "Why CNN Features Are not Gaussian: A Statistical Anatomy of Deep Representations",
+        "content/CVPR2026W/HOW/html/Chapman_Why_CNN_Features_Are_not_Gaussian_A_Statistical_Anatomy_of_CVPRW_2026_paper.html",
+        "David Chapman, Parniyan Farvardin"
+      ],
+      [
+        "MIMIC: Multimodal Inversion for Model Interpretation and Conceptualization",
+        "content/CVPR2026W/HOW/html/Jain_MIMIC_Multimodal_Inversion_for_Model_Interpretation_and_Conceptualization_CVPRW_2026_paper.html",
+        "Animesh Jain, Alexandros Stergiou"
+      ],
+      [
+        "Faithful Attribution in Vision Transformers via Feature-Gradient Gating",
+        "content/CVPR2026W/HOW/html/Sula_Faithful_Attribution_in_Vision_Transformers_via_Feature-Gradient_Gating_CVPRW_2026_paper.html",
+        "Julius Šula, Thomas Lukasiewicz, Bayar Menzat"
+      ],
+      [
+        "Zero-Ablation Overstates Register Content Dependence in DINO Vision Transformers",
+        "content/CVPR2026W/HOW/html/Parodi_Zero-Ablation_Overstates_Register_Content_Dependence_in_DINO_Vision_Transformers_CVPRW_2026_paper.html",
+        "Felipe Parodi, Jordan K Matelsky, Melanie Segado"
+      ]
+    ],
+    "SAIAD": [
+      [
+        "Long-Tailed Backdoor Attack Using Dynamic Data Augmentation Operations",
+        "content/CVPR2026W/SAIAD/html/Pang_Long-Tailed_Backdoor_Attack_Using_Dynamic_Data_Augmentation_Operations_CVPRW_2026_paper.html",
+        "Lu Pang, Tao Sun, Weimin Lyu, Haibin Ling, Chao Chen"
+      ],
+      [
+        "RetroMotion: Retrocausal Motion Forecasting Models are Instructable",
+        "content/CVPR2026W/SAIAD/html/Wagner_RetroMotion_Retrocausal_Motion_Forecasting_Models_are_Instructable_CVPRW_2026_paper.html",
+        "Royden Wagner, Omer Sahin Tas, Felix Hauser, Marlon Steiner, Dominik Strutz, Abhishek Vivekanandan, Jaime Villa, Yinzhe Shen, Carlos Fernandez, Christoph Stiller"
+      ],
+      [
+        "Does Knowledge About Perceptual Uncertainty Help an Agent in Automated Driving?",
+        "content/CVPR2026W/SAIAD/html/Grabowsky_Does_Knowledge_About_Perceptual_Uncertainty_Help_an_Agent_in_Automated_CVPRW_2026_paper.html",
+        "Natalie Grabowsky, Annika Mütze, Matthias Rottmann"
+      ],
+      [
+        "Generative Texture Diversification of 3D Pedestrians for Robust Autonomous Driving Perception",
+        "content/CVPR2026W/SAIAD/html/Bhowmick_Generative_Texture_Diversification_of_3D_Pedestrians_for_Robust_Autonomous_Driving_CVPRW_2026_paper.html",
+        "Arka Bhowmick, Enes Özeren, Ahmed Abdullah, Oliver Wasenmüller"
+      ],
+      [
+        "Rethinking Skip Connections in Diffusion Models for Replication Mitigation",
+        "content/CVPR2026W/SAIAD/html/Li_Rethinking_Skip_Connections_in_Diffusion_Models_for_Replication_Mitigation_CVPRW_2026_paper.html",
+        "Chenghao Li, Yuke Zhang, Dake Chen, Jingqi Xu, Peter A. Beerel"
+      ],
+      [
+        "Knowledge-Guided Failure Prediction: Detecting When Object Detectors Miss Safety-Critical Objects",
+        "content/CVPR2026W/SAIAD/html/Zimmermann_Knowledge-Guided_Failure_Prediction_Detecting_When_Object_Detectors_Miss_Safety-Critical_Objects_CVPRW_2026_paper.html",
+        "Jakob Zimmermann, Gerrit Holzbach, David Lerch"
+      ],
+      [
+        "Lost in Fog: Sensor Perturbations Expose Reasoning Fragility in Driving VLAs",
+        "content/CVPR2026W/SAIAD/html/Priyadershi_Lost_in_Fog_Sensor_Perturbations_Expose_Reasoning_Fragility_in_Driving_CVPRW_2026_paper.html",
+        "Abhinaw Priyadershi, Jelena Frtunikj"
+      ],
+      [
+        "Monte Carlo Stochastic Depth for Uncertainty Estimation in Deep Learning",
+        "content/CVPR2026W/SAIAD/html/Muller_Monte_Carlo_Stochastic_Depth_for_Uncertainty_Estimation_in_Deep_Learning_CVPRW_2026_paper.html",
+        "Adam T. Müller, Tobias Rögelein, Nicolaj C. Stache"
+      ],
+      [
+        "Design and Behavior of Sparse Mixture-of-Experts Layers in CNN-based Semantic Segmentation",
+        "content/CVPR2026W/SAIAD/html/Pavlitska_Design_and_Behavior_of_Sparse_Mixture-of-Experts_Layers_in_CNN-based_Semantic_CVPRW_2026_paper.html",
+        "Svetlana Pavlitska, Haixi Fan, Konstantin Ditschuneit, J. Marius Zöllner"
+      ],
+      [
+        "Robust Detection of Directional Adversarial Attacks in Deep Neural Networks for Radiological Imaging",
+        "content/CVPR2026W/SAIAD/html/Malatynski_Robust_Detection_of_Directional_Adversarial_Attacks_in_Deep_Neural_Networks_CVPRW_2026_paper.html",
+        "Tristan Malatyński, Joanna Jaworek-Korjakowska"
+      ],
+      [
+        "Assessing Visual Privacy Risks in Multimodal AI: A Novel Taxonomy-Grounded Evaluation of Vision-Language Models",
+        "content/CVPR2026W/SAIAD/html/Tsaprazlis_Assessing_Visual_Privacy_Risks_in_Multimodal_AI_A_Novel_Taxonomy-Grounded_CVPRW_2026_paper.html",
+        "Efthymios Tsaprazlis, Tiantian Feng, Anil Ramakrishna, Rahul Gupta, Shrikanth Narayanan"
+      ],
+      [
+        "Forecasting the Past: Gradient-Based Distribution Shift Detection in Trajectory Prediction",
+        "content/CVPR2026W/SAIAD/html/De_Vita_Forecasting_the_Past_Gradient-Based_Distribution_Shift_Detection_in_Trajectory_Prediction_CVPRW_2026_paper.html",
+        "Michele De Vita, Julian Wiederer, Vasileios Belagiannis"
+      ]
+    ],
+    "DataMFM": [
+      [
+        "TimeCausality: Evaluating the Causal Ability in Time Dimension for Vision Language Models",
+        "content/CVPR2026W/DataMFM/html/Wang_TimeCausality_Evaluating_the_Causal_Ability_in_Time_Dimension_for_Vision_CVPRW_2026_paper.html",
+        "Zeqing Wang, Shiyuan Zhang, Chengpei Tang, Keze Wang"
+      ],
+      [
+        "VLA-AD: Agentic Vision-Language Foundation Models for Context-Aware Anomaly Detection",
+        "content/CVPR2026W/DataMFM/html/Belhadi_VLA-AD_Agentic_Vision-Language_Foundation_Models_for_Context-Aware_Anomaly_Detection_CVPRW_2026_paper.html",
+        "Asma Belhadi, Youcef Djenouri, Ahmed Nabil Belbachir"
+      ],
+      [
+        "Scalable Parallel Prompting for Complex AV Video Captioning",
+        "content/CVPR2026W/DataMFM/html/Yang_Scalable_Parallel_Prompting_for_Complex_AV_Video_Captioning_CVPRW_2026_paper.html",
+        "April Yang, Roberto Amoroso, Nikita Durasov, Devansh Bisla, Sandipan Kundu, Elmar Haussmann, Ruchi Bhargava, Maying Shen, Nadine Chang, Jose M. Alvarez"
+      ],
+      [
+        "Longitudinal Multimodal Modeling for Alzheimer's Disease with Pre-trained Brain Latent Diffusion and Mixture-of-Experts Fusion",
+        "content/CVPR2026W/DataMFM/html/Li_Longitudinal_Multimodal_Modeling_for_Alzheimers_Disease_with_Pre-trained_Brain_Latent_CVPRW_2026_paper.html",
+        "Zeqing Li, Linlin Gao, Liming Dong, Hao Huang"
+      ],
+      [
+        "Adversarial Feedback from Segmentation Network to Siamese Diffusion for Improving Polyp Segmentation",
+        "content/CVPR2026W/DataMFM/html/Osaki_Adversarial_Feedback_from_Segmentation_Network_to_Siamese_Diffusion_for_Improving_CVPRW_2026_paper.html",
+        "Kairi Osaki, Kazuhiro Hotta"
+      ],
+      [
+        "Cineaste: A Fine-grained Contextual Movie Question Answering Benchmark with Automated Data Curation",
+        "content/CVPR2026W/DataMFM/html/Shah_Cineaste_A_Fine-grained_Contextual_Movie_Question_Answering_Benchmark_with_Automated_CVPRW_2026_paper.html",
+        "Nisarg A Shah, Amir Ziai, Chaitanya Ekanadham, Vishal M. Patel"
+      ],
+      [
+        "Uncertainty-Guided Data Curation for 3D Object Detection",
+        "content/CVPR2026W/DataMFM/html/Durasov_Uncertainty-Guided_Data_Curation_for_3D_Object_Detection_CVPRW_2026_paper.html",
+        "Nikita Durasov, Rafid Mahmood, Jiwoong Choi, Marc T. Law, James Lucas, Pascal Fua, Jose M. Alvarez"
+      ],
+      [
+        "Learning Multimodal Priors with Shared Vector Quantization for Incomplete Multimodal Diagnosis",
+        "content/CVPR2026W/DataMFM/html/Wang_Learning_Multimodal_Priors_with_Shared_Vector_Quantization_for_Incomplete_Multimodal_CVPRW_2026_paper.html",
+        "Yian Wang, Linlin Gao, Zeqing Li"
+      ],
+      [
+        "VLM Reality Check: A Causal Counterfactual Benchmark for Diagnosing Cognitive Biases in Vision-Language Models",
+        "content/CVPR2026W/DataMFM/html/Sar_VLM_Reality_Check_A_Causal_Counterfactual_Benchmark_for_Diagnosing_Cognitive_CVPRW_2026_paper.html",
+        "Ayan Sar, Pranav Puri, Anurag Kaushish, Sampurna Roy, Sumit Aich, Tanupriya Choudhury, Ajith Abraham"
+      ],
+      [
+        "AdGaze-3500: Evaluating Large Multimodal Models' Ability to Predict Human Attention to Ads",
+        "content/CVPR2026W/DataMFM/html/Ye_AdGaze-3500_Evaluating_Large_Multimodal_Models_Ability_to_Predict_Human_Attention_CVPRW_2026_paper.html",
+        "Jianping Ye, Michel Wedel"
+      ]
+    ],
+    "GigaBrainChallenge": [
+      [
+        "Kinema4D: Kinematic 4D World Modeling for Spatiotemporal Embodied Simulation",
+        "content/CVPR2026W/GigaBrainChallenge/html/Xu_Kinema4D_Kinematic_4D_World_Modeling_for_Spatiotemporal_Embodied_Simulation_CVPRW_2026_paper.html",
+        "Mutian Xu, Tianbao Zhang, Tianqi Liu, Zhaoxi Chen, Xiaoguang Han, Ziwei Liu"
+      ],
+      [
+        "FineGrasp: Towards Robust Grasping for Delicate Objects",
+        "content/CVPR2026W/GigaBrainChallenge/html/Du_FineGrasp_Towards_Robust_Grasping_for_Delicate_Objects_CVPRW_2026_paper.html",
+        "Yun Du, Mengao Zhao, Tianwei Lin, Yiwei Jin, Chaodong Huang, Zhizhong Su"
+      ],
+      [
+        "RoboWM-Bench: A Benchmark for Evaluating World Models in Robotic Manipulation",
+        "content/CVPR2026W/GigaBrainChallenge/html/Jiang_RoboWM-Bench_A_Benchmark_for_Evaluating_World_Models_in_Robotic_Manipulation_CVPRW_2026_paper.html",
+        "Feng Jiang, Yang Chen, Kyle Xu, Yuchen Liu, Haifeng Wang, Zhenhao Shen, Jasper Lu, Shengze Huang, Yuanfei Wang, Chen Xie, Ruihai Wu"
+      ],
+      [
+        "ProDrive: Proactive Planning for Autonomous Driving via Ego-Environment Co-Evolution",
+        "content/CVPR2026W/GigaBrainChallenge/html/Fu_ProDrive_Proactive_Planning_for_Autonomous_Driving_via_Ego-Environment_Co-Evolution_CVPRW_2026_paper.html",
+        "Chuyao Fu, Shengzhe Gan, Zhuoli Ouyang, Yuhan Rui, Xiaowei Chi, Sirui Han, Jiankun Wang, Hong Zhang"
+      ],
+      [
+        "Realtime-VLA V2: Learning to Run VLAs Fast, Smooth, and Accurate",
+        "content/CVPR2026W/GigaBrainChallenge/html/Yang_Realtime-VLA_V2_Learning_to_Run_VLAs_Fast_Smooth_and_Accurate_CVPRW_2026_paper.html",
+        "Chen Yang, Yucheng Hu, Yunchao Ma, Yunhuan Yang, Jing Tan, Haoqiang Fan"
+      ],
+      [
+        "ARM: Advantage Reward Modeling for Long-Horizon Manipulation",
+        "content/CVPR2026W/GigaBrainChallenge/html/Mao_ARM_Advantage_Reward_Modeling_for_Long-Horizon_Manipulation_CVPRW_2026_paper.html",
+        "Yiming Mao, Zixi Yu, Weixin Mao, Yinhao Li, Qirui Hu, Zihan Lan, Minzhao Zhu, Hua Chen"
+      ],
+      [
+        "Table30 V2: Evaluating Generalized Models by Real Robots at Scale",
+        "content/CVPR2026W/GigaBrainChallenge/html/Ma_Table30_V2_Evaluating_Generalized_Models_by_Real_Robots_at_Scale_CVPRW_2026_paper.html",
+        "Yunchao Ma, Ze Chen, Erjin Zhou, Ziming Liu, Haowei Zhang, Kai Liu, Haoqiang Fan"
+      ],
+      [
+        "WA-RL: World-Action Model Reinforcement Learning with Reconstruction Rewards and Online Video SFT",
+        "content/CVPR2026W/GigaBrainChallenge/html/Qian_WA-RL_World-Action_Model_Reinforcement_Learning_with_Reconstruction_Rewards_and_Online_CVPRW_2026_paper.html",
+        "Zezhong Qian, Xiaowei Chi, Yu Qi, Haozhan Li, Zhi Yang Chen, Shanghang Zhang"
+      ],
+      [
+        "A Latent-Centric Perspective on World Models for Autonomous Driving: Taxonomy, Evaluation, and Challenges",
+        "content/CVPR2026W/GigaBrainChallenge/html/Zeng_A_Latent-Centric_Perspective_on_World_Models_for_Autonomous_Driving_Taxonomy_CVPRW_2026_paper.html",
+        "Rongxiang Zeng, Yongqi Dong, Zhida Shao"
+      ],
+      [
+        "CrossZero: Zero-Shot of Unseen Embodiment Manipulation via Object-Centric Hierarchical Diffusion Models",
+        "content/CVPR2026W/GigaBrainChallenge/html/Ge_CrossZero_Zero-Shot_of_Unseen_Embodiment_Manipulation_via_Object-Centric_Hierarchical_Diffusion_CVPRW_2026_paper.html",
+        "Yiheng Ge, Yongqi Yan, Mishuo Han, Changxian LI, Zizhong Ding, Jiaxiang Li, Fan Yang, Tianshuo Yang, Tong Shen, Changle Ouyang, Weijie Shen, Weiliang Deng, Shuhao Liu, Tian Qi, Yao Mu"
+      ],
+      [
+        "LiteMVS: Efficient Multi-View Stereo with Foundation Distillation and Expert Aggregation",
+        "content/CVPR2026W/GigaBrainChallenge/html/Zhang_LiteMVS_Efficient_Multi-View_Stereo_with_Foundation_Distillation_and_Expert_Aggregation_CVPRW_2026_paper.html",
+        "Tianbao Zhang, Zeyu Liu, Shuyu Wu, Fanxing Li, Zhaoxin Fan, wenjun wu, Danping Zou"
+      ],
+      [
+        "EchoArena: Learning World Models for Reliable VLA Policy Evaluation",
+        "content/CVPR2026W/GigaBrainChallenge/html/Wang_EchoArena_Learning_World_Models_for_Reliable_VLA_Policy_Evaluation_CVPRW_2026_paper.html",
+        "Yu-Kai Wang, Kevin Zhang, Xiaowei Chi, Tianxing Chen, Siqiao Huang, Chuyao Fu, Tiecheng Guo, Peidong Jia, Yan Qin, Kuangzhi Ge, Siyuan Qian, Weishi Mi, Zezhong Qian, Jiajun Li, Qingpo Wuwu, Xiaozhu Ju, Jian Tang, Shanghang Zhang"
+      ]
+    ],
+    "GenXR-ID": [
+      [
+        "Improving xR User Identification via Olfaction-Enriched Immersive Experiences and Biosensor-Instrumented Headsets: A Pilot Study",
+        "content/CVPR2026W/GenXR-ID/html/Bouagina_Improving_xR_User_Identification_via_Olfaction-Enriched_Immersive_Experiences_and_Biosensor-Instrumented_CVPRW_2026_paper.html",
+        "Selma Bouagina, Tiago H Falk"
+      ]
+    ],
+    "GenRecon3d": [
+      [
+        "How to Spin an Object: First, Get the Shape Right",
+        "content/CVPR2026W/GenRecon3d/html/Kabra_How_to_Spin_an_Object_First_Get_the_Shape_Right_CVPRW_2026_paper.html",
+        "Rishabh Kabra, Drew A Hudson, Sjoerd van Steenkiste, Joao Carreira, Niloy J Mitra"
+      ],
+      [
+        "Action-guided generation of 3D functionality segmentation data",
+        "content/CVPR2026W/GenRecon3d/html/Corsetti_Action-guided_generation_of_3D_functionality_segmentation_data_CVPRW_2026_paper.html",
+        "Jaime Corsetti, Francesco Giuliari, Davide Boscaini, Pedro Hermosilla, Andrea Pilzer, Guofeng Mei, Alexandros Delitzas, Francis Engelmann, Fabio Poiesi"
+      ],
+      [
+        "SPiRF4Humans: Spatio-Temporal Point Cloud Refinement Framework for Humans",
+        "content/CVPR2026W/GenRecon3d/html/Akalwadi_SPiRF4Humans_Spatio-Temporal_Point_Cloud_Refinement_Framework_for_Humans_CVPRW_2026_paper.html",
+        "Nikhil Akalwadi, Jagadeesh Kalyanshetti, Vijayalaxmi Ashok Aralikatti, Shreyas Shurapali, Ramesh Ashok Tabib, Uma Mudenagudi"
+      ],
+      [
+        "PersistGS: Differentiable Physics for Object Permanence in 4D Gaussian Splatting",
+        "content/CVPR2026W/GenRecon3d/html/Ramlal_PersistGS_Differentiable_Physics_for_Object_Permanence_in_4D_Gaussian_Splatting_CVPRW_2026_paper.html",
+        "Adrian Ramlal, John S. Zelek"
+      ],
+      [
+        "PhaseFlow4D: Physically Constrained 4D Beam Reconstruction via Feedback-Guided Latent Diffusion",
+        "content/CVPR2026W/GenRecon3d/html/Scheinker_PhaseFlow4D_Physically_Constrained_4D_Beam_Reconstruction_via_Feedback-Guided_Latent_Diffusion_CVPRW_2026_paper.html",
+        "Alexander Scheinker, Alexander Plastun, Peter Ostroumov"
+      ],
+      [
+        "TFDM: Time-Variant Frequency-Based Point Cloud Diffusion with State Space Model",
+        "content/CVPR2026W/GenRecon3d/html/Liu_TFDM_Time-Variant_Frequency-Based_Point_Cloud_Diffusion_with_State_Space_Model_CVPRW_2026_paper.html",
+        "Jiaxu Liu, Li Li, Hubert P. H. Shum, Toby P. Breckon"
+      ],
+      [
+        "StaDy4D: Towards Complete 4D Static-Dynamic Reconstruction with SIGMA",
+        "content/CVPR2026W/GenRecon3d/html/Tsui_StaDy4D_Towards_Complete_4D_Static-Dynamic_Reconstruction_with_SIGMA_CVPRW_2026_paper.html",
+        "Hao-Tang Tsui, Yu-Rou Tuan, Ethan Lai, Chen-Yu Wang"
+      ],
+      [
+        "PCM-NeRF: Probabilistic Camera Modeling for Neural Radiance Fields under Pose Uncertainty",
+        "content/CVPR2026W/GenRecon3d/html/Venkatraman_PCM-NeRF_Probabilistic_Camera_Modeling_for_Neural_Radiance_Fields_under_Pose_CVPRW_2026_paper.html",
+        "Shravan Venkatraman, Rakesh Raj Madavan, Pavan Kumar Sathya Venkatesh"
+      ]
+    ],
+    "P13N": [
+      [
+        "When Identities Collapse: A Stress-Test Benchmark for Multi-Subject Personalization",
+        "content/CVPR2026W/P13N/html/Chen_When_Identities_Collapse_A_Stress-Test_Benchmark_for_Multi-Subject_Personalization_CVPRW_2026_paper.html",
+        "Zhihan Chen, Yuhuan Zhao, Yijie Zhu, Xinyu Yao"
+      ],
+      [
+        "Let Triggers Control: Frequency-Aware Dropout for Effective Token Control",
+        "content/CVPR2026W/P13N/html/Koh_Let_Triggers_Control_Frequency-Aware_Dropout_for_Effective_Token_Control_CVPRW_2026_paper.html",
+        "Junyoung Koh, Hoyeon Moon, Dongha Kim, Seungmin Lee, Sanghyun Park, Min Song"
+      ],
+      [
+        "Timestep-Constrained One-Shot Video Motion Customization",
+        "content/CVPR2026W/P13N/html/Baherwani_Timestep-Constrained_One-Shot_Video_Motion_Customization_CVPRW_2026_paper.html",
+        "Vatsal Baherwani, Yixuan Ren, Abhinav Shrivastava"
+      ],
+      [
+        "Advancing Subject Consistent and Textual Alignment Personalized Image Generation via Precise Attribute Learning",
+        "content/CVPR2026W/P13N/html/He_Advancing_Subject_Consistent_and_Textual_Alignment_Personalized_Image_Generation_via_CVPRW_2026_paper.html",
+        "Zijian He, Zheng Liu, Huiguo He, Weizhi Zhong, Yejun Tang, Huan Yang, Di Zhang, Guanbin Li"
+      ],
+      [
+        "MakeupMirror: Improving Facial Attribute Preservation in Diffusion Models for Makeup Transfer",
+        "content/CVPR2026W/P13N/html/Andreou_MakeupMirror_Improving_Facial_Attribute_Preservation_in_Diffusion_Models_for_Makeup_CVPRW_2026_paper.html",
+        "Nefeli Andreou, Angel Martínez-González, Sabine Sternig, Matthieu Guillaumin, Epameinondas Antonakos, Michael Opitz"
+      ],
+      [
+        "PerFuSe: Personalized Full-Image Restoration via Modular Fusion",
+        "content/CVPR2026W/P13N/html/Naeem_PerFuSe_Personalized_Full-Image_Restoration_via_Modular_Fusion_CVPRW_2026_paper.html",
+        "Nazish Naeem, Zeeshan Nadir, Hamid R. Sheikh, Seok-Jun Lee"
+      ],
+      [
+        "Single Image Iterative Subject-driven Generation and Editing",
+        "content/CVPR2026W/P13N/html/Shpitzer_Single_Image_Iterative_Subject-driven_Generation_and_Editing_CVPRW_2026_paper.html",
+        "Yair Shpitzer, Aviv Weidenfeld, Gal Chechik, Idan Schwartz"
+      ]
+    ],
+    "LoViF": [
+      [
+        "DeGrainVAR: Film Grain Removal with Visual AutoRegressive Modeling",
+        "content/CVPR2026W/LoViF/html/Wang_DeGrainVAR_Film_Grain_Removal_with_Visual_AutoRegressive_Modeling_CVPRW_2026_paper.html",
+        "Kai Wang, Anustup Choudhury, Guan-Ming Su"
+      ],
+      [
+        "The 1st LoViF Challenge on Efficient VLM for Multimodal Ad Creative Quality Scoring: Methods and Results",
+        "content/CVPR2026W/LoViF/html/Zhang_The_1st_LoViF_Challenge_on_Efficient_VLM_for_Multimodal_Ad_CVPRW_2026_paper.html",
+        "Jusheng Zhang, Qinhan Lyu, Sizhuo Ma, Rick Cao, Jian Wang, Xin Li, Yongsen Zheng, Keze Wang, Jing Yang, Hong Zhang, Shichao Zhang, William Leach, Ru He, Min Cao, Yizhen Jia, Yin-Loon Khor, Yi-Jie Wong, Peimeng Sui, Yu Hao, Weixi Lin, Weijian Deng"
+      ],
+      [
+        "LoViF 2026 The First Challenge on Human-Oriented Semantic Image Quality Assessment: Methods and Results",
+        "content/CVPR2026W/LoViF/html/Li_LoViF_2026_The_First_Challenge_on_Human-Oriented_Semantic_Image_Quality_CVPRW_2026_paper.html",
+        "Xin Li, Daoli Xu, Wei Luo, Guoqiang Xiang, Haoran Li, Chengyu Zhuang, Zhibo Chen, Jian Guan, Weiping Li, Weixia Zhang, Wei Sun, Zhihua Wang, Dandan Zhu, Chengguang Zhu, Ayush Gupta, Rachit Agarwal, Shouvik Das, Biplab Ch Das, Amartya Ghosh, Kanglong Fan, Wen Wen, Shuyan Zhai, Tianwu Zhi, Aoxiang Zhang, Jianzhao Liu, Yabin Zhang, Jiajun Wang, Yipeng Sun, Kaiwei Lian, Banghao Yin"
+      ],
+      [
+        "EvoRender: An Agentic AI - Neural Rendering Algorithm Discovery",
+        "content/CVPR2026W/LoViF/html/Matai_EvoRender_An_Agentic_AI_-_Neural_Rendering_Algorithm_Discovery_CVPRW_2026_paper.html",
+        "Janarbek Matai, Takahiro Harada"
+      ],
+      [
+        "Escaping the Temporal Trap: A Space-First Paradigm for Few-Shot Video Weather Removal",
+        "content/CVPR2026W/LoViF/html/Shi_Escaping_the_Temporal_Trap_A_Space-First_Paradigm_for_Few-Shot_Video_CVPRW_2026_paper.html",
+        "Zhuohang Shi, Xiaojing Liu, Jiao Liu, Yatong Zhou, Shuai Liu"
+      ],
+      [
+        "Generative Low-Light Enhancement for Computer Vision: Revisiting the Gap Between Perceptual Quality and Detection Utility",
+        "content/CVPR2026W/LoViF/html/Cheng_Generative_Low-Light_Enhancement_for_Computer_Vision_Revisiting_the_Gap_Between_CVPRW_2026_paper.html",
+        "Jian Cheng, Bingxin Xu, Weiguo Pan"
+      ],
+      [
+        "LoViF 2026 The First Challenge on Holistic Quality Assessment for 4D World Model (PhyScore): Methods and Results",
+        "content/CVPR2026W/LoViF/html/Luo_LoViF_2026_The_First_Challenge_on_Holistic_Quality_Assessment_for_CVPRW_2026_paper.html",
+        "Wei Luo, Yiting Lu, Xin Li, Haoran Li, Fengbin Guan, Chen Gao, Xin Jin, Yong Li, Zhibo Chen, Sijing Wu, Kang Fu, Yunhao Li, Ziang Xiao, Huiyu Duan, Jing Liu, Qiang Hu, Xiongkuo Min, Guangtao Zhai, Manxi Sun, Zixuan Guo, Yun Li, Ziyang Chen, Manabu Tsukada, Zhengyang Li, Zhenglin Du, Yi Wen, Licheng Jiao, Fang Liu, Lingling Li, Yiwen Ren, Zhilong Song, Dubing Chen, Yucheng Zhou, Tianyi Yan, Huan Zheng"
+      ],
+      [
+        "QFS-IQA: Quantization-Aware Few-Shot Image Quality Assessment for AI-Generated Images via Q-Shot Sensitivity Calibration",
+        "content/CVPR2026W/LoViF/html/Shinde_QFS-IQA_Quantization-Aware_Few-Shot_Image_Quality_Assessment_for_AI-Generated_Images_via_CVPRW_2026_paper.html",
+        "Tushar Shinde"
+      ],
+      [
+        "EffiMiniVLM: A Compact Dual-Encoder Regression Framework",
+        "content/CVPR2026W/LoViF/html/Khor_EffiMiniVLM_A_Compact_Dual-Encoder_Regression_Framework_CVPRW_2026_paper.html",
+        "Yin-Loon Khor, Yi-Jie Wong, Yan Chai Hum"
+      ],
+      [
+        "Generative Panoramic Image Stitching",
+        "content/CVPR2026W/LoViF/html/Tuli_Generative_Panoramic_Image_Stitching_CVPRW_2026_paper.html",
+        "Mathieu Tuli, Kaveh Kamali, David B. Lindell"
+      ],
+      [
+        "FlowDet: Unifying Object Detection and Generative Transport Flows",
+        "content/CVPR2026W/LoViF/html/Baty_FlowDet_Unifying_Object_Detection_and_Generative_Transport_Flows_CVPRW_2026_paper.html",
+        "Enis Baty, C. P. Bridges, Simon Hadfield"
+      ],
+      [
+        "Don't Waste Bits! Adaptive KV-Cache Quantization for Lightweight On-Device LLMs",
+        "content/CVPR2026W/LoViF/html/Boroujeni_Dont_Waste_Bits_Adaptive_KV-Cache_Quantization_for_Lightweight_On-Device_LLMs_CVPRW_2026_paper.html",
+        "Sayed Pedram Haeri Boroujeni, Niloufar Mehrabi, Patrick Woods, Gabriel Hillesheim, Abolfazl Razi"
+      ],
+      [
+        "LoViF 2026 The First Challenge on Weather Removal in Videos",
+        "content/CVPR2026W/LoViF/html/Qian_LoViF_2026_The_First_Challenge_on_Weather_Removal_in_Videos_CVPRW_2026_paper.html",
+        "Chenghao Qian, Xin Li, Yeying Jin, Shangquan Sun, Yilian Zhong, Yuxiang Chen, Shibo Yin, Yushun Fang, Xilei Zhu, Yahui Wang, Chen Lu, Ying Fu, Jianan Tian, Jifan Zhang, Chen Zhou, Junyang Jiang, Yuping Sun, Zhuohang Shi, Xiaojing Liu, Jiao Liu, Yatong Zhou, Shuai Liu, Qiang Deng, Jiajia Mi, Qianhao Luo, Weiling Li"
+      ],
+      [
+        "Controllable Image Generation with Composed Parallel Token Prediction",
+        "content/CVPR2026W/LoViF/html/Stirling_Controllable_Image_Generation_with_Composed_Parallel_Token_Prediction_CVPRW_2026_paper.html",
+        "Jamie Stirling, Noura Al-Moubayed, Chris Willcocks, Hubert Shum"
+      ],
+      [
+        "EFS^3Net: Efficient-fusion Focal Frequency Network for Temporally Coherent Video Weather Removal",
+        "content/CVPR2026W/LoViF/html/Jiang_EFS3Net_Efficient-fusion_Focal_Frequency_Network_for_Temporally_Coherent_Video_Weather_CVPRW_2026_paper.html",
+        "Junyang Jiang, Yuping Sun"
+      ],
+      [
+        "p-Diff: Physically-Inspired Low-Light Image Enhancement with Structure Preserving Diffusion Priors",
+        "content/CVPR2026W/LoViF/html/Wang_p-Diff_Physically-Inspired_Low-Light_Image_Enhancement_with_Structure_Preserving_Diffusion_Priors_CVPRW_2026_paper.html",
+        "Min Wang, Xue Wang, Guoqing Zhou, Qing Wang"
+      ],
+      [
+        "Semantic-Guided Retinex Learning for Zero-Reference Enhancement of Real-World Low-Light Driving Scenes",
+        "content/CVPR2026W/LoViF/html/Li_Semantic-Guided_Retinex_Learning_for_Zero-Reference_Enhancement_of_Real-World_Low-Light_Driving_CVPRW_2026_paper.html",
+        "Nuoya Li, Weiguo Pan, Bingxin Xu"
+      ],
+      [
+        "Towards Unified Image Deblurring using a Mixture-of-Experts Decoder",
+        "content/CVPR2026W/LoViF/html/Feijoo_Towards_Unified_Image_Deblurring_using_a_Mixture-of-Experts_Decoder_CVPRW_2026_paper.html",
+        "Daniel Feijoo, Paula Garrido-Mellado, Jaesung Rim, Álvaro García, Marcos V. Conde"
+      ],
+      [
+        "PyrLight: Laplacian-Pyramid-Guided Conditional Diffusion for Detail-Preserving and Artifact-Free Low-Light Enhancement",
+        "content/CVPR2026W/LoViF/html/Yan_PyrLight_Laplacian-Pyramid-Guided_Conditional_Diffusion_for_Detail-Preserving_and_Artifact-Free_Low-Light_Enhancement_CVPRW_2026_paper.html",
+        "Mingfu Yan, Jiancheng Huang"
+      ],
+      [
+        "LoViF 2026 Challenge on Real-World All-in-One Image Restoration: Methods and Results",
+        "content/CVPR2026W/LoViF/html/Chen_LoViF_2026_Challenge_on_Real-World_All-in-One_Image_Restoration_Methods_and_CVPRW_2026_paper.html",
+        "Xiang Chen, Hao Li, Jiangxin Dong, Jinshan Pan, Xin Li, Xin He, Naiwei Chen, Shengyuan Li, Fengning Liu, Haoyi Lv, Haowei Peng, Yilian Zhong, Yuxiang Chen, Shibo Yin, Yushun Fang, Xilei Zhu, Yahui Wang, Chen Lu, Kaibin Chen, Xu Zhang, Xuhui Cao, Jiaqi Ma, Ziqi Wang, Shengkai Hu, Yuning Cui, Huan Zhang, Shi Chen, Bin Ren, Lefei Zhang, Guanglu Dong, Qiyao Zhao, Tianheng Zheng, Chunlei Li, Lichao Mou, Chao Ren, Wangzhi Xing, Xin Lu, Enxuan Gu, Jingxi Zhang, Diqi Chen, Qiaosi Yi, Bingcai Wei, Mingyu Liu, Pengyu Wang, Ce Liu, Miaoxin Guan, Boyu Chen, Hongyu Li, Jian Zhu, Xinrui Luo, Ziyang He, Jiayu Wang, Yichen Xiang, Huayi Qi, Haoyu Bian, Yiran Li, Sunlichen Zhou"
+      ],
+      [
+        "RewardSDS: Aligning Score Distillation via Reward-Weighted Sampling",
+        "content/CVPR2026W/LoViF/html/Chachy_RewardSDS_Aligning_Score_Distillation_via_Reward-Weighted_Sampling_CVPRW_2026_paper.html",
+        "Itay Chachy, Guy Yariv, Sagie Benaim"
+      ],
+      [
+        "WDiff-VDI: Wavelet-Domain Video Diffusion for Temporally Consistent Deinterlacing",
+        "content/CVPR2026W/LoViF/html/Musunuri_WDiff-VDI_Wavelet-Domain_Video_Diffusion_for_Temporally_Consistent_Deinterlacing_CVPRW_2026_paper.html",
+        "Sri Harsha Musunuri, Anustup Choudhury, Pavani Madala, Guan-Ming Su"
+      ],
+      [
+        "Leveraging Contrast Priors for Mask-Free Shadow Removal",
+        "content/CVPR2026W/LoViF/html/Wu_Leveraging_Contrast_Priors_for_Mask-Free_Shadow_Removal_CVPRW_2026_paper.html",
+        "Jiyu Wu, Yifan Liu, Jiancheng Huang, Yi Huang, Mingfu Yan, Shifeng Chen"
+      ],
+      [
+        "Bounded-Compute Multimodal Regression for Product-Rating Prediction",
+        "content/CVPR2026W/LoViF/html/Leach_Bounded-Compute_Multimodal_Regression_for_Product-Rating_Prediction_CVPRW_2026_paper.html",
+        "William Leach, Ru He, Sizhuo Ma, Yizhen Jia, Min Cao, Jian Wang, Rick Cao"
+      ],
+      [
+        "Generative Anonymization in Event Streams",
+        "content/CVPR2026W/LoViF/html/Muller_Generative_Anonymization_in_Event_Streams_CVPRW_2026_paper.html",
+        "Adam T. Müller, Mihai Kocsis, Nicolaj C. Stache"
+      ]
+    ],
+    "VGBE": [
+      [
+        "Tempered Self-Similarity Alignment for Physically Plausible Video Generation",
+        "content/CVPR2026W/VGBE/html/Kim_Tempered_Self-Similarity_Alignment_for_Physically_Plausible_Video_Generation_CVPRW_2026_paper.html",
+        "Manjin Kim, Suha Kwak, Minsu Cho"
+      ],
+      [
+        "Risk-Controllable Multi-View Diffusion for Driving Scenario Generation",
+        "content/CVPR2026W/VGBE/html/Lin_Risk-Controllable_Multi-View_Diffusion_for_Driving_Scenario_Generation_CVPRW_2026_paper.html",
+        "Hongyi Lin, Wenxiu Shi, Heye Huang, Dingyi Zhuang, Song Zhang, Yang Liu, Xiaobo Qu, Jinhua Zhao"
+      ],
+      [
+        "Generative AI Video Evaluation: Survey of Metrics, Benchmarks, and Trustworthiness",
+        "content/CVPR2026W/VGBE/html/Safavigerdini_Generative_AI_Video_Evaluation_Survey_of_Metrics_Benchmarks_and_Trustworthiness_CVPRW_2026_paper.html",
+        "Kaveh Safavigerdini, Bijaya Kumar Hatuwal, Amirreza Daghighi, Kannappan Palaniappan"
+      ],
+      [
+        "Physics-Aware Video Instance Removal Benchmark",
+        "content/CVPR2026W/VGBE/html/Li_Physics-Aware_Video_Instance_Removal_Benchmark_CVPRW_2026_paper.html",
+        "Zirui Li, Xinghao Chen, Lingyu Jiang, Dengzhe Hou, Fangzhou Lin, Kazunori Yamada, Xiangbo Gao, Zhengzhong Tu"
+      ],
+      [
+        "Inferring Dynamic Physical Properties from Video Foundation Models",
+        "content/CVPR2026W/VGBE/html/Zhan_Inferring_Dynamic_Physical_Properties_from_Video_Foundation_Models_CVPRW_2026_paper.html",
+        "Guanqi Zhan, Xianzheng Ma, Weidi Xie, Andrew Zisserman"
+      ],
+      [
+        "VGBE 2026 Challenge on Image-to-Video Consistent Generation: Methods and Results",
+        "content/CVPR2026W/VGBE/html/Wu_VGBE_2026_Challenge_on_Image-to-Video_Consistent_Generation_Methods_and_Results_CVPRW_2026_paper.html",
+        "Mingyang Wu, Siyuan Yang, Shuo Xing, Ashirbad Mishra, Soumik Dey, Xiangbo Gao, Jinyu Zhao, Jiongze Yu, Fangzhou Lin, Zhengzhong Tu, Yu Lei, Zelin Feng, Xiaopeng Zhou, Yujie Guo, Fang Liu, Lingling Li, Hongyang Du, Junjie Ye, Xiaoyan Cong, Runhao Li, Jingcheng Ni, Aman Agarwal, Zeqi Zhou, Zekun Li, Randall Balestriero, Yue Wang, Debajyoti Dasgupta, Parth Mishra, Gaurang Garg, Pranshu Goel, Sukh Manpreet Kaur, Siwei Meng, Pu Luo, Cong Xu, Yumei Li, Licheng Jiao, Xu Liu, Wenping Ma"
+      ],
+      [
+        "AIGVE-MACS: Unified Multi-Aspect Commenting and Scoring Model for AI-Generated Video Evaluation",
+        "content/CVPR2026W/VGBE/html/Liu_AIGVE-MACS_Unified_Multi-Aspect_Commenting_and_Scoring_Model_for_AI-Generated_Video_CVPRW_2026_paper.html",
+        "Xiao Liu, Jiawei Zhang"
+      ]
+    ],
+    "HuMoGen": [
+      [
+        "GIRAF: Towards Generalizable Human Interactions with Articulated Objects",
+        "content/CVPR2026W/HuMoGen/html/Zhang_GIRAF_Towards_Generalizable_Human_Interactions_with_Articulated_Objects_CVPRW_2026_paper.html",
+        "Xiaohan Zhang, Sebastian Starke, Alexander Winkler, Federica Bogo, Samir Aroudj, Yuting Ye"
+      ],
+      [
+        "FEEL: Emotion-Enriched Text-to-Motion Generation Using Small-Scale Emotion Motion Data",
+        "content/CVPR2026W/HuMoGen/html/Choi_FEEL_Emotion-Enriched_Text-to-Motion_Generation_Using_Small-Scale_Emotion_Motion_Data_CVPRW_2026_paper.html",
+        "Youngjae Choi, Hyunseo Koh, Heewon Kim"
+      ],
+      [
+        "TokenDance: Token-to-Token Music-to-Dance Generation with Bidirectional Mamba",
+        "content/CVPR2026W/HuMoGen/html/Yang_TokenDance_Token-to-Token_Music-to-Dance_Generation_with_Bidirectional_Mamba_CVPRW_2026_paper.html",
+        "Ziyue Yang, Kaixing Yang, Xulong Tang"
+      ],
+      [
+        "FineMoLA: Towards Fine-Grained Motion-Language Alignment from Clip-Level Supervision",
+        "content/CVPR2026W/HuMoGen/html/Wang_FineMoLA_Towards_Fine-Grained_Motion-Language_Alignment_from_Clip-Level_Supervision_CVPRW_2026_paper.html",
+        "Tongyan Wang, Zhengyuan Li, Muhan Lin, Shengyang Luo, Yifan Shen, Aniket Bera, Baijian Yang, Yingjie Victor Chen"
+      ]
+    ],
+    "PhysHuman": [
+      [
+        "GeomHair: Reconstruction of Hair Strands from Colorless 3D Scans",
+        "content/CVPR2026W/PhysHuman/html/Lazuardi_GeomHair_Reconstruction_of_Hair_Strands_from_Colorless_3D_Scans_CVPRW_2026_paper.html",
+        "Rachmadio Noval Lazuardi, Artem Sevastopolsky, Egor Zakharov, Matthias Niessner, Vanessa Sklyarova"
+      ],
+      [
+        "DAMA: Disentangled Body-Anchored Gaussians for Controllable Multi-Layered Avatars",
+        "content/CVPR2026W/PhysHuman/html/Eskandar_DAMA_Disentangled_Body-Anchored_Gaussians_for_Controllable_Multi-Layered_Avatars_CVPRW_2026_paper.html",
+        "Daniel Eskandar, Berna Kabadayi, Garvita Tiwari, Gerard Pons-Moll"
+      ],
+      [
+        "Beyond Motion Patterns: An Empirical Study of Physical Forces for Human Motion Understanding",
+        "content/CVPR2026W/PhysHuman/html/Dao_Beyond_Motion_Patterns_An_Empirical_Study_of_Physical_Forces_for_CVPRW_2026_paper.html",
+        "Anh Dao, Manh Tran, Yufei Zhang, Xiaoming Liu, Zijun Cui"
+      ]
+    ],
+    "GAZE": [
+      [
+        "How Much Future Helps? A Controlled Study of Future-Privileged Supervision for Causal Egocentric Gaze Estimation",
+        "content/CVPR2026W/GAZE/html/Li_How_Much_Future_Helps_A_Controlled_Study_of_Future-Privileged_Supervision_CVPRW_2026_paper.html",
+        "Jia Li, Wenjie Zhao, Fnu Atisri, Sanskriti Aripineni, Shijian Deng, Jon E Froehlich, Yuhang Zhao, Yapeng Tian"
+      ],
+      [
+        "Learning Ego-Exo Visual Representations for Conversational Gaze Estimation",
+        "content/CVPR2026W/GAZE/html/Gupta_Learning_Ego-Exo_Visual_Representations_for_Conversational_Gaze_Estimation_CVPRW_2026_paper.html",
+        "Anshul Gupta, Yijun Qian, Ruohan Gao, Ishwarya Ananthabhotla, Jean-Marc Odobez, Vamsi Krishna Ithapu, Calvin Murdock"
+      ],
+      [
+        "FlowScan: Self-Supervised Features and Flow Matching Regularization for Gaze Scanpath Prediction",
+        "content/CVPR2026W/GAZE/html/Aklilu_FlowScan_Self-Supervised_Features_and_Flow_Matching_Regularization_for_Gaze_Scanpath_CVPRW_2026_paper.html",
+        "Brahan Aklilu, Ofir Itzhak Shahar, Ohad Ben-Shahar"
+      ],
+      [
+        "RayGazeFM: Geometry-Grounded Foundation Adapters for Unified 3D Gaze, Point-of-Regard, and Gaze Target Estimation",
+        "content/CVPR2026W/GAZE/html/Ambati_RayGazeFM_Geometry-Grounded_Foundation_Adapters_for_Unified_3D_Gaze_Point-of-Regard_and_CVPRW_2026_paper.html",
+        "Murari Ambati"
+      ],
+      [
+        "End-to-End Shared Attention Estimation via Group Detection with Feedback Refinement",
+        "content/CVPR2026W/GAZE/html/Nakatani_End-to-End_Shared_Attention_Estimation_via_Group_Detection_with_Feedback_Refinement_CVPRW_2026_paper.html",
+        "Chihiro Nakatani, Norimichi Ukita, Jean-Marc Odobez"
+      ],
+      [
+        "Learning to Look: CLIP-Guided Dual-Crop Fusion for Head Position-Invariant Gaze Estimation",
+        "content/CVPR2026W/GAZE/html/Lakhotia_Learning_to_Look_CLIP-Guided_Dual-Crop_Fusion_for_Head_Position-Invariant_Gaze_CVPRW_2026_paper.html",
+        "Sourav Lakhotia, Chaviti Vasantha Lakshmi, Aratrik Chattopadhyay"
+      ],
+      [
+        "SIGN: A Statistically-Informed Gaze Network for Gaze Time Prediction and Inference",
+        "content/CVPR2026W/GAZE/html/Ye_SIGN_A_Statistically-Informed_Gaze_Network_for_Gaze_Time_Prediction_and_CVPRW_2026_paper.html",
+        "Jianping Ye, Michel Wedel"
+      ]
+    ],
+    "PHAROS-AIF-MIH": [
+      [
+        "A Robust Spatial-Temporal Multitask Deep Learning Pipeline to Predict CT Perfusion Parameters",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Zhu_A_Robust_Spatial-Temporal_Multitask_Deep_Learning_Pipeline_to_Predict_CT_CVPRW_2026_paper.html",
+        "Boan Zhu, Bohuai Wu, Elizabeth Tong, S.-H. Gary Chan"
+      ],
+      [
+        "Anomaly-Driven Prompting for Label-Free Skin Lesion Segmentation Using Foundation Models",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Fawakherji_Anomaly-Driven_Prompting_for_Label-Free_Skin_Lesion_Segmentation_Using_Foundation_Models_CVPRW_2026_paper.html",
+        "Mulham Fawakherji, Sapthak Mohajon Turjya"
+      ],
+      [
+        "Phase-map synthesis from magnitude-only MR images using conditional score-based diffusion models with application in training of accelerated MRI reconstruction models",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Sahin_Phase-map_synthesis_from_magnitude-only_MR_images_using_conditional_score-based_diffusion_CVPRW_2026_paper.html",
+        "M. Berk Sahin, Dilek Yalcinkaya, Abolfazl Hashemi, Behzad Sharif"
+      ],
+      [
+        "ProtoMedAgent: Multimodal Clinical Interpretability via Privacy-Aware Agentic Workflows",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Pellicer_ProtoMedAgent_Multimodal_Clinical_Interpretability_via_Privacy-Aware_Agentic_Workflows_CVPRW_2026_paper.html",
+        "Alvaro Lopez Pellicer, Plamen Angelov, Marwan Bukhari, Yi Li, Eduardo Soares, Jemma Kerns"
+      ],
+      [
+        "Medical Vision-Language Models for Robust Disease Diagnosis",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Algumaei_Medical_Vision-Language_Models_for_Robust_Disease_Diagnosis_CVPRW_2026_paper.html",
+        "Ali Algumaei, Wassim Bouachir, Nizar Bouguila"
+      ],
+      [
+        "Cross-Modal Knowledge Distillation for PET-Free Amyloid-Beta Detection from MRI",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Chiumento_Cross-Modal_Knowledge_Distillation_for_PET-Free_Amyloid-Beta_Detection_from_MRI_CVPRW_2026_paper.html",
+        "Francesco Chiumento, Julia Dietlmeier, Ronan P. Killeen, Kathleen M. Curran, Noel E. O&#x27;Connor, Mingming Liu"
+      ],
+      [
+        "Unpaired-to-Paired Data Synthesis: Learning to Model Disease Effects via Contrastive Analysis of Neuroimaging-derived Features",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Chintapalli_Unpaired-to-Paired_Data_Synthesis_Learning_to_Model_Disease_Effects_via_Contrastive_CVPRW_2026_paper.html",
+        "Sai Spandana Chintapalli, Pratik Chaudhari, Christos Davatzikos"
+      ],
+      [
+        "Debiasing Ultrasound Video Learning via Motion-Aware State-Space Modeling",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Thakur_Debiasing_Ultrasound_Video_Learning_via_Motion-Aware_State-Space_Modeling_CVPRW_2026_paper.html",
+        "Richa Thakur, Chetan Arora, Aditya Nigam"
+      ],
+      [
+        "Continual Learning in 3D Vision: Mitigating Catastrophic Forgetting and Domain Shift via Deep Latent Adapters and Covariate-Guided Fusion",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Theofilou_Continual_Learning_in_3D_Vision_Mitigating_Catastrophic_Forgetting_and_Domain_CVPRW_2026_paper.html",
+        "Paraskevi-Antonia Theofilou, Paraskevi Tzouveli, Stefanos Kollias"
+      ],
+      [
+        "CrossStream-Seg: A Cross-Guided Two-Stream Learning for Boundary-Sensitive ROI Segmentation",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Rahim_CrossStream-Seg_A_Cross-Guided_Two-Stream_Learning_for_Boundary-Sensitive_ROI_Segmentation_CVPRW_2026_paper.html",
+        "Nasir Rahim, Muzammal Shafique, Ghaus Malik, Khalid Malik"
+      ],
+      [
+        "PHAROS-AIF-MIH: Transparent and Secure Use of AI in Medical Imaging and Healthcare",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Kollias_PHAROS-AIF-MIH_Transparent_and_Secure_Use_of_AI_in_Medical_Imaging_CVPRW_2026_paper.html",
+        "Dimitrios Kollias, Anastasios Arsenos, Stefanos Kollias"
+      ],
+      [
+        "A Heterogeneous Ensemble for Multi-Center COVID-19 Classification from Chest CT Scans",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Thapar_A_Heterogeneous_Ensemble_for_Multi-Center_COVID-19_Classification_from_Chest_CT_CVPRW_2026_paper.html",
+        "Bhavesh Thapar, Anant Agrawal, Aadit Nilay, Mohammad Nayeem Teli"
+      ],
+      [
+        "Genetically-influenced multi-scale brain organization via self-supervised learning",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/De_Pian_Genetically-influenced_multi-scale_brain_organization_via_self-supervised_learning_CVPRW_2026_paper.html",
+        "Marilena De Pian, Junhao Wen, Christos Davatzikos"
+      ],
+      [
+        "EntroMix: Clinically-Aware Self-Paced Generative Augmentation for Imbalanced Medical Image Classification",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Kumar_EntroMix_Clinically-Aware_Self-Paced_Generative_Augmentation_for_Imbalanced_Medical_Image_Classification_CVPRW_2026_paper.html",
+        "Ritik Kumar, Habibur Rahaman, Sumit Kumar Jha, Debasmita Saha, Soumen Basu, Hafizur Rahaman"
+      ],
+      [
+        "Can We Go Beyond Visual Features? Neural Tissue Relation Modeling for Relational Graph Analysis in Non-Melanoma Skin Histology",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Venkatraman_Can_We_Go_Beyond_Visual_Features_Neural_Tissue_Relation_Modeling_CVPRW_2026_paper.html",
+        "Shravan Venkatraman, Muthu Subash Kavitha, Joe Dhanith P R, V Manikandarajan, Jia Wu"
+      ],
+      [
+        "OPBNet: Oscillatory Phase-Binding Networks for Interpretable Zero-Shot Medical Visual Reasoning Without Pretraining",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Sar_OPBNet_Oscillatory_Phase-Binding_Networks_for_Interpretable_Zero-Shot_Medical_Visual_Reasoning_CVPRW_2026_paper.html",
+        "Ayan Sar, Pranav Singh Puri, Sumit Aich, Sampurna Roy, Tanupriya Choudhury, Ajith Abraham"
+      ],
+      [
+        "ARAN: Leveraging Foundation Models for Vasculature-Tree-Informed ARtery-Aware Intracranial ANeurysm Detection in 3D CTA and ToF-MRA",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Shafique_ARAN_Leveraging_Foundation_Models_for_Vasculature-Tree-Informed_ARtery-Aware_Intracranial_ANeurysm_Detection_CVPRW_2026_paper.html",
+        "Muzammal Shafique, Nasir Rahim, Muhammad Saad Saeed, Ghous Malik, Khalid Malik"
+      ],
+      [
+        "Halfway to 3D: Ensembling 2.5D and 3D Models for Robust COVID-19 CT Diagnosis",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Yang_Halfway_to_3D_Ensembling_2.5D_and_3D_Models_for_Robust_CVPRW_2026_paper.html",
+        "Tuan-Anh Yang, Bao V. Q. Bui, Chanh-Quang Vo-Van, Truong-Son Hy"
+      ],
+      [
+        "FAM-Match: Fractal-Aligned Manifold Matching with Adaptive Routing Framework for Semi-Supervised Medical Image Classification",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Gayen_FAM-Match_Fractal-Aligned_Manifold_Matching_with_Adaptive_Routing_Framework_for_Semi-Supervised_CVPRW_2026_paper.html",
+        "Soumyajit Gayen, Utathya Aich, Dmitrii Minenkov, Dmitrii Kaplun, Ram Sarkar"
+      ],
+      [
+        "Clinical Priors Guided Lung Disease Detection in 3D CT Scans",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Lu_Clinical_Priors_Guided_Lung_Disease_Detection_in_3D_CT_Scans_CVPRW_2026_paper.html",
+        "Kejin Lu, Jianfa Bai, Qingqiu Li, Runtian Yuan, Jilan Xu, Junlin Hou, Yuejie Zhang, Rui Feng"
+      ],
+      [
+        "Multimodal Abnormality Classifier Using Anatomy-Guided Connection for 3D Medical Images",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Sahin_Multimodal_Abnormality_Classifier_Using_Anatomy-Guided_Connection_for_3D_Medical_Images_CVPRW_2026_paper.html",
+        "M. Berk Sahin, Yoshihisa Shinagawa, Halid Ziya Yerebakan, Abolfazl Hashemi, Behzad Sharif, Gerardo Hermosillo"
+      ],
+      [
+        "Learning What To Ask For When: Image Ordering for In-Context Interactive Medical Image Segmentation",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Torpey_Learning_What_To_Ask_For_When_Image_Ordering_for_In-Context_CVPRW_2026_paper.html",
+        "Gianna Torpey, John Guttag, Hallee E. Wong"
+      ],
+      [
+        "A comparison study between a machine learning model for breast cancer detection in ultrasound images and a manifold based classification of breast cancerous forms",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Karagiannis_A_comparison_study_between_a_machine_learning_model_for_breast_CVPRW_2026_paper.html",
+        "Theodoros Karagiannis, Georgios Karagiannis, Aikaterini Skouroliakou, Elias Zois"
+      ],
+      [
+        "Are Natural-Domain Foundation Models Effective for Accelerated Cardiac MRI Reconstruction?",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Hashmi_Are_Natural-Domain_Foundation_Models_Effective_for_Accelerated_Cardiac_MRI_Reconstruction_CVPRW_2026_paper.html",
+        "Anam Hashmi, Mayug Maniparambil, Julia Dietlmeier, Kathleen M Curran, Noel E O&#x27;Connor"
+      ],
+      [
+        "Temporal M-Protein Trajectory Phenotyping and Progression Risk Prediction in Monoclonal Gammopathies via Multivariate Longitudinal Machine Learning",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Sharma_Temporal_M-Protein_Trajectory_Phenotyping_and_Progression_Risk_Prediction_in_Monoclonal_CVPRW_2026_paper.html",
+        "Akshath Sharma, Tanush Shastry"
+      ],
+      [
+        "Hierarchical Uncertainty-Aware Deep Simplex Classification for Open-Set Medical Image Recognition",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Khoshbakht_Hierarchical_Uncertainty-Aware_Deep_Simplex_Classification_for_Open-Set_Medical_Image_Recognition_CVPRW_2026_paper.html",
+        "Amirreza Khoshbakht, Erchan Aptoula"
+      ],
+      [
+        "Extending ZACH-ViT to Robust Medical Imaging: Corruption and Adversarial Stress Testing in Low-Data Regimes",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Angelakis_Extending_ZACH-ViT_to_Robust_Medical_Imaging_Corruption_and_Adversarial_Stress_CVPRW_2026_paper.html",
+        "Athanasios Angelakis, Marta Gomez-Barrero"
+      ],
+      [
+        "One-Shot Medical Image Segmentation via Error-driven Spatial Weighting Boosting",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Ozaki_One-Shot_Medical_Image_Segmentation_via_Error-driven_Spatial_Weighting_Boosting_CVPRW_2026_paper.html",
+        "Takuma Ozaki, Kazuhito Hotta"
+      ],
+      [
+        "SAM for Robust Mitochondria Instance Segmentation in Fluorescence Microscopy",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Jadhav_SAM_for_Robust_Mitochondria_Instance_Segmentation_in_Fluorescence_Microscopy_CVPRW_2026_paper.html",
+        "Suyog Jadhav, Dilip K. Prasad, Krishna Agarwal"
+      ],
+      [
+        "A Human-in-the-Loop Framework for Efficient Prompt Selection in Microscopy Vision-Language Models",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Kandiyana_A_Human-in-the-Loop_Framework_for_Efficient_Prompt_Selection_in_Microscopy_Vision-Language_CVPRW_2026_paper.html",
+        "Abhiram Kandiyana, Ankur Mali, Lawrence O. Hall, Peter R. Mouton, Dmitry Goldgof"
+      ],
+      [
+        "Attention Consistent Longitudinal Medical Visual Question Answering Guided by Vision Foundation Models",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Wu_Attention_Consistent_Longitudinal_Medical_Visual_Question_Answering_Guided_by_Vision_CVPRW_2026_paper.html",
+        "Jialin Wu, Qianru Zhang, Georges El Fakhri, Xiaofeng Liu"
+      ],
+      [
+        "Geometry-Aware Coreset Selection and Perceptual-Constrained Adversarial Attacks for Efficient and Robust Medical Imaging",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Shinde_Geometry-Aware_Coreset_Selection_and_Perceptual-Constrained_Adversarial_Attacks_for_Efficient_and_CVPRW_2026_paper.html",
+        "Tushar Shinde"
+      ],
+      [
+        "Few-Shot Joint Segmentation and Classification of Lung Nodules in CT with Self-Supervised Correlation Transformers",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Rahim_Few-Shot_Joint_Segmentation_and_Classification_of_Lung_Nodules_in_CT_CVPRW_2026_paper.html",
+        "Mohammad Asifur Rahim, Muhammad Awais, Mufti Mahmud"
+      ],
+      [
+        "Machine Learning enabled Breast Cancer Multidisciplinary Team Treatment Planner",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Appiah_Machine_Learning_enabled_Breast_Cancer_Multidisciplinary_Team_Treatment_Planner_CVPRW_2026_paper.html",
+        "Kofi Appiah, Emmanuel Amankwaa-Frempong, Yaw B Mensah, Joe-Nat Clegg-Lamptey, Patrick Akakpo, Bernard K Seshie, Sze Chai Kwok"
+      ],
+      [
+        "Do XAI Metrics Agree in Digital Pathology? A Cross-Dataset Study of Explainer Evaluation in Clinically Relevant Histology Models",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Budhkar_Do_XAI_Metrics_Agree_in_Digital_Pathology_A_Cross-Dataset_Study_CVPRW_2026_paper.html",
+        "Aishwarya Budhkar, Trishita Dhara"
+      ],
+      [
+        "Machine Learning-Based Localization of Point Sources in Photon Scattering Medical Imaging",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Ye_Machine_Learning-Based_Localization_of_Point_Sources_in_Photon_Scattering_Medical_CVPRW_2026_paper.html",
+        "Fengyuan Ye, Marta Vallejo"
+      ],
+      [
+        "Physics-Grounded Interpretable Semi-Supervised Medical Image Segmentation via Annotation-Free Structure Tensor Regularization",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Zheng_Physics-Grounded_Interpretable_Semi-Supervised_Medical_Image_Segmentation_via_Annotation-Free_Structure_Tensor_CVPRW_2026_paper.html",
+        "Jiahui Zheng, Yan Chen"
+      ],
+      [
+        "Scaling In-Context Segmentation with Hierarchical Supervision",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Ndir_Scaling_In-Context_Segmentation_with_Hierarchical_Supervision_CVPRW_2026_paper.html",
+        "Tidiane Camaret Ndir, Marco Reisert, Robin T. Schirrmeister"
+      ],
+      [
+        "Few-Shot Learning based Multimodal Skin Lesion Classification",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Pani_Few-Shot_Learning_based_Multimodal_Skin_Lesion_Classification_CVPRW_2026_paper.html",
+        "Saptarshi Pani, Ananya Saha, Aleksandr Sinitca, Dmitrii Kaplun, Ram Sarkar"
+      ],
+      [
+        "Vision-Language Model Based Multi-Expert Fusion for CT Image Classification",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Bai_Vision-Language_Model_Based_Multi-Expert_Fusion_for_CT_Image_Classification_CVPRW_2026_paper.html",
+        "Jianfa Bai, Kejin Lu, Runtian Yuan, Qingqiu Li, Jilan Xu, Junlin Hou, Yuejie Zhang, Rui Feng"
+      ],
+      [
+        "Parameter Efficient Fine-tuning for Domain-specific Gastrointestinal Disease Recognition",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Poudel_Parameter_Efficient_Fine-tuning_for_Domain-specific_Gastrointestinal_Disease_Recognition_CVPRW_2026_paper.html",
+        "Sanjaya Poudel, Nikita Kunwor, Raj Simkhada, Mustafa Munir, Manish Dhakal, Khem Poudel"
+      ],
+      [
+        "IonMorphNet: Generalizable Learning of Ion Image Morphologies for Peak Picking in Mass Spectrometry Imaging",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Weigand_IonMorphNet_Generalizable_Learning_of_Ion_Image_Morphologies_for_Peak_Picking_CVPRW_2026_paper.html",
+        "Philipp Weigand, Niels Nawrot, Nikolas Ebert, Carsten Hopf, Oliver Wasenmüller"
+      ],
+      [
+        "Towards Fair and Robust Volumetric CT Classification via KL-Regularised Group Distributionally Robust Optimisation",
+        "content/CVPR2026W/PHAROS-AIF-MIH/html/Johnny_Towards_Fair_and_Robust_Volumetric_CT_Classification_via_KL-Regularised_Group_CVPRW_2026_paper.html",
+        "Samuel Johnny, Blessed Guda, Goodness Obasi, Aaron Emmanuel, Moise Busogi"
+      ]
+    ],
+    "CVMI": [
+      [
+        "Cross-Modal Knowledge Distillation from Spatial Transcriptomics to Histology",
+        "content/CVPR2026W/CVMI/html/Hizmi_Cross-Modal_Knowledge_Distillation_from_Spatial_Transcriptomics_to_Histology_CVPRW_2026_paper.html",
+        "Arbel Hizmi, Artemii Bakulin, Shai Bagon, Nir Yosef"
+      ],
+      [
+        "Multimodal for Cervical Cancer Histopathology Classification and Automated Diagnostic Report Generation",
+        "content/CVPR2026W/CVMI/html/Nakasi_Multimodal_for_Cervical_Cancer_Histopathology_Classification_and_Automated_Diagnostic_Report_CVPRW_2026_paper.html",
+        "Rose Nakasi, Cosmas Wamozo, Solomon Nsumba, Benjamin Rukundo, Tonny Okecha, Byron Mubiru"
+      ],
+      [
+        "Bridging Foundation Models and ASTM Metallurgical Standards for Automated Grain Size Estimation from Microscopy Images",
+        "content/CVPR2026W/CVMI/html/Mueez_Bridging_Foundation_Models_and_ASTM_Metallurgical_Standards_for_Automated_Grain_CVPRW_2026_paper.html",
+        "Abdul Mueez, Shruti Vyas"
+      ],
+      [
+        "Physics-Informed Spectral Reconstruction for Low-SNR Raman Spectroscopy with Peak-Preserving Constraints",
+        "content/CVPR2026W/CVMI/html/Ranga_Physics-Informed_Spectral_Reconstruction_for_Low-SNR_Raman_Spectroscopy_with_Peak-Preserving_Constraints_CVPRW_2026_paper.html",
+        "Tanvi Ranga, Davoud Adinehloo, Nalini Ratha, Varun Chandola"
+      ],
+      [
+        "Is Realism Enough? Evaluating Generative Models in Cell Microscopy",
+        "content/CVPR2026W/CVMI/html/Lesmes-Leon_Is_Realism_Enough_Evaluating_Generative_Models_in_Cell_Microscopy_CVPRW_2026_paper.html",
+        "Duway Nicolas Lesmes-Leon, Fabian Schmeisser, Gillian Lovell, Andreas Dengel, Sheraz Ahmed"
+      ],
+      [
+        "Sampling-Aware 3D Spatial Analysis in Multiplexed Imaging",
+        "content/CVPR2026W/CVMI/html/Harlev_Sampling-Aware_3D_Spatial_Analysis_in_Multiplexed_Imaging_CVPRW_2026_paper.html",
+        "Ido Harlev, Tamar Oukhanov, Raz Ben Uri, Leeat Keren, Shai Bagon"
+      ],
+      [
+        "Automated Membrane Detection and Subtraction for Structure Determination of Membrane Proteins in Cryogenic Electron Microscopy",
+        "content/CVPR2026W/CVMI/html/Starynska_Automated_Membrane_Detection_and_Subtraction_for_Structure_Determination_of_Membrane_CVPRW_2026_paper.html",
+        "Anna Starynska, Christopher J.F. Cameron, Frederick J. Sigworth, Hemant D. Tagare"
+      ]
+    ],
+    "Med-Reasoner": [
+      [
+        "Pre-Training and Fine-Tuning Effects on Out-of-Distribution Detection in Dermatology with Vision Foundation Models",
+        "content/CVPR2026W/Med-Reasoner/html/Gallo_Pre-Training_and_Fine-Tuning_Effects_on_Out-of-Distribution_Detection_in_Dermatology_with_CVPRW_2026_paper.html",
+        "Ignazio Gallo, Leonardo Sgroi, Mattia Gatti, Silvia Corchs"
+      ],
+      [
+        "When the Right Answer Is Missing: Probing Hallucination in Medical Reasoning Models via NOTA Evaluation",
+        "content/CVPR2026W/Med-Reasoner/html/Demirci_When_the_Right_Answer_Is_Missing_Probing_Hallucination_in_Medical_CVPRW_2026_paper.html",
+        "Alperen Demirci, Ezel Bayraktar, Bora Dere, Erkut Erdem, Aykut Erdem"
+      ],
+      [
+        "Parameter-efficient Prompt Tuning and Hierarchical Textual Guidance for Few-shot Whole Slide Image Classification",
+        "content/CVPR2026W/Med-Reasoner/html/Bogahawatte_Parameter-efficient_Prompt_Tuning_and_Hierarchical_Textual_Guidance_for_Few-shot_Whole_CVPRW_2026_paper.html",
+        "Jayanie Bogahawatte, Sachith Seneviratne, Saman Halgamuge"
+      ],
+      [
+        "BSMAD:Bridging Semantic and Structural Manifolds for Robust Cross-Modality Medical Anomaly Detection",
+        "content/CVPR2026W/Med-Reasoner/html/Lin_BSMADBridging_Semantic_and_Structural_Manifolds_for_Robust_Cross-Modality_Medical_Anomaly_CVPRW_2026_paper.html",
+        "Shih-Chih Lin, Jenq-Neng Hwang, Shang-Hong Lai"
+      ],
+      [
+        "To Agree or To Be Right? The Grounding-Sycophancy Tradeoff in Medical Vision-Language Models",
+        "content/CVPR2026W/Med-Reasoner/html/Aranya_To_Agree_or_To_Be_Right_The_Grounding-Sycophancy_Tradeoff_in_CVPRW_2026_paper.html",
+        "OFM Riaz Rahman Aranya, Kevin Desai"
+      ],
+      [
+        "MOSAIC: Multimodal OA Staging with Adaptive Interpretable Clinical Constraints for Evidence-Grounded Knee MRI Grading",
+        "content/CVPR2026W/Med-Reasoner/html/Ali_MOSAIC_Multimodal_OA_Staging_with_Adaptive_Interpretable_Clinical_Constraints_for_CVPRW_2026_paper.html",
+        "Basit Ali, Sheheryar Khan, Rizwan Qureshi, Muhammad Asim, Mehmood Nawaz, Basim Azam"
+      ],
+      [
+        "Guideline2Graph: Profile-Aware Multimodal Parsing for Executable Clinical Decision Graphs",
+        "content/CVPR2026W/Med-Reasoner/html/Kilic_Guideline2Graph_Profile-Aware_Multimodal_Parsing_for_Executable_Clinical_Decision_Graphs_CVPRW_2026_paper.html",
+        "Onur Selim Kilic, Yeti Z. Gurbuz, Cem O. Yaldiz, Afra Nawar, Etrit Haxholli, Oğul Can, Eli Waxman"
+      ],
+      [
+        "BiomedAP: A Vision-Informed Dual-Anchor Framework with Gated Cross-Modal Fusion for Robust Medical Vision-Language Adaptation",
+        "content/CVPR2026W/Med-Reasoner/html/Tong_BiomedAP_A_Vision-Informed_Dual-Anchor_Framework_with_Gated_Cross-Modal_Fusion_for_CVPRW_2026_paper.html",
+        "Huanyang Tong, Kai Liu, Fangjun Kuang, Huiling Chen"
+      ],
+      [
+        "GIV-CXR: Densely Grounded, Visually Interpretable Chest X-ray Question Answering Dataset",
+        "content/CVPR2026W/Med-Reasoner/html/Bavana_GIV-CXR_Densely_Grounded_Visually_Interpretable_Chest_X-ray_Question_Answering_Dataset_CVPRW_2026_paper.html",
+        "Sreevaatsav Bavana, Adit Rushil Potta, Sai Amrit Patnaik, Nidhi Goyal"
+      ],
+      [
+        "Consistent but Dangerous: Per-Sample Safety Classification Reveals False Reliability in Medical Vision-Language Models",
+        "content/CVPR2026W/Med-Reasoner/html/Sadanandan_Consistent_but_Dangerous_Per-Sample_Safety_Classification_Reveals_False_Reliability_in_CVPRW_2026_paper.html",
+        "Binesh Sadanandan, Vahid Behzadan"
+      ],
+      [
+        "From Perception to Reasoning: Image-Grounded Knowledge Graphs for Topology-Aware Medical Analysis in Abdominal CT",
+        "content/CVPR2026W/Med-Reasoner/html/Das_From_Perception_to_Reasoning_Image-Grounded_Knowledge_Graphs_for_Topology-Aware_Medical_CVPRW_2026_paper.html",
+        "Udiptaman Das, Krishnasai Atmakuri, Duy Ho, Yugyung Lee"
+      ],
+      [
+        "Leveraging Image Editing Foundation Models for Data-Efficient Ct Metal Artifact Reduction",
+        "content/CVPR2026W/Med-Reasoner/html/Emirdagi_Leveraging_Image_Editing_Foundation_Models_for_Data-Efficient_Ct_Metal_Artifact_CVPRW_2026_paper.html",
+        "Ahmet Rasim Emirdagi, Suleyman Aslan, Misra Yavuz, Gorkay Aydemir, Yunus Bilge Kurt, Nasrin Rahimi, Burak Can Biner, Mustafa Akin Yilmaz"
+      ]
+    ],
+    "VISION26": [
+      [
+        "Dataset and Baseline Method for Long-range X-ray Image Enhancement, 3D Reconstruction, and Object Recognition",
+        "content/CVPR2026W/VISION26/html/ONeill_Dataset_and_Baseline_Method_for_Long-range_X-ray_Image_Enhancement_3D_CVPRW_2026_paper.html",
+        "Riley C W O&#x27;Neill, Eric Smith, Stephen J Coleman, Dzenan Zukic, Scott McCloskey"
+      ],
+      [
+        "CT-DegradBench: A Physics-Informed Benchmark for CT Degradation Detection and Severity Estimation",
+        "content/CVPR2026W/VISION26/html/Taifour_CT-DegradBench_A_Physics-Informed_Benchmark_for_CT_Degradation_Detection_and_Severity_CVPRW_2026_paper.html",
+        "Yousra Nabila Taifour, Marouane Tliba, Zuheng Ming, Marie Luong, Nour Aburaed, Aladine Chetouani, Gorkem Durak, Alessandro Bruno, Faouzi Alaya Cheikh, Habib Zaidi, Ulas Bagci, Azeddine Beghdadi"
+      ],
+      [
+        "RAGT-Net: Robust Adversarial Geometric Tension for Box-Supervised Industrial Defect Segmentation",
+        "content/CVPR2026W/VISION26/html/He_RAGT-Net_Robust_Adversarial_Geometric_Tension_for_Box-Supervised_Industrial_Defect_Segmentation_CVPRW_2026_paper.html",
+        "Zhiqian He, Yajun Chen, Erhu Zhang, Zequan Huang, Zhujun Zhang, Yunjing Liu"
+      ],
+      [
+        "Fractional-Gradient Sparsity with Autoencoding Sequential Deep Image Prior for 3D CT Reconstruction",
+        "content/CVPR2026W/VISION26/html/Yuan_Fractional-Gradient_Sparsity_with_Autoencoding_Sequential_Deep_Image_Prior_for_3D_CVPRW_2026_paper.html",
+        "Haijie Yuan, Chaoyan Huang, Srijita Bandopadhyay, Liyue Shen, Saiprasad Ravishankar"
+      ],
+      [
+        "FALCON : Fine-grained Alignment for Counting Objects in Industry",
+        "content/CVPR2026W/VISION26/html/Cho_FALCON__Fine-grained_Alignment_for_Counting_Objects_in_Industry_CVPRW_2026_paper.html",
+        "Suhye Cho, Younghun Byeon, Sang Jun Park, Jun-Seok Yun, Ye jin Kim, Hong-In Won, Min Su Kim, Jong Pil Yun"
+      ],
+      [
+        "Physics-Conditioned Video Diffusion for Nuclear Fusion Capsule Polishing Process Synthesis",
+        "content/CVPR2026W/VISION26/html/Galla_Physics-Conditioned_Video_Diffusion_for_Nuclear_Fusion_Capsule_Polishing_Process_Synthesis_CVPRW_2026_paper.html",
+        "Shashank Galla, Abhishek Hanchate, Sean Hayes, Monika Biener, Suhas Bhandarkar, Satish Bukkapatnam"
+      ],
+      [
+        "GuidedFlow: An Attention-Guided Framework for Anomaly Detection in Additive Manufacturing",
+        "content/CVPR2026W/VISION26/html/Paul_GuidedFlow_An_Attention-Guided_Framework_for_Anomaly_Detection_in_Additive_Manufacturing_CVPRW_2026_paper.html",
+        "Sosmita Paul, Krishna Roy"
+      ],
+      [
+        "RadioCore: Few-Shot Industrial Anomaly Segmentation with Multi-Scale Radio ViT Features",
+        "content/CVPR2026W/VISION26/html/Ali_RadioCore_Few-Shot_Industrial_Anomaly_Segmentation_with_Multi-Scale_Radio_ViT_Features_CVPRW_2026_paper.html",
+        "Mohammed Ahmed Mohammed Eltoum Mohammed Ali, Ehtesham Iqbal, Samee Ullah Khan, Yusra Abdulrahman"
+      ],
+      [
+        "CryoGEN-II: Cryogenic Electron Tomography Reconstruction via Generative Network",
+        "content/CVPR2026W/VISION26/html/Teng_CryoGEN-II_Cryogenic_Electron_Tomography_Reconstruction_via_Generative_Network_CVPRW_2026_paper.html",
+        "Yunfei Teng, Xinyu Chen, He Zhang, Zhichao Chen, Yulei Hung, Sha Hu, Qiwei Ye, Zhouchen Lin"
+      ],
+      [
+        "EviInspect: Evidence-Grounded Annotation and Evaluation for Safety-Critical Industrial Inspection",
+        "content/CVPR2026W/VISION26/html/Militsis_EviInspect_Evidence-Grounded_Annotation_and_Evaluation_for_Safety-Critical_Industrial_Inspection_CVPRW_2026_paper.html",
+        "Nikolaos Marios Militsis, Achilleas Toumpas, Ilias Koulalis, Konstantinos Ioannidis, Stefanos Vrochidis"
+      ],
+      [
+        "Rethinking Transfer Learning for Industrial Inspection: DINOv3 vs. ImageNet Pretraining Across RGB and X-ray Tasks",
+        "content/CVPR2026W/VISION26/html/Gharbage_Rethinking_Transfer_Learning_for_Industrial_Inspection_DINOv3_vs._ImageNet_Pretraining_CVPRW_2026_paper.html",
+        "Mehdi Gharbage, Céline Teulière, Pierre Bouges, Thierry Chateau"
+      ],
+      [
+        "FryNet: Dual-Stream Adversarial Fusion for Non-Destructive Frying Oil Oxidation Assessment",
+        "content/CVPR2026W/VISION26/html/Ahmed_FryNet_Dual-Stream_Adversarial_Fusion_for_Non-Destructive_Frying_Oil_Oxidation_Assessment_CVPRW_2026_paper.html",
+        "Khaled R Ahmed, Toqi Tahamid Sarker, Taminul Islam, Tamany M Alanezi, Amer AbuGhazaleh"
+      ],
+      [
+        "Anomaly-to-Normal Translation: A Training Paradigm for Feature-Based 3D Point Cloud Anomaly Detection",
+        "content/CVPR2026W/VISION26/html/Fichtel_Anomaly-to-Normal_Translation_A_Training_Paradigm_for_Feature-Based_3D_Point_Cloud_CVPRW_2026_paper.html",
+        "Lars Fichtel, Dominik Seub, Radu Timofte"
+      ],
+      [
+        "EG-DINO: Guiding Foundation Models with Structural Priors for Domain-Incremental Crack Segmentation",
+        "content/CVPR2026W/VISION26/html/Rahou_EG-DINO_Guiding_Foundation_Models_with_Structural_Priors_for_Domain-Incremental_Crack_CVPRW_2026_paper.html",
+        "Bilal Rahou, Kevin Helvig, Pauline Trouvé-Peloux, Ludovic Gaverina, Thierry Sentenac"
+      ],
+      [
+        "Image Segmentation and Physics-Guided Regression for Assessing Laser Surface Structuring",
+        "content/CVPR2026W/VISION26/html/Tynchenko_Image_Segmentation_and_Physics-Guided_Regression_for_Assessing_Laser_Surface_Structuring_CVPRW_2026_paper.html",
+        "Vadim Tynchenko, Andrei Gantimurov, Vladimir Nelyub, Aleksei Borodulin, Vladimir Bukhtoiarov, Dmitry Martysyuk, Ivan Malashin"
+      ]
+    ],
+    "MMFM5": [
+      [
+        "Counting to Four is still a Chore for VLMs",
+        "content/CVPR2026W/MMFM5/html/Le_Dinh_Anh_Counting_to_Four_is_still_a_Chore_for_VLMs_CVPRW_2026_paper.html",
+        "Duy Le Dinh Anh, Patrick Irawan, Tuan Van Vo"
+      ],
+      [
+        "Balanced Thinking: Improving Chain of Thought Training in Vision Language Models",
+        "content/CVPR2026W/MMFM5/html/Perek_Balanced_Thinking_Improving_Chain_of_Thought_Training_in_Vision_Language_CVPRW_2026_paper.html",
+        "Shaked Perek, Ben wiesel, Avihu Dekel, Nimrod Shabtay, Eli Schwartz"
+      ],
+      [
+        "Visual Geometry Grounded Novel-View Acoustic Synthesis",
+        "content/CVPR2026W/MMFM5/html/Polra_Visual_Geometry_Grounded_Novel-View_Acoustic_Synthesis_CVPRW_2026_paper.html",
+        "Jay Polra, Dhwanil Chauhan, Wenjun Huang, Kyle Toth, Xianhui Wang, Yang Ni"
+      ],
+      [
+        "VAREX: A Benchmark for Multi-Modal Structured Extraction from Documents",
+        "content/CVPR2026W/MMFM5/html/Barzelay_VAREX_A_Benchmark_for_Multi-Modal_Structured_Extraction_from_Documents_CVPRW_2026_paper.html",
+        "Udi Barzelay, Ophir Azulai, Inbar Shapira, Idan Friedman, Foad Abo Dahood, Madison Lee, Abraham Daniels"
+      ],
+      [
+        "TRACE: Training-Free Partial Audio Deepfake Detection via Embedding Trajectory Analysis of Speech Foundation Models",
+        "content/CVPR2026W/MMFM5/html/khan_TRACE_Training-Free_Partial_Audio_Deepfake_Detection_via_Embedding_Trajectory_Analysis_CVPRW_2026_paper.html",
+        "Awais khan, Muhammad Umar Farooq, Kutub Uddin, Khalid Malik"
+      ],
+      [
+        "Do Multimodal Foundation Models Truly Generalize? Exposing Failure Modes Across Perception, Reasoning, and Action",
+        "content/CVPR2026W/MMFM5/html/Guruprasad_Do_Multimodal_Foundation_Models_Truly_Generalize_Exposing_Failure_Modes_Across_CVPRW_2026_paper.html",
+        "Pranav Guruprasad, Sudipta Chowdhury, Harsh Sikka, Mridul Sharma, Hong Lu, Sean Rivera, Hangliang Ren, Aryan Khurana, Yangyue Wang"
+      ],
+      [
+        "Hierarchical Pre-Training of Vision Encoders with Large Language Model",
+        "content/CVPR2026W/MMFM5/html/Lee_Hierarchical_Pre-Training_of_Vision_Encoders_with_Large_Language_Model_CVPRW_2026_paper.html",
+        "Eugene Lee, Ting-Yu Chang, Jui-Huang Tsai, Jiajie Diao, Chen-Yi Lee"
+      ],
+      [
+        "Fine-tuned Hyperbolic CLIP Models are Good Video Learners",
+        "content/CVPR2026W/MMFM5/html/Vidal_Fine-tuned_Hyperbolic_CLIP_Models_are_Good_Video_Learners_CVPRW_2026_paper.html",
+        "Àlex Pujol Vidal, Sergio Escalera, Kamal Nasrollahi, Thomas B. Moeslund"
+      ],
+      [
+        "VisTherapy: Text-to-Image Generation of Personalized Therapeutic Visual Stimuli",
+        "content/CVPR2026W/MMFM5/html/Hameed_VisTherapy_Text-to-Image_Generation_of_Personalized_Therapeutic_Visual_Stimuli_CVPRW_2026_paper.html",
+        "Abdul Muhsin Hameed, Taha Razzaq, Asim Iqbal"
+      ]
+    ],
+    "MULA2026": [
+      [
+        "Non-Contrastive Vision-Language Learning with Predictive Embedding Alignment",
+        "content/CVPR2026W/MULA2026/html/Kuhn_Non-Contrastive_Vision-Language_Learning_with_Predictive_Embedding_Alignment_CVPRW_2026_paper.html",
+        "Lukas Kuhn, Giuseppe Serra, Florian Buettner"
+      ],
+      [
+        "Multi-Scale Encoding, Gated Fusion, and Temporal Context for Lightweight Wearable Stress Detection",
+        "content/CVPR2026W/MULA2026/html/Ali_Multi-Scale_Encoding_Gated_Fusion_and_Temporal_Context_for_Lightweight_Wearable_CVPRW_2026_paper.html",
+        "Mukhtiar Ali, Chulwoo Pack"
+      ],
+      [
+        "Responses Fall Short of Understanding: Revealing the Gap between Internal Representations and Responses in Visual Document Understanding",
+        "content/CVPR2026W/MULA2026/html/Kawasaki_Responses_Fall_Short_of_Understanding_Revealing_the_Gap_between_Internal_CVPRW_2026_paper.html",
+        "Haruka Kawasaki, Ryota Tanaka, Kyosuke Nishida"
+      ],
+      [
+        "Enhancing Vision Text Compression in Vision Language Models via Adaptive Rendering",
+        "content/CVPR2026W/MULA2026/html/Jenq_Enhancing_Vision_Text_Compression_in_Vision_Language_Models_via_Adaptive_CVPRW_2026_paper.html",
+        "Janet Jenq, Hongda Shen"
+      ],
+      [
+        "ViFiCon: Vision and Wireless Association Via Self-Supervised Contrastive Learning",
+        "content/CVPR2026W/MULA2026/html/Meegan_ViFiCon_Vision_and_Wireless_Association_Via_Self-Supervised_Contrastive_Learning_CVPRW_2026_paper.html",
+        "Nicholas Meegan, Hansi Liu, Bryan Bo Cao, Abrar Alali, Kristin Dana, Marco Gruteser, Shubham Jain, Ashwin Ashok"
+      ],
+      [
+        "What Makes Multimodal Meme Classification Reliable? A Large-Scale Controlled Study of Fusion, Encoders, and Modality Reliance",
+        "content/CVPR2026W/MULA2026/html/Sharma_What_Makes_Multimodal_Meme_Classification_Reliable_A_Large-Scale_Controlled_Study_CVPRW_2026_paper.html",
+        "Akshit Sharma, Prashant W. Patil"
+      ],
+      [
+        "Consistent Yet Wrong: Evidence Insensitivity in Spatial Vision-Language Models",
+        "content/CVPR2026W/MULA2026/html/Bhat_Consistent_Yet_Wrong_Evidence_Insensitivity_in_Spatial_Vision-Language_Models_CVPRW_2026_paper.html",
+        "S Divakar Bhat, Toshihiko Yamasaki"
+      ],
+      [
+        "LUNA-Seg: Learning Language-Guided Low-Rank Adaptation for Night-time Semantic Segmentation",
+        "content/CVPR2026W/MULA2026/html/Zheng_LUNA-Seg_Learning_Language-Guided_Low-Rank_Adaptation_for_Night-time_Semantic_Segmentation_CVPRW_2026_paper.html",
+        "Zhihao Zheng, Zhen Yao, Mooi Choo Chuah"
+      ],
+      [
+        "VidText: Towards Comprehensive Evaluation for Video Text Understanding",
+        "content/CVPR2026W/MULA2026/html/Yang_VidText_Towards_Comprehensive_Evaluation_for_Video_Text_Understanding_CVPRW_2026_paper.html",
+        "Zhoufaran Yang, Yan Shu, Jing Wang, Zhifei Yang, Yan Zhang, Huaying Yuan, Yu Li, Keyang Lu, Gangyan Zeng, Shaohui Liu, Yu Zhou, Nicu Sebe"
+      ],
+      [
+        "Bridging the Granularity Gap: Object-Centric Masking for Contextual Visual Learning",
+        "content/CVPR2026W/MULA2026/html/Zhong_Bridging_the_Granularity_Gap_Object-Centric_Masking_for_Contextual_Visual_Learning_CVPRW_2026_paper.html",
+        "Jike Zhong, Yuxiang Lai, Konstantinos Psounis"
+      ],
+      [
+        "DGM4+: Benchmarking Global Foreground-Background Inconsistencies in Multi-modal Media",
+        "content/CVPR2026W/MULA2026/html/Singh_DGM4_Benchmarking_Global_Foreground-Background_Inconsistencies_in_Multi-modal_Media_CVPRW_2026_paper.html",
+        "Gagandeep Singh, Samudi Amarasinghe, Priyanka Singh"
+      ],
+      [
+        "Probabilistic Multimodal Learning with Bayesian Disagreements",
+        "content/CVPR2026W/MULA2026/html/Sastry_Probabilistic_Multimodal_Learning_with_Bayesian_Disagreements_CVPRW_2026_paper.html",
+        "Srikumar Sastry, Anustup Choudhury, Pavani Madala, Guan-Ming Su"
+      ],
+      [
+        "Segmenting Collision Sound Sources in Egocentric Video",
+        "content/CVPR2026W/MULA2026/html/Parida_Segmenting_Collision_Sound_Sources_in_Egocentric_Video_CVPRW_2026_paper.html",
+        "Kranti Kumar Parida, Omar Emara, Hazel Doughty, Dima Damen"
+      ],
+      [
+        "DocRevive: A Unified Pipeline for Document Text Restoration",
+        "content/CVPR2026W/MULA2026/html/Purkayastha_DocRevive_A_Unified_Pipeline_for_Document_Text_Restoration_CVPRW_2026_paper.html",
+        "Kunal Purkayastha, Ayan Banerjee, Josep Llados, Umapada Pal"
+      ],
+      [
+        "PRISM: Physics-Informed Multimodal Learning for Battery State-of-Health Estimation from Thermal Imaging and Time-Series Signals",
+        "content/CVPR2026W/MULA2026/html/Musallam_PRISM_Physics-Informed_Multimodal_Learning_for_Battery_State-of-Health_Estimation_from_Thermal_CVPRW_2026_paper.html",
+        "Hazem Adel Musallam, Enjie Ghorbel, Samet Hicsonmez, Lakhdar Mamouri, Tedjani Mesbahi, Djamila Aouada"
+      ]
+    ],
+    "A2A-MML": [
+      [
+        "Neural Surface Reconstruction from Sparse Views Using Epipolar Geometry",
+        "content/CVPR2026W/A2A-MML/html/Chang_Neural_Surface_Reconstruction_from_Sparse_Views_Using_Epipolar_Geometry_CVPRW_2026_paper.html",
+        "Xinhai Chang, Kaichen Zhou"
+      ],
+      [
+        "VeRVE: Versatile Retrieval for Videos via Unified Embeddings",
+        "content/CVPR2026W/A2A-MML/html/Halbe_VeRVE_Versatile_Retrieval_for_Videos_via_Unified_Embeddings_CVPRW_2026_paper.html",
+        "Shaunak Halbe, Bhagyashree Puranik, Jayakrishnan Unnikrishnan, Kushan Thakkar, Vimal Bhat, Toufiq Parag"
+      ],
+      [
+        "On The Application of Linear Attention in Multimodal Transformers",
+        "content/CVPR2026W/A2A-MML/html/Gerami_On_The_Application_of_Linear_Attention_in_Multimodal_Transformers_CVPRW_2026_paper.html",
+        "Armin Gerami, Seyedehanita Madani, Ramani Duraiswami"
+      ],
+      [
+        "Purify-then-Align: Towards Robust Human Sensing under Modality Missing with Knowledge Distillation from Noisy Multimodal Teacher",
+        "content/CVPR2026W/A2A-MML/html/Weng_Purify-then-Align_Towards_Robust_Human_Sensing_under_Modality_Missing_with_Knowledge_CVPRW_2026_paper.html",
+        "Pengcheng Weng, Yanyu Qian, Yangxin Xu, Fei Wang"
+      ],
+      [
+        "Beyond Vision: Holistic World Models",
+        "content/CVPR2026W/A2A-MML/html/Yang_Beyond_Vision_Holistic_World_Models_CVPRW_2026_paper.html",
+        "Qianwen Yang, Yanni Kang, Guangkai Ren, Qingwen Yang, Nan Li"
+      ],
+      [
+        "CODA-Mask: Contrastive and Adaptive Mask Aware Open-set Semantic Segmentation",
+        "content/CVPR2026W/A2A-MML/html/Zhang_CODA-Mask_Contrastive_and_Adaptive_Mask_Aware_Open-set_Semantic_Segmentation_CVPRW_2026_paper.html",
+        "Keying Zhang, Jiguang Zhao"
+      ],
+      [
+        "Multimodal ELBO with Diffusion Decoders",
+        "content/CVPR2026W/A2A-MML/html/Wesego_Multimodal_ELBO_with_Diffusion_Decoders_CVPRW_2026_paper.html",
+        "Daniel Wesego, Pedram Rooshenas"
+      ]
+    ],
+    "ADFM": [
+      [
+        "SCL: Towards Domain Generalization via Single-Temporal Multimodal Contrastive Learning for Remote Sensing Change Detection",
+        "content/CVPR2026W/ADFM/html/Du_SCL_Towards_Domain_Generalization_via_Single-Temporal_Multimodal_Contrastive_Learning_for_CVPRW_2026_paper.html",
+        "Qiangang Du, Jinlong Peng, Xu Chen, Qingdong He, Liren He, Qiang Nie, Mingmin Chi"
+      ],
+      [
+        "SAM-OOD: Foundation-Model-Guided Unknown Mining for Object-Level Anomaly Detection",
+        "content/CVPR2026W/ADFM/html/Kanwal_SAM-OOD_Foundation-Model-Guided_Unknown_Mining_for_Object-Level_Anomaly_Detection_CVPRW_2026_paper.html",
+        "Seher Kanwal, Seung-Ik Lee"
+      ]
+    ],
+    "VAND": [
+      [
+        "From Surveillance to Mobile Robots: Regime-Aware Video Anomaly Detection",
+        "content/CVPR2026W/VAND/html/Sasaki_From_Surveillance_to_Mobile_Robots_Regime-Aware_Video_Anomaly_Detection_CVPRW_2026_paper.html",
+        "Tatsuya Sasaki, Yoshiki Ito, Koichiro Yawata, Kota Dohi, Yusuke Ohtsubo, Koki Takeshita"
+      ],
+      [
+        "STREAM-OOD: Regime-Aware Sequential Monitoring for Streaming Out-of-Distribution Detection",
+        "content/CVPR2026W/VAND/html/Khalili_STREAM-OOD_Regime-Aware_Sequential_Monitoring_for_Streaming_Out-of-Distribution_Detection_CVPRW_2026_paper.html",
+        "Boshra Khalili, Alec Bardey, Andrew W Smyth"
+      ],
+      [
+        "Not All NVFP4 QAT Recipes Are Equal: How Architecture and Scale Shape Model Quality for Anomaly Segmentation",
+        "content/CVPR2026W/VAND/html/Du_Not_All_NVFP4_QAT_Recipes_Are_Equal_How_Architecture_and_CVPRW_2026_paper.html",
+        "Zijian Du, Oleg Rybakov"
+      ],
+      [
+        "MIRAGE: Model-agnostic Industrial Realistic Anomaly Generation and Evaluation for Visual Anomaly Detection",
+        "content/CVPR2026W/VAND/html/Hu_MIRAGE_Model-agnostic_Industrial_Realistic_Anomaly_Generation_and_Evaluation_for_Visual_CVPRW_2026_paper.html",
+        "Jinwei Hu, Francesco Borsatti, Arianna Stropeni, Davide Dalle Pezze, Manuel Barusco, Gian Antonio Susto"
+      ],
+      [
+        "PALADIN: Prompt-Aligned Localization and Anomaly Detection with DINOv3",
+        "content/CVPR2026W/VAND/html/Basaran_PALADIN_Prompt-Aligned_Localization_and_Anomaly_Detection_with_DINOv3_CVPRW_2026_paper.html",
+        "Arda Basaran"
+      ],
+      [
+        "Novel Anomaly Detection Scenarios and Evaluation Metrics to Address the Ambiguity in the Definition of Normal Samples",
+        "content/CVPR2026W/VAND/html/Saito_Novel_Anomaly_Detection_Scenarios_and_Evaluation_Metrics_to_Address_the_CVPRW_2026_paper.html",
+        "Reiji Saito, Satoshi Kamiya, Kazuhiro Hotta"
+      ],
+      [
+        "Are Anomaly Scores Telling the Whole Story? A Benchmark for Multilevel Anomaly Detection",
+        "content/CVPR2026W/VAND/html/Cao_Are_Anomaly_Scores_Telling_the_Whole_Story_A_Benchmark_for_CVPRW_2026_paper.html",
+        "Tri Cao, Minh-Huy Trinh, Ailin Deng, Quoc-Nam Nguyen, Khoa Duong, Ngai-Man Cheung, Bryan Hooi"
+      ]
+    ],
+    "MORSE": [
+      [
+        "VP-GIS: Zero-Shot Spatiotemporal Land Cover Change Detection via Physical-Guided Visual Prompting",
+        "content/CVPR2026W/MORSE/html/Putra_VP-GIS_Zero-Shot_Spatiotemporal_Land_Cover_Change_Detection_via_Physical-Guided_Visual_CVPRW_2026_paper.html",
+        "Muhamad Iqbal Januadi Putra, Atika Gustini, Muhammad Chaidir Haris, Edy Irwansyah, Raka Admiral Abdurrahman, Supriatna Supriatna, Vincent Alexander"
+      ],
+      [
+        "Asynchronous Remote Sensing Time-Series Fusion for Cloud Removal and Anytime Reconstruction",
+        "content/CVPR2026W/MORSE/html/Fallah_Asynchronous_Remote_Sensing_Time-Series_Fusion_for_Cloud_Removal_and_Anytime_CVPRW_2026_paper.html",
+        "Forouzan Fallah, Chia-Yu Hsu, Wenwen Li, Anna Liljedahl, Yezhou Yang"
+      ],
+      [
+        "GeoMeld: Toward Semantically Grounded Foundation Models for Remote Sensing",
+        "content/CVPR2026W/MORSE/html/Hasan_GeoMeld_Toward_Semantically_Grounded_Foundation_Models_for_Remote_Sensing_CVPRW_2026_paper.html",
+        "Maram Hasan, Md Aminur Hossain, Savitra Roy, Souparna Bhowmik, Ayush V. Patel, Mainak Singha, Subhasis Chaudhuri, Muhammad Haris Khan, Biplab Banerjee"
+      ],
+      [
+        "Geometry-Aware Coresets for Efficient Spatial Reasoning with Foundation Models in Low-Resource Remote Sensing",
+        "content/CVPR2026W/MORSE/html/Shinde_Geometry-Aware_Coresets_for_Efficient_Spatial_Reasoning_with_Foundation_Models_in_CVPRW_2026_paper.html",
+        "Tushar Shinde"
+      ],
+      [
+        "Open-Vocabulary Change Detection via Synthetic Examples and Grounded Visual Models",
+        "content/CVPR2026W/MORSE/html/Saha_Open-Vocabulary_Change_Detection_via_Synthetic_Examples_and_Grounded_Visual_Models_CVPRW_2026_paper.html",
+        "Sudipan Saha"
+      ],
+      [
+        "Effective-Dimension Control of b in Dirichlet b-VAE for Blind Hyperspectral Unmixing",
+        "content/CVPR2026W/MORSE/html/Doutsas_Effective-Dimension_Control_of_b_in_Dirichlet_b-VAE_for_Blind_Hyperspectral_CVPRW_2026_paper.html",
+        "Delphine Doutsas, Bruno Figliuzzi"
+      ],
+      [
+        "DINO Soars: DINOv3 for Open-Vocabulary Semantic Segmentation of Remote Sensing Imagery",
+        "content/CVPR2026W/MORSE/html/Faulkenberry_DINO_Soars_DINOv3_for_Open-Vocabulary_Semantic_Segmentation_of_Remote_Sensing_CVPRW_2026_paper.html",
+        "Ryan Faulkenberry, Saurabh Prasad"
+      ],
+      [
+        "VegSAM: Vegetation-aware Adapter for Segment Anything Model in Urban Tree Segmentation",
+        "content/CVPR2026W/MORSE/html/Wu_VegSAM_Vegetation-aware_Adapter_for_Segment_Anything_Model_in_Urban_Tree_CVPRW_2026_paper.html",
+        "Chenxiang Wu, Chenyu Li, Danfeng Hong"
+      ],
+      [
+        "Improving Visual Grounding in Remote Sensing Via Cluster-Guided Refinement and Model Ensemble Voting",
+        "content/CVPR2026W/MORSE/html/Shah_Improving_Visual_Grounding_in_Remote_Sensing_Via_Cluster-Guided_Refinement_and_CVPRW_2026_paper.html",
+        "Panav Shah, Geet Sethi, Ashutosh Gandhe"
+      ]
+    ],
+    "EarthVision": [
+      [
+        "THOR: A Versatile Foundation Model for Earth Observation Climate and Society Applications",
+        "content/CVPR2026W/EarthVision/html/Forgaard_THOR_A_Versatile_Foundation_Model_for_Earth_Observation_Climate_and_CVPRW_2026_paper.html",
+        "Theodor Forgaard, Jarle Reksten, Anders Waldeland, Valerio Marsocci, Nicolas Longepe, Michael Kampffmeyer, Arnt-Borre Salberg"
+      ],
+      [
+        "Conflated Inverse Modeling to Generate Diverse and Temperature-Change Inducing Urban Vegetation Patterns",
+        "content/CVPR2026W/EarthVision/html/Tezcan_Conflated_Inverse_Modeling_to_Generate_Diverse_and_Temperature-Change_Inducing_Urban_CVPRW_2026_paper.html",
+        "Baris Sarper Tezcan, Hrishikesh Viswanath, Rubab Saher, Daniel Aliaga"
+      ],
+      [
+        "Enabling Training-Free Text-Based Remote Sensing Segmentation",
+        "content/CVPR2026W/EarthVision/html/Sosa_Enabling_Training-Free_Text-Based_Remote_Sensing_Segmentation_CVPRW_2026_paper.html",
+        "Jose Sosa, Danila Rukhovich, Anis Kacem, Djamila Aouada"
+      ],
+      [
+        "Pretrain Where? Investigating How Pretraining Data Diversity Impacts Geospatial Foundation Model Performance",
+        "content/CVPR2026W/EarthVision/html/Kaur_Pretrain_Where_Investigating_How_Pretraining_Data_Diversity_Impacts_Geospatial_Foundation_CVPRW_2026_paper.html",
+        "Amandeep Kaur, Mirali Purohit, Gedeon Muhawenayo, Esther Rolf, Hannah Kerner"
+      ],
+      [
+        "Covariance Meets Context: Transformer-Based SAR Covariance Prediction Across Frequencies and Time",
+        "content/CVPR2026W/EarthVision/html/Basargin_Covariance_Meets_Context_Transformer-Based_SAR_Covariance_Prediction_Across_Frequencies_and_CVPRW_2026_paper.html",
+        "Nikita Basargin, Alberto Alonso-González, Irena Hajnsek"
+      ],
+      [
+        "MIRANDA: MId-feature RANk-adversarial Domain Adaptation toward climate change-robust ecological forecasting with deep learning",
+        "content/CVPR2026W/EarthVision/html/Jiang_MIRANDA_MId-feature_RANk-adversarial_Domain_Adaptation_toward_climate_change-robust_ecological_forecasting_CVPRW_2026_paper.html",
+        "Yuchang Jiang, Jan Dirk Wegner, Vivien Sainte Fare Garnot"
+      ],
+      [
+        "GeoGS: Geospatial Gaussian Splatting for Robust 3D Reconstruction from Sparse Satellite Imagery",
+        "content/CVPR2026W/EarthVision/html/Kim_GeoGS_Geospatial_Gaussian_Splatting_for_Robust_3D_Reconstruction_from_Sparse_CVPRW_2026_paper.html",
+        "Han-Gyeol Kim, Seonghyeon Yun, JaeWan Park, Darongsae Kwon"
+      ],
+      [
+        "Location Is All You Need: Continuous Spatiotemporal Neural Representations of Earth Observation Data",
+        "content/CVPR2026W/EarthVision/html/Madadikhaljan_Location_Is_All_You_Need_Continuous_Spatiotemporal_Neural_Representations_of_CVPRW_2026_paper.html",
+        "Mojgan Madadikhaljan, Jonathan Prexl, Isabelle Wittmann, Conrad M Albrecht, Michael Schmitt"
+      ],
+      [
+        "CAFOSat: A Strongly Annotated Dataset for Infrastructure-Aware CAFO Mapping Using High-Resolution Imagery",
+        "content/CVPR2026W/EarthVision/html/Hoque_CAFOSat_A_Strongly_Annotated_Dataset_for_Infrastructure-Aware_CAFO_Mapping_Using_CVPRW_2026_paper.html",
+        "Oishee Bintey Hoque, Nibir Chandra Mandal, Mandy Wilson, Samarth Swarup, Madhav Marathe, Abhijin Adiga"
+      ],
+      [
+        "CraterBench-R: Instance-Level Crater Retrieval for Planetary Scale",
+        "content/CVPR2026W/EarthVision/html/Fang_CraterBench-R_Instance-Level_Crater_Retrieval_for_Planetary_Scale_CVPRW_2026_paper.html",
+        "Jichao Fang, Lei Zhang, Michael Phillips, Wei Luo"
+      ],
+      [
+        "How to Embed Matters: Evaluation of EO Embedding Design Choices",
+        "content/CVPR2026W/EarthVision/html/Gilch_How_to_Embed_Matters_Evaluation_of_EO_Embedding_Design_Choices_CVPRW_2026_paper.html",
+        "Luis Gilch, Isabelle Wittmann, Maximilian Nitsche, Johannes Jakubik, Arne Ewald, Thomas Brunschwiler"
+      ],
+      [
+        "Beyond Conditional Diffusion: A Physics-Guided Diffusion Framework for Joint Forecasting of Physical Drivers and Multispectral Satellite Data",
+        "content/CVPR2026W/EarthVision/html/De_Falco_Beyond_Conditional_Diffusion_A_Physics-Guided_Diffusion_Framework_for_Joint_Forecasting_CVPRW_2026_paper.html",
+        "Francesca De Falco, Francesco Mauro, Andrea Ceschini, Alessandro Sebastianelli, Paolo Gamba, Silvia Liberata Ullo, Gabriele Meoni, Massimo Panella, Lorenzo Papa"
+      ],
+      [
+        "Rethinking Language Models for Building Outline Extraction from Remote Sensing Imagery",
+        "content/CVPR2026W/EarthVision/html/Qian_Rethinking_Language_Models_for_Building_Outline_Extraction_from_Remote_Sensing_CVPRW_2026_paper.html",
+        "Kuanren Qian, Yang He, Mohamed Moustafa"
+      ],
+      [
+        "Low-Data Supervised Adaptation Outperforms Prompting for Cloud Segmentation Under Domain Shift",
+        "content/CVPR2026W/EarthVision/html/Kethavath_Low-Data_Supervised_Adaptation_Outperforms_Prompting_for_Cloud_Segmentation_Under_Domain_CVPRW_2026_paper.html",
+        "Harshith Kethavath, Weiming Hu"
+      ],
+      [
+        "GlaSpectra: Data-Driven Spectral Learning for Ice Calving Front Forecasting",
+        "content/CVPR2026W/EarthVision/html/Putatunda_GlaSpectra_Data-Driven_Spectral_Learning_for_Ice_Calving_Front_Forecasting_CVPRW_2026_paper.html",
+        "Rohan Putatunda, Sanjay Purushotham, Ratnaksha Lele, Vandana P. Janeja"
+      ],
+      [
+        "50 Cities to visit before you classify - A world-wide multi-modal dataset for semantic segmentation of remote sensing imagery",
+        "content/CVPR2026W/EarthVision/html/Weitzel_50_Cities_to_visit_before_you_classify_-_A_world-wide_CVPRW_2026_paper.html",
+        "Kenneth Weitzel, Bruno Zabielski, Johannes Heinrich, Ronny Hänsch"
+      ],
+      [
+        "SHRUG-FM: Reliability-Aware Foundation Models for Earth Observation",
+        "content/CVPR2026W/EarthVision/html/Gonzalez-Calabuig_SHRUG-FM_Reliability-Aware_Foundation_Models_for_Earth_Observation_CVPRW_2026_paper.html",
+        "Maria Gonzalez-Calabuig, Kai-Hendrik Cohrs, Vishal Nedungadi, Zuzanna Osika, Ruben Cartuyvels, Steffen Knoblauch, Joppe Massant, Shruti Nath, Patrick Ebel, Vasileios Sitokonstantinou"
+      ],
+      [
+        "Where Do Vision-Language Models Fail? World Scale Analysis for Image Country Geolocalization.",
+        "content/CVPR2026W/EarthVision/html/Bharadwaj_Where_Do_Vision-Language_Models_Fail_World_Scale_Analysis_for_Image_CVPRW_2026_paper.html",
+        "Siddhant Bharadwaj, Ashish Vashist, Fahimul Aleem, Shruti Vyas"
+      ],
+      [
+        "Sat2Sound: A Unified Framework for Zero-Shot Soundscape Mapping",
+        "content/CVPR2026W/EarthVision/html/Khanal_Sat2Sound_A_Unified_Framework_for_Zero-Shot_Soundscape_Mapping_CVPRW_2026_paper.html",
+        "Subash Khanal, Srikumar Sastry, Aayush Dhakal, Adeel Ahmad, Abby Stylianou, Nathan Jacobs"
+      ],
+      [
+        "NeuCo-Bench: A Novel Benchmark Framework for Neural Embeddings in Earth Observation",
+        "content/CVPR2026W/EarthVision/html/Vinge_NeuCo-Bench_A_Novel_Benchmark_Framework_for_Neural_Embeddings_in_Earth_CVPRW_2026_paper.html",
+        "Rikard Vinge, Isabelle Wittmann, Jannik Schneider, Michael Marszalek, Luis Gilch, Thomas Brunschwiler, Conrad M Albrecht"
+      ],
+      [
+        "UniGeoCLIP: Unified Geospatial Contrastive Learning",
+        "content/CVPR2026W/EarthVision/html/Astruc_UniGeoCLIP_Unified_Geospatial_Contrastive_Learning_CVPRW_2026_paper.html",
+        "Guillaume Astruc, Eduard Trulls, Jan Hosang, Loic Landrieu, Paul-Edouard Sarlin"
+      ],
+      [
+        "Sub-Meter Canopy Height Models from Sentinel-2 via Generative Flow Matching",
+        "content/CVPR2026W/EarthVision/html/Ndegwa_Sub-Meter_Canopy_Height_Models_from_Sentinel-2_via_Generative_Flow_Matching_CVPRW_2026_paper.html",
+        "Kiarie Ndegwa"
+      ],
+      [
+        "A Proxy Consistency Loss for Grounded Fusion of Earth Observation and Location Encoders",
+        "content/CVPR2026W/EarthVision/html/Wang_A_Proxy_Consistency_Loss_for_Grounded_Fusion_of_Earth_Observation_CVPRW_2026_paper.html",
+        "Zhongying Wang, Kevin Lane, Levi Cai, Morteza Karimzadeh, Esther Rolf"
+      ],
+      [
+        "SatUnreal: A High-Precision Synthetic Dataset for Satellite Stereo Matching via Unreal Engine",
+        "content/CVPR2026W/EarthVision/html/Kim_SatUnreal_A_High-Precision_Synthetic_Dataset_for_Satellite_Stereo_Matching_via_CVPRW_2026_paper.html",
+        "Han-Gyeol Kim, JaeWan Park, Junmin Park, Darongsae Kwon"
+      ]
+    ],
+    "MaCVi": [
+      [
+        "Optimization-Diverse Transformer Adaptation with Gated Heterogeneous Fusion for Robust Thermal Object Detection",
+        "content/CVPR2026W/MaCVi/html/Tsai_Optimization-Diverse_Transformer_Adaptation_with_Gated_Heterogeneous_Fusion_for_Robust_Thermal_CVPRW_2026_paper.html",
+        "Chun-Ming Tsai, Jun-Wei Hsieh, Ming-Ching Chang"
+      ],
+      [
+        "LEMMA: Laplacian pyramids for Efficient Marine SeMAntic Segmentation",
+        "content/CVPR2026W/MaCVi/html/Gakhar_LEMMA_Laplacian_pyramids_for_Efficient_Marine_SeMAntic_Segmentation_CVPRW_2026_paper.html",
+        "Ishaan Gakhar, Laven Srivastava, Sankarshanaa Sagaram, Aditya Kasliwal, Ujjwal Verma"
+      ],
+      [
+        "Deployment Characterization of Onboard Computing Platforms for Underwater Visual Inference",
+        "content/CVPR2026W/MaCVi/html/Lee_Deployment_Characterization_of_Onboard_Computing_Platforms_for_Underwater_Visual_Inference_CVPRW_2026_paper.html",
+        "Jinseo Lee, Taewon Choi, Yonghyun Kim, Daesub Yoon, Hyunwoo Joe"
+      ],
+      [
+        "PS3Simulator: Physics-Parametrised Synthetic Sonar for Self-Supervised Sim-to-Real Transfer",
+        "content/CVPR2026W/MaCVi/html/S_PS3Simulator_Physics-Parametrised_Synthetic_Sonar_for_Self-Supervised_Sim-to-Real_Transfer_CVPRW_2026_paper.html",
+        "Kamal Basha S, Athira Nambiar"
+      ],
+      [
+        "Real-Time Fusion of Visual and Chart Data for Enhanced Maritime Vision",
+        "content/CVPR2026W/MaCVi/html/Kreis_Real-Time_Fusion_of_Visual_and_Chart_Data_for_Enhanced_Maritime_CVPRW_2026_paper.html",
+        "Marten Kreis, Dominik Hildebrand, Mahmut Karaaslan, Rafia Rahim, Andreas Zell, Ersin Kaya, Benjamin Kiefer"
+      ],
+      [
+        "Skyline-Aware ROI-Calibrated Buoy Association for Vision-to-Chart Data Association",
+        "content/CVPR2026W/MaCVi/html/Jo_Skyline-Aware_ROI-Calibrated_Buoy_Association_for_Vision-to-Chart_Data_Association_CVPRW_2026_paper.html",
+        "Wonwoo Jo, Hyewon Chun, Sangmun Lee"
+      ],
+      [
+        "A unified Benchmark for Multi-Frame Image Restoration under Severe Refractive Warping",
+        "content/CVPR2026W/MaCVi/html/Shugaev_A_unified_Benchmark_for_Multi-Frame_Image_Restoration_under_Severe_Refractive_CVPRW_2026_paper.html",
+        "Maxim V. Shugaev, Md Reshad Ul Hoque, Bridget Kennedy, Joseph T. Riley, Fiona Hwang, Justin Hagen, Harvir Ghuman, Ethan Garcia-O&#x27;Donnell, Syed Noor Qadri, Freddie Santiago, Mun Wai Lee"
+      ],
+      [
+        "Mine-JEPA: In-Domain Self-Supervised Learning for Mine-Like Object Classification in Side-Scan Sonar",
+        "content/CVPR2026W/MaCVi/html/Kwon_Mine-JEPA_In-Domain_Self-Supervised_Learning_for_Mine-Like_Object_Classification_in_Side-Scan_CVPRW_2026_paper.html",
+        "Taeyoun Kwon, Youngwon Choi, Hyeonyu Kim, Myeongkyun Cho, Junhyeok Choi, Moon Hwan Kim"
+      ],
+      [
+        "Improving Thing Segmentation for USV Panoptic Scene Understanding with Detector-Guided Class-Specific Refinement",
+        "content/CVPR2026W/MaCVi/html/Chun_Improving_Thing_Segmentation_for_USV_Panoptic_Scene_Understanding_with_Detector-Guided_CVPRW_2026_paper.html",
+        "Hyewon Chun, Wonwoo Jo, Sangmun Lee"
+      ],
+      [
+        "IALA-10: A Benchmark for Fine-Grained Maritime Buoy Classification Aligned with the Maritime Buoyage System",
+        "content/CVPR2026W/MaCVi/html/Augustin_IALA-10_A_Benchmark_for_Fine-Grained_Maritime_Buoy_Classification_Aligned_with_CVPRW_2026_paper.html",
+        "Jan Lukas Augustin, Oliver Niggemann"
+      ],
+      [
+        "Real-Time Radar--Vision Association via Monocular Distance Estimation",
+        "content/CVPR2026W/MaCVi/html/Kiefer_Real-Time_Radar--Vision_Association_via_Monocular_Distance_Estimation_CVPRW_2026_paper.html",
+        "Benjamin Kiefer, Dominik Hildebrand, Rafia Rahim, Mahmut Karaaslan, Michael DeFilippo, Ersin Kaya, Andreas Zell"
+      ],
+      [
+        "Monocular Metric Distance Estimation in Maritime Scenes via Reference-Based Scale Recovery",
+        "content/CVPR2026W/MaCVi/html/Pizzicoli_Monocular_Metric_Distance_Estimation_in_Maritime_Scenes_via_Reference-Based_Scale_CVPRW_2026_paper.html",
+        "Nazario Pizzicoli, Matej Fabijanić, Guido Lazzerini, Alessandro Ridolfi, Fausto Ferreira"
+      ],
+      [
+        "Towards Robust Object Detection in Underwater Sonar Imagery: A Cross-Modality Transfer Learning Study Leveraging RGB, FLS, and SAS Data",
+        "content/CVPR2026W/MaCVi/html/Auer_Towards_Robust_Object_Detection_in_Underwater_Sonar_Imagery_A_Cross-Modality_CVPRW_2026_paper.html",
+        "Franziska Auer, Tobias Meisen, Heeraj Ayyappan"
+      ],
+      [
+        "4th Workshop on Maritime Computer Vision (MaCVi): Challenge Overview",
+        "content/CVPR2026W/MaCVi/html/Kiefer_4th_Workshop_on_Maritime_Computer_Vision_MaCVi_Challenge_Overview_CVPRW_2026_paper.html",
+        "Benjamin Kiefer, Jan Lukas Augustin, Jon Muhovič, Mingi Jeong, Arnold Wiliem, Janez Pers, Matej Kristan, Alberto Quattrini Li, Matija Teršek, Josip Šarić, Arpita Vats, Dominik Hildebrand, Rafia Rahim, Mahmut Karaaslan, Ersin Kaya, Akib Mashrur, Tze-Hsiang Tang, Chun-Ming Tsai, Jun-Wei Hsieh, Ming-Ching Chang, Wonwoo Jo, Doyeon Lee, Yusi Cao, Lingling Li, Vinayak Nageli, Arshad Jamal, Gorthi Rama Krishna Sai Subrahmanyam, Jemo Maeng, Seongju Lee, Kyoobin Lee, Xu Liu, Licheng Jiao, Jannik Sheikh, Martin Weinmann, Ivan Martinović, Jose Mateus Raitz Persch, Rahul Harsha Cheppally, Mehmet E Belviranli, Dimitris Gahtidis, Hyewon Chun, Sangmun Lee, Philipp Gorczak, Hansol Kim, Jeeyeon Jeon, Borja Carrillo Perez, Jiahui Wang, Sangmin Park, Andreas Michel, Jannick Kuester, Bettina Felten, Wolfgang Gross, Yuan Feng, Justin Davis"
+      ],
+      [
+        "Thermal-Adapted RF-DETR with Skyline-Guided Filtering and Cross-Scale Fusion for Maritime Thermal Object Detection",
+        "content/CVPR2026W/MaCVi/html/Jo_Thermal-Adapted_RF-DETR_with_Skyline-Guided_Filtering_and_Cross-Scale_Fusion_for_Maritime_CVPRW_2026_paper.html",
+        "Wonwoo Jo, Hyewon Chun, Sangmun Lee"
+      ]
+    ],
+    "OpenSUN3D": [
+      [
+        "Efficient Structure-Guided 3D Physical Property Reasoning",
+        "content/CVPR2026W/OpenSUN3D/html/Lan_Efficient_Structure-Guided_3D_Physical_Property_Reasoning_CVPRW_2026_paper.html",
+        "Hongbo Lan, Zhenlin An, Haoyu Li, Vaibhav Singh, Longfei Shangguan"
+      ],
+      [
+        "EdgeSplats: Robust 3D Edge Reconstruction for In-The-Wild Data",
+        "content/CVPR2026W/OpenSUN3D/html/Canini_EdgeSplats_Robust_3D_Edge_Reconstruction_for_In-The-Wild_Data_CVPRW_2026_paper.html",
+        "Benjamin Canini, Richard Bowden, Yi-Zhe Song"
+      ],
+      [
+        "AViON4D: Audio-Visual Open-Vocabulary 4D Egocentric Scene Understanding",
+        "content/CVPR2026W/OpenSUN3D/html/Ballester_AViON4D_Audio-Visual_Open-Vocabulary_4D_Egocentric_Scene_Understanding_CVPRW_2026_paper.html",
+        "Irene Ballester, Pedro Hermosilla, Wei Lin, James R. Glass, M. Jehanzeb Mirza, Martin Kampel"
+      ],
+      [
+        "A Cookbook of 3D Vision: Data, Learning Paradigms, and Application",
+        "content/CVPR2026W/OpenSUN3D/html/Du_A_Cookbook_of_3D_Vision_Data_Learning_Paradigms_and_Application_CVPRW_2026_paper.html",
+        "Hongyang Du, Zongxia Li, Dawei Liu, Runhao Li, Haoyuan Song, Qingyu Zhang, Yubo Wang, Jingcheng Ni, Shihang Gui, Congchao Dong, Tao Hu"
+      ]
+    ],
+    "MUV": [
+      [
+        "TIU-ReID: Target Identity Unlearning for Person Re-Identification",
+        "content/CVPR2026W/MUV/html/Chen_TIU-ReID_Target_Identity_Unlearning_for_Person_Re-Identification_CVPRW_2026_paper.html",
+        "Jingong Chen, Dongyoun Kim, Chulwoo Pack, Jun Huang, Kwanghee Won"
+      ],
+      [
+        "RUB: Evaluating Residual Knowledge in Unlearned Models",
+        "content/CVPR2026W/MUV/html/Xuan_RUB_Evaluating_Residual_Knowledge_in_Unlearned_Models_CVPRW_2026_paper.html",
+        "Hao Xuan, Xingyu Li"
+      ],
+      [
+        "Evaluating and Enhancing Generative Model Unlearning with LLM World Knowledge",
+        "content/CVPR2026W/MUV/html/Mahan_Evaluating_and_Enhancing_Generative_Model_Unlearning_with_LLM_World_Knowledge_CVPRW_2026_paper.html",
+        "Scott Mahan, Eric Yeats, Darryl Hannan, Henry Kvinge, Timothy Doster, Wilson Fearn"
+      ],
+      [
+        "Class Unlearning via Depth-Aware Removal of Forget-Specific Directions",
+        "content/CVPR2026W/MUV/html/Hatami_Class_Unlearning_via_Depth-Aware_Removal_of_Forget-Specific_Directions_CVPRW_2026_paper.html",
+        "Arman Hatami, Romina Aalishah, Ilya E. Monosov"
+      ],
+      [
+        "Machine Unlearning in Computer Vision: Survey of Methods from Discriminative to Generative Foundation Models",
+        "content/CVPR2026W/MUV/html/Safavigerdini_Machine_Unlearning_in_Computer_Vision_Survey_of_Methods_from_Discriminative_CVPRW_2026_paper.html",
+        "Kaveh Safavigerdini, Juan Mogollon, Amirreza Daghighi, Kannappan Palaniappan"
+      ]
+    ],
+    "AIMS": [
+      [
+        "DiffusionPrint: Learning Generative Fingerprints for Diffusion-Based Inpainting Localization",
+        "content/CVPR2026W/AIMS/html/Giakoumoglou_DiffusionPrint_Learning_Generative_Fingerprints_for_Diffusion-Based_Inpainting_Localization_CVPRW_2026_paper.html",
+        "Paschalis Giakoumoglou, Symeon Papadopoulos"
+      ],
+      [
+        "The Deployment Gap in AI Media Detection: Platform-Aware and Visually Constrained Adversarial Evaluation",
+        "content/CVPR2026W/AIMS/html/Budhkar_The_Deployment_Gap_in_AI_Media_Detection_Platform-Aware_and_Visually_CVPRW_2026_paper.html",
+        "Aishwarya Budhkar, Trishita Dhara, Siddhesh Sheth"
+      ],
+      [
+        "Evidence-Based Actor-Verifier Reasoning for Echocardiographic Agents",
+        "content/CVPR2026W/AIMS/html/Huang_Evidence-Based_Actor-Verifier_Reasoning_for_Echocardiographic_Agents_CVPRW_2026_paper.html",
+        "Peng Huang, Yiming Wang, Yineng Chen, Liangqiao Gui, Hui Guo, Bo Peng, Shu Hu, Xi Wu, Tsao Connie, Hongtu Zhu, Balakrishnan Prabhakaran, Xin Wang"
+      ],
+      [
+        "From Pixels to Privacy: Temporally Consistent Video Anonymization via Token Pruning for Privacy Preserving Action Recognition",
+        "content/CVPR2026W/AIMS/html/Aslam_From_Pixels_to_Privacy_Temporally_Consistent_Video_Anonymization_via_Token_CVPRW_2026_paper.html",
+        "Nazia Aslam, Abhisek Ray, Joakim Bruslund Haurum, Lukus Esterle, Kamal Nasrollahi"
+      ],
+      [
+        "Robust Multi-Source Covid-19 Detection in CT Images",
+        "content/CVPR2026W/AIMS/html/Pritha_Robust_Multi-Source_Covid-19_Detection_in_CT_Images_CVPRW_2026_paper.html",
+        "Asmita Yuki Pritha, Jason Xu, Daniel Ding, Justin Li, Aryana Hou, Xin Wang, Shu Hu"
+      ],
+      [
+        "Resolving Objective Collision in Multi-Domain Provenance with Synergistic Dual-Layer Watermarking",
+        "content/CVPR2026W/AIMS/html/Yu_Resolving_Objective_Collision_in_Multi-Domain_Provenance_with_Synergistic_Dual-Layer_Watermarking_CVPRW_2026_paper.html",
+        "Jesse Yu"
+      ],
+      [
+        "Weight Group-wise Post-Training Quantization for Medical Foundation Model",
+        "content/CVPR2026W/AIMS/html/Chen_Weight_Group-wise_Post-Training_Quantization_for_Medical_Foundation_Model_CVPRW_2026_paper.html",
+        "Yineng Chen, Peng Huang, Aozhong Zhang, Hui Guo, Penghang Yin, Shu Hu, Shao Lin, Xin Li, Tzu-Jen Kao, Balakrishnan Prabhakaran, MingChing Chang, Xin Wang"
+      ],
+      [
+        "From Spatial to Frequency: Breaking Compressed AIGC-IQA with Imperceptible Attacks",
+        "content/CVPR2026W/AIMS/html/Shinde_From_Spatial_to_Frequency_Breaking_Compressed_AIGC-IQA_with_Imperceptible_Attacks_CVPRW_2026_paper.html",
+        "Tushar Shinde"
+      ],
+      [
+        "On the Role of Vision and Language in Harmful Response Generation: A Component-wise Unlearning Study in Multimodal LLMs",
+        "content/CVPR2026W/AIMS/html/Jain_On_the_Role_of_Vision_and_Language_in_Harmful_Response_CVPRW_2026_paper.html",
+        "Poornima Jain, Sairam VCR, Vineeth N Balasubramanian"
+      ],
+      [
+        "SynthGuard: An Open Platform for Detecting AI-Generated Multimedia with Multimodal LLMs",
+        "content/CVPR2026W/AIMS/html/Desai_SynthGuard_An_Open_Platform_for_Detecting_AI-Generated_Multimedia_with_Multimodal_CVPRW_2026_paper.html",
+        "Shail Desai, Aditya Pawar, Li Lin, Xin Wang, Shu Hu"
+      ],
+      [
+        "Efficient Domain-Incremental Deepfake Detection via Difficulty-Aware Curriculum Learning",
+        "content/CVPR2026W/AIMS/html/Park_Efficient_Domain-Incremental_Deepfake_Detection_via_Difficulty-Aware_Curriculum_Learning_CVPRW_2026_paper.html",
+        "Hayoung Park, Jinhee Park, Choongsang Cho, Guisik Kim"
+      ],
+      [
+        "Forensic Rewiring: Circuit-Level Shortcut Suppression for Generalizable Deepfake Detection",
+        "content/CVPR2026W/AIMS/html/A_Forensic_Rewiring_Circuit-Level_Shortcut_Suppression_for_Generalizable_Deepfake_Detection_CVPRW_2026_paper.html",
+        "Nishitha A, Rachit Verma, Bhaskarjyoti Das"
+      ],
+      [
+        "From Pixels to Identity: Biometric Subspace Guidance for Diffusion-Based Face Restoration",
+        "content/CVPR2026W/AIMS/html/Dosi_From_Pixels_to_Identity_Biometric_Subspace_Guidance_for_Diffusion-Based_Face_CVPRW_2026_paper.html",
+        "Muskan Dosi, Sirin Changulani, Sonam Sikarwar, Arpita Deshmukh, Chiranjeev Chiranjeev, Mayank Vatsa, Richa Singh"
+      ],
+      [
+        "Robust Fair Disease Diagnosis in CT Images",
+        "content/CVPR2026W/AIMS/html/Li_Robust_Fair_Disease_Diagnosis_in_CT_Images_CVPRW_2026_paper.html",
+        "Justin Li, Daniel Ding, Asmita Yuki Pritha, Aryana Hou, Xin Wang, Shu Hu"
+      ],
+      [
+        "Traces Left Behind: Deepfake Detection Under the Lens of Iterative Generation",
+        "content/CVPR2026W/AIMS/html/Bhattacharya_Traces_Left_Behind_Deepfake_Detection_Under_the_Lens_of_Iterative_CVPRW_2026_paper.html",
+        "Poulomi Bhattacharya, Akshay Agarwal, Nalini Ratha"
+      ],
+      [
+        "The Synthetic Media Shift: Tracking the Rise, Virality, and Detectability of AI-Generated Multimodal Misinformation",
+        "content/CVPR2026W/AIMS/html/Chrysidis_The_Synthetic_Media_Shift_Tracking_the_Rise_Virality_and_Detectability_CVPRW_2026_paper.html",
+        "Zacharias Chrysidis, Stefanos-Iordanis Papadopoulos, Symeon Papadopoulos"
+      ],
+      [
+        "Low-Effort Jailbreak Attacks Against Text-to-Image Safety Filters",
+        "content/CVPR2026W/AIMS/html/Mustafa_Low-Effort_Jailbreak_Attacks_Against_Text-to-Image_Safety_Filters_CVPRW_2026_paper.html",
+        "Ahmed B Mustafa, Zihan Ye, Yang Lu, Michael P Pound, Shreyank N Gowda"
+      ],
+      [
+        "Only What's Necessary: Pareto-Optimal Data Minimization for Privacy Preserving Video Anomaly Detection",
+        "content/CVPR2026W/AIMS/html/Aslam_Only_Whats_Necessary_Pareto-Optimal_Data_Minimization_for_Privacy_Preserving_Video_CVPRW_2026_paper.html",
+        "Nazia Aslam, Abhisek Ray, Thomas B. Moeslund, Kamal Nasrollahi"
+      ]
+    ],
+    "SAUAFG": [
+      [
+        "Efficient and Intrinsically Interpretable Spatiotemporal Transformer with Gated Fusion for Group Activity Recognition",
+        "content/CVPR2026W/SAUAFG/html/Sivalingam_Efficient_and_Intrinsically_Interpretable_Spatiotemporal_Transformer_with_Gated_Fusion_for_CVPRW_2026_paper.html",
+        "Narthana Sivalingam, Santhirarajah Sivasthigan, Roshan Godaliyadda, Vijitha Herath, Parakrama Ekanayake"
+      ],
+      [
+        "Distance-Aware Attention for Surgical Task Classification with Video Transformers",
+        "content/CVPR2026W/SAUAFG/html/Tierney_Distance-Aware_Attention_for_Surgical_Task_Classification_with_Video_Transformers_CVPRW_2026_paper.html",
+        "Jessica Tierney, Soumee Guha, Zheyuan Zhang, Payton Miller, Noosha Deravi, Yichuan Yan, Dimitrios Stefanidis, Scott Acton, Fiona Kolbinger"
+      ],
+      [
+        "Behavior-Based Skill Assessment for Open Surgery from Multi-View and Egocentric Videos",
+        "content/CVPR2026W/SAUAFG/html/Miao_Behavior-Based_Skill_Assessment_for_Open_Surgery_from_Multi-View_and_Egocentric_CVPRW_2026_paper.html",
+        "Qiaomu Miao, Jonathan Price, Apostolos Tassiopoulos, Dimitris Samaras"
+      ],
+      [
+        "Combining Boundary Supervision and Segment-Level Regularization for Fine-Grained Action Segmentation",
+        "content/CVPR2026W/SAUAFG/html/Mitsuoka_Combining_Boundary_Supervision_and_Segment-Level_Regularization_for_Fine-Grained_Action_Segmentation_CVPRW_2026_paper.html",
+        "Hinako Mitsuoka, Kazuhiro Hotta"
+      ],
+      [
+        "DiagHOI: A Diagnostic Benchmark for Human-Object Interaction Detection",
+        "content/CVPR2026W/SAUAFG/html/Wang_DiagHOI_A_Diagnostic_Benchmark_for_Human-Object_Interaction_Detection_CVPRW_2026_paper.html",
+        "Lemeng Wang, Qinqian Lei, Vidhi Bakshi, Daniel Yi, Yifan Liu, Jiacheng Hou, Asher Seng Hao, Zheda Mai, Wei-Lun Chao, Robby T. Tan, Bo Wang"
+      ],
+      [
+        "Learning Coach's Tactics: Skill-aware Readiness Modeling for Interactive Badminton Training",
+        "content/CVPR2026W/SAUAFG/html/Sung_Learning_Coachs_Tactics_Skill-aware_Readiness_Modeling_for_Interactive_Badminton_Training_CVPRW_2026_paper.html",
+        "Tzu-Yu Sung, Wang-Lin Tsai, Cheng-Kuan Lin, Yu-Chee Tseng"
+      ],
+      [
+        "Can Vision Language Models Judge Action Quality? An Empirical Evaluation",
+        "content/CVPR2026W/SAUAFG/html/Monte_e_Freitas_Can_Vision_Language_Models_Judge_Action_Quality_An_Empirical_Evaluation_CVPRW_2026_paper.html",
+        "Miguel Monte e Freitas, Rui Henriques, Ricardo Rei, Pedro Henrique Martins"
+      ],
+      [
+        "EgoIndAssembly: Diagnosing Fine-Grained Temporal Hand Reasoning in Vision-Language Models for Skilled Assembly",
+        "content/CVPR2026W/SAUAFG/html/Sasaki_EgoIndAssembly_Diagnosing_Fine-Grained_Temporal_Hand_Reasoning_in_Vision-Language_Models_for_CVPRW_2026_paper.html",
+        "Tatsuya Sasaki"
+      ],
+      [
+        "Sports Form Anomaly Detection Using Skeleton-PatchCore",
+        "content/CVPR2026W/SAUAFG/html/Shirai_Sports_Form_Anomaly_Detection_Using_Skeleton-PatchCore_CVPRW_2026_paper.html",
+        "Seiya Shirai, Kazuhiro Hotta"
+      ],
+      [
+        "DUAL-Pose: Efficient Dual-Branch Graph Networks for Skeleton-Based Yoga Pose Recognition",
+        "content/CVPR2026W/SAUAFG/html/P_DUAL-Pose_Efficient_Dual-Branch_Graph_Networks_for_Skeleton-Based_Yoga_Pose_Recognition_CVPRW_2026_paper.html",
+        "Rashi Niyas P, Hitika Tiwari, Tushar Shinde"
+      ],
+      [
+        "Structured Relational Reasoning for Group Activity Assessment",
+        "content/CVPR2026W/SAUAFG/html/Ponbagavathi_Structured_Relational_Reasoning_for_Group_Activity_Assessment_CVPRW_2026_paper.html",
+        "Thinesh Thiyakesan Ponbagavathi, Chengzheng Yang, Alina Roitberg"
+      ]
+    ],
+    "AI4RWC": [
+      [
+        "Event-Level Detection of Surgical Instrument Handovers in Videos with Interpretable Vision Model",
+        "content/CVPR2026W/AI4RWC/html/Katsarou_Event-Level_Detection_of_Surgical_Instrument_Handovers_in_Videos_with_Interpretable_CVPRW_2026_paper.html",
+        "Katerina Katsarou, George Zountsas, Karam Tomotaki-Dawoud, Alex Ehrenhoefer, Paul Chojecki, David Przewozny, Detlef Runde, Igor Maximilian Sauer, Amira Mouakher, Sebastian Bosse"
+      ],
+      [
+        "SinSEMI: A One-Shot Image Generation Model and Data-Efficient Evaluation Framework for Semiconductor Inspection Equipment",
+        "content/CVPR2026W/AI4RWC/html/Wu_SinSEMI_A_One-Shot_Image_Generation_Model_and_Data-Efficient_Evaluation_Framework_CVPRW_2026_paper.html",
+        "ChunLiang Wu, Xiaochun Li"
+      ],
+      [
+        "How CT Window Configurations Affect the Grading Performance of 3D Radiology diagnostics",
+        "content/CVPR2026W/AI4RWC/html/Peng_How_CT_Window_Configurations_Affect_the_Grading_Performance_of_3D_CVPRW_2026_paper.html",
+        "Bo Peng, Chao Xu, Boyu Chen, Daqian Shi"
+      ],
+      [
+        "Improving Efficiency and Reliability of Computer Vision Models in Real-World Deployment with MX Quantization",
+        "content/CVPR2026W/AI4RWC/html/Wen_Improving_Efficiency_and_Reliability_of_Computer_Vision_Models_in_Real-World_CVPRW_2026_paper.html",
+        "Jinghao Wen, Ruixuan Wang, Shaohuang Wang, Xun Jiao"
+      ],
+      [
+        "SynthPID: P&ID digitization from Topology-Preserving Synthetic Data",
+        "content/CVPR2026W/AI4RWC/html/Prasad_SynthPID_PID_digitization_from_Topology-Preserving_Synthetic_Data_CVPRW_2026_paper.html",
+        "Suraj Prasad, Pinak Mahapatra"
+      ],
+      [
+        "Boxes2Pixels: Learning Defect Segmentation from Noisy SAM Masks",
+        "content/CVPR2026W/AI4RWC/html/Lendering_Boxes2Pixels_Learning_Defect_Segmentation_from_Noisy_SAM_Masks_CVPRW_2026_paper.html",
+        "Camile Lendering, Erkut Akdag, Egor Bondarau"
+      ],
+      [
+        "Towards AI Alignment for Medical Imaging: A Unified Framework for Cross-Modal Fairness, Uncertainty Quantification, and Robustness",
+        "content/CVPR2026W/AI4RWC/html/Patra_Towards_AI_Alignment_for_Medical_Imaging_A_Unified_Framework_for_CVPRW_2026_paper.html",
+        "Arijit Patra"
+      ],
+      [
+        "Cross-Source Supervision for Bone Infection Segmentation in Dual-Modality PET-CT",
+        "content/CVPR2026W/AI4RWC/html/Yang_Cross-Source_Supervision_for_Bone_Infection_Segmentation_in_Dual-Modality_PET-CT_CVPRW_2026_paper.html",
+        "Zonglin Yang, Xiaolei Diao, Jishizhan Chen, Man Xiaozhuang, Wei Kong, Gen Wen, Pengfei Cheng, Daqian Shi"
+      ],
+      [
+        "Log-Gated Dual-Path Conditioning Framework for Multimodal Geological Core Image Generation",
+        "content/CVPR2026W/AI4RWC/html/Shi_Log-Gated_Dual-Path_Conditioning_Framework_for_Multimodal_Geological_Core_Image_Generation_CVPRW_2026_paper.html",
+        "Daqian Shi, Cedric M John"
+      ],
+      [
+        "Zero-Shot Polyp Detection in Open-World Endoscopy via A Cascaded Detector-Verifier Framework",
+        "content/CVPR2026W/AI4RWC/html/Xu_Zero-Shot_Polyp_Detection_in_Open-World_Endoscopy_via_A_Cascaded_Detector-Verifier_CVPRW_2026_paper.html",
+        "Shengkai Xu, Junqiao Wang, Kunyu Wu, Yimeng Wan, Yuqi Ouyang"
+      ],
+      [
+        "Z-IRIS: Zero-Shot Road Presence Detection in Aerial Tiles via Segment Proposals and Vision-Language Scoring",
+        "content/CVPR2026W/AI4RWC/html/Horvath_Z-IRIS_Zero-Shot_Road_Presence_Detection_in_Aerial_Tiles_via_Segment_CVPRW_2026_paper.html",
+        "Janos Horvath"
+      ],
+      [
+        "Stop Position Ranking: Safety Benchmarking of Automated Drive Systems for Picking up Passengers",
+        "content/CVPR2026W/AI4RWC/html/Margueritte_Stop_Position_Ranking_Safety_Benchmarking_of_Automated_Drive_Systems_for_CVPRW_2026_paper.html",
+        "Gaëtan Margueritte, Pacharapon Arpanantikul, Anirudh Kondapally, Benedict Magnus Runte, Kentaro Yamada, Hitomi Yanaka"
+      ],
+      [
+        "MOTOR-Bench: A Real-world Dataset and Multi-agent Framework for Zero-shot Human Mental State Understanding",
+        "content/CVPR2026W/AI4RWC/html/Yuan_MOTOR-Bench_A_Real-world_Dataset_and_Multi-agent_Framework_for_Zero-shot_Human_CVPRW_2026_paper.html",
+        "Xiaoyu Yuan, Niklas Heikkala, Tiina Törmänen, Hanna Järvenoja, Guoying Zhao, Haoyu Chen"
+      ],
+      [
+        "VisChainBench: Benchmarking Multi-Image, Multi-Turn Visual Reasoning Beyond Language Priors for Real-World AI Challenges",
+        "content/CVPR2026W/AI4RWC/html/Lyu_VisChainBench_Benchmarking_Multi-Image_Multi-Turn_Visual_Reasoning_Beyond_Language_Priors_for_CVPRW_2026_paper.html",
+        "Wenbo Lyu, Yingjun Du, Jinglin Zhao, Xiantong Zhen, Ling Shao"
+      ],
+      [
+        "GazeVLM: A Vision-Language Model for Multi-Task Gaze Understanding",
+        "content/CVPR2026W/AI4RWC/html/Mathew_GazeVLM_A_Vision-Language_Model_for_Multi-Task_Gaze_Understanding_CVPRW_2026_paper.html",
+        "Athul M Mathew, Haithem Hermassi, Thariq Kadavil, Arshad Ali Khan"
+      ],
+      [
+        "Refining Image-to-3D Foundation Models via Geometric Supervision for Industrial Plant Reconstruction",
+        "content/CVPR2026W/AI4RWC/html/Lee_Refining_Image-to-3D_Foundation_Models_via_Geometric_Supervision_for_Industrial_Plant_CVPRW_2026_paper.html",
+        "SangEun Lee, Wonseok Chae, Hoyoung Yoo, Geunyong Kim, NackWoo Kim, Hyeonjin Kim"
+      ],
+      [
+        "Opinion Mining and Dynamic Topic Modeling in Streaming Public Discourse with LLMs",
+        "content/CVPR2026W/AI4RWC/html/Bo_Opinion_Mining_and_Dynamic_Topic_Modeling_in_Streaming_Public_Discourse_CVPRW_2026_paper.html",
+        "Rite Bo, Deming Guo, Hongda Zhang, Zhiqi Zhang, Lida Shi, Hao Xu, Daqian Shi"
+      ],
+      [
+        "DRCoD: Toward Robust Continual Learning of Diffusion Models for Tire Manufacturing Prototyping",
+        "content/CVPR2026W/AI4RWC/html/Shin_DRCoD_Toward_Robust_Continual_Learning_of_Diffusion_Models_for_Tire_CVPRW_2026_paper.html",
+        "Jisu Shin, Sol Lee, Sungrae Hong, A young Kim, Youngbin You, Jeongheon Park, Jungsoo Oh, Mun Yi"
+      ],
+      [
+        "From Pixels to Semantics: A Multi-Stage AI Framework for Structural Damage Detection in Satellite Imagery",
+        "content/CVPR2026W/AI4RWC/html/Shakya_From_Pixels_to_Semantics_A_Multi-Stage_AI_Framework_for_Structural_CVPRW_2026_paper.html",
+        "Bijay Shakya, Catherine Hoier, Khandaker Mamun Ahmed"
+      ],
+      [
+        "HyperRealm: Hyperbolic Vision Language Models for Real-World Hierarchical Multimodal Understanding",
+        "content/CVPR2026W/AI4RWC/html/Srivastava_HyperRealm_Hyperbolic_Vision_Language_Models_for_Real-World_Hierarchical_Multimodal_Understanding_CVPRW_2026_paper.html",
+        "Sarthak Srivastava, Kathy Wu"
+      ],
+      [
+        "Omni-NegCLIP: Enhancing CLIP with Front-Layer Contrastive Fine-Tuning for Comprehensive Negation Understanding",
+        "content/CVPR2026W/AI4RWC/html/Xu_Omni-NegCLIP_Enhancing_CLIP_with_Front-Layer_Contrastive_Fine-Tuning_for_Comprehensive_Negation_CVPRW_2026_paper.html",
+        "Jingqi Xu"
+      ],
+      [
+        "RAG4Outcome: A Retrieval-Augmented Multimodal Framework for Prognostic Prediction in Chronic Osteomyelitis",
+        "content/CVPR2026W/AI4RWC/html/Shi_RAG4Outcome_A_Retrieval-Augmented_Multimodal_Framework_for_Prognostic_Prediction_in_Chronic_CVPRW_2026_paper.html",
+        "Daqian Shi, Pei Han, Jishizhan Chen, Yang Wang, Xiaolei Diao, Xianyou Zheng, Pengfei Cheng"
+      ],
+      [
+        "Ultrasound-led stratification of carpal tunnel syndrome reveals structure-function mismatch",
+        "content/CVPR2026W/AI4RWC/html/Chen_Ultrasound-led_stratification_of_carpal_tunnel_syndrome_reveals_structure-function_mismatch_CVPRW_2026_paper.html",
+        "Jishizhan Chen, Daqian Shi, Jiaqi Su, Xiaohai Huang, Yun Qian"
+      ],
+      [
+        "Crowdsourcing of Real-world Image Annotation via Visual Properties",
+        "content/CVPR2026W/AI4RWC/html/Diao_Crowdsourcing_of_Real-world_Image_Annotation_via_Visual_Properties_CVPRW_2026_paper.html",
+        "Xiaolei Diao, Fausto Giunchiglia"
+      ],
+      [
+        "Layout-Aware Representation Learning for Open-Set ID Fraud Discovery",
+        "content/CVPR2026W/AI4RWC/html/Li_Layout-Aware_Representation_Learning_for_Open-Set_ID_Fraud_Discovery_CVPRW_2026_paper.html",
+        "Jinxing Li, Nicholas Ren, Cathy Chang, Hongkai Pan, Daniel George"
+      ],
+      [
+        "AOI-SSL: Self-Supervised Framework for Efficient Segmentation of Wire-bonded Semiconductors In Optical Inspection",
+        "content/CVPR2026W/AI4RWC/html/Figueira_AOI-SSL_Self-Supervised_Framework_for_Efficient_Segmentation_of_Wire-bonded_Semiconductors_In_CVPRW_2026_paper.html",
+        "Joaquín Figueira, Rob van Gastel, Giacomo D&#x27;Amicantonio, Zhuoran Liu, Ioan Gabriel Bucur, Faysal Boughorbel, Egor Bondarev"
+      ],
+      [
+        "Zero-Shot Chinese Character Recognition via Global-Local Dual-Branch Alignment and Hierarchical Inference",
+        "content/CVPR2026W/AI4RWC/html/Cao_Zero-Shot_Chinese_Character_Recognition_via_Global-Local_Dual-Branch_Alignment_and_Hierarchical_CVPRW_2026_paper.html",
+        "Wei Cao, Hao Xu, Xiaolei Diao"
+      ],
+      [
+        "Look, Reason, Defuse: Bridging Perception and Domain Knowledge for Real-World Unexploded Ordnance Identification",
+        "content/CVPR2026W/AI4RWC/html/Craioveanu_Look_Reason_Defuse_Bridging_Perception_and_Domain_Knowledge_for_Real-World_CVPRW_2026_paper.html",
+        "Gheorghe Marian Craioveanu, Grigore Stamatescu, Olga Saukh"
+      ],
+      [
+        "WildFireVQA: A Large-Scale Radiometric Thermal VQA Benchmark for Aerial Wildfire Monitoring",
+        "content/CVPR2026W/AI4RWC/html/Habibpour_WildFireVQA_A_Large-Scale_Radiometric_Thermal_VQA_Benchmark_for_Aerial_Wildfire_CVPRW_2026_paper.html",
+        "Mobin Habibpour, Niloufar Alipour Talemi, John Spodnik, Camren J Khoury, Fatemeh Afghah"
+      ],
+      [
+        "Rethinking Data Augmentation for Multi-View Underwater Species Dataset: A Data-Centric Analysis of Feature Space Study",
+        "content/CVPR2026W/AI4RWC/html/Rahman_Rethinking_Data_Augmentation_for_Multi-View_Underwater_Species_Dataset_A_Data-Centric_CVPRW_2026_paper.html",
+        "Mushfika Sharmin Rahman, Greg Hamerly"
+      ],
+      [
+        "PathoFusion: Scalable Multimodal Foundations for Integrating Clinical and Preclinical Imaging Analyses in Real-World Pharmaceutical discovery workflows",
+        "content/CVPR2026W/AI4RWC/html/Patra_PathoFusion_Scalable_Multimodal_Foundations_for_Integrating_Clinical_and_Preclinical_Imaging_CVPRW_2026_paper.html",
+        "Arijit Patra, Phil Scordis"
+      ],
+      [
+        "R3PM-Net: Real-time, Robust, Real-world Point Matching Network",
+        "content/CVPR2026W/AI4RWC/html/Kashefbahrami_R3PM-Net_Real-time_Robust_Real-world_Point_Matching_Network_CVPRW_2026_paper.html",
+        "Yasaman Kashefbahrami, Erkut Akdag, Panagiotis Meletis, Evgeniya Balmashnova, Dip Goswami, Egor Bondarau"
+      ],
+      [
+        "FruitEnsemble: MLLM-Guided Arbitration for Heterogeneous ensemble in Fine-Grained Fruit Recognition",
+        "content/CVPR2026W/AI4RWC/html/Yu_FruitEnsemble_MLLM-Guided_Arbitration_for_Heterogeneous_ensemble_in_Fine-Grained_Fruit_Recognition_CVPRW_2026_paper.html",
+        "Enhui Yu, Junhui Li, Ruitong Lu, Jialu Li, Youshan Zhang"
+      ],
+      [
+        "Can LLM-Generated Text Empower Surgical Vision-Language Pre-training?",
+        "content/CVPR2026W/AI4RWC/html/Che_Can_LLM-Generated_Text_Empower_Surgical_Vision-Language_Pre-training_CVPRW_2026_paper.html",
+        "Chengan Che, Chao Wang, Jiayuan Huang, Xinyue Chen, Luis C. Garcia-Peraza-Herrera"
+      ],
+      [
+        "Hyperbolic Twins: Efficient Finetuning Vision Language Model for Few-Shot Learning via Hyperbolic Geometry",
+        "content/CVPR2026W/AI4RWC/html/See_Hyperbolic_Twins_Efficient_Finetuning_Vision_Language_Model_for_Few-Shot_Learning_CVPRW_2026_paper.html",
+        "Teng Jiek See"
+      ],
+      [
+        "STONE: Stable Optimization in Noisy Environments for Robust Vision-Language Models",
+        "content/CVPR2026W/AI4RWC/html/Srivastava_STONE_Stable_Optimization_in_Noisy_Environments_for_Robust_Vision-Language_Models_CVPRW_2026_paper.html",
+        "Sarthak Srivastava, Kathy Wu"
+      ],
+      [
+        "VisText-Mosquito: A Unified Multimodal Dataset for Visual Detection, Segmentation, and Textual Explanation on Mosquito Breeding Sites",
+        "content/CVPR2026W/AI4RWC/html/Islam_VisText-Mosquito_A_Unified_Multimodal_Dataset_for_Visual_Detection_Segmentation_and_CVPRW_2026_paper.html",
+        "Md. Adnanul Islam, Md. Faiyaz Abdullah Sayeedi, Md. Asaduzzaman Shuvo, Shahanur Rahman Bappy, Muhammad Ziaur Rahman, Md Asiful Islam, Swakkhar Shatabda"
+      ],
+      [
+        "HierSum: A Global and Local Attention Mechanism for Video Summarization",
+        "content/CVPR2026W/AI4RWC/html/Beedu_HierSum_A_Global_and_Local_Attention_Mechanism_for_Video_Summarization_CVPRW_2026_paper.html",
+        "Apoorva Beedu, Irfan Essa"
+      ]
+    ],
+    "CV4AEC": [
+      [
+        "USIVA: Uncertainty-guided Spatiotemporal Mapping for Indoor Ventilation Assessment",
+        "content/CVPR2026W/CV4AEC/html/Cai_USIVA_Uncertainty-guided_Spatiotemporal_Mapping_for_Indoor_Ventilation_Assessment_CVPRW_2026_paper.html",
+        "Weijia Cai, Zhengbo Zou"
+      ],
+      [
+        "BridgeCode: Grammar-Constrained Scan-to-Program Bridge Reconstruction for As-Built-to-As-Designed Feedback",
+        "content/CVPR2026W/CV4AEC/html/Shinohara_BridgeCode_Grammar-Constrained_Scan-to-Program_Bridge_Reconstruction_for_As-Built-to-As-Designed_Feedback_CVPRW_2026_paper.html",
+        "Takayuki Shinohara, Hidetaka Saomoto, Jun Katagiri"
+      ],
+      [
+        "Building-Diffusion: Graph Discrete Diffusion Model For Architectural Volumetric Design Generation",
+        "content/CVPR2026W/CV4AEC/html/Sehaba_Building-Diffusion_Graph_Discrete_Diffusion_Model_For_Architectural_Volumetric_Design_Generation_CVPRW_2026_paper.html",
+        "Mohammed El Amine Sehaba, Igor Krawczuk, Serge Miguet, Xavier Marsault"
+      ],
+      [
+        "EgoWorkPM: A Worker-Centric Approach for Activity-level Progress Monitoring in Construction via Egocentric Vision",
+        "content/CVPR2026W/CV4AEC/html/Suen_EgoWorkPM_A_Worker-Centric_Approach_for_Activity-level_Progress_Monitoring_in_Construction_CVPRW_2026_paper.html",
+        "Christine Wun Ki Suen, Zhengbo Zou"
+      ]
+    ],
+    "GRAIL-V": [
+      [
+        "BRIDGE: Multimodal-to-Text Retrieval via Reinforcement-Learned Query Alignment",
+        "content/CVPR2026W/GRAIL-V/html/Mounis_BRIDGE_Multimodal-to-Text_Retrieval_via_Reinforcement-Learned_Query_Alignment_CVPRW_2026_paper.html",
+        "Mohamed Darwish Mounis, Mohamed Mahmoud, Shaimaa Sedek, Mahmoud Abdalla, Mahmoud SalahEldin Kasem, Abdelrahman Abdallah, Hyun-Soo Kang"
+      ],
+      [
+        "CALIBRA: Calibration-Aware Multi-Agent Verification for Contactless Physiological Monitoring",
+        "content/CVPR2026W/GRAIL-V/html/Sakib_CALIBRA_Calibration-Aware_Multi-Agent_Verification_for_Contactless_Physiological_Monitoring_CVPRW_2026_paper.html",
+        "Shadman Sakib, Gaurav Shinde, Nirmalya Roy"
+      ],
+      [
+        "CMAG: Concept-Scaffolded Retrieval for Marketplace Avatar Generation",
+        "content/CVPR2026W/GRAIL-V/html/Goel_CMAG_Concept-Scaffolded_Retrieval_for_Marketplace_Avatar_Generation_CVPRW_2026_paper.html",
+        "Rajeev Goel, Jason Ding, Phani Harish Wajjala, Pavan Turaga, Tejaswi Gowda, Krishna C. Garikipati"
+      ],
+      [
+        "ViSS-R1: Self-Supervised Reinforcement Video Reasoning",
+        "content/CVPR2026W/GRAIL-V/html/Fang_ViSS-R1_Self-Supervised_Reinforcement_Video_Reasoning_CVPRW_2026_paper.html",
+        "Bo Fang, YuXin Song, Haoyuan Sun, Xinyao Zhang, Qiangqiang Wu, Wenhao Wu, Antoni B. Chan"
+      ],
+      [
+        "CoCoA-DVC: Consistency and Concept Aware Training for Dense Video Captioning",
+        "content/CVPR2026W/GRAIL-V/html/Paranjape_CoCoA-DVC_Consistency_and_Concept_Aware_Training_for_Dense_Video_Captioning_CVPRW_2026_paper.html",
+        "Jay Paranjape, Yue Guo, sankar venkataraman, Vishal M. Patel, Nataraj Jammalamadaka"
+      ],
+      [
+        "SlotVTG: Object-Centric Adapter for Generalizable Video Temporal Grounding",
+        "content/CVPR2026W/GRAIL-V/html/Han_SlotVTG_Object-Centric_Adapter_for_Generalizable_Video_Temporal_Grounding_CVPRW_2026_paper.html",
+        "Jiwook Han, Geo Ahn, Youngrae Kim, Jinwoo Choi"
+      ],
+      [
+        "A Sanity Check on Composed Image Retrieval",
+        "content/CVPR2026W/GRAIL-V/html/Liu_A_Sanity_Check_on_Composed_Image_Retrieval_CVPRW_2026_paper.html",
+        "Yikun Liu, Jiangchao Yao, Weidi Xie, Yanfeng Wang"
+      ],
+      [
+        "Towards Robust Zero-Shot Video Temporal Grounding",
+        "content/CVPR2026W/GRAIL-V/html/Banditakkarakul_Towards_Robust_Zero-Shot_Video_Temporal_Grounding_CVPRW_2026_paper.html",
+        "Nutthadech Banditakkarakul, Bo Chen, Stephen Gould"
+      ],
+      [
+        "Gaze-Regularized Vision-Language-Action Models for Robotic Manipulation",
+        "content/CVPR2026W/GRAIL-V/html/Pani_Gaze-Regularized_Vision-Language-Action_Models_for_Robotic_Manipulation_CVPRW_2026_paper.html",
+        "Anupam Pani, Yanchao Yang"
+      ],
+      [
+        "RAGENT: Robust Optimization for Grounded Vision-Language Retrieval",
+        "content/CVPR2026W/GRAIL-V/html/Srivastava_RAGENT_Robust_Optimization_for_Grounded_Vision-Language_Retrieval_CVPRW_2026_paper.html",
+        "Sarthak Srivastava, Kathy Wu"
+      ],
+      [
+        "Investigating VLM Hallucination from a Cognitive Psychology Perspective: A First Step Toward Interpretation with Intriguing Observations",
+        "content/CVPR2026W/GRAIL-V/html/Liu_Investigating_VLM_Hallucination_from_a_Cognitive_Psychology_Perspective_A_First_CVPRW_2026_paper.html",
+        "Xiangrui Liu, Man Luo, Agneet Chatterjee, Hua Wei, Chitta Baral, Yezhou Yang"
+      ],
+      [
+        "EFSA: Episodic Few-Shot Adaptation for Text-to-Image Retrieval",
+        "content/CVPR2026W/GRAIL-V/html/Huzaifa_EFSA_Episodic_Few-Shot_Adaptation_for_Text-to-Image_Retrieval_CVPRW_2026_paper.html",
+        "Muhammad Huzaifa, Yova Kementchedjhieva"
+      ],
+      [
+        "Negation Matters: Training-Free Negation-Aware Image Retrieval",
+        "content/CVPR2026W/GRAIL-V/html/Pokhrel_Negation_Matters_Training-Free_Negation-Aware_Image_Retrieval_CVPRW_2026_paper.html",
+        "Aashish Pokhrel, Shivanand Venkanna Sheshappanavar"
+      ],
+      [
+        "Neural-Symbolic Intention Refinement with User Feedback for Text-to-Image Retrieval",
+        "content/CVPR2026W/GRAIL-V/html/Bai_Neural-Symbolic_Intention_Refinement_with_User_Feedback_for_Text-to-Image_Retrieval_CVPRW_2026_paper.html",
+        "Yu Bai, Lei Zhang, Xiaoyan Hu, Feng Zhu, Rui Zhao"
+      ],
+      [
+        "EVICT: Evidence-Sufficiency Verification via Counterfactual Dropout for Visually-Grounded Selective Question Answering",
+        "content/CVPR2026W/GRAIL-V/html/Kotte_EVICT_Evidence-Sufficiency_Verification_via_Counterfactual_Dropout_for_Visually-Grounded_Selective_Question_CVPRW_2026_paper.html",
+        "Varun Kotte"
+      ],
+      [
+        "LLM-Guided Agentic Floor Plan Parsing for Accessible Indoor Navigation of Blind and Low-Vision People",
+        "content/CVPR2026W/GRAIL-V/html/Ayanzadeh_LLM-Guided_Agentic_Floor_Plan_Parsing_for_Accessible_Indoor_Navigation_of_CVPRW_2026_paper.html",
+        "Aydin Ayanzadeh, Tim Oates"
+      ],
+      [
+        "DualProc: Dual-Process Prompting Reduces Confident Errors in Vision-Language Models for Grounded Retrieval and Agentic Pipelines",
+        "content/CVPR2026W/GRAIL-V/html/Bansal_DualProc_Dual-Process_Prompting_Reduces_Confident_Errors_in_Vision-Language_Models_for_CVPRW_2026_paper.html",
+        "Aayam Bansal, Ishaan Gangwani"
+      ],
+      [
+        "ChatUMM: Robust Context Tracking for Conversational Interleaved Generation",
+        "content/CVPR2026W/GRAIL-V/html/Dai_ChatUMM_Robust_Context_Tracking_for_Conversational_Interleaved_Generation_CVPRW_2026_paper.html",
+        "Wenxun Dai, Zhiyuan Zhao, Yule Zhong, Yiji Cheng, Jianwei Zhang, Linqing Wang, Shiyi Zhang, Yunlong Lin, Runze He, Fellix Song, Wayne Zhuang, Yong Liu, Haoji Zhang, Yansong Tang, Chunyu Wang"
+      ],
+      [
+        "CropVLM: Learning to Zoom for Fine-Grained Vision-Language Perception",
+        "content/CVPR2026W/GRAIL-V/html/Carvalho_CropVLM_Learning_to_Zoom_for_Fine-Grained_Vision-Language_Perception_CVPRW_2026_paper.html",
+        "Miguel Carvalho, Hélder Dias, Bruno Martins"
+      ],
+      [
+        "HTEF: Holistic Brand-Theme Alignment Scoring as a Catalog Gate for Grounded Conversational Recommendation",
+        "content/CVPR2026W/GRAIL-V/html/Rahman_HTEF_Holistic_Brand-Theme_Alignment_Scoring_as_a_Catalog_Gate_for_CVPRW_2026_paper.html",
+        "Mahmudur Rahman, Dhruv Garg, Rishabh Rathod, Sanket Bindle"
+      ],
+      [
+        "SHOE - Semantic HOI Open-vocabulary Evaluation metric",
+        "content/CVPR2026W/GRAIL-V/html/Noack_SHOE_-_Semantic_HOI_Open-vocabulary_Evaluation_metric_CVPRW_2026_paper.html",
+        "Maja Noack, Qinqian Lei, Taipeng Tian, Bihan Dong, Robby T. Tan, Yixin Chen, John Young, Saijun Zhang, Bo Wang"
+      ],
+      [
+        "Emotional Vocabulary as Semantic Grounding: How Language Register Affects Diffusion Efficiency in Image-to-Video Generation",
+        "content/CVPR2026W/GRAIL-V/html/Boudreaux_Emotional_Vocabulary_as_Semantic_Grounding_How_Language_Register_Affects_Diffusion_CVPRW_2026_paper.html",
+        "Scott Boudreaux"
+      ],
+      [
+        "A Multi-Agent Framework for Grounding Medical AI in Expert Clinical Knowledge beyond Textual Retrieval",
+        "content/CVPR2026W/GRAIL-V/html/Urooj_A_Multi-Agent_Framework_for_Grounding_Medical_AI_in_Expert_Clinical_CVPRW_2026_paper.html",
+        "Midhat Urooj, Ayan Banerjee, Sandeep Gupta"
+      ],
+      [
+        "Seeing without Looking: Do Vision-Language Benchmarks Really Test Vision?",
+        "content/CVPR2026W/GRAIL-V/html/Lan_Seeing_without_Looking_Do_Vision-Language_Benchmarks_Really_Test_Vision_CVPRW_2026_paper.html",
+        "Zixuan Lan, Luzhe Sun, Matthew R Walter, Jiawei Zhou"
+      ],
+      [
+        "RePlan-Bot: Multi-Level Replanning for Embodied Instruction Following",
+        "content/CVPR2026W/GRAIL-V/html/Gong_RePlan-Bot_Multi-Level_Replanning_for_Embodied_Instruction_Following_CVPRW_2026_paper.html",
+        "Xicheng Gong, Guozheng Sun, Peiran Xu, Yadong Mu"
+      ],
+      [
+        "Knowledge or Action? Automation Boundary Prediction with Intent Discovery and Knowledge Use-Case Enablement for Agentic Enterprise Support",
+        "content/CVPR2026W/GRAIL-V/html/Mayank_Knowledge_or_Action_Automation_Boundary_Prediction_with_Intent_Discovery_and_CVPRW_2026_paper.html",
+        "Kumar Mayank, Ipseeta Sahu, Sajeetha Jaganathan"
+      ],
+      [
+        "Towards Context-Aware Image Anonymization with Multi-Agent Reasoning",
+        "content/CVPR2026W/GRAIL-V/html/Aufschlager_Towards_Context-Aware_Image_Anonymization_with_Multi-Agent_Reasoning_CVPRW_2026_paper.html",
+        "Robert Aufschläger, Jakob Folz, Gautam Savaliya, Manjitha D Vidanalage, Michael Heigl, Martin Schramm"
+      ],
+      [
+        "CompAgent: An Agentic Framework for Visual Compliance Verification",
+        "content/CVPR2026W/GRAIL-V/html/Ghosh_CompAgent_An_Agentic_Framework_for_Visual_Compliance_Verification_CVPRW_2026_paper.html",
+        "Rahul Ghosh, Baishali Chaudhury, Hari Prasanna Das, Meghana Ashok, Ryan Razkenari, Long Chen, Sungmin Hong, Chun-Hao Liu"
+      ],
+      [
+        "Lightweight and Production-Ready PDF Visual Element Parsing",
+        "content/CVPR2026W/GRAIL-V/html/Liu_Lightweight_and_Production-Ready_PDF_Visual_Element_Parsing_CVPRW_2026_paper.html",
+        "Meizhu Liu, Yassi Abbasi, Matthew Rowe, Michael Avendi, Paul Li"
+      ],
+      [
+        "HIVE: Query, Hypothesize, Verify -- A LLM Framework for Multimodal Reasoning-Intensive Retrieval",
+        "content/CVPR2026W/GRAIL-V/html/Abdalla_HIVE_Query_Hypothesize_Verify_--_A_LLM_Framework_for_Multimodal_CVPRW_2026_paper.html",
+        "Mahmoud Abdalla, Mahmoud SalahEldin Kasem, Mohamed Mahmoud, Mostafa Farouk Senussi, Abdelrahman Abdallah, Hyun-Soo Kang"
+      ]
+    ],
+    "VAR": [
+      [
+        "Binary Verification for Zero-Shot Vision",
+        "content/CVPR2026W/VAR/html/Hu_Binary_Verification_for_Zero-Shot_Vision_CVPRW_2026_paper.html",
+        "Rongbin Hu, Jeffrey Liu"
+      ]
+    ]
+  },
+  "map": {
+    "0": "AERO-HPR",
+    "2": "FoundGen-Bio",
+    "26": "CVPR-NAS26",
+    "31": "GenXR-ID",
+    "33": "LoViF",
+    "34": "P13N",
+    "36": "VGBE",
+    "37": "GenRecon3d",
+    "39": "GigaBrainChallenge",
+    "44": "DataMFM",
+    "50": "GRAIL-V",
+    "51": "VAR",
+    "58": "HuMoGen",
+    "65": "PhysHuman",
+    "67": "GAZE",
+    "68": "IPA",
+    "70": "EmbodiedAIinLife",
+    "76": "WiCV",
+    "79": "PHAROS-AIF-MIH",
+    "81": "CVMI",
+    "82": "Med-Reasoner",
+    "84": "MORSE",
+    "86": "EarthVision",
+    "88": "VISION26",
+    "91": "MaCVi",
+    "92": "XAI4CV",
+    "93": "SAIAD",
+    "94": "HOW",
+    "100": "VOCVALC",
+    "101": "MEIS",
+    "110": "SAUAFG",
+    "113": "USM3D",
+    "115": "SINT4CH",
+    "119": "IMW",
+    "120": "AI4RWC",
+    "121": "CV4AEC",
+    "135": "MMFM5",
+    "136": "A2A-MML",
+    "137": "MULA2026",
+    "139": "MUV",
+    "140": "AIMS",
+    "142": "OpenSUN3D",
+    "145": "SAFE",
+    "148": "ADFM",
+    "149": "VAND"
+  }
+}

@@ -1,0 +1,1305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<title>CVPR 2026 · Research Constellation</title>
+<meta name="description" content="An interactive keyword co-occurrence topology built from 4,068 CVPR 2026 accepted-paper titles."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://cvpr-constellation.github.io/"/>
+<meta property="og:title" content="CVPR 2026 · Research Constellation"/>
+<meta property="og:description" content="Explore all 4,068 CVPR 2026 papers as an interactive star map — keyword constellations, oral/highlight/award filters, findings &amp; workshop galaxies, full title/author search."/>
+<meta property="og:image" content="https://cvpr-constellation.github.io/og.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="CVPR 2026 · Research Constellation"/>
+<meta name="twitter:description" content="All 4,068 CVPR 2026 papers as an interactive star map — search, filters, findings &amp; workshop galaxies."/>
+<meta name="twitter:image" content="https://cvpr-constellation.github.io/og.jpg"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<style>
+:root{
+  --bg:#070910; --ink:#eceadf; --muted:#8c93a4; --dim:#565d70;
+  --panel:rgba(13,17,26,.72); --line:rgba(255,255,255,.10);
+  --c0:#ff8a5b; --c1:#52d3c3; --c2:#ffd166; --c3:#ad8cff; --c4:#5fb8ff; --c5:#c2e06a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);
+  font-family:"JetBrains Mono",ui-monospace,monospace;-webkit-font-smoothing:antialiased}
+body{background:
+  radial-gradient(900px 620px at 16% 8%, rgba(82,211,195,.12), transparent 62%),
+  radial-gradient(1100px 760px at 88% 92%, rgba(173,140,255,.12), transparent 60%),
+  radial-gradient(760px 520px at 74% 16%, rgba(95,184,255,.07), transparent 60%),
+  var(--bg);}
+.grain{position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.vignette{position:fixed;inset:0;z-index:6;pointer-events:none;
+  background:radial-gradient(135% 115% at 50% 42%, transparent 52%, rgba(0,0,0,.6) 100%);}
+#graph{position:fixed;inset:0;z-index:10;width:100%;height:100%;cursor:grab}
+#graph:active{cursor:grabbing}
+.stars circle{fill:#fff;animation:tw 5s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.10}50%{opacity:.55}}
+.hull{stroke-linejoin:round;cursor:pointer;transition:fill-opacity .25s}
+.hull:hover{fill-opacity:.10}
+.link{stroke:#aebcf0;stroke-opacity:.11;pointer-events:none}
+.node circle{cursor:pointer}
+.label{font-size:11px;font-weight:500;fill:var(--ink);paint-order:stroke;
+  stroke:rgba(7,9,16,.92);stroke-width:3px;pointer-events:none;letter-spacing:.01em}
+
+.panel{position:fixed;z-index:20;background:var(--panel);border:1px solid var(--line);
+  backdrop-filter:blur(11px) saturate(1.1);-webkit-backdrop-filter:blur(11px) saturate(1.1)}
+.masthead{top:26px;left:30px;max-width:50ch;background:none;border:none;backdrop-filter:none;z-index:21}
+.eyebrow{font-size:10.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--c2);margin:0 0 12px;
+  display:flex;align-items:center;gap:11px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--c2);display:inline-block;opacity:.8}
+h1{font-family:"Fraunces",serif;font-weight:400;font-size:clamp(30px,4.2vw,52px);line-height:.98;
+  margin:0;letter-spacing:-.015em;font-variation-settings:"opsz" 110,"SOFT" 0,"WONK" 1}
+h1 em{font-style:italic;font-weight:300;color:var(--c1)}
+.readout{margin-top:15px;font-size:11.5px;color:var(--muted);letter-spacing:.02em;line-height:1.7}
+.readout b{color:var(--ink);font-weight:500}
+.readout .sep{color:var(--dim);margin:0 7px}
+
+.search{top:30px;right:30px;width:360px;padding:0;border-radius:3px;overflow:hidden}
+.search-row{display:flex;align-items:center;gap:10px;padding:13px 15px}
+.search-row svg{flex:0 0 auto;opacity:.6}
+#q{flex:1;background:none;border:none;outline:none;color:var(--ink);font-family:inherit;
+  font-size:13px;letter-spacing:.02em}
+#q::placeholder{color:var(--dim)}
+.search-hint{border-top:1px solid var(--line);padding:9px 15px;font-size:10px;color:var(--dim);
+  letter-spacing:.04em;display:flex;justify-content:space-between;align-items:center}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.chip{cursor:pointer;font-size:10px;letter-spacing:.03em;color:var(--muted);
+  border:1px solid var(--line);border-radius:20px;padding:4px 10px;transition:.18s;background:rgba(255,255,255,.02)}
+.chip:hover{color:var(--ink);border-color:rgba(255,255,255,.3)}
+
+.legend{left:30px;bottom:28px;padding:15px 17px 16px;border-radius:3px;min-width:235px;max-width:280px}
+.legend .lt{font-size:9.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--dim);margin-bottom:11px}
+.stats{margin-top:13px}
+.st-line{display:flex;align-items:center;gap:7px;font-size:9.5px;letter-spacing:.07em;
+  color:var(--muted);text-transform:uppercase}
+.st-line b{color:var(--ink);font-weight:500}
+.st-dot{width:6px;height:6px;border-radius:50%;background:#7ddf8f;box-shadow:0 0 8px #7ddf8f;
+  animation:stp 2.2s ease-in-out infinite;flex:0 0 auto}
+@keyframes stp{0%,100%{opacity:.45}50%{opacity:1}}
+.st-geo{display:flex;gap:10px;flex-wrap:wrap;margin-top:7px;font-size:9px;color:var(--dim);letter-spacing:.04em}
+.st-cc{display:inline-flex;gap:4px;align-items:center}
+.st-map{display:block;margin-top:9px}
+.st-map .land{fill:rgba(236,234,223,.055);stroke:rgba(236,234,223,.10);stroke-width:.5}
+.st-map .vdot{fill:var(--c2)}
+.st-map .vring{fill:none;stroke:var(--c2);stroke-opacity:.35;stroke-width:1;
+  transform-box:fill-box;transform-origin:center;animation:ping 2.4s ease-out infinite}
+.pfilter{display:flex;align-items:center;gap:9px;margin-bottom:10px;flex-wrap:wrap}
+.ftl{font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.fopt{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;color:var(--muted);
+  cursor:pointer;letter-spacing:.02em}
+.fopt input{accent-color:var(--c2);width:11px;height:11px;margin:0;cursor:pointer}
+.fopt:hover{color:var(--ink)}
+.fopt.tba{opacity:.45;cursor:default}
+.fopt.tba input{cursor:default}
+.wnode{cursor:pointer}
+.wn-name{font-size:12.5px}
+.modesw{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,209,102,.38);
+  border-radius:14px;overflow:hidden;margin-bottom:13px;
+  box-shadow:0 0 16px rgba(255,209,102,.12), inset 0 0 10px rgba(255,209,102,.05)}
+.mso{text-align:center;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  white-space:nowrap;padding:8px 2px;cursor:pointer;color:var(--muted);transition:.18s;
+  background:rgba(255,255,255,.02)}
+.mso:hover{color:var(--ink)}
+.mso.on{color:#070910;background:var(--c2);font-weight:700;
+  box-shadow:0 0 18px rgba(255,209,102,.5)}
+#legend-rows{max-height:32vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--dim) transparent;
+  margin-right:-8px;padding-right:8px}
+#legend-rows::-webkit-scrollbar{width:4px}
+#legend-rows::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:3px}
+.lrow{display:flex;align-items:center;gap:10px;padding:4px 0;cursor:pointer;opacity:.92;transition:.16s}
+.lrow:hover{opacity:1;transform:translateX(2px)}
+.dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;box-shadow:0 0 9px currentColor}
+.lname{font-size:11.5px;color:var(--ink)}
+.lcount{margin-left:auto;font-size:10px;color:var(--dim)}
+
+/* hover tooltip (keyword co-occurrence) */
+.detail{left:30px;top:46%;width:280px;padding:16px 18px;border-radius:3px;
+  opacity:0;transform:translateY(8px);transition:.25s cubic-bezier(.2,.7,.2,1);pointer-events:none;z-index:22}
+.detail.on{opacity:1;transform:none}
+.detail .dk{font-family:"Fraunces",serif;font-size:23px;font-weight:400;line-height:1.05;
+  font-variation-settings:"opsz" 40,"WONK" 1}
+.detail .dmeta{margin:8px 0 12px;font-size:10.5px;color:var(--muted)}
+.detail .dmeta b{color:var(--ink)}
+.detail .dl{font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.nbr{display:flex;align-items:center;gap:9px;margin:5px 0;font-size:11px}
+.nbr .bar{height:3px;border-radius:2px;background:currentColor;flex:0 0 auto}
+.nbr .nn{color:var(--ink)}.nbr .nw{margin-left:auto;color:var(--dim);font-size:10px}
+
+/* papers drawer */
+.drawer{top:118px;right:30px;width:360px;max-height:calc(100vh - 170px);border-radius:3px;
+  display:flex;flex-direction:column;opacity:0;transform:translateX(14px);
+  transition:.3s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.drawer.on{opacity:1;transform:none;pointer-events:auto}
+.dr-head{padding:14px 16px 12px;border-bottom:1px solid var(--line)}
+.dr-kicker{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin-bottom:6px;
+  display:flex;justify-content:space-between;align-items:center}
+.dr-close{cursor:pointer;color:var(--dim);font-size:13px;letter-spacing:0;pointer-events:auto}
+.dr-close:hover{color:var(--ink)}
+.dr-title{font-family:"Fraunces",serif;font-size:21px;line-height:1.1;font-variation-settings:"opsz" 40,"WONK" 1}
+.dr-sub{margin-top:5px;font-size:10.5px;color:var(--muted)}
+.dr-sub b{color:var(--ink)}
+.dr-list{overflow-y:auto;padding:6px 4px 10px 16px;scrollbar-width:thin;scrollbar-color:var(--dim) transparent}
+.dr-list::-webkit-scrollbar{width:5px}
+.dr-list::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:3px}
+.pp{display:flex;gap:10px;padding:9px 10px 9px 6px;border-bottom:1px solid rgba(255,255,255,.05);
+  border-radius:4px;transition:background .15s}
+.pp:hover{background:rgba(255,255,255,.05)}
+.pp:hover .pk{opacity:1}
+.pp:last-child{border-bottom:none}
+.pp .pd{width:7px;height:7px;border-radius:50%;flex:0 0 auto;margin-top:5px;box-shadow:0 0 7px currentColor}
+.pp .ppb{flex:1;min-width:0}
+.pp a{color:var(--ink);text-decoration:none;font-size:11.5px;line-height:1.5;letter-spacing:.005em;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;transition:.15s}
+.pp a:hover{color:var(--c1)}
+.pp .pa{margin-top:3px;font-size:9.5px;color:var(--dim);letter-spacing:.01em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pks{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.pk{font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;line-height:1;
+  border:1px solid;border-radius:3px;padding:3px 6px 2px;opacity:.8;cursor:pointer;transition:.15s;
+  background:rgba(255,255,255,.02)}
+.pk:hover{opacity:1;background:rgba(255,255,255,.07)}
+.pkl{text-decoration:none;color:var(--c1)!important;border-color:rgba(82,211,195,.35)!important}
+.pkl:hover{background:rgba(82,211,195,.12)}
+.dr-more{margin:8px 16px 14px;padding:8px;border:1px solid var(--line);border-radius:3px;background:none;
+  color:var(--muted);font-family:inherit;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.dr-more:hover{color:var(--ink);border-color:rgba(255,255,255,.3)}
+
+.foot{position:fixed;z-index:19;right:404px;top:34px;text-align:right;font-size:10px;color:var(--dim);
+  letter-spacing:.03em;line-height:1.7;pointer-events:none;display:none}
+.reset{position:fixed;z-index:21;left:50%;bottom:26px;transform:translateX(-50%);
+  font-family:inherit;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  background:var(--panel);border:1px solid var(--line);border-radius:30px;padding:9px 20px;cursor:pointer;
+  backdrop-filter:blur(11px);transition:.18s;opacity:0;pointer-events:none}
+.reset.on{opacity:1;pointer-events:auto}
+.reset:hover{color:var(--ink);border-color:rgba(255,255,255,.32)}
+
+/* lite tier: phones/tablets — SVG filters & blend modes are the perf killers */
+.lite .grain{display:none}
+.lite .panel{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(11,14,22,.78)}
+.lite .masthead{background:none;border:none}
+.lite .drawer{background:rgba(9,12,19,.95)}   /* paper list stays readable */
+.lite .label{font-size:10px}
+.lite .hn-name{font-size:13px}
+.lite .hn-kick{font-size:6.5px;letter-spacing:.3em}
+
+/* star-system constellation names on hulls */
+.hn-name{font-family:"Fraunces",serif;font-style:italic;font-size:17px;font-weight:400;
+  paint-order:stroke;stroke:rgba(7,9,16,.9);stroke-width:4px;letter-spacing:.01em;
+  font-variation-settings:"opsz" 40,"WONK" 1}
+.hn-kick{font-size:7.5px;letter-spacing:.38em;text-transform:uppercase;fill:var(--muted);
+  paint-order:stroke;stroke:rgba(7,9,16,.9);stroke-width:3px}
+.hullname{cursor:pointer;transition:opacity .25s}
+.hullname:hover .hn-name{text-decoration:underline}
+
+/* orbit rings (system mode) */
+.orbits circle{fill:none;stroke:rgba(236,234,223,.10);stroke-dasharray:2 7}
+.orbits circle.core{stroke-dasharray:none}
+
+/* paper-location pings (hovering a paper row) */
+.pings circle{fill:none;pointer-events:none}
+.pings .halo{stroke-opacity:.55;stroke-width:1.3}
+.pings .ring{transform-box:fill-box;transform-origin:center;
+  animation:ping 1.5s cubic-bezier(.2,.7,.3,1) infinite}
+@keyframes ping{0%{transform:scale(.55);stroke-opacity:.9;stroke-width:1.6}
+  80%,100%{transform:scale(1.9);stroke-opacity:0;stroke-width:.6}}
+
+/* "now entering" HUD */
+.syshud{position:fixed;z-index:23;top:26px;left:50%;transform:translateX(-50%) translateY(-8px);
+  text-align:center;pointer-events:none;opacity:0;
+  transition:opacity .45s cubic-bezier(.16,.8,.26,1),transform .45s cubic-bezier(.16,.8,.26,1)}
+.syshud.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.sh-k{font-size:8.5px;letter-spacing:.52em;text-transform:uppercase;color:var(--c2);margin-bottom:5px}
+.sh-k::before,.sh-k::after{content:"·";margin:0 12px;color:var(--dim)}
+.sh-n{font-family:"Fraunces",serif;font-size:29px;line-height:1;letter-spacing:-.01em;
+  font-variation-settings:"opsz" 70,"WONK" 1;text-shadow:0 2px 18px rgba(0,0,0,.7)}
+.sh-n em{font-style:italic;font-weight:300;color:var(--muted);font-size:21px}
+.sh-s{margin-top:7px;font-size:9.5px;color:var(--muted);letter-spacing:.08em}
+.sh-path{margin-top:9px;font-size:10.5px;letter-spacing:.06em;display:flex;gap:7px;
+  justify-content:center;align-items:center;pointer-events:auto}
+.sh-seg{cursor:pointer;color:var(--muted);transition:.15s;padding:2px 1px}
+.sh-seg:hover{color:var(--ink);text-decoration:underline}
+.sh-seg.cur{color:var(--ink);font-weight:700;cursor:default}
+.sh-seg.cur:hover{text-decoration:none}
+.sh-sep{color:var(--dim)}
+.ptag{font-size:8px;letter-spacing:.3em;fill:var(--muted);text-transform:uppercase;
+  paint-order:stroke;stroke:var(--bg);stroke-width:3px}
+/* responsive layout: phones & small tablets */
+@media(max-width:860px){
+  .masthead{top:10px;left:14px;max-width:74vw}
+  h1{font-size:19px}
+  .eyebrow{font-size:7.5px;letter-spacing:.26em;margin-bottom:5px}
+  .readout{font-size:8.5px;margin-top:5px;line-height:1.5}
+  .detail{display:none}
+  .search{top:114px;left:12px;right:12px;width:auto}
+  .search-row{padding:10px 13px}
+  #q{font-size:12px}
+  .search-hint{display:none}
+  .legend{left:10px;bottom:10px;min-width:0;max-width:62vw;padding:10px 12px 11px}
+  .legend .lt{font-size:8px;letter-spacing:.22em;margin-bottom:7px}
+  #legend-rows{max-height:17vh}
+  .lrow{padding:3px 0}
+  .lname{font-size:9.5px}.lcount{font-size:8.5px}
+  .mso{font-size:7.5px;letter-spacing:.06em;padding:7px 1px}
+  .chips{display:none}
+  /* stats: plain text only on small screens */
+  .stats{margin-top:7px}
+  .st-geo{display:none}
+  .st-map{display:none!important}
+  .st-line{font-size:8px;letter-spacing:.05em}
+  .st-dot{width:5px;height:5px}
+  .drawer{top:auto;bottom:0;left:0;right:0;width:auto;max-height:46vh;
+    border-radius:12px 12px 0 0;transform:translateY(16px);z-index:24;
+    background:rgba(9,12,19,.97)}
+  .drawer.on{transform:none}
+  body.drawer-open .legend,body.drawer-open .reset{opacity:0;pointer-events:none}
+  .dr-title{font-size:17px}
+  .dr-head{padding:11px 14px 9px}
+  .syshud{top:10px;left:auto;right:12px;transform:none;text-align:right;max-width:40vw}
+  .sh-k{font-size:7px;letter-spacing:.3em;margin-bottom:3px}
+  .sh-k::before,.sh-k::after{content:none}
+  .sh-n{font-size:15px}
+  .sh-n em{font-size:12px}
+  .sh-s{display:none}
+  .sh-path{margin-top:5px;font-size:8.5px;justify-content:flex-end;gap:5px}
+  .reset{left:auto;right:10px;bottom:14px;transform:none;padding:8px 14px;font-size:9.5px}
+  /* keyboard open: results move up under the search bar so they stay visible */
+  body.kb .masthead,body.kb .legend,body.kb .reset{opacity:.15;pointer-events:none}
+  body.kb .drawer{top:152px;bottom:auto;max-height:36vh;border-radius:10px}
+  body.kb .syshud{display:none}
+}
+@media(max-width:420px){
+  .eyebrow{display:none}
+  .masthead{top:12px;max-width:80vw}
+  h1{font-size:17px}
+  .search{top:102px}
+  body.kb .drawer{top:150px}
+}
+
+/* ───────── watermark ───────── */
+.wm{position:fixed;z-index:21;right:16px;bottom:12px;font-size:9px;letter-spacing:.08em;
+  color:var(--dim);text-transform:uppercase}
+.wm a{color:var(--muted);text-decoration:none;transition:.15s}
+.wm a:hover{color:var(--ink)}
+.wm-sep{margin:0 6px;opacity:.6}
+.wm-un{cursor:help;border-bottom:1px dotted var(--dim)}
+@media(max-width:860px){.wm{right:12px;bottom:48px;font-size:8px}}
+
+/* ───────── theme switch ───────── */
+.themebtn{position:fixed;z-index:21;top:30px;right:404px;width:41px;height:41px;border-radius:50%;
+  background:var(--panel);border:1px solid var(--line);color:var(--muted);font-size:15px;cursor:pointer;
+  font-family:inherit;line-height:1;backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px);transition:.18s}
+.themebtn:hover{color:var(--ink);border-color:rgba(128,128,128,.45);transform:rotate(18deg)}
+@media(max-width:860px){
+  .themebtn{top:10px;right:12px;width:34px;height:34px;font-size:13px}
+  .syshud{right:54px}
+}
+
+/* ───────── light (ivory) theme ───────── */
+html.light{
+  --bg:#f4efe3; --ink:#23242a; --muted:#5a6070; --dim:#9b95a2;
+  --panel:rgba(251,248,241,.78); --line:rgba(30,30,45,.13);
+  --c0:#c2511f; --c1:#0e8a7c; --c2:#a87b00; --c3:#6f43cf; --c4:#1c66b8; --c5:#5e7d15;
+}
+html.light body{background:
+  radial-gradient(900px 620px at 16% 8%, rgba(14,138,124,.10), transparent 62%),
+  radial-gradient(1100px 760px at 88% 92%, rgba(111,67,207,.08), transparent 60%),
+  radial-gradient(760px 520px at 74% 16%, rgba(28,102,184,.06), transparent 60%),
+  var(--bg);}
+html.light .vignette{background:radial-gradient(135% 115% at 50% 42%, transparent 56%, rgba(116,98,66,.20) 100%)}
+html.light .grain{opacity:.05}
+html.light .stars circle{fill:#7a705c}
+html.light .link{stroke:#5b6590}
+html.light .label{stroke:rgba(244,239,227,.94)}
+html.light .hn-name,html.light .hn-kick{stroke:rgba(244,239,227,.92)}
+html.light .st-map .land{fill:rgba(35,36,42,.08);stroke:rgba(35,36,42,.14)}
+html.light .modesw{border-color:rgba(168,123,0,.45);
+  box-shadow:0 0 14px rgba(168,123,0,.12), inset 0 0 10px rgba(168,123,0,.05)}
+html.light .mso.on{color:#fdf9ef;box-shadow:0 0 16px rgba(168,123,0,.30)}
+html.light .sh-n{text-shadow:0 2px 16px rgba(255,255,255,.55)}
+html.light .pp:hover{background:rgba(30,30,40,.05)}
+html.light .chip,html.light .pk{background:rgba(30,30,45,.03)}
+html.light .lite .panel{background:rgba(251,248,241,.9)}
+html.light .lite .masthead{background:none}
+html.light .lite .drawer{background:rgba(251,248,241,.96)}
+@media(max-width:860px){
+  html.light .drawer{background:rgba(251,248,241,.97)}
+}
+</style>
+</head>
+<body>
+<div class="vignette"></div><div class="grain"></div>
+<svg id="graph"><g class="stars"></g><g class="zoomroot"></g></svg>
+
+<div class="panel masthead">
+  <p class="eyebrow">Keyword Co-occurrence Topology</p>
+  <h1>CVPR&nbsp;2026<br><em>Research Constellation</em></h1>
+  <p class="readout"><b id="r-papers">—</b> papers<span class="sep">/</span><b id="r-keys">—</b> keywords<span class="sep">/</span><b id="r-links">—</b> co-occurrences</p>
+  <div class="stats" id="stats" style="display:none">
+    <div class="st-line"><span class="st-dot"></span><span><b id="st-total">–</b> visitors&nbsp;·&nbsp;<b id="st-live">–</b> online</span></div>
+    <div class="st-geo" id="st-geo"></div>
+    <svg class="st-map" id="st-map" width="238" height="118" viewBox="0 0 238 118" style="display:none"></svg>
+  </div>
+</div>
+
+<div class="panel search">
+  <div class="search-row">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input id="q" autocomplete="off" spellcheck="false" placeholder="search keywords · titles · authors…"/>
+  </div>
+  <div class="search-hint"><span>NODE SIZE = PAPER FREQUENCY</span><span id="match">89 visible</span></div>
+</div>
+
+<button class="themebtn" id="themebtn" title="switch theme">☀</button>
+
+<div class="panel legend">
+  <div class="pfilter" id="pfilter">
+    <span class="ftl">filter</span>
+    <label class="fopt"><input type="checkbox" data-f="2"/>📢 oral</label>
+    <label class="fopt"><input type="checkbox" data-f="1"/>🔥 highlight</label>
+    <label class="fopt"><input type="checkbox" data-f="3"/>🏆 award</label>
+  </div>
+  <div class="modesw" id="modesw">
+    <span class="mso on" data-m="0">Constellation</span>
+    <span class="mso" data-m="1">CVPR Topics</span>
+    <span class="mso" data-m="3">Findings</span>
+    <span class="mso" data-m="2">Workshops</span>
+  </div>
+  <div class="lt" id="lt">Star Systems · click to enter</div>
+  <div id="legend-rows"></div>
+  <div class="chips" id="chips"></div>
+</div>
+
+<div class="panel detail" id="detail"></div>
+
+<div class="panel drawer" id="drawer">
+  <div class="dr-head">
+    <div class="dr-kicker"><span id="dr-kick">Papers</span><span class="dr-close" id="dr-close">✕ close</span></div>
+    <div class="dr-title" id="dr-title">—</div>
+    <div class="dr-sub" id="dr-sub"></div>
+  </div>
+  <div class="dr-list" id="dr-list"></div>
+  <button class="dr-more" id="dr-more" style="display:none">show 150 more</button>
+</div>
+
+<div class="syshud" id="syshud">
+  <div class="sh-k">Now Entering</div>
+  <div class="sh-n" id="sh-name">—</div>
+  <div class="sh-s" id="sh-sub"></div>
+  <div class="sh-path" id="sh-path"></div>
+</div>
+
+<button class="reset" id="reset">↺ reset view</button>
+
+<div class="wm" title="Unofficial community project — not affiliated with CVF/IEEE. Paper metadata © Computer Vision Foundation; papers link to CVF Open Access. Visitor stats are anonymous country-level counts only.">✦ by <a href="https://deo-ahn.github.io" target="_blank" rel="noopener">Deokhyun Ahn</a><span class="wm-sep">·</span><a href="https://github.com/cvpr-constellation/cvpr-constellation.github.io" target="_blank" rel="noopener">GitHub</a><span class="wm-sep">·</span><span class="wm-un">unofficial</span></div>
+
+<script>
+const DATA = {"meta":{"papers":4068,"keywords":89,"links":381,"venue":"CVPR 2026","communities":6},"nodes":[{"id":"Generation","count":629,"community":1},{"id":"Video","count":500,"community":1},{"id":"3D","count":461,"community":2},{"id":"Diffusion","count":337,"community":4},{"id":"Multimodal","count":332,"community":3},{"id":"Vision-Language","count":284,"community":3},{"id":"Efficient","count":248,"community":4},{"id":"Detection","count":230,"community":0},{"id":"Reasoning","count":226,"community":3},{"id":"Segmentation","count":201,"community":0},{"id":"Motion","count":154,"community":1},{"id":"Benchmark","count":143,"community":3},{"id":"Geometry","count":142,"community":2},{"id":"Human","count":134,"community":1},{"id":"Transformer","count":127,"community":4},{"id":"Gaussian Splatting","count":126,"community":2},{"id":"Robustness","count":125,"community":0},{"id":"LLM","count":113,"community":3},{"id":"Generalization","count":104,"community":0},{"id":"Sparse","count":103,"community":2},{"id":"Editing","count":101,"community":1},{"id":"Prompt","count":100,"community":0},{"id":"Dataset","count":96,"community":3},{"id":"Optimization","count":94,"community":1},{"id":"Matching","count":90,"community":5},{"id":"Medical","count":90,"community":0},{"id":"Agent","count":82,"community":3},{"id":"Distillation","count":80,"community":4},{"id":"Multi-View","count":80,"community":2},{"id":"Reinforcement Learning","count":79,"community":3},{"id":"Restoration","count":79,"community":4},{"id":"Open-Vocabulary","count":74,"community":0},{"id":"Pose Estimation","count":74,"community":2},{"id":"Image Generation","count":73,"community":1},{"id":"Grounding","count":73,"community":3},{"id":"Attention","count":72,"community":4},{"id":"Retrieval","count":68,"community":1},{"id":"Continual Learning","count":66,"community":0},{"id":"Test-Time","count":66,"community":0},{"id":"Zero-Shot","count":65,"community":0},{"id":"Autonomous Driving","count":61,"community":3},{"id":"Tracking","count":60,"community":4},{"id":"Autoregressive","count":59,"community":1},{"id":"Camera","count":54,"community":1},{"id":"Remote Sensing","count":53,"community":0},{"id":"Compression","count":52,"community":1},{"id":"Text-to-Image","count":51,"community":1},{"id":"Foundation Model","count":51,"community":2},{"id":"Anomaly","count":50,"community":0},{"id":"Depth","count":45,"community":0},{"id":"Super-Resolution","count":45,"community":4},{"id":"Few-Shot","count":44,"community":0},{"id":"Adversarial","count":43,"community":0},{"id":"Material/Lighting","count":42,"community":1},{"id":"Federated","count":41,"community":0},{"id":"Self-Supervised","count":40,"community":2},{"id":"Point Cloud","count":40,"community":2},{"id":"Contrastive","count":39,"community":0},{"id":"Forgery/Deepfake","count":39,"community":0},{"id":"Uncertainty","count":38,"community":2},{"id":"Navigation","count":37,"community":3},{"id":"Flow Matching","count":36,"community":5},{"id":"Event Camera","count":35,"community":1},{"id":"Face","count":35,"community":4},{"id":"Classification","count":35,"community":0},{"id":"World Model","count":34,"community":1},{"id":"Unsupervised","count":33,"community":0},{"id":"Avatar","count":30,"community":2},{"id":"Trajectory","count":30,"community":1},{"id":"Rendering","count":28,"community":1},{"id":"Hand","count":28,"community":1},{"id":"Embodied","count":27,"community":3},{"id":"Implicit/Neural Field","count":27,"community":2},{"id":"Mamba/SSM","count":27,"community":0},{"id":"CLIP","count":26,"community":0},{"id":"Stereo","count":25,"community":5},{"id":"Re-ID","count":24,"community":0},{"id":"Document/OCR","count":23,"community":0},{"id":"Quantization","count":22,"community":3},{"id":"Mesh","count":22,"community":1},{"id":"VQA","count":20,"community":3},{"id":"Registration","count":19,"community":2},{"id":"Captioning","count":17,"community":1},{"id":"Weakly-Supervised","count":17,"community":0},{"id":"In-Context","count":17,"community":1},{"id":"Texture","count":16,"community":1},{"id":"Scene Understanding","count":15,"community":2},{"id":"Action Recognition","count":14,"community":0},{"id":"Domain Adaptation","count":14,"community":0}],"links":[{"source":"3D","target":"Generalization","weight":11},{"source":"3D","target":"Matching","weight":11},{"source":"3D","target":"Tracking","weight":5},{"source":"Gaussian Splatting","target":"Optimization","weight":5},{"source":"Benchmark","target":"Editing","weight":7},{"source":"Camera","target":"Video","weight":10},{"source":"Continual Learning","target":"Distillation","weight":5},{"source":"Efficient","target":"Generation","weight":28},{"source":"Efficient","target":"Transformer","weight":19},{"source":"Efficient","target":"Video","weight":42},{"source":"Generation","target":"Transformer","weight":13},{"source":"Generation","target":"Video","weight":132},{"source":"Self-Supervised","target":"Video","weight":7},{"source":"Transformer","target":"Video","weight":11},{"source":"Autonomous Driving","target":"Reasoning","weight":7},{"source":"Autonomous Driving","target":"Vision-Language","weight":9},{"source":"Reasoning","target":"Vision-Language","weight":35},{"source":"Diffusion","target":"Efficient","weight":28},{"source":"3D","target":"Editing","weight":16},{"source":"Generation","target":"Reinforcement Learning","weight":13},{"source":"Continual Learning","target":"Few-Shot","weight":5},{"source":"Continual Learning","target":"Prompt","weight":6},{"source":"Continual Learning","target":"Vision-Language","weight":8},{"source":"Few-Shot","target":"Prompt","weight":6},{"source":"Prompt","target":"Vision-Language","weight":14},{"source":"Quantization","target":"Vision-Language","weight":5},{"source":"3D","target":"Efficient","weight":16},{"source":"3D","target":"Gaussian Splatting","weight":63},{"source":"3D","target":"Multi-View","weight":23},{"source":"Efficient","target":"Multi-View","weight":7},{"source":"Gaussian Splatting","target":"Multi-View","weight":5},{"source":"Compression","target":"Video","weight":15},{"source":"Medical","target":"Segmentation","weight":26},{"source":"Diffusion","target":"Text-to-Image","weight":12},{"source":"Reasoning","target":"Reinforcement Learning","weight":9},{"source":"Reinforcement Learning","target":"Vision-Language","weight":7},{"source":"Gaussian Splatting","target":"Geometry","weight":10},{"source":"3D","target":"Camera","weight":11},{"source":"3D","target":"Depth","weight":5},{"source":"3D","target":"Geometry","weight":43},{"source":"3D","target":"Pose Estimation","weight":22},{"source":"3D","target":"Uncertainty","weight":7},{"source":"Gaussian Splatting","target":"Pose Estimation","weight":7},{"source":"Geometry","target":"Pose Estimation","weight":5},{"source":"Anomaly","target":"Detection","weight":44},{"source":"Diffusion","target":"Super-Resolution","weight":19},{"source":"Diffusion","target":"Transformer","weight":47},{"source":"Multimodal","target":"Reasoning","weight":47},{"source":"Multimodal","target":"Test-Time","weight":5},{"source":"Diffusion","target":"Human","weight":9},{"source":"Diffusion","target":"Motion","weight":17},{"source":"Diffusion","target":"Sparse","weight":10},{"source":"Human","target":"Motion","weight":33},{"source":"Human","target":"Sparse","weight":5},{"source":"Motion","target":"Sparse","weight":5},{"source":"Motion","target":"Tracking","weight":7},{"source":"Diffusion","target":"Distillation","weight":11},{"source":"Sparse","target":"Transformer","weight":6},{"source":"LLM","target":"Multimodal","weight":68},{"source":"Attention","target":"Video","weight":11},{"source":"Optimization","target":"Video","weight":10},{"source":"Reasoning","target":"Video","weight":40},{"source":"Compression","target":"Efficient","weight":7},{"source":"Efficient","target":"Tracking","weight":8},{"source":"Benchmark","target":"Multimodal","weight":26},{"source":"Benchmark","target":"Vision-Language","weight":12},{"source":"Multimodal","target":"Vision-Language","weight":9},{"source":"Generation","target":"Motion","weight":49},{"source":"Benchmark","target":"Video","weight":26},{"source":"Multimodal","target":"Video","weight":24},{"source":"3D","target":"LLM","weight":7},{"source":"3D","target":"Reasoning","weight":14},{"source":"LLM","target":"Reasoning","weight":13},{"source":"Diffusion","target":"Generation","weight":62},{"source":"Multimodal","target":"Navigation","weight":5},{"source":"Anomaly","target":"Video","weight":8},{"source":"Detection","target":"Video","weight":22},{"source":"3D","target":"Generation","weight":83},{"source":"3D","target":"Human","weight":24},{"source":"Generation","target":"Human","weight":30},{"source":"Editing","target":"Generation","weight":17},{"source":"Generation","target":"Image Generation","weight":73},{"source":"3D","target":"Vision-Language","weight":19},{"source":"Distillation","target":"Segmentation","weight":5},{"source":"Multimodal","target":"Robustness","weight":11},{"source":"Multimodal","target":"Segmentation","weight":11},{"source":"Robustness","target":"Segmentation","weight":8},{"source":"Continual Learning","target":"Medical","weight":5},{"source":"Continual Learning","target":"Test-Time","weight":7},{"source":"Medical","target":"Prompt","weight":8},{"source":"Prompt","target":"Segmentation","weight":20},{"source":"Prompt","target":"Test-Time","weight":8},{"source":"Segmentation","target":"Test-Time","weight":6},{"source":"3D","target":"Open-Vocabulary","weight":13},{"source":"Diffusion","target":"Reinforcement Learning","weight":5},{"source":"Efficient","target":"Sparse","weight":15},{"source":"Motion","target":"Video","weight":32},{"source":"Detection","target":"Reasoning","weight":13},{"source":"Diffusion","target":"Geometry","weight":7},{"source":"Generation","target":"World Model","weight":5},{"source":"Generation","target":"Text-to-Image","weight":27},{"source":"Image Generation","target":"Text-to-Image","weight":25},{"source":"Adversarial","target":"Robustness","weight":11},{"source":"3D","target":"Robustness","weight":12},{"source":"3D","target":"Sparse","weight":21},{"source":"Gaussian Splatting","target":"Robustness","weight":7},{"source":"Gaussian Splatting","target":"Sparse","weight":14},{"source":"Optimization","target":"Vision-Language","weight":11},{"source":"Detection","target":"Distillation","weight":5},{"source":"3D","target":"Detection","weight":36},{"source":"Autoregressive","target":"Diffusion","weight":8},{"source":"Autoregressive","target":"Generation","weight":35},{"source":"Autoregressive","target":"Motion","weight":5},{"source":"Human","target":"Mesh","weight":6},{"source":"3D","target":"Scene Understanding","weight":10},{"source":"Generation","target":"Retrieval","weight":11},{"source":"Generation","target":"Tracking","weight":5},{"source":"Adversarial","target":"Vision-Language","weight":5},{"source":"Diffusion","target":"Video","weight":42},{"source":"Benchmark","target":"LLM","weight":7},{"source":"Multimodal","target":"Reinforcement Learning","weight":7},{"source":"Benchmark","target":"Dataset","weight":17},{"source":"Dataset","target":"Multimodal","weight":14},{"source":"Prompt","target":"Remote Sensing","weight":5},{"source":"Segmentation","target":"Video","weight":22},{"source":"Diffusion","target":"Vision-Language","weight":7},{"source":"Generalization","target":"Optimization","weight":5},{"source":"Point Cloud","target":"Registration","weight":5},{"source":"Agent","target":"Vision-Language","weight":6},{"source":"Attention","target":"Segmentation","weight":6},{"source":"Open-Vocabulary","target":"Remote Sensing","weight":6},{"source":"Open-Vocabulary","target":"Segmentation","weight":21},{"source":"Remote Sensing","target":"Segmentation","weight":10},{"source":"3D","target":"Multimodal","weight":18},{"source":"Generation","target":"Multimodal","weight":47},{"source":"Generation","target":"Reasoning","weight":21},{"source":"3D","target":"Video","weight":25},{"source":"Generation","target":"Pose Estimation","weight":10},{"source":"Pose Estimation","target":"Video","weight":7},{"source":"3D","target":"Test-Time","weight":6},{"source":"Video","target":"Zero-Shot","weight":5},{"source":"Efficient","target":"Restoration","weight":8},{"source":"Generation","target":"Texture","weight":5},{"source":"Test-Time","target":"Vision-Language","weight":12},{"source":"Retrieval","target":"Robustness","weight":6},{"source":"Detection","target":"Remote Sensing","weight":6},{"source":"LLM","target":"Video","weight":18},{"source":"Benchmark","target":"Detection","weight":8},{"source":"Detection","target":"Multimodal","weight":20},{"source":"3D","target":"Segmentation","weight":29},{"source":"3D","target":"Unsupervised","weight":6},{"source":"Autonomous Driving","target":"Multimodal","weight":5},{"source":"Domain Adaptation","target":"Unsupervised","weight":7},{"source":"Segmentation","target":"Unsupervised","weight":6},{"source":"Diffusion","target":"Multimodal","weight":13},{"source":"Diffusion","target":"Robustness","weight":7},{"source":"Multimodal","target":"Transformer","weight":8},{"source":"Autoregressive","target":"Video","weight":7},{"source":"Detection","target":"Sparse","weight":5},{"source":"Generation","target":"Geometry","weight":22},{"source":"Event Camera","target":"Motion","weight":6},{"source":"3D","target":"Agent","weight":6},{"source":"Detection","target":"Test-Time","weight":6},{"source":"Compression","target":"Generation","weight":9},{"source":"Human","target":"Multi-View","weight":5},{"source":"Human","target":"Video","weight":18},{"source":"Multi-View","target":"Video","weight":7},{"source":"Geometry","target":"Sparse","weight":5},{"source":"Geometry","target":"Reasoning","weight":17},{"source":"Geometry","target":"Vision-Language","weight":9},{"source":"Detection","target":"Forgery/Deepfake","weight":18},{"source":"Distillation","target":"Generation","weight":11},{"source":"Autoregressive","target":"Efficient","weight":5},{"source":"Generation","target":"LLM","weight":7},{"source":"LLM","target":"Motion","weight":5},{"source":"3D","target":"Hand","weight":11},{"source":"Hand","target":"Video","weight":6},{"source":"3D","target":"Medical","weight":8},{"source":"Generalization","target":"Medical","weight":5},{"source":"Gaussian Splatting","target":"Segmentation","weight":7},{"source":"Grounding","target":"Segmentation","weight":13},{"source":"Human","target":"Multimodal","weight":9},{"source":"Navigation","target":"Remote Sensing","weight":6},{"source":"Camera","target":"Event Camera","weight":7},{"source":"3D","target":"Motion","weight":20},{"source":"Generation","target":"Robustness","weight":8},{"source":"3D","target":"Grounding","weight":14},{"source":"Geometry","target":"Grounding","weight":5},{"source":"3D","target":"Point Cloud","weight":15},{"source":"Geometry","target":"Multi-View","weight":7},{"source":"Segmentation","target":"Vision-Language","weight":5},{"source":"Video","target":"Vision-Language","weight":10},{"source":"Generation","target":"Restoration","weight":5},{"source":"Generation","target":"Zero-Shot","weight":7},{"source":"Efficient","target":"Multimodal","weight":13},{"source":"Agent","target":"Reinforcement Learning","weight":8},{"source":"Agent","target":"Video","weight":17},{"source":"Efficient","target":"Reinforcement Learning","weight":6},{"source":"Reinforcement Learning","target":"Video","weight":14},{"source":"Generation","target":"Mesh","weight":9},{"source":"Motion","target":"Multimodal","weight":6},{"source":"3D","target":"Implicit/Neural Field","weight":8},{"source":"Generation","target":"Implicit/Neural Field","weight":5},{"source":"Anomaly","target":"Zero-Shot","weight":10},{"source":"Detection","target":"Zero-Shot","weight":13},{"source":"Camera","target":"Generation","weight":8},{"source":"Diffusion","target":"Multi-View","weight":7},{"source":"Detection","target":"Transformer","weight":7},{"source":"Multimodal","target":"Retrieval","weight":8},{"source":"Anomaly","target":"Multimodal","weight":8},{"source":"Dataset","target":"Detection","weight":6},{"source":"Detection","target":"Efficient","weight":7},{"source":"Detection","target":"Open-Vocabulary","weight":15},{"source":"Efficient","target":"Vision-Language","weight":20},{"source":"Diffusion","target":"Image Generation","weight":9},{"source":"Benchmark","target":"Reasoning","weight":17},{"source":"3D","target":"Self-Supervised","weight":7},{"source":"3D","target":"Zero-Shot","weight":10},{"source":"Matching","target":"Multi-View","weight":5},{"source":"Matching","target":"Zero-Shot","weight":6},{"source":"Detection","target":"Diffusion","weight":7},{"source":"Attention","target":"Efficient","weight":14},{"source":"Attention","target":"Diffusion","weight":9},{"source":"Attention","target":"Sparse","weight":9},{"source":"Attention","target":"Transformer","weight":10},{"source":"Trajectory","target":"Video","weight":10},{"source":"Diffusion","target":"Face","weight":7},{"source":"Robustness","target":"Vision-Language","weight":10},{"source":"Agent","target":"Generation","weight":8},{"source":"Flow Matching","target":"Matching","weight":29},{"source":"Diffusion","target":"Restoration","weight":10},{"source":"Segmentation","target":"Weakly-Supervised","weight":7},{"source":"Grounding","target":"Multimodal","weight":11},{"source":"Geometry","target":"Multimodal","weight":7},{"source":"Geometry","target":"Motion","weight":6},{"source":"Grounding","target":"Reasoning","weight":7},{"source":"Medical","target":"Reasoning","weight":10},{"source":"Reasoning","target":"Segmentation","weight":12},{"source":"Attention","target":"Generation","weight":7},{"source":"Benchmark","target":"Generation","weight":18},{"source":"Generation","target":"Prompt","weight":11},{"source":"Distillation","target":"Vision-Language","weight":6},{"source":"Editing","target":"Video","weight":22},{"source":"Editing","target":"Motion","weight":7},{"source":"Generation","target":"Optimization","weight":21},{"source":"Mamba/SSM","target":"Video","weight":6},{"source":"Generalization","target":"Generation","weight":7},{"source":"Autonomous Driving","target":"Trajectory","weight":5},{"source":"Autoregressive","target":"Image Generation","weight":5},{"source":"Gaussian Splatting","target":"Motion","weight":7},{"source":"Motion","target":"Restoration","weight":6},{"source":"Detection","target":"Vision-Language","weight":13},{"source":"Retrieval","target":"Video","weight":8},{"source":"3D","target":"Transformer","weight":8},{"source":"Geometry","target":"Transformer","weight":12},{"source":"Geometry","target":"Segmentation","weight":10},{"source":"Point Cloud","target":"Segmentation","weight":6},{"source":"Embodied","target":"Navigation","weight":5},{"source":"Generation","target":"Material/Lighting","weight":7},{"source":"Diffusion","target":"Optimization","weight":8},{"source":"Reasoning","target":"VQA","weight":5},{"source":"Generalization","target":"Reasoning","weight":5},{"source":"Few-Shot","target":"Generation","weight":5},{"source":"Editing","target":"Vision-Language","weight":5},{"source":"Dataset","target":"Diffusion","weight":6},{"source":"Dataset","target":"Distillation","weight":14},{"source":"Depth","target":"Efficient","weight":5},{"source":"Agent","target":"Reasoning","weight":14},{"source":"Flow Matching","target":"Generation","weight":13},{"source":"Generation","target":"Matching","weight":14},{"source":"Matching","target":"Multimodal","weight":5},{"source":"3D","target":"Foundation Model","weight":9},{"source":"Generation","target":"Vision-Language","weight":11},{"source":"Benchmark","target":"Human","weight":6},{"source":"Efficient","target":"LLM","weight":6},{"source":"3D","target":"Anomaly","weight":7},{"source":"Detection","target":"Geometry","weight":7},{"source":"Geometry","target":"Video","weight":9},{"source":"Video","target":"World Model","weight":7},{"source":"Grounding","target":"Vision-Language","weight":7},{"source":"Detection","target":"Generation","weight":7},{"source":"Detection","target":"Prompt","weight":12},{"source":"Generation","target":"Open-Vocabulary","weight":7},{"source":"Open-Vocabulary","target":"Prompt","weight":8},{"source":"Grounding","target":"Video","weight":18},{"source":"Human","target":"Pose Estimation","weight":10},{"source":"Grounding","target":"LLM","weight":7},{"source":"Detection","target":"Robustness","weight":11},{"source":"Stereo","target":"Video","weight":5},{"source":"Multi-View","target":"Sparse","weight":5},{"source":"Multi-View","target":"Transformer","weight":6},{"source":"Prompt","target":"Zero-Shot","weight":5},{"source":"Captioning","target":"Video","weight":6},{"source":"Compression","target":"Diffusion","weight":6},{"source":"Agent","target":"Benchmark","weight":5},{"source":"Agent","target":"Multimodal","weight":10},{"source":"Detection","target":"Unsupervised","weight":5},{"source":"Efficient","target":"Reasoning","weight":15},{"source":"Sparse","target":"Vision-Language","weight":11},{"source":"Dataset","target":"Video","weight":14},{"source":"VQA","target":"Video","weight":5},{"source":"Classification","target":"Few-Shot","weight":7},{"source":"Agent","target":"Embodied","weight":7},{"source":"Attention","target":"Vision-Language","weight":5},{"source":"Distillation","target":"Video","weight":10},{"source":"Few-Shot","target":"Segmentation","weight":5},{"source":"Detection","target":"Generalization","weight":10},{"source":"Generalization","target":"Multimodal","weight":5},{"source":"Generation","target":"Segmentation","weight":10},{"source":"3D","target":"Avatar","weight":7},{"source":"3D","target":"Distillation","weight":5},{"source":"Pose Estimation","target":"Sparse","weight":5},{"source":"Distillation","target":"Matching","weight":7},{"source":"Efficient","target":"Segmentation","weight":8},{"source":"Forgery/Deepfake","target":"Robustness","weight":13},{"source":"Continual Learning","target":"Multimodal","weight":8},{"source":"Mamba/SSM","target":"Segmentation","weight":5},{"source":"Editing","target":"Generalization","weight":6},{"source":"Generalization","target":"Segmentation","weight":8},{"source":"3D","target":"Diffusion","weight":19},{"source":"Generation","target":"Rendering","weight":5},{"source":"Adversarial","target":"Generation","weight":5},{"source":"Restoration","target":"Video","weight":9},{"source":"Embodied","target":"Reasoning","weight":5},{"source":"Medical","target":"Multimodal","weight":10},{"source":"Diffusion","target":"Matching","weight":5},{"source":"Efficient","target":"Geometry","weight":9},{"source":"Sparse","target":"Video","weight":7},{"source":"Medical","target":"Vision-Language","weight":11},{"source":"Editing","target":"Optimization","weight":5},{"source":"Generation","target":"Medical","weight":12},{"source":"Efficient","target":"Matching","weight":6},{"source":"Generation","target":"Hand","weight":9},{"source":"Super-Resolution","target":"Video","weight":10},{"source":"Gaussian Splatting","target":"Generation","weight":8},{"source":"Unsupervised","target":"Video","weight":5},{"source":"Matching","target":"Stereo","weight":6},{"source":"Autonomous Driving","target":"Generation","weight":6},{"source":"Autonomous Driving","target":"World Model","weight":6},{"source":"Benchmark","target":"Remote Sensing","weight":5},{"source":"Flow Matching","target":"Motion","weight":5},{"source":"Matching","target":"Motion","weight":6},{"source":"Efficient","target":"Medical","weight":5},{"source":"Detection","target":"Human","weight":8},{"source":"Dataset","target":"Human","weight":6},{"source":"Classification","target":"Generation","weight":5},{"source":"Generation","target":"Trajectory","weight":13},{"source":"Anomaly","target":"Weakly-Supervised","weight":5},{"source":"Detection","target":"Weakly-Supervised","weight":7},{"source":"Video","target":"Weakly-Supervised","weight":6},{"source":"Prompt","target":"Video","weight":6},{"source":"3D","target":"Embodied","weight":6},{"source":"Agent","target":"Optimization","weight":5},{"source":"Distillation","target":"Efficient","weight":8},{"source":"Face","target":"Generation","weight":9},{"source":"Navigation","target":"Vision-Language","weight":10},{"source":"Generation","target":"In-Context","weight":5},{"source":"Dataset","target":"Generation","weight":11},{"source":"Restoration","target":"Self-Supervised","weight":6},{"source":"Detection","target":"Segmentation","weight":5},{"source":"Navigation","target":"Reasoning","weight":9},{"source":"Diffusion","target":"Retrieval","weight":5},{"source":"Pose Estimation","target":"Robustness","weight":5},{"source":"Motion","target":"Reasoning","weight":5},{"source":"CLIP","target":"Detection","weight":5},{"source":"Generation","target":"Test-Time","weight":5},{"source":"Tracking","target":"Transformer","weight":5},{"source":"Generation","target":"Sparse","weight":5},{"source":"Diffusion","target":"Generalization","weight":8},{"source":"Diffusion","target":"Medical","weight":7},{"source":"Diffusion","target":"Segmentation","weight":5},{"source":"3D","target":"Material/Lighting","weight":5},{"source":"Depth","target":"Segmentation","weight":5},{"source":"Detection","target":"Few-Shot","weight":8},{"source":"Diffusion","target":"Editing","weight":8},{"source":"Efficient","target":"Optimization","weight":5},{"source":"Generalization","target":"Prompt","weight":5},{"source":"Generalization","target":"Vision-Language","weight":5},{"source":"Agent","target":"LLM","weight":5},{"source":"LLM","target":"Optimization","weight":5},{"source":"Optimization","target":"Text-to-Image","weight":5}],"legend":[{"community":0,"top":["Detection","Segmentation","Robustness","Generalization"],"size":27},{"community":1,"top":["Generation","Video","Motion","Human"],"size":22},{"community":2,"top":["3D","Geometry","Gaussian Splatting","Sparse"],"size":14},{"community":3,"top":["Multimodal","Vision-Language","Reasoning","Benchmark"],"size":14},{"community":4,"top":["Diffusion","Efficient","Transformer","Distillation"],"size":9},{"community":5,"top":["Matching","Flow Matching","Stereo"],"size":3}]};
+const WS={"cats":["Biometrics","Vision and graphics","Emerging topics - other","Image and video synthesis and generation","Data / Synthetic data for vision","Efficient, edge, and scalable vision","Deep learning architectures and techniques","Vision for accessibility","Generative models","Foundation models (LLM, VLM, VLA, etc.)","Vision, language and reasoning","Human modeling & understanding: Face, body, pose, gesture, movement","Embodied vision: Active agents, simulation","Affinity groups","Medical and biological vision, cell microscopy","Photogrammetry and remote sensing","Multimodal detection, recognition, segmentation","Robot perception","Explainable computer vision","Autonomous driving","Computational imaging","Video: Action and event understanding","3D from multi-view and sensors","Vision applications and systems","Vision for societal good","World models","Multimodal learning","Transparency, safety, fairness, accountability, and ethics in vision","Scene analysis and understanding","Adversarial attack and defense","Open world learning"],"list":[["AERO-HPR: Human Perception and Recognition in Aerial Surveillance","https://aero-hpr.github.io/",0,"Wed AM"],["The 2nd International Workshop & Challenge on Subtle Visual Computing @CVPR 2026","https://sites.google.com/view/svc-cvpr26",0,"Wed AM"],["Second Workshop on Foundation and Generative Models in Biometrics","https://foundgen-bio.github.io/cvpr2026/",0,"Wed PM"],["CVPR 2026 Biometrics Workshop","https://vislab.ucr.edu/Biometrics2026/index.php",0,"Thu PM"],["AI for Content Creation","https://ai-for-content-creation.github.io",1,"Wed AM"],["The 3rd AI for Visual Arts Workshop and Challenges","https://ai4va-cvpr.github.io/",1,"Wed AM"],["The 3rd Workshop on AI for Content Generation, Quality Enhancement and Streaming","https://ai4streaming-workshop.github.io",1,"Wed AM"],["See the World in a Different Light: Physical Appearance Modeling and Relighting in the Age of Generative AI","https://vcai.mpi-inf.mpg.de/projects/World-in-a-Different-Light/",1,"Thu PM"],["Appearance Understanding and Generation","https://appx-workshop.github.io/",1,"Thu PM"],["Workshop on \"Bitter Lessons\"","https://sites.google.com/view/bitterlessonscv",2,"Wed AM"],["Multimodal Alignment for a Pluralistic Society","https://sites.google.com/view/maps-cvpr",2,"Wed AM"],["Rediscovering Intelligence: Can AI Still Learn from Humans?","https://relearncvpr26.github.io/ReLearn/",2,"Wed PM"],["CV4Science: Using Computer Vision for the Sciences","https://sites.google.com/nyu.edu/computervisionforscience",2,"Thu PM"],["AI for Creative Visual Content Generation, Editing and Understanding","https://cveu.github.io/",3,"Wed AM"],["1st Workshop on Video World Models: Interaction, Memory, and Efficiency","https://videoworldmodel-workshop.github.io/",3,"Wed AM"],["The 1st Workshop on AI-assisted Long Video Creation","https://bilibili.github.io/Index-anisora/cvpr_2026_workshop/index.html",3,"Wed PM"],["1st Workshop on Journey to the Awards: Generative AI for Movie-Grade Video Production (J2A), CVPR 2026","https://cvpr26-j2a.github.io/",3,"Thu PM"],["The 5th DataCV Workshop and Challenge","https://sites.google.com/view/datacv-2026-cvpr/",4,"Wed AM"],["Auto-Annotation with Expert-Crafted Guidelines","https://autoexpert-arena.github.io/",4,"Wed PM"],["Exploring the Next Generation of Data","https://sites.google.com/view/nexd26/home",4,"Thu AM"],["The 3rd Workshop on Synthetic Data for Computer Vision","https://syndata4cv.github.io/",4,"Thu PM"],["The 22nd Embedded Vision Workshop","https://embeddedvisionworkshop.wordpress.com/",5,"Wed AM"],["On Sensor Vision Workshop","https://onsensor-vision.github.io/",5,"Wed AM"],["Efficient Deep Learning for Computer Vision","https://ecv-workshop.github.io/",5,""],["3rd Workshop on Efficient and On-Device Generation (EDGE), CVPR 2026","https://cvpr26-edge.github.io/",5,"Wed PM"],["Mobile AI workshop and associated challenges, 6th edition","https://ai-benchmark.com/workshops/mai/2026/",5,""],["Sixth Workshop on Neural Architecture Search","https://cvpr-nas.gitlab.io/workshop/website/index",6,"Wed PM"],["The 5th Workshop on Transformers for Vision and Multimodal AI","https://sites.google.com/view/t4v-cvpr26/",6,"Wed PM"],["Generative AI for Sign Language","https://genai4sl.github.io/",7,"Wed AM"],["2nd Workshop on Multimodal Sign Language Recognition","https://m-slrt.github.io/MSLR2026/",7,"Wed PM"],["VizWiz Grand Challenge: Interpreting Images and Videos Taken by Blind People","https://vizwiz.org/workshops/2026-vizwiz-grand-challenge-workshop/",7,"Thu AM"],["Generative AI for XR and Identity-based Applications","https://bmdj-vt.github.io/workshops/cvpr_2026",8,"Wed AM"],["3D Geometry Generation for Scientific Computing (2nd Edition)","https://3d4sworkshop.github.io/",8,"Thu AM"],["The 1st Workshop on Low‑Level Vision Frontiers with Generative AI, Preference Optimization, and Agentic Systems","https://lovif-cvpr2026-workshop.github.io/",8,"Thu AM"],["Personalization in Generative AI Workshop","https://p13n-workshop.github.io/",8,"Thu AM"],["4th Workshop on Generative Models for Computer Vision","https://generative-vision.github.io/workshop-CVPR-26/",8,""],["Video Generative Models: Benchmarks and Evaluation","https://vidgen-bench-eval.github.io/",8,""],["1st Workshop on Generative 3D Reconstruction","https://genrecon3d.github.io/",8,"Thu PM"],["2nd Workshop on GenAI for Storytelling","https://aistory2026.github.io/",8,"Thu PM"],["GigaBrain Challenge 2026: Workshop on World Models Empowering Vision Language Action Model","https://gigaai-research.github.io/GigaBrain-Challenge-2026/",9,"Wed PM"],["The 2nd Workshop on Multimodal Spatial Intelligence","https://musi-workshop-2nd.github.io/",9,"Wed AM"],["Workshop on Agentic AI for Visual Media","https://agentic-visual-media.github.io/",9,""],["Visual General Intelligence","https://cvpr2026-vgi-workshop.limitlab.xyz/",9,""],["The 2nd 3D-LLM/VLA Workshop: Bridging Language, Vision and Action in 3D Environments","https://3d-llm-vla.github.io/",9,"Wed PM"],["DataMFM: Emerging Directions in Data for Multimodal Foundation Models","https://datamfm.github.io/",9,"Wed PM"],["The 5th Workshop on Computer Vision in the Wild: Towards Unified Multimodal Agents For Reasoning in the Wild","https://computer-vision-in-the-wild.github.io/cvpr-2026",9,"Thu AM"],["The Second Workshop on the Evaluation of the Generative Foundation Models","https://evgenfm2026.github.io/",9,"Thu AM"],["2nd Workshop on Video Large Language Models","https://www.crcv.ucf.edu/cvpr2026-vidllms-workshop/",9,""],["The 2nd CVPR Workshop on Foundation Models Meet Embodied Agents","https://foundation-models-meet-embodied-agents.github.io/cvpr2026/",9,"Thu PM"],["ScaleBot: The First Workshop on Scalable Robot Learning Systems","https://scalebot-workshop.github.io/",9,"Thu PM"],["GRAIL-V: Grounded Retrieval & Agentic Intelligence for Vision-Language","https://grailworkshops.github.io/",10,"Wed AM"],["Workshop on Vision-based Assistants in the Real-World","https://varworkshop.github.io/",10,"Wed AM"],["Cognitive Foundations for Multimodal Models","https://cogvl.github.io/",10,"Wed PM"],["The 2nd Workshop on Test-time Scaling for Computer Vision","https://viscale.github.io/",10,"Wed PM"],["2nd Workshop on Knowledge-Intensive Multimodal Reasoning","https://knowledgemr-workshop.github.io/",10,"Thu AM"],["Multimodal Algorithmic Reasoning Workshop","https://marworkshop.github.io/cvpr26/",10,"Thu AM"],["Workshop on Visual Concepts","https://sites.google.com/stanford.edu/visual-concepts-workshops",10,""],["The 2nd Workshop on Multi-Modal Reasoning for Agentic Intelligence","https://mmragi.github.io/mmragi/",10,"Thu PM"],["The 3rd Workshop on Human Motion Generation - New Perspective on Simulation, Animation, and VR applications","https://humogen.github.io/",11,"Wed AM"],["2nd Workshop on Photorealistic 3D Head Avatars","https://kaldir.vc.cit.tum.de/nersemble_benchmark/cvpr2026",11,"Wed AM"],["10th Affective & Behavior Analysis in-the-wild","https://affective-behavior-analysis-in-the-wild.github.io/10th",11,"Wed PM"],["Computer Vision for Biomechanics Workshop","https://cvbw2026.github.io/",11,"Wed PM"],["Workshop on Multimodal Human Motion Analysis","https://www.iit.it/en/web/hrii/cvpr2026-workshop",11,"Wed PM"],["2nd Workshop on Computer Vision for Children","https://pediamedai.com/cv4chl/",11,"Thu AM"],["Humans of Generative AI","https://humansofgenerativeai.github.io/",11,"Thu AM"],["PhysHuman: Physically Grounded Human Perception and Modeling","https://physhuman.github.io/",11,"Thu AM"],["2nd Workshop on Human-Interactive Generation and Editing","https://higen-2025.github.io/",11,""],["The 7th International Workshop on Eye and Gaze in Computer Vision","https://gazeworkshop.github.io/2026/",11,"Thu PM"],["IPA: Interactive Physical AI Workshop","https://research.nvidia.com/labs/amri/projects/IPA/2026/",12,"Wed AM"],["Bridging Vision, Language, and Action: What’s Missing in Actionable Visual Perception for Robotics","https://activis-workshop.github.io/",12,""],["From Lab Demos to Daily Tasks: Embodied Intelligence in the Wild","https://opendrivelab.com/cvpr2026/workshop",12,""],["Sense of Space: Multi-Sensory Modeling for Embodied Intelligence","https://sense-of-space.github.io/",12,""],["1st Workshop on Multi-Agent Robotic Systems: Scaling with Compositional Intelligence","https://mars-eai.github.io/CVPR-SCI-MARS-Webpage/",12,"Wed PM"],["Embodied Reasoning in Action: Workshop and Challenge on Embodied Reasoning for Robotic Manipulation","https://embodied-reasoning.github.io/",12,""],["4D Digital Twins: Real-to-Sim-to-Real for Physical AI","https://research.nvidia.com/labs/amri/projects/4DDT/2026/",12,"Thu PM"],["LatinX in Computer Vision Research Workshop","https://www.latinxinai.org/cvpr-2026",13,"Wed AM"],["Women in Computer Vision","https://sites.google.com/view/wicv-cvpr-2026/",13,"Wed AM"],["Multimodal Foundation Models for Biomedicine: Challenges and Opportunities","https://mmfm-biomed.github.io/",14,"Wed AM"],["The 3rd Workshop on Foundation Models for Medical Vision","https://fmv-cvpr26workshop.github.io/",14,"Wed AM"],["PHAROS AI Factory for Medical Imaging & Healthcare","https://ai-medical-image-analysis.github.io/6th",14,"Wed AM"],["12th Workshop on Medical Computer Vision","https://sites.google.com/view/cvpr2026mcv",14,""],["11th Workshop on Computer Vision and Multimodal Microscopy Image Analysis","https://cvmi-workshop.github.io/index.html",14,""],["Medical Reasoning with Vision Language Foundation Models","https://med-reasoner.github.io/cvpr2026",14,"Thu PM"],["Bridging AI and Medical Reality: Computer Vision for Real-world Clinical Translation","https://cv4clinical.github.io/cv4clinical_2026/",14,"Thu PM"],["The Second CVPR Workshop on Foundation and Large Vision Models in Remote Sensing (MORSE)","https://sites.google.com/view/cvpr-morse/",15,"Wed PM"],["The 1st Workshop on Monitoring the World through an Imperfect Lens","https://sites.google.com/view/monti2026/home",15,"Wed PM"],["EarthVision: Large Scale Computer Vision for Remote Sensing Imagery","https://www.grss-ieee.org/events/earthvision-2026/",15,""],["22nd Workshop on Perception Beyond the Visible Spectrum","https://pbvs-workshop.github.io/index.html",16,"Wed AM"],["4th Workshop on Vision Based Industrial Inspection","https://vision-workshop-26.github.io/cvpr-2026/",16,""],["Workshop on World Models Meet Active Sensing and Closed-Loop Planning","https://cvpr26wmas.github.io/",17,"Wed AM"],["Unified Robotic Vision with Cross-Modal Sensing and Alignment","https://urvis-workshop.github.io/",17,"Thu AM"],["4th Workshop on Maritime Computer Vision","https://macvi.org/workshop/cvpr",17,"Thu AM"],["The 5th Explainable AI for Computer Vision (XAI4CV) Workshop","https://xai4cv-workshop.github.io/xai4cv2026/",18,"Wed AM"],["Safe Artificial Intelligence for All Domains","https://sites.google.com/view/saiad-2026/home",18,"Thu AM"],["How Do Vision Models Work?","https://sites.google.com/view/how-cvpr-workshop",18,""],["Autonomous Understanding Through Open-world Perception and Integrated Language models for On-road Tasks","https://www.autopilot-cvpr.net/",19,""],["Foundation Models for Autonomous Driving","https://drivex-workshop.github.io/cvpr2026",19,""],["Workshop on Autonomous Driving","https://cvpr2026.wad.vision/",19,""],["The 1st Workshop on Deployment of Foundation Models for Embodied AI","https://wdfm-eai.github.io/CVPR26/",19,""],["The Eighth Workshop on Precognition: Seeing through the Future","https://sites.google.com/view/ieeecvf-cvpr2026-precognition",19,"Thu AM"],["9th International Workshop on Visual Odometry and Computer Vision Applications Based on Location Clues","https://sites.google.com/view/vocvalc2026/home",19,"Thu AM"],["Multi-Agent Embodied Intelligent Systems Meet Agentic-AI era: Opportunities, Challenges and Futures","https://coop-intelligence.github.io/",19,""],["Third Workshop on Simulation for Autonomous Driving","https://agents4ad.github.io/",19,"Thu PM"],["Computational Cameras and Displays","https://alumni.media.mit.edu/~ayush/CCD/",20,""],["The 8th UG2+ Workshop and Challenge: Bridging the Gap between Computational Photography and Visual Perception","https://cvpr2026ug2challenge.github.io/",20,"Thu AM"],["11th New Trends in Image Restoration and Enhancement Workshop and Challenges","https://www.cvlai.net/ntire/2026/",20,""],["Third Joint Egocentric Vision (EgoVis) Workshop","https://egovis.github.io/cvpr26",21,""],["Computer Vision with Small Data: Beyond Scale -- Toward Data-Efficient Dynamically-Aware Video Intelligence","https://cv4smalls2026.sites.northeastern.edu/",21,"Wed PM"],["The 1st Workshop on Vision for Intelligent Task Assistants","https://vita-workshop.github.io/cvpr2026/",21,"Wed PM"],["6th International Workshop on Long-form Video Understanding, Generation and Action","https://sites.google.com/view/loveucvpr26",21,"Thu PM"],["Second Workshop on Skilled Activity Understanding, Assessment & Feedback Generation","https://sauafg-workshop.github.io/",21,"Thu PM"],["13th Workshop on Fine-grained Visual Categorization","https://sites.google.com/view/fgvc13/",6,""],["Domain Generalization: Evolution, Breakthroughs, and Future Horizons (2nd Edition)","https://dg-ebf.github.io/2026/",6,"Thu PM"],["Urban Scene Modeling: Structured, Semantic, and Synthetic 3D Habitats","https://usm3d.github.io",22,""],["3rd Workshop on ScanNet++ Novel View Synthesis and 3D Semantic Understanding Challenge","https://scannetpp.mlsg.cit.tum.de/scannetpp/cvpr2026",22,"Wed PM"],["Spatial Intelligence for Cultural Heritage","https://sint4ch.fbk.eu/home",22,"Wed PM"],["Third Workshop for Learning 3D with Multi-View Supervision","https://3dmv.org/2026/",22,"Thu AM"],["SPAR-3D: Security, Privacy, and Adversarial Robustness in 3D Generative Vision Models","https://www.spar3d.org/",22,"Thu AM"],["2nd Workshop on 4D Vision: Modeling the Dynamic World","https://4dvisionworkshop.github.io/",22,"Thu PM"],["Eighth Workshop on Image Matching: Local Features and Beyond","https://image-matching-workshop.github.io/",22,"Thu PM"],["AI4RWC: The 2nd International Workshop on Vision Intelligence for Real-world Challenges","https://sites.google.com/view/ai4rwc2026",23,"Wed AM"],["Computer Vision for the Built World","https://cv4aec.github.io/",23,"Wed PM"],["The 3rd MetaFood Workshop (MTF)","https://sites.google.com/view/cvpr-metafood-2026",23,"Wed PM"],["The 7th International Workshop and CVML Challenge on Agriculture-Vision: Challenges & Opportunities for Computer Vision in Agriculture","https://www.agriculture-vision.com",23,"Wed PM"],["6th Omnidirectional Computer Vision Workshop","https://sites.google.com/view/omnicv2026",23,"Thu AM"],["12th IEEE International Workshop on Computer Vision in Sports","https://vap.aau.dk/cvsports/",23,""],["Artificial Intelligence for Space","https://ai4space.space/",23,"Thu PM"],["Authenticity & Provenance in the age of Generative AI","https://sites.google.com/stanford.edu/apai-cvpr2026/",24,"Wed PM"],["6th Workshop on CV4Animals: Computer Vision for Animal Behavior Tracking and Modeling","https://www.cv4animals.com",24,"Thu AM"],["From Perception to Persuasion: Challenges and Advances in Misinformation Detection in Society","https://eecs.uq.edu.au/CVPR2026",24,"Thu AM"],["Computer Vision × Education: Building a Cross‑Community Agenda for Multimodal Vision in Classrooms","https://cv4edu.github.io",24,"Thu PM"],["End-to-End 3D Learning","https://e2e3d.github.io/",25,"Wed PM"],["Geometry-Free Novel View Synthesis and Controllable Video Models","https://geofreenvs.github.io/",25,"Thu AM"],["The Seventh Annual Embodied Artificial Intelligence Workshop","https://embodied-ai.org/",25,""],["4D World Models: Bridging Generation and Reconstruction","https://ivl.cs.brown.edu/4dworldmodels/",25,"Thu PM"],["The 5th Workshop on “What is Next in Multimodal Foundation Models?”","https://mmfm-workshop.github.io/",26,"Wed PM"],["Workshop on Any-to-any Multimodal Learning","https://a2a-mml-2026.vercel.app/",26,"Thu AM"],["9th Multimodal Learning and Applications Workshop","https://mula-workshop.github.io/",26,""],["Sight and Sound","https://sightsound.org/",26,""],["Machine Unlearning for Vision","https://machine-unlearning-for-vision.github.io",27,"Wed PM"],["The 3rd Workshop on New Trends in AI-Generated Media and Security","https://sites.google.com/view/aims2026",27,"Thu AM"],["Trustworthy, Robust, Uncertainty-Aware, and Explainable Visual Intelligence and Beyond","https://trustworthy-ai-workshop.github.io/cvpr2026-TRUE-V/",27,"Thu AM"],["OpenSUN3D: 6th Workshop on Open-World 3D Scene Understanding with Foundation Models","https://opensun3d.github.io/",28,"Wed PM"],["6th Workshop on 3D Scene Understanding for Vision, Graphics, and Robotics","https://scene-understanding.com/",28,"Thu AM"],["Pixel-level Video Understanding in the Wild Challenge","https://pvuw.github.io/",28,"Thu PM"],["Synthetic & Adversarial ForEnsics","https://www.safeworkshop.org/cvpr-2026/",29,"Wed PM"],["The 6th Workshop of Adversarial Machine Learning on Computer Vision: Safety of Vision-Language Agents","https://cvpr26-advml.github.io/",29,""],["Open-World Vision","https://vplow.github.io/vplow_6th.html",30,"Thu AM"],["The Third Workshop on Anomaly Detection with Foundation Models","https://adfmw.github.io/cvpr26/",30,"Thu PM"],["Visual Anomaly and Novelty Detection - 4th Edition","https://sites.google.com/view/vand4-cvpr2026",30,"Thu PM"]]};
+
+/* ───────── theme (default: system) ───────── */
+let LIGHT=(()=>{try{const s=localStorage.getItem("cvpr_theme");if(s)return s==="light";}catch(e){}
+  return !!(window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches);})();
+document.documentElement.classList.toggle("light",LIGHT);
+const NSTR=()=>LIGHT?"rgba(25,26,34,.28)":"rgba(255,255,255,.18)";
+const ACC=()=>LIGHT?"#16171c":"#fff";
+
+/* ───────── grouping modes ───────── */
+const COMM = {
+  names:["Detection & Segmentation","Generation · Video · Human","3D & Rendering","Vision–Language & Reasoning","Diffusion & Efficiency","Matching & Geometry"]
+};
+const PAL={
+  dark:["#ff8a5b","#52d3c3","#ffd166","#ad8cff","#5fb8ff","#c2e06a"],
+  light:["#c2511f","#0e8a7c","#a87b00","#6f43cf","#1c66b8","#5e7d15"]   /* keep in sync with html.light --c0..5 */
+};
+/* CVPR 2026 call-for-papers topics — each keyword mapped to its closest official topic */
+const TOPICS=[
+ {name:"3D from Multi-view & Sensors",full:"3D from multi-view and sensors"},
+ {name:"Synthesis & Generation",full:"Image and video synthesis and generation"},
+ {name:"Video: Action & Events",full:"Video: Action and event understanding"},
+ {name:"Video: Motion & Tracking",full:"Video: Low-level analysis, motion, and tracking"},
+ {name:"Recognition & Retrieval",full:"Recognition: Categorization, detection, retrieval"},
+ {name:"Segmentation & Shape",full:"Segmentation, grouping and shape analysis"},
+ {name:"Vision, Language & Reasoning",full:"Vision, language, and reasoning"},
+ {name:"Efficient & Scalable Vision",full:"Efficient and scalable vision"},
+ {name:"DL Architectures",full:"Deep learning architectures and techniques"},
+ {name:"Representation Learning",full:"Representation learning"},
+ {name:"Self-/Semi-/Unsupervised",full:"Self-, semi-, meta- and unsupervised learning"},
+ {name:"Transfer, Low-shot & Continual",full:"Transfer/ low-shot/ continual/ long-tail learning"},
+ {name:"Adversarial & Robustness",full:"Adversarial attack and defense"},
+ {name:"Humans: Face, Body, Pose",full:"Humans: Face, body, pose, gesture, movement"},
+ {name:"Embodied Vision & Agents",full:"Embodied vision: Active agents, simulation"},
+ {name:"Autonomous Driving",full:"Autonomous driving"},
+ {name:"Medical & Biological Vision",full:"Medical and biological vision, cell microscopy"},
+ {name:"Low-level Vision",full:"Low-level vision"},
+ {name:"Vision + Graphics",full:"Vision + graphics"},
+ {name:"Physics-based Vision",full:"Physics-based vision and shape-from-X"},
+ {name:"Remote Sensing",full:"Photogrammetry and remote sensing"},
+ {name:"Datasets & Evaluation",full:"Datasets and evaluation"},
+ {name:"Documents & OCR",full:"Document analysis and understanding"},
+ {name:"Scene Understanding",full:"Scene analysis and understanding"},
+ {name:"Ethics, Privacy & Forensics",full:"Transparency, fairness, accountability, privacy and ethics in vision"},
+ {name:"Explainable CV",full:"Explainable computer vision"},
+ {name:"Event-based Cameras",full:"Event-based cameras"}
+];
+const TOPIC_OF={"3D":0,"Geometry":0,"Matching":0,"Multi-View":0,"Camera":0,"Depth":0,"Point Cloud":0,"Stereo":0,"Registration":0,
+"Generation":1,"Diffusion":1,"Editing":1,"Image Generation":1,"Autoregressive":1,"Text-to-Image":1,"Flow Matching":1,
+"Video":2,"Action Recognition":2,
+"Motion":3,"Tracking":3,"Trajectory":3,
+"Detection":4,"Open-Vocabulary":4,"Retrieval":4,"Anomaly":4,"Classification":4,"Re-ID":4,
+"Segmentation":5,
+"Multimodal":6,"Vision-Language":6,"Reasoning":6,"LLM":6,"Prompt":6,"Reinforcement Learning":6,"Grounding":6,"CLIP":6,"VQA":6,"Captioning":6,"In-Context":6,
+"Efficient":7,"Sparse":7,"Distillation":7,"Compression":7,"Quantization":7,
+"Transformer":8,"Optimization":8,"Attention":8,"Mamba/SSM":8,
+"Foundation Model":9,"Contrastive":9,
+"Self-Supervised":10,"Unsupervised":10,"Weakly-Supervised":10,
+"Generalization":11,"Continual Learning":11,"Test-Time":11,"Zero-Shot":11,"Few-Shot":11,"Domain Adaptation":11,
+"Robustness":12,"Adversarial":12,
+"Human":13,"Pose Estimation":13,"Face":13,"Avatar":13,"Hand":13,
+"Agent":14,"Navigation":14,"World Model":14,"Embodied":14,
+"Autonomous Driving":15,
+"Medical":16,
+"Restoration":17,"Super-Resolution":17,
+"Gaussian Splatting":18,"Rendering":18,"Implicit/Neural Field":18,"Mesh":18,"Texture":18,
+"Material/Lighting":19,
+"Remote Sensing":20,
+"Benchmark":21,"Dataset":21,
+"Document/OCR":22,
+"Scene Understanding":23,
+"Federated":24,"Forgery/Deepfake":24,
+"Uncertainty":25,
+"Event Camera":26};
+TOPICS.forEach((t,i)=>{const h=(i*137.508+12)%360;
+  t.color=d3.hsl(h,.60,.68).formatHex();t.colorL=d3.hsl(h,.62,.38).formatHex();});
+
+let MODE=0; /* 0 = constellation (co-occurrence communities) · 1 = CVPR CFP topics */
+const grp=d=>MODE===0?d.community:d.topic;
+const NG=()=>MODE===0?COMM.names.length:TOPICS.length;
+const gname=i=>MODE===0?COMM.names[i]:TOPICS[i].name;
+const gfull=i=>MODE===0?COMM.names[i]:TOPICS[i].full;
+const color=i=>i>=0
+  ?(MODE===0?PAL[LIGHT?"light":"dark"][i%6]:(LIGHT?TOPICS[i].colorL:TOPICS[i].color))
+  :(LIGHT?"#8a8a92":"#566");
+const CVF=s=>DS===1
+  ?`https://openaccess.thecvf.com/content/CVPR2026F/html/${s}_CVPRF_2026_paper.html`
+  :`https://openaccess.thecvf.com/content/CVPR2026/html/${s}_CVPR_2026_paper.html`;
+
+const svg=d3.select("#graph"), root=svg.select(".zoomroot"), starG=svg.select(".stars");
+let W=innerWidth,H=innerHeight;
+svg.attr("viewBox",[0,0,W,H]);
+
+/* lite tier: phones & tablets — skip the expensive SVG filters */
+const LITE=Math.min(W,H)<=700||((navigator.maxTouchPoints||0)>0&&Math.max(W,H)<1400);
+const isMobile=()=>W<=860;
+document.documentElement.classList.toggle("lite",LITE);
+
+(function(){let s="";for(let i=0;i<(LITE?55:150);i++){const x=Math.random()*W,y=Math.random()*H,r=Math.random()*1.1+.2,d=(Math.random()*5).toFixed(2);s+=`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${r.toFixed(2)}" style="animation-delay:${d}s"/>`;}starG.html(s);})();
+
+svg.append("defs").html(`<filter id="glow" x="-90%" y="-90%" width="280%" height="280%">
+  <feGaussianBlur stdDeviation="4.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="hullblur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="14"/></filter>`);
+
+const nodes=DATA.nodes.map(d=>Object.assign({},d));
+nodes.forEach(n=>{n.topic=TOPIC_OF[n.id]??-1;});
+const idset=new Set(nodes.map(d=>d.id));
+const links=DATA.links.filter(l=>idset.has(l.source)&&idset.has(l.target)).map(d=>Object.assign({},d));
+document.getElementById("r-papers").textContent=DATA.meta.papers.toLocaleString();
+document.getElementById("r-keys").textContent=nodes.length;
+document.getElementById("r-links").textContent=links.length;
+
+const adj=new Map(nodes.map(d=>[d.id,[]]));
+links.forEach(l=>{adj.get(l.source).push({id:l.target,w:l.weight});adj.get(l.target).push({id:l.source,w:l.weight});});
+adj.forEach(a=>a.sort((x,y)=>y.w-x.w));
+const nbrIds=id=>new Set(adj.get(id).map(o=>o.id));
+const byId=new Map(nodes.map(d=>[d.id,d]));
+const nodeIndex=new Map(nodes.map((d,i)=>[d.id,i]));
+
+const ext=d3.extent(nodes,d=>d.count);
+const rScale=d3.scaleSqrt().domain(ext).range(LITE?[4,26]:[5,42]);
+const cExt=d3.extent(links,l=>l.weight);
+const lW=d3.scaleSqrt().domain(cExt).range([.4,3.4]);
+const LABEL_MIN=d3.quantile(nodes.map(d=>d.count).sort(d3.ascending),.84);
+
+/* ---- group anchors: spatial separation ---- */
+const anchor=i=>{const n=NG(),a=i/n*2*Math.PI-Math.PI/2,
+  rx=MODE===0?.26:.31, ry=MODE===0?.27:.32;
+  return [W*0.52+Math.cos(a)*W*rx, H*0.55+Math.sin(a)*H*ry];};
+
+const sim=d3.forceSimulation(nodes).alphaDecay(.017).velocityDecay(.42);
+function baseForces(){
+  const ls=MODE===0?1:.45, ax=MODE===0?.085:.17, ay=MODE===0?.095:.18;
+  sim.force("link",d3.forceLink(links).id(d=>d.id).distance(l=>80+230/Math.sqrt(l.weight)).strength(l=>Math.min(.36,l.weight/58)*ls))
+     .force("charge",d3.forceManyBody().strength(d=>-340-rScale(d.count)*13).distanceMax(1200))
+     .force("collide",d3.forceCollide(d=>rScale(d.count)+14).strength(.95))
+     .force("ax",d3.forceX(d=>anchor(grp(d))[0]).strength(ax))
+     .force("ay",d3.forceY(d=>anchor(grp(d))[1]).strength(ay));
+}
+baseForces();
+
+/* ---- containers (z-order: hulls < orbits < links < nodes < labels < name plates) ---- */
+const hullG=root.append("g");
+const orbitG=root.append("g").attr("class","orbits");
+const hullLine=d3.line().curve(d3.curveCatmullRomClosed.alpha(.8));
+
+const link=root.append("g").attr("stroke-linecap","round").selectAll("line")
+  .data(links).join("line").attr("class","link").attr("stroke-width",d=>lW(d.weight));
+
+const node=root.append("g").attr("filter",LITE?null:"url(#glow)").selectAll("circle")
+  .data(nodes).join("circle").attr("class","node")
+  .attr("r",0).attr("fill",d=>color(grp(d)))
+  .attr("stroke",NSTR()).attr("stroke-width",.6)
+  .call(drag(sim));
+
+const label=root.append("g").selectAll("text")
+  .data(nodes).join("text").attr("class","label")
+  .attr("dx",d=>rScale(d.count)+5).attr("dy",4).text(d=>d.id)
+  .style("opacity",d=>d.count>=LABEL_MIN?.92:0);
+
+const hullLabG=root.append("g");
+const pingG=root.append("g").attr("class","pings");
+let pingSel=null;
+let hullSel=hullG.selectAll("path"), hullLab=hullLabG.selectAll("g");
+const commSize=i=>nodes.filter(n=>grp(n)===i).length;
+
+node.transition().duration(900).delay((d,i)=>200+i*9).attr("r",d=>rScale(d.count));
+link.style("stroke-opacity",0).transition().duration(800).delay(900).style("stroke-opacity",null);
+
+function drawHulls(){
+  if(curKeep)return;            /* hulls are hidden during focus — skip the work */
+  hullSel.attr("d",i=>{
+    const pts=nodes.filter(n=>grp(n)===i).map(n=>[n.x,n.y]);
+    if(!pts.length)return null;
+    let pset=pts;
+    if(pts.length<3){pset=[];pts.forEach(p=>{for(let k=0;k<6;k++){const a=k/6*2*Math.PI;
+      pset.push([p[0]+Math.cos(a)*26,p[1]+Math.sin(a)*26]);}});}
+    let h=d3.polygonHull(pset); if(!h)return null;
+    const c=d3.polygonCentroid(h);
+    h=h.map(p=>{const dx=p[0]-c[0],dy=p[1]-c[1],L=Math.hypot(dx,dy)||1;return [p[0]+dx/L*38,p[1]+dy/L*38];});
+    return hullLine(h);
+  });
+  hullLab.attr("transform",i=>{
+    const pts=nodes.filter(n=>grp(n)===i);
+    if(!pts.length)return "translate(-9999,-9999)";
+    const cx=d3.mean(pts,n=>n.x), topY=d3.min(pts,n=>n.y-rScale(n.count));
+    return `translate(${cx},${topY-46})`;
+  });
+}
+
+let tickN=0;
+sim.on("tick",()=>{
+  link.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  node.attr("cx",d=>d.x).attr("cy",d=>d.y);
+  label.attr("x",d=>d.x).attr("y",d=>d.y);
+  if(pingSel)pingSel.attr("cx",d=>d.n.x).attr("cy",d=>d.n.y);
+  if(tickN++%(LITE?3:2)===0)drawHulls();   /* hull blobs lag a frame or two — invisible at this blur */
+});
+
+const zoom=d3.zoom().scaleExtent([.3,5]).on("zoom",e=>root.attr("transform",e.transform));
+svg.call(zoom).on("dblclick.zoom",null);
+
+/* ---------- papers (lazy) + datasets ---------- */
+let PAPERS=null, FINDINGS=null, DS=0;          /* DS: 0 = main conference, 1 = findings */
+fetch("papers.json?v=4").then(r=>r.json()).then(p=>{PAPERS=p;}).catch(()=>{PAPERS=[];});
+const SRC=()=>DS===1?(FINDINGS||[]):(PAPERS||[]);
+
+/* ---------- presentation-type filter (📢 oral / 🔥 highlight / 🏆 award) ---------- */
+let FILTER=new Set(), fcnt=null, fw=null, fLabelMin=0;
+/* award papers are also orals — oral filter includes them */
+const passes=p=>{const f=p[5]||0;
+  return !FILTER.size||FILTER.has(f)||(f===3&&FILTER.has(2));};
+const PP=()=>SRC().filter(passes);
+const linkKey=l=>{const a=nodeIndex.get(l.source.id??l.source),b=nodeIndex.get(l.target.id??l.target);
+  return Math.min(a,b)*1000+Math.max(a,b);};
+/* re-weigh node sizes, link widths and the readout from the current dataset+filter */
+function recount(){
+  if(DS===0&&!FILTER.size||!SRC().length&&DS===0){
+    fcnt=null;fw=null;
+    node.transition().duration(500).attr("r",d=>rScale(d.count)).style("opacity",1);
+    label.style("opacity",d=>d.count>=LABEL_MIN?.92:0);
+    link.attr("stroke-width",l=>lW(l.weight)).style("stroke-opacity",null);
+    document.getElementById("r-papers").textContent=DATA.meta.papers.toLocaleString();
+    return;
+  }
+  const ps=PP();
+  fcnt=new Array(nodes.length).fill(0);fw=new Map();
+  ps.forEach(p=>{const ks=p[2];
+    ks.forEach(ix=>fcnt[ix]++);
+    for(let i=0;i<ks.length;i++)for(let j=i+1;j<ks.length;j++){
+      const a=Math.min(ks[i],ks[j]),b=Math.max(ks[i],ks[j]);
+      fw.set(a*1000+b,(fw.get(a*1000+b)||0)+1);}});
+  const nz=fcnt.filter(c=>c>0).sort(d3.ascending);
+  fLabelMin=nz.length?Math.max(3,d3.quantile(nz,.8)):3;
+  node.transition().duration(500)
+    .attr("r",d=>{const c=fcnt[nodeIndex.get(d.id)];return c?Math.max(2.5,rScale(c)):1.4;})
+    .style("opacity",d=>fcnt[nodeIndex.get(d.id)]?1:.12);
+  label.style("opacity",d=>(fcnt[nodeIndex.get(d.id)]||0)>=fLabelMin?.92:0);
+  link.attr("stroke-width",l=>{const w2=fw.get(linkKey(l));return w2?Math.max(.4,lW(Math.min(w2,cExt[1]))):.3;})
+      .style("stroke-opacity",l=>fw.get(linkKey(l))?null:.015);
+  document.getElementById("r-papers").textContent=ps.length.toLocaleString();
+  document.getElementById("match").textContent=ps.length.toLocaleString()+(FILTER.size?" papers in filter":" findings papers");
+}
+function applyFilter(){
+  if(typeof WS_ON!=="undefined"&&WS_ON)switchMode(DS?3:MODE);
+  FILTER=new Set([...document.querySelectorAll("#pfilter input:checked")].map(c=>+c.dataset.f));
+  clearFocus();
+  recount();
+}
+document.querySelectorAll("#pfilter input:not(:disabled)").forEach(cb=>cb.onchange=applyFilter);
+/* dataset switch: main conference ⇄ findings (same keyword sky, re-weighted) */
+function setDataset(ds){
+  DS=ds;clearFocus();
+  document.getElementById("pfilter").style.display=ds?"none":"";
+  if(ds&&FILTER.size){
+    document.querySelectorAll("#pfilter input").forEach(c=>c.checked=false);FILTER=new Set();}
+  if(ds===1&&FINDINGS===null){
+    fetch("findings.json?v=1").then(r=>r.json())
+      .then(f=>{FINDINGS=f;if(DS===1)recount();})
+      .catch(()=>{FINDINGS=[];});
+  }
+  recount();
+  if(ds)showHUD("CVPR 2026 Findings","var(--c2)",
+    "941 findings papers · same keyword sky, re-weighted · esc to leave","galaxy");
+  else hideHUD();
+}
+
+/* ---------- highlight ---------- */
+let focused=false, curKeep=null, curAccent=null;
+function setHighlight(keep,accent){curKeep=keep;curAccent=accent;applyHL(keep,accent);}
+function applyHL(keep,accent){
+  node.attr("stroke-dasharray",null);
+  if(!keep){
+    node.style("opacity",d=>fcnt?(fcnt[nodeIndex.get(d.id)]?1:.12):1);
+    label.style("opacity",d=>fcnt?((fcnt[nodeIndex.get(d.id)]||0)>=fLabelMin?.92:0):(d.count>=LABEL_MIN?.92:0));
+    link.style("stroke",null).style("stroke-opacity",l=>fw?(fw.get(linkKey(l))?null:.015):null);
+    node.attr("stroke",NSTR()).attr("stroke-width",.6);
+    hullSel.style("display",null).attr("fill-opacity",.05).attr("stroke-opacity",.16);
+    hullLab.style("display",null);
+    drawHulls();return;}
+  node.style("opacity",d=>keep.has(d.id)?1:.07);
+  node.attr("stroke",d=>d.id===accent?ACC():NSTR()).attr("stroke-width",d=>d.id===accent?1.6:.6);
+  label.style("opacity",d=>keep.has(d.id)?.96:0);
+  link.style("stroke",l=>(keep.has(l.source.id)&&keep.has(l.target.id))?color(grp(byId.get(l.source.id))):null)
+      .style("stroke-opacity",l=>(keep.has(l.source.id)&&keep.has(l.target.id))?.42:.02);
+  /* fully hide hulls while focused: avoids per-tick gaussian-blur repaints
+     and the hover-transition flicker of blobs sweeping under the cursor */
+  hullSel.style("display","none");
+  hullLab.style("display","none");
+}
+function hoverNode(d){ if(focused)return; const k=nbrIds(d.id); k.add(d.id); setHighlight(k,d.id); showDetail(d); }
+function unhover(){ if(focused)return; setHighlight(null); hideDetail(); }
+node.on("mouseenter",(e,d)=>hoverNode(d)).on("mouseleave",unhover)
+    .on("click",(e,d)=>{e.stopPropagation();enterSystem(d);});
+svg.on("click",()=>{if(focused)clearFocus();});
+
+/* ---------- hover detail ---------- */
+const detail=document.getElementById("detail");
+function showDetail(d){
+  const top=adj.get(d.id).slice(0,5), max=top.length?top[0].w:1, col=color(grp(d));
+  detail.innerHTML=`<div class="dk" style="color:${col}">${d.id}</div>
+    <div class="dmeta"><b>${d.count}</b> papers · ${gname(grp(d))} · click to enter its system</div>
+    <div class="dl">Strongest co-occurrences</div>
+    ${top.map(o=>`<div class="nbr" style="color:${color(grp(byId.get(o.id)))}">
+       <span class="bar" style="width:${8+o.w/max*110}px"></span>
+       <span class="nn">${o.id}</span><span class="nw">${o.w}</span></div>`).join("")}`;
+  detail.classList.add("on");
+}
+function hideDetail(){detail.classList.remove("on");}
+
+/* ---------- drawer ---------- */
+const drawer=document.getElementById("drawer"), drTitle=document.getElementById("dr-title"),
+      drSub=document.getElementById("dr-sub"), drList=document.getElementById("dr-list"),
+      drMore=document.getElementById("dr-more"), drKick=document.getElementById("dr-kick");
+let drPapers=[], drShown=0;
+const STEP=150;
+const pGrp=p=>MODE===0?p[3]:(p[2].length?grp(nodes[p[2][0]]):-1);
+function paperRow(p){
+  const [t,s,ks,c,au]=p;
+  const pc=color(pGrp(p));
+  const badge=p[5]===3?"🏆 ":p[5]===2?"📢 ":p[5]===1?"🔥 ":"";
+  let chips=ks.map(ix=>{const n=nodes[ix],col=color(grp(n));
+    return `<span class="pk" style="color:${col};border-color:${col}40" data-kw="${n.id}">${n.id}</span>`;}).join("");
+  if(p[6])chips+=`<a class="pk pkl" href="https://arxiv.org/abs/${p[6]}" target="_blank" rel="noopener">arXiv</a>`;
+  if(p[7])chips+=`<a class="pk pkl" href="${p[7]}" target="_blank" rel="noopener">code</a>`;
+  return `<div class="pp" data-ks="${ks.join(",")}"><span class="pd" style="background:${pc};color:${pc}"></span>
+    <div class="ppb"><a href="${CVF(s)}" target="_blank" rel="noopener" title="${t.replace(/"/g,"&quot;")}">${badge}${t}</a>
+    ${au?`<div class="pa" title="${au.replace(/"/g,"&quot;")}">${au}</div>`:""}
+    ${chips?`<div class="pks">${chips}</div>`:""}</div></div>`;
+}
+/* clicking a keyword chip inside the drawer jumps into that keyword's system */
+drList.addEventListener("click",e=>{
+  const kw=e.target.closest(".pk"); if(!kw)return;
+  const n=byId.get(kw.dataset.kw); if(n)enterSystem(n);
+});
+/* hovering a paper row pings its keywords on the topology */
+let hoverRow=null;
+function showPaperLoc(ks){
+  const kwNodes=ks.map(ix=>nodes[ix]).filter(Boolean);
+  if(!kwNodes.length)return;
+  applyHL(new Set(kwNodes.map(n=>n.id)),null);
+  pingSel=pingG.selectAll("circle")
+    .data(kwNodes.flatMap(n=>[{n,ring:false},{n,ring:true}]))
+    .join("circle")
+    .attr("class",d=>d.ring?"ring":"halo")
+    .attr("cx",d=>d.n.x).attr("cy",d=>d.n.y)
+    .attr("r",d=>rScale(d.n.count)+(d.ring?9:6))
+    .attr("stroke",d=>color(grp(d.n)));
+}
+function hidePaperLoc(){
+  pingG.selectAll("circle").remove();pingSel=null;
+  applyHL(curKeep,curAccent);
+}
+drList.addEventListener("mouseover",e=>{
+  const row=e.target.closest(".pp"); if(!row||row===hoverRow)return;
+  hoverRow=row;
+  const ks=(row.dataset.ks||"").split(",").filter(s=>s!=="").map(Number);
+  if(ks.length)showPaperLoc(ks);else hidePaperLoc();
+});
+drList.addEventListener("mouseleave",()=>{hoverRow=null;hidePaperLoc();});
+function wsRow(w){const col=wcolor(w[2]);
+  return `<div class="pp"><span class="pd" style="background:${col};color:${col}"></span>
+    <div class="ppb"><a href="${w[1]}" target="_blank" rel="noopener">${w[0]}</a>
+    ${w[3]?`<div class="pa">${w[3]}</div>`:""}</div></div>`;
+}
+function wspRow(p){const [t,path,au]=p;
+  return `<div class="pp"><span class="pd" style="background:var(--c2);color:var(--c2)"></span>
+    <div class="ppb"><a href="https://openaccess.thecvf.com/${path}" target="_blank" rel="noopener">${t}</a>
+    ${au?`<div class="pa" title="${au.replace(/"/g,"&quot;")}">${au}</div>`:""}</div></div>`;
+}
+let drRowFn=null;
+function renderMore(){
+  const chunk=drPapers.slice(drShown,drShown+STEP);
+  drList.insertAdjacentHTML("beforeend",chunk.map(drRowFn||paperRow).join(""));
+  drShown+=chunk.length;
+  drMore.style.display=drShown<drPapers.length?"block":"none";
+  drMore.textContent=`show ${Math.min(STEP,drPapers.length-drShown)} more (${drPapers.length-drShown} left)`;
+}
+function openDrawer(title,col,papers,subHtml,rowFn){
+  drRowFn=rowFn||null;
+  drPapers=papers;drShown=0;drList.innerHTML="";
+  drTitle.textContent=title;drTitle.style.color=col;
+  drSub.innerHTML=subHtml||`<b>${papers.length}</b> papers · click a title to open on CVF`;
+  drawer.classList.add("on");document.body.classList.add("drawer-open");
+  const waiting=!drRowFn&&(DS===1?FINDINGS===null:PAPERS===null);
+  if(waiting){drList.innerHTML='<div class="pp"><a>loading papers…</a></div>';
+    const t=setInterval(()=>{if(DS===1?FINDINGS!==null:PAPERS!==null){clearInterval(t);drList.innerHTML="";renderMore();}},120);}
+  else renderMore();
+}
+function closeDrawer(){drawer.classList.remove("on");document.body.classList.remove("drawer-open");
+  pingG.selectAll("circle").remove();pingSel=null;hoverRow=null;}
+document.getElementById("dr-close").onclick=e=>{e.stopPropagation();clearFocus();};
+drMore.onclick=renderMore;
+
+/* ---------- focus actions ---------- */
+const resetBtn=document.getElementById("reset"), matchEl=document.getElementById("match");
+function fit(keepIds){
+  const pts=nodes.filter(n=>keepIds.has(n.id)); if(!pts.length)return;
+  const xs=d3.extent(pts,p=>p.x), ys=d3.extent(pts,p=>p.y);
+  const mob=isMobile();
+  /* mobile: drawer is a bottom sheet, so fit into the upper half at full width */
+  const effW=W-(mob?0:340), effH=mob?H*.5:H, pad=mob?40:120;
+  const bw=Math.max(60,xs[1]-xs[0]), bh=Math.max(60,ys[1]-ys[0]);
+  const k=Math.min(2.2,.85/Math.max(bw/(effW-pad*2),bh/(effH-pad*2)));
+  const tx=effW/2-k*(xs[0]+xs[1])/2, ty=effH/2-k*(ys[0]+ys[1])/2;
+  svg.transition().duration(750).call(zoom.transform,d3.zoomIdentity.translate(tx,ty).scale(k));
+}
+function markFocused(n){focused=true;resetBtn.classList.add("on");matchEl.textContent=n;}
+function papersWithKw(idx){return PP().filter(p=>p[2].includes(idx));}
+
+/* ---------- "now entering" HUD ---------- */
+const hud=document.getElementById("syshud"), hudName=document.getElementById("sh-name"),
+      hudSub=document.getElementById("sh-sub");
+function showHUD(name,col,sub,sfx){
+  hudName.innerHTML=`<span style="color:${col}">${name}</span> <em>${sfx||"star system"}</em>`;
+  hudSub.textContent=sub;
+  hud.classList.remove("on");void hud.offsetWidth;hud.classList.add("on");
+}
+function hideHUD(){hud.classList.remove("on");}
+
+/* ---------- system mode: radial re-layout around a keyword ---------- */
+let systemNode=null, sysPath=[];
+const GOLD=Math.PI*(3-Math.sqrt(5));
+/* breadcrumb: all › Video › Grounding — click a segment to climb back up */
+function renderPath(){
+  const p=document.getElementById("sh-path"); if(!p)return;
+  if(!sysPath.length){p.innerHTML="";return;}
+  let h='<span class="sh-seg" data-i="-1">all</span>';
+  sysPath.forEach((id,i)=>{h+='<span class="sh-sep">›</span>'
+    +`<span class="sh-seg${i===sysPath.length-1?" cur":""}" data-i="${i}">${id}</span>`;});
+  p.innerHTML=h;
+}
+document.getElementById("sh-path").addEventListener("click",e=>{
+  const s=e.target.closest(".sh-seg"); if(!s)return;
+  const i=+s.dataset.i;
+  if(i<0){resetView();return;}
+  if(i>=sysPath.length-1)return;
+  const n=byId.get(sysPath[i]); if(n)enterSystem(n);
+});
+function exitSystem(){
+  if(!systemNode)return;
+  systemNode.fx=null;systemNode.fy=null;systemNode=null;
+  orbitG.selectAll("*").interrupt().remove();
+  sim.alphaDecay(.017);
+  baseForces();sim.alpha(.55).restart();
+}
+function enterSystem(d){
+  /* breadcrumb path: climbing back truncates; drilling into a neighbour appends */
+  const prev=systemNode;
+  const pi=sysPath.indexOf(d.id);
+  if(pi>=0)sysPath=sysPath.slice(0,pi+1);
+  else if(prev&&nbrIds(prev.id).has(d.id))sysPath=[...sysPath,d.id];
+  else sysPath=[d.id];
+  const parentId=sysPath.length>1?sysPath[sysPath.length-2]:null;
+  exitSystem();
+  systemNode=d;
+  const nb=adj.get(d.id);                       /* sorted by weight desc */
+  const keep=new Set(nb.map(o=>o.id));keep.add(d.id);
+  const mob=isMobile();
+  const CX=mob?W/2:(W-390)/2, CY=mob?H*.27:H*0.55;
+  const R=mob?Math.max(110,Math.min(W/2-26,H*.22)):Math.max(250,Math.min((W-440)/2,H/2-90));
+  const wmax=nb.length?nb[0].w:1, wmin=nb.length?nb[nb.length-1].w:1;
+  const rr=d3.scaleSqrt().domain([wmax,wmin===wmax?wmin-.01:wmin]).range([Math.min(mob?80:170,R*.5),R]);
+  const TGT=new Map();
+  nb.forEach((o,i)=>{const a=i*GOLD-Math.PI/2,r=rr(o.w);
+    TGT.set(o.id,[CX+Math.cos(a)*r,CY+Math.sin(a)*r]);});
+  /* parent system pinned at 12 o'clock, outside the orbits */
+  if(parentId&&TGT.has(parentId))TGT.set(parentId,[CX,CY-R*1.02]);
+  d.fx=CX;d.fy=CY;
+  sim.force("link",null)
+     .force("charge",d3.forceManyBody().strength(n=>keep.has(n.id)?-70:0).distanceMax(420))
+     .force("ax",d3.forceX(n=>TGT.has(n.id)?TGT.get(n.id)[0]:anchor(grp(n))[0]).strength(n=>TGT.has(n.id)?.5:.03))
+     .force("ay",d3.forceY(n=>TGT.has(n.id)?TGT.get(n.id)[1]:anchor(grp(n))[1]).strength(n=>TGT.has(n.id)?.5:.03));
+  /* strong targets converge fast — decay quicker so the page stops repainting sooner */
+  sim.alphaDecay(.05).alpha(.9).restart();
+  /* orbit rings */
+  const col=color(grp(d));
+  orbitG.selectAll("*").interrupt().remove();
+  const radii=nb.length?[...new Set([.3,.62,.95].map(q=>Math.round(d3.quantile(nb.map(o=>rr(o.w)).sort(d3.ascending),q))))]:[];
+  radii.forEach((r,i)=>orbitG.append("circle").attr("cx",CX).attr("cy",CY).attr("r",0)
+    .transition().duration(800).delay(120+i*110).attr("r",r));
+  orbitG.append("circle").attr("class","core").attr("cx",CX).attr("cy",CY)
+    .style("stroke",col).style("stroke-opacity",0).attr("r",rScale(d.count)+30)
+    .transition().duration(700).delay(80).attr("r",rScale(d.count)+13).style("stroke-opacity",.35);
+  /* visuals + drawer */
+  setHighlight(keep,d.id);showDetail(d);
+  /* parent system: dashed accent ring + tag above its pinned spot */
+  if(parentId){
+    node.filter(n=>n.id===parentId)
+      .attr("stroke",ACC()).attr("stroke-width",1.5).attr("stroke-dasharray","4 3");
+    const pn=byId.get(parentId);
+    orbitG.append("text").attr("class","ptag").attr("text-anchor","middle")
+      .attr("x",CX).attr("y",CY-R*1.02-rScale(pn.count)-12).text("↑ parent system");
+  }
+  markFocused(nb.length+" linked keywords");
+  svg.transition().duration(750).call(zoom.transform,d3.zoomIdentity);
+  showHUD(d.id,col,`${nb.length} connected keywords · ${d.count.toLocaleString()} papers · esc to leave`);
+  renderPath();
+  drKick.textContent="Star System";
+  openDrawer(d.id,col,papersWithKw(nodeIndex.get(d.id)));
+}
+
+function openCluster(i){
+  exitSystem();sysPath=[];renderPath();
+  const ids=nodes.filter(n=>grp(n)===i).map(n=>n.id);
+  const keep=new Set(ids);
+  setHighlight(keep,null);hideDetail();
+  markFocused(gname(i));fit(keep);
+  drKick.textContent=MODE===0?"Star System":"CVPR Topic";
+  const ps=PP().filter(p=>MODE===0?p[3]===i:p[2].some(ix=>grp(nodes[ix])===i));
+  showHUD(gname(i),color(i),`${ids.length} keyword${ids.length>1?"s":""} · ${ps.length.toLocaleString()} papers · esc to leave`,
+    MODE===0?"star system":"cvpr topic");
+  openDrawer(gname(i),color(i),ps,
+    MODE===1?`<b>${ps.length}</b> papers · ${gfull(i)}`:null);
+}
+function runSearch(v){
+  v=v.trim().toLowerCase();
+  if(!v){clearFocus();return;}
+  const kw=nodes.filter(n=>n.id.toLowerCase().includes(v));
+  /* exact single keyword → fly into its star system */
+  if(WS_ON)switchMode(MODE);          /* search works on papers — leave workshops view */
+  if(kw.length===1&&kw[0].id.toLowerCase()===v){enterSystem(kw[0]);return;}
+  exitSystem();hideHUD();sysPath=[];renderPath();
+  const pm=PP().filter(p=>p[0].toLowerCase().includes(v));
+  const pa=PP().filter(p=>(p[4]||"").toLowerCase().includes(v));
+  const seen=new Set(pm.map(p=>p[1])), direct=pm.concat(pa.filter(p=>!seen.has(p[1])));
+  let keep;
+  if(kw.length){keep=new Set(kw.map(n=>n.id));kw.forEach(n=>nbrIds(n.id).forEach(x=>keep.add(x)));}
+  else if(direct.length){keep=new Set();direct.forEach(p=>p[2].forEach(ix=>keep.add(nodes[ix].id)));}
+  else{setHighlight(new Set(),null);markFocused("no match");closeDrawer();hideDetail();return;}
+  setHighlight(keep,kw.length===1?kw[0].id:null);hideDetail();
+  markFocused((direct.length||kw.length)+" matches");fit(keep);
+  /* papers: direct title/author matches first, else union of keyword papers */
+  let ps=direct, how;
+  if(ps.length){how=[pm.length?`${pm.length} title`:null,pa.length?`${pa.length} author`:null].filter(Boolean).join(" · ")+" matches";}
+  else{const s2=new Set();ps=[];
+    kw.forEach(n=>papersWithKw(nodeIndex.get(n.id)).forEach(p=>{if(!s2.has(p[1])){s2.add(p[1]);ps.push(p);}}));
+    how="tagged with matched keywords";}
+  drKick.textContent="Search";
+  openDrawer(`“${v}”`,"var(--ink)",ps,`<b>${ps.length}</b> papers · ${how}`);
+}
+function clearFocus(){exitSystem();hideHUD();sysPath=[];renderPath();
+  focused=false;setHighlight(null);hideDetail();closeDrawer();
+  resetBtn.classList.remove("on");
+  matchEl.textContent=(typeof WS_ON!=="undefined"&&WS_ON)?WS.list.length+" workshops":nodes.length+" visible";
+  document.getElementById("q").value="";}
+function resetView(){clearFocus();svg.transition().duration(700).call(zoom.transform,d3.zoomIdentity);}
+resetBtn.onclick=resetView;
+addEventListener("keydown",e=>{if(e.key==="Escape")resetView();});
+
+/* ---------- search ---------- */
+const q=document.getElementById("q");
+let deb;q.addEventListener("input",()=>{clearTimeout(deb);deb=setTimeout(()=>runSearch(q.value),180);});
+/* on-screen keyboard: keep results visible above it (mobile CSS hooks) */
+q.addEventListener("focus",()=>document.body.classList.add("kb"));
+q.addEventListener("blur",()=>document.body.classList.remove("kb"));
+
+/* ---------- legend + group plates (rebuilt per mode) ---------- */
+const lr=d3.select("#legend-rows");
+function buildLegend(){
+  lr.html("");
+  d3.range(NG()).forEach(i=>{
+    const row=lr.append("div").attr("class","lrow").attr("title",gfull(i)).on("click",()=>openCluster(i));
+    row.append("span").attr("class","dot").style("background",color(i)).style("color",color(i));
+    row.append("span").attr("class","lname").text(gname(i));
+    row.append("span").attr("class","lcount").text(commSize(i));
+  });
+  document.getElementById("lt").textContent=MODE===0?"Star Systems · click to enter":"CVPR Topics · click to enter";
+}
+function buildGroups(){
+  hullSel=hullG.selectAll("path").data(d3.range(NG())).join("path")
+    .attr("class","hull").attr("filter",LITE?null:"url(#hullblur)")
+    .attr("fill",i=>color(i)).attr("fill-opacity",LITE?.04:.05)
+    .attr("stroke",i=>color(i)).attr("stroke-opacity",.16).attr("stroke-width",1.2)
+    .on("click",(e,i)=>{e.stopPropagation();openCluster(i);});
+  hullLab=hullLabG.selectAll("g").data(d3.range(NG())).join(
+      enter=>{const g=enter.append("g");
+        g.append("text").attr("class","hn-name").attr("text-anchor","middle");
+        g.append("text").attr("class","hn-kick").attr("text-anchor","middle").attr("dy",15);
+        return g;})
+    .attr("class","hullname")
+    .on("click",(e,i)=>{e.stopPropagation();openCluster(i);});
+  hullLab.select(".hn-name").attr("fill",i=>color(i)).text(i=>gname(i));
+  hullLab.select(".hn-kick")
+    .text(i=>`${MODE===0?"Star System":"CVPR Topic"} ${String(i+1).padStart(2,"0")} · ${commSize(i)} keyword${commSize(i)>1?"s":""}`);
+  buildLegend();
+}
+buildGroups();
+
+/* ---------- mode toggle (0/1 = groupings, 3 = findings dataset, 2 = workshops) ---------- */
+let WS_ON=false;
+function switchMode(m){
+  document.querySelectorAll(".mso").forEach(el=>el.classList.toggle("on",+el.dataset.m===m));
+  if(m===2){if(!WS_ON)enterWorkshops();return;}
+  const was=WS_ON;
+  if(WS_ON)exitWorkshops();
+  if(m===3){if(DS!==1)setDataset(1);else if(was)buildGroups();return;}
+  if(DS!==0)setDataset(0);
+  if(m!==MODE){
+    MODE=m;clearFocus();buildGroups();
+    node.transition().duration(650).attr("fill",d=>color(grp(d)));
+    baseForces();sim.alpha(.85).restart();
+  }else if(was){buildGroups();}
+}
+document.querySelectorAll(".mso").forEach(el=>el.onclick=()=>switchMode(+el.dataset.m));
+
+/* ---------- workshops galaxies (categories from the CVPR 2026 site) ---------- */
+const WCOL=[],WCOLL=[];
+WS.cats.forEach((c,i)=>{const h=(i*137.508+40)%360;
+  WCOL.push(d3.hsl(h,.55,.66).formatHex());WCOLL.push(d3.hsl(h,.62,.38).formatHex());});
+function wcolor(i){return LIGHT?WCOLL[i]:WCOL[i];}
+/* categories on a loose grid (a single ring read as 'just an ellipse') */
+const wsAnchor=i=>{
+  const n=WS.cats.length;
+  const cols=Math.max(4,Math.round(Math.sqrt(n*W/Math.max(H,1))));
+  const rows=Math.ceil(n/cols);
+  return [W*(0.5+(((i%cols)+0.5)-cols/2)/cols*0.9),
+          H*(0.56+((Math.floor(i/cols)+0.5)-rows/2)/rows*0.76)];
+};
+let wBuilt=false,wsim=null,wnodes=null,wG=null,wHullG=null,wLabG=null,
+    wNodeSel=null,wHullSel=null,wLabSel=null;
+const mainGroups=()=>[hullG,orbitG,hullLabG,pingG,
+  d3.select(link.node().parentNode),d3.select(node.node().parentNode),d3.select(label.node().parentNode)];
+function drawWs(){
+  wNodeSel.attr("cx",d=>d.x).attr("cy",d=>d.y);
+  wHullSel.attr("d",i=>{
+    const pts=wnodes.filter(n=>n.c===i).map(n=>[n.x,n.y]);
+    let pset=pts;
+    if(pts.length&&pts.length<3){pset=[];pts.forEach(p=>{for(let k=0;k<6;k++){
+      const a=k/6*2*Math.PI;pset.push([p[0]+Math.cos(a)*22,p[1]+Math.sin(a)*22]);}});}
+    if(!pset.length)return null;
+    let hh=d3.polygonHull(pset);if(!hh)return null;
+    const c=d3.polygonCentroid(hh);
+    hh=hh.map(p=>{const dx=p[0]-c[0],dy=p[1]-c[1],L=Math.hypot(dx,dy)||1;
+      return[p[0]+dx/L*26,p[1]+dy/L*26];});
+    return hullLine(hh);
+  });
+  wLabSel.attr("transform",i=>{
+    const pts=wnodes.filter(n=>n.c===i);
+    if(!pts.length)return "translate(-9999,-9999)";
+    return `translate(${d3.mean(pts,n=>n.x)},${d3.min(pts,n=>n.y)-30})`;
+  });
+}
+function styleWs(){
+  if(!wBuilt)return;
+  wNodeSel.attr("fill",d=>wcolor(d.c)).attr("stroke",NSTR());
+  wHullSel.attr("fill",i=>wcolor(i)).attr("stroke",i=>wcolor(i));
+  wLabSel.select(".wn-name").attr("fill",i=>wcolor(i));
+}
+function buildWorkshops(){
+  wnodes=WS.list.map((w,i)=>{const a=wsAnchor(w[2]);
+    return {i,t:w[0],u:w[1],c:w[2],day:w[3],
+      x:a[0]+(Math.random()-.5)*70,y:a[1]+(Math.random()-.5)*70};});
+  wHullG=root.append("g").style("display","none");
+  wG=root.append("g").style("display","none").attr("filter",LITE?null:"url(#glow)");
+  wLabG=root.append("g").style("display","none");
+  wHullSel=wHullG.selectAll("path").data(d3.range(WS.cats.length)).join("path")
+    .attr("class","hull").attr("filter",LITE?null:"url(#hullblur)")
+    .attr("fill-opacity",.05).attr("stroke-opacity",.16).attr("stroke-width",1.2)
+    .on("click",(e,i)=>{e.stopPropagation();openWsCat(i);});
+  wNodeSel=wG.selectAll("circle").data(wnodes).join("circle")
+    .attr("class","wnode").attr("r",7).attr("stroke-width",.7)
+    .on("click",(e,d)=>{e.stopPropagation();openWorkshop(d);});
+  wNodeSel.append("title").text(d=>d.t+(d.day?" · "+d.day:"")+"\n"+d.u);
+  wLabSel=wLabG.selectAll("g").data(d3.range(WS.cats.length)).join(
+      enter=>{const g=enter.append("g");
+        g.append("text").attr("class","hn-name wn-name").attr("text-anchor","middle");
+        g.append("text").attr("class","hn-kick").attr("text-anchor","middle").attr("dy",13);
+        return g;})
+    .attr("class","hullname")
+    .on("click",(e,i)=>{e.stopPropagation();openWsCat(i);});
+  wLabSel.select(".wn-name")
+    .text(i=>WS.cats[i].length>26?WS.cats[i].slice(0,25)+"…":WS.cats[i])
+    .each(function(i){d3.select(this).selectAll("title").remove();
+      d3.select(this).append("title").text(WS.cats[i]);});
+  wLabSel.select(".hn-kick").text(i=>`${WS.list.filter(w=>w[2]===i).length} workshops`);
+  wsim=d3.forceSimulation(wnodes)
+    .force("x",d3.forceX(d=>wsAnchor(d.c)[0]).strength(.22))
+    .force("y",d3.forceY(d=>wsAnchor(d.c)[1]).strength(.24))
+    .force("col",d3.forceCollide(13))
+    .force("ch",d3.forceManyBody().strength(-30).distanceMax(240));
+  wsim.on("tick",drawWs);
+  wBuilt=true;
+  styleWs();
+}
+/* OA proceedings per workshop (lazy): node click lists its papers if published */
+let WSP=null;
+function wsPapers(d){
+  if(!WSP||!WSP.map)return null;
+  const slug=WSP.map[d.i];
+  return slug?(WSP.slugs[slug]||null):null;
+}
+function sizeWsNodes(){
+  if(!wBuilt||!WSP)return;
+  wNodeSel.attr("r",d=>{const ps=wsPapers(d);return ps&&ps.length?Math.min(14,7+Math.sqrt(ps.length)):7;})
+    .select("title").text(d=>{const ps=wsPapers(d);
+      return d.t+(d.day?" · "+d.day:"")+(ps&&ps.length?` · ${ps.length} papers`:"")+"\n"+d.u;});
+}
+function openWorkshop(d){
+  const ps=wsPapers(d);
+  if(!ps||!ps.length){window.open(d.u,"_blank","noopener");return;}
+  markFocused(d.t);
+  drKick.textContent="Workshop Proceedings";
+  openDrawer(d.t.length>42?d.t.slice(0,41)+"…":d.t,wcolor(d.c),ps,
+    `<b>${ps.length}</b> papers · <a href="${d.u}" target="_blank" rel="noopener" style="color:var(--c1)">workshop page ↗</a>`,
+    wspRow);
+}
+function enterWorkshops(){
+  WS_ON=true;clearFocus();sim.stop();
+  if(!wBuilt)buildWorkshops();
+  if(WSP===null){WSP=false;
+    fetch("ws_papers.json?v=1").then(r=>r.json()).then(w=>{WSP=w;sizeWsNodes();}).catch(()=>{WSP=false;});}
+  mainGroups().forEach(g=>g.style("display","none"));
+  [wHullG,wG,wLabG].forEach(g=>g.style("display",null));
+  styleWs();                       /* belt & braces: never enter uncoloured */
+  wsim.force("x").x(d=>wsAnchor(d.c)[0]);wsim.force("y").y(d=>wsAnchor(d.c)[1]);
+  wsim.alpha(.9).restart();
+  buildWsLegend();
+  document.getElementById("r-papers").textContent=WS.list.length;
+  matchEl.textContent=WS.list.length+" workshops";
+  showHUD("CVPR 2026","var(--c2)",
+    `${WS.list.length} workshops · ${WS.cats.length} categories · click a star to open its page`,"workshops");
+}
+function exitWorkshops(){
+  WS_ON=false;if(wsim)wsim.stop();hideHUD();closeDrawer();
+  [wHullG,wG,wLabG].forEach(g=>g&&g.style("display","none"));
+  mainGroups().forEach(g=>g.style("display",null));
+  document.getElementById("r-papers").textContent=
+    (FILTER.size&&PAPERS?PP().length:DATA.meta.papers).toLocaleString();
+  matchEl.textContent=nodes.length+" visible";
+  sim.alpha(.25).restart();
+}
+function buildWsLegend(){
+  lr.html("");
+  WS.cats.forEach((c,i)=>{
+    const row=lr.append("div").attr("class","lrow").attr("title",c).on("click",()=>openWsCat(i));
+    row.append("span").attr("class","dot").style("background",wcolor(i)).style("color",wcolor(i));
+    row.append("span").attr("class","lname").text(c.length>30?c.slice(0,29)+"…":c);
+    row.append("span").attr("class","lcount").text(WS.list.filter(w=>w[2]===i).length);
+  });
+  document.getElementById("lt").textContent="Workshop Galaxies · click to open";
+}
+function fitPts(pts){
+  if(!pts.length)return;
+  const xs=d3.extent(pts,p=>p.x),ys=d3.extent(pts,p=>p.y);
+  const mob=isMobile();
+  const effW=W-(mob?0:340),effH=mob?H*.5:H,pad=mob?40:120;
+  const bw=Math.max(60,xs[1]-xs[0]),bh=Math.max(60,ys[1]-ys[0]);
+  const k=Math.min(2.2,.85/Math.max(bw/(effW-pad*2),bh/(effH-pad*2)));
+  svg.transition().duration(750).call(zoom.transform,
+    d3.zoomIdentity.translate(effW/2-k*(xs[0]+xs[1])/2,effH/2-k*(ys[0]+ys[1])/2).scale(k));
+}
+function openWsCat(i){
+  const ws=WS.list.filter(w=>w[2]===i);
+  fitPts(wnodes.filter(n=>n.c===i));
+  markFocused(WS.cats[i]);
+  drKick.textContent="Workshop Category";
+  openDrawer(WS.cats[i],wcolor(i),ws,
+    `<b>${ws.length}</b> workshops · click to open its page`,wsRow);
+}
+
+/* ---------- theme toggle (defaults to system scheme) ---------- */
+const tb=document.getElementById("themebtn");
+function syncThemeBtn(){tb.textContent=LIGHT?"☾":"☀";
+  tb.title=LIGHT?"switch to dark theme":"switch to light theme";}
+function applyTheme(){
+  document.documentElement.classList.toggle("light",LIGHT);
+  syncThemeBtn();
+  node.attr("stroke",NSTR()).attr("fill",d=>color(grp(d)));
+  styleWs();
+  if(WS_ON)buildWsLegend();else buildGroups();
+  applyHL(curKeep,curAccent);
+}
+tb.onclick=()=>{LIGHT=!LIGHT;
+  try{localStorage.setItem("cvpr_theme",LIGHT?"light":"dark");}catch(e){}
+  applyTheme();};
+syncThemeBtn();
+try{matchMedia("(prefers-color-scheme: light)").addEventListener("change",e=>{
+  try{if(localStorage.getItem("cvpr_theme"))return;}catch(_){}
+  LIGHT=e.matches;applyTheme();});}catch(e){}
+
+const featured=["Diffusion","Gaussian Splatting","Vision-Language","Video","3D"];
+const chips=d3.select("#chips");
+featured.forEach(f=>chips.append("span").attr("class","chip").text(f).on("click",()=>{q.value=f;runSearch(f);}));
+
+function drag(sim){function s(e,d){if(!e.active)sim.alphaTarget(.3).restart();d.fx=d.x;d.fy=d.y;}
+  function m(e,d){d.fx=e.x;d.fy=e.y;}
+  function en(e,d){if(!e.active)sim.alphaTarget(0);if(d!==systemNode){d.fx=null;d.fy=null;}}
+  return d3.drag().on("start",s).on("drag",m).on("end",en);}
+
+addEventListener("resize",()=>{
+  const wChanged=Math.abs(innerWidth-W)>40;
+  W=innerWidth;H=innerHeight;svg.attr("viewBox",[0,0,W,H]);
+  /* height-only changes on touch devices = on-screen keyboard — don't re-simulate */
+  if(!wChanged&&(navigator.maxTouchPoints||0)>0)return;
+  if(WS_ON&&wsim){
+    wsim.force("x").x(d=>wsAnchor(d.c)[0]);wsim.force("y").y(d=>wsAnchor(d.c)[1]);
+    wsim.alpha(.4).restart();return;
+  }
+  if(!systemNode)baseForces();
+  sim.alpha(.3).restart();});
+
+/* ---------- visitor stats (serverless: Abacus counters + ipwho.is geo) ---------- */
+(function(){
+  const API="https://abacus.jasoncameron.dev", NS="deoahn-cvpr2026";
+  const el=id=>document.getElementById(id);
+  const J=u=>fetch(u).then(r=>r.json());
+  const hit=k=>J(`${API}/hit/${NS}/${k}`);
+  const get=k=>J(`${API}/get/${NS}/${k}`).catch(()=>({value:0}));
+  const FLAG=c=>String.fromCodePoint(...[...c].map(ch=>0x1F1A5+ch.charCodeAt(0)));
+  const BUCKET=18e4, bk=()=>Math.floor(Date.now()/BUCKET);
+  const bot=!!navigator.webdriver;          /* don't count headless/CI loads */
+  let lastBk=-1;
+  async function lookupCC(){
+    try{const g=await J("https://ipapi.co/json/");if(g&&/^[A-Z]{2}$/.test(g.country_code||""))return g.country_code;}catch(e){}
+    try{const g=await J("https://api.country.is/");if(g&&/^[A-Z]{2}$/.test(g.country||""))return g.country;}catch(e){}
+    return null;
+  }
+  async function count(){
+    if(bot||sessionStorage.getItem("cvpr_c"))return;
+    try{sessionStorage.setItem("cvpr_c","1");}catch(e){}
+    try{await hit("total");}catch(e){}
+    lookupCC().then(cc=>{if(cc)hit("geo_"+cc);});
+  }
+  async function beat(){
+    if(bot)return;
+    const b=bk(); if(b===lastBk)return; lastBk=b;
+    try{await hit("live_"+b);}catch(e){}
+  }
+  async function refresh(){
+    try{
+      const b=bk();
+      const [t,l1,l2]=await Promise.all([get("total"),get("live_"+b),get("live_"+(b-1))]);
+      el("st-total").textContent=(t.value||0).toLocaleString();
+      el("st-live").textContent=Math.max(l1.value||0,l2.value||0,bot?0:1);
+      el("stats").style.display="";
+    }catch(e){el("stats").style.display="none";}
+  }
+  const CCS=["KR","US","CN","JP","DE","GB","FR","IN","CA","TW","SG","AU",
+             "HK","NL","CH","IT","ES","SE","BR","RU","IL","AE","TH","VN"];
+  const CENT={KR:[127.9,36.5],US:[-98.6,39.8],CN:[104.2,35.9],JP:[138.3,36.2],DE:[10.4,51.2],
+    GB:[-2.5,54],FR:[2.5,46.6],IN:[79.6,22.9],CA:[-106.3,56.1],TW:[121,23.7],SG:[103.8,1.4],
+    AU:[133.8,-25.3],HK:[114.2,22.3],NL:[5.3,52.2],CH:[8.2,46.8],IT:[12.8,42.8],ES:[-3.7,40.3],
+    SE:[15,62],BR:[-52.9,-10.8],RU:[99,61.5],IL:[35,31.4],AE:[54,24],TH:[101,15.8],VN:[107.8,16.2]};
+  let landFeat=null;
+  async function drawMap(entries){
+    const svg=el("st-map"); if(!svg)return;
+    if(innerWidth<=860||!entries.length){svg.style.display="none";return;}
+    try{
+      if(!landFeat){
+        const topo=await J("https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json");
+        landFeat=topojson.feature(topo,topo.objects.land);
+      }
+      const proj=d3.geoNaturalEarth1().fitSize([238,118],landFeat);
+      const s=d3.select(svg); s.selectAll("*").remove();
+      s.append("path").attr("class","land").attr("d",d3.geoPath(proj)(landFeat));
+      const max=Math.max(...entries.map(e=>e[1]));
+      const rs=d3.scaleSqrt().domain([1,Math.max(2,max)]).range([1.5,4.5]);
+      entries.forEach(([c,v],i)=>{
+        const p=CENT[c]&&proj(CENT[c]); if(!p)return;
+        if(i===0)s.append("circle").attr("class","vring").attr("cx",p[0]).attr("cy",p[1]).attr("r",rs(v)+2.5);
+        s.append("circle").attr("class","vdot").attr("cx",p[0]).attr("cy",p[1]).attr("r",rs(v))
+          .attr("fill-opacity",.55+.45*v/max)
+          .append("title").text(`${c} · ${v.toLocaleString()}`);
+      });
+      svg.style.display="";
+    }catch(e){svg.style.display="none";}
+  }
+  async function geo(){
+    try{
+      /* cached 10 min so reloads don't refire 24 counter reads (rate limit) */
+      let entries=null;
+      try{const c=JSON.parse(localStorage.getItem("cvpr_geo")||"null");
+          if(c&&Date.now()-c.t<6e5)entries=c.e;}catch(e){}
+      if(!entries){
+        const vals=[];
+        for(let i=0;i<CCS.length;i+=8){       /* batches of 8, spaced out */
+          vals.push(...await Promise.all(CCS.slice(i,i+8).map(c=>get("geo_"+c))));
+          if(i+8<CCS.length)await new Promise(r=>setTimeout(r,900));
+        }
+        entries=CCS.map((c,i)=>[c,vals[i].value||0]).filter(x=>x[1]>0)
+          .sort((a,b)=>b[1]-a[1]);
+        if(entries.length)try{localStorage.setItem("cvpr_geo",JSON.stringify({t:Date.now(),e:entries}));}catch(e){}
+      }
+      el("st-geo").innerHTML=entries.slice(0,4)
+        .map(([c,v])=>`<span class="st-cc">${FLAG(c)} ${v.toLocaleString()}</span>`).join("");
+      drawMap(entries);
+    }catch(e){}
+  }
+  count().then(beat).then(refresh);
+  setTimeout(geo,2500);                      /* after papers.json kicks off */
+  setInterval(()=>{beat().then(refresh);},6e4);
+  setInterval(geo,3e5);
+})();
+</script>
+</body>
+</html>
