@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <title>Recovered Audio Results</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    :root {
+      --bg: #121212;
+      --panel: #1a1a1a;
+      --panel-2: #202020;
+      --text: #e0e0e0;
+      --muted: #a9a9a9;
+      --grid-border: #333333;
+      --accent: #20eec1;
+    }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; }
+    .wrap { max-width: 1400px; margin: 24px auto 64px auto; padding: 0 16px; }
+    header h1 { font-size: 26px; font-weight: 600; margin: 0 0 6px 0; text-align:center; }
+    header p { text-align:center; color: var(--muted); margin: 0 0 20px 0; }
+
+    table.grid { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--panel); border: 1px solid var(--grid-border); border-radius: 10px; table-layout: fixed; }
+    thead th { background: var(--panel-2); color: var(--text); text-align: center; padding: 12px; font-size: 16px; font-weight: 600; border-bottom: 1px solid var(--grid-border); }
+    thead th + th { border-left: 1px solid var(--grid-border); }
+    tbody td { vertical-align: top; padding: 10px 12px; border-top: 1px solid var(--grid-border); text-align:center; }
+    tbody td + td { border-left: 1px solid var(--grid-border); }
+
+    colgroup .col-setup { width: 16.666667%; }
+    colgroup .col-method { width: 16.666667%; }
+
+    .cell-setup figure { margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .cell-setup img { width: 100%; height: auto; display: block; border-radius: 6px; object-fit: contain; }
+    .cell-setup figcaption { margin-top: 6px; color: var(--muted); font-size: 12px; text-align:center; }
+
+    .spec-wrap { display: grid; grid-template-rows: auto 22px auto; gap: 6px; align-items: center; }
+    .spec { width: 100%; display: block; background: #000; border: 1px solid var(--grid-border); border-radius: 6px; cursor: pointer; }
+    .spec:active { transform: translateY(0.5px); }
+    .meta { display: flex; justify-content: center; color: var(--muted); font-size: 12px; }
+    .duration { padding: 2px 6px; border: 1px solid var(--grid-border); border-radius: 999px; }
+    .spec-wrap:hover .spec { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+    .play-btn, .play-btn-placeholder {
+      position: absolute;
+      bottom: 22px; /* Position it over the bottom of the spectrogram */
+      left: 8px;
+      transform: translateY(50%); /* Center it vertically on the meta bar's top edge */
+      background: rgba(18, 18, 18, 0.8);
+      border: 1px solid var(--grid-border);
+      color: var(--text);
+      border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      transition: all 0.2s ease;
+    }
+    .play-btn:hover, .play-btn-placeholder:hover { border-color: var(--accent); color: var(--accent); }
+    .play-btn-placeholder {
+        visibility: hidden;
+    }    
+  </style>
+</head>
+<body>
+  <div class='wrap'>
+    <header>
+      <h1>Recovered Audio Results (Figure 5)</h1>
+      <p>Click on a result to hear it. These are the raw unfiltered signals</p>
+    </header>
+    <table class='grid'>
+      <colgroup>
+        <col class='col-setup'/>
+        <col class="col-method" /><col class="col-method" /><col class="col-method" /><col class="col-method" /><col class="col-method" />
+      </colgroup>
+      <thead><tr>
+        <th class="col-setup">Setup</th>
+        <th><a href="#single-explanation" style="color: #ffffff">Single point</a></th>
+        <th><a href="#average-explanation" style="color: #ffffff">Average</a></th>
+        <th><a href="#delay-and-sum-explanation" style="color: #ffffff">Delay & Sum</a></th>
+        <th><a href="#ours-explanation" style="color: #ffffff">Ours</a></th>
+        <th><a href="#input-explanation" style="color: #ffffff">Input</a></th>
+      </tr></thead>
+      <tbody><tr><td class="cell-setup">
+  <figure>
+    <img loading="lazy" src="setup/drum6.png" alt="setup drum6_golden"/>
+    <figcaption>drum (fig 4.)</figcaption>
+  </figure>
+</td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum6_golden-Single'>
+                    <img class='spec' loading='lazy' src='spec/drum6_golden_Single.svg' alt='spectrogram drum6_golden Single' data-audio='#aud-drum6_golden-Single'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-drum6_golden-Single'>--:--</span>
+                    </div>
+                    <audio id='aud-drum6_golden-Single' preload='none' src='wav/drum6_golden_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum6_golden-Avg'>
+                    <img class='spec' loading='lazy' src='spec/drum6_golden_Avg.svg' alt='spectrogram drum6_golden Avg' data-audio='#aud-drum6_golden-Avg'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-drum6_golden-Avg'>--:--</span>
+                    </div>
+                    <audio id='aud-drum6_golden-Avg' preload='none' src='wav/drum6_golden_Avg.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum6_golden-DnS'>
+                    <img class='spec' loading='lazy' src='spec/drum6_golden_DnS.svg' alt='spectrogram drum6_golden DnS' data-audio='#aud-drum6_golden-DnS'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-drum6_golden-DnS'>--:--</span>
+                    </div>
+                    <audio id='aud-drum6_golden-DnS' preload='none' src='wav/drum6_golden_DnS.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum6_golden-Ours'>
+                    <img class='spec' loading='lazy' src='spec/drum6_golden_Ours.svg' alt='spectrogram drum6_golden Ours' data-audio='#aud-drum6_golden-Ours'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-drum6_golden-Ours'>--:--</span>
+                    </div>
+                    <audio id='aud-drum6_golden-Ours' preload='none' src='wav/drum6_golden_Ours.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum6_golden-Input'>
+                    <img class='spec' loading='lazy' src='spec/drum6_golden_Input.svg' alt='spectrogram drum6_golden Input' data-audio='#aud-drum6_golden-Input'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-drum6_golden-Input'>--:--</span>
+                    </div>
+                    <audio id='aud-drum6_golden-Input' preload='none' src='wav/drum6_golden_Input.wav'></audio>
+                  </div>
+                </td>
+                </tr><tr><td class="cell-setup">
+  <figure>
+    <img loading="lazy" src="setup/frame10.png" alt="setup frame10_stairway"/>
+    <figcaption>picture frame</figcaption>
+  </figure>
+</td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='frame10_stairway-Single'>
+                    <img class='spec' loading='lazy' src='spec/frame10_stairway_Single.svg' alt='spectrogram frame10_stairway Single' data-audio='#aud-frame10_stairway-Single'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-frame10_stairway-Single'>--:--</span>
+                    </div>
+                    <audio id='aud-frame10_stairway-Single' preload='none' src='wav/frame10_stairway_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='frame10_stairway-Avg'>
+                    <img class='spec' loading='lazy' src='spec/frame10_stairway_Avg.svg' alt='spectrogram frame10_stairway Avg' data-audio='#aud-frame10_stairway-Avg'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-frame10_stairway-Avg'>--:--</span>
+                    </div>
+                    <audio id='aud-frame10_stairway-Avg' preload='none' src='wav/frame10_stairway_Avg.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='frame10_stairway-DnS'>
+                    <img class='spec' loading='lazy' src='spec/frame10_stairway_DnS.svg' alt='spectrogram frame10_stairway DnS' data-audio='#aud-frame10_stairway-DnS'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-frame10_stairway-DnS'>--:--</span>
+                    </div>
+                    <audio id='aud-frame10_stairway-DnS' preload='none' src='wav/frame10_stairway_DnS.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='frame10_stairway-Ours'>
+                    <img class='spec' loading='lazy' src='spec/frame10_stairway_Ours.svg' alt='spectrogram frame10_stairway Ours' data-audio='#aud-frame10_stairway-Ours'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-frame10_stairway-Ours'>--:--</span>
+                    </div>
+                    <audio id='aud-frame10_stairway-Ours' preload='none' src='wav/frame10_stairway_Ours.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='frame10_stairway-Input'>
+                    <img class='spec' loading='lazy' src='spec/frame10_stairway_Input.svg' alt='spectrogram frame10_stairway Input' data-audio='#aud-frame10_stairway-Input'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-frame10_stairway-Input'>--:--</span>
+                    </div>
+                    <audio id='aud-frame10_stairway-Input' preload='none' src='wav/frame10_stairway_Input.wav'></audio>
+                  </div>
+                </td>
+                </tr><tr><td class="cell-setup">
+  <figure>
+    <img loading="lazy" src="setup/laptop12.png" alt="setup laptop12_never"/>
+    <figcaption>laptop</figcaption>
+  </figure>
+</td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='laptop12_never-Single'>
+                    <img class='spec' loading='lazy' src='spec/laptop12_never_Single.svg' alt='spectrogram laptop12_never Single' data-audio='#aud-laptop12_never-Single'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-laptop12_never-Single'>--:--</span>
+                    </div>
+                    <audio id='aud-laptop12_never-Single' preload='none' src='wav/laptop12_never_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='laptop12_never-Avg'>
+                    <img class='spec' loading='lazy' src='spec/laptop12_never_Avg.svg' alt='spectrogram laptop12_never Avg' data-audio='#aud-laptop12_never-Avg'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-laptop12_never-Avg'>--:--</span>
+                    </div>
+                    <audio id='aud-laptop12_never-Avg' preload='none' src='wav/laptop12_never_Avg.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='laptop12_never-DnS'>
+                    <img class='spec' loading='lazy' src='spec/laptop12_never_DnS.svg' alt='spectrogram laptop12_never DnS' data-audio='#aud-laptop12_never-DnS'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-laptop12_never-DnS'>--:--</span>
+                    </div>
+                    <audio id='aud-laptop12_never-DnS' preload='none' src='wav/laptop12_never_DnS.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='laptop12_never-Ours'>
+                    <img class='spec' loading='lazy' src='spec/laptop12_never_Ours.svg' alt='spectrogram laptop12_never Ours' data-audio='#aud-laptop12_never-Ours'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-laptop12_never-Ours'>--:--</span>
+                    </div>
+                    <audio id='aud-laptop12_never-Ours' preload='none' src='wav/laptop12_never_Ours.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='laptop12_never-Input'>
+                    <img class='spec' loading='lazy' src='spec/laptop12_never_Input.svg' alt='spectrogram laptop12_never Input' data-audio='#aud-laptop12_never-Input'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-laptop12_never-Input'>--:--</span>
+                    </div>
+                    <audio id='aud-laptop12_never-Input' preload='none' src='wav/laptop12_never_Input.wav'></audio>
+                  </div>
+                </td>
+                </tr><tr><td class="cell-setup">
+  <figure>
+    <img loading="lazy" src="setup/trash15.png" alt="setup trash15_hotel"/>
+    <figcaption>trash can</figcaption>
+  </figure>
+</td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='trash15_hotel-Single'>
+                    <img class='spec' loading='lazy' src='spec/trash15_hotel_Single.svg' alt='spectrogram trash15_hotel Single' data-audio='#aud-trash15_hotel-Single'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-trash15_hotel-Single'>--:--</span>
+                    </div>
+                    <audio id='aud-trash15_hotel-Single' preload='none' src='wav/trash15_hotel_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='trash15_hotel-Avg'>
+                    <img class='spec' loading='lazy' src='spec/trash15_hotel_Avg.svg' alt='spectrogram trash15_hotel Avg' data-audio='#aud-trash15_hotel-Avg'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-trash15_hotel-Avg'>--:--</span>
+                    </div>
+                    <audio id='aud-trash15_hotel-Avg' preload='none' src='wav/trash15_hotel_Avg.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='trash15_hotel-DnS'>
+                    <img class='spec' loading='lazy' src='spec/trash15_hotel_DnS.svg' alt='spectrogram trash15_hotel DnS' data-audio='#aud-trash15_hotel-DnS'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-trash15_hotel-DnS'>--:--</span>
+                    </div>
+                    <audio id='aud-trash15_hotel-DnS' preload='none' src='wav/trash15_hotel_DnS.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='trash15_hotel-Ours'>
+                    <img class='spec' loading='lazy' src='spec/trash15_hotel_Ours.svg' alt='spectrogram trash15_hotel Ours' data-audio='#aud-trash15_hotel-Ours'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-trash15_hotel-Ours'>--:--</span>
+                    </div>
+                    <audio id='aud-trash15_hotel-Ours' preload='none' src='wav/trash15_hotel_Ours.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='trash15_hotel-Input'>
+                    <img class='spec' loading='lazy' src='spec/trash15_hotel_Input.svg' alt='spectrogram trash15_hotel Input' data-audio='#aud-trash15_hotel-Input'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-trash15_hotel-Input'>--:--</span>
+                    </div>
+                    <audio id='aud-trash15_hotel-Input' preload='none' src='wav/trash15_hotel_Input.wav'></audio>
+                  </div>
+                </td>
+                </tr><tr><td class="cell-setup">
+  <figure>
+    <img loading="lazy" src="setup/guitar11.png" alt="setup guitar11_polyphia"/>
+    <figcaption>guitar</figcaption>
+  </figure>
+</td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='guitar11_polyphia-Single'>
+                    <img class='spec' loading='lazy' src='spec/guitar11_polyphia_Single.svg' alt='spectrogram guitar11_polyphia Single' data-audio='#aud-guitar11_polyphia-Single'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-guitar11_polyphia-Single'>--:--</span>
+                    </div>
+                    <audio id='aud-guitar11_polyphia-Single' preload='none' src='wav/guitar11_polyphia_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='guitar11_polyphia-Avg'>
+                    <img class='spec' loading='lazy' src='spec/guitar11_polyphia_Avg.svg' alt='spectrogram guitar11_polyphia Avg' data-audio='#aud-guitar11_polyphia-Avg'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-guitar11_polyphia-Avg'>--:--</span>
+                    </div>
+                    <audio id='aud-guitar11_polyphia-Avg' preload='none' src='wav/guitar11_polyphia_Avg.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='guitar11_polyphia-DnS'>
+                    <img class='spec' loading='lazy' src='spec/guitar11_polyphia_DnS.svg' alt='spectrogram guitar11_polyphia DnS' data-audio='#aud-guitar11_polyphia-DnS'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-guitar11_polyphia-DnS'>--:--</span>
+                    </div>
+                    <audio id='aud-guitar11_polyphia-DnS' preload='none' src='wav/guitar11_polyphia_DnS.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='guitar11_polyphia-Ours'>
+                    <img class='spec' loading='lazy' src='spec/guitar11_polyphia_Ours.svg' alt='spectrogram guitar11_polyphia Ours' data-audio='#aud-guitar11_polyphia-Ours'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-guitar11_polyphia-Ours'>--:--</span>
+                    </div>
+                    <audio id='aud-guitar11_polyphia-Ours' preload='none' src='wav/guitar11_polyphia_Ours.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='guitar11_polyphia-Input'>
+                    <img class='spec' loading='lazy' src='spec/guitar11_polyphia_Input.svg' alt='spectrogram guitar11_polyphia Input' data-audio='#aud-guitar11_polyphia-Input'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-guitar11_polyphia-Input'>--:--</span>
+                    </div>
+                    <audio id='aud-guitar11_polyphia-Input' preload='none' src='wav/guitar11_polyphia_Input.wav'></audio>
+                  </div>
+                </td>
+                </tr><tr><td class="cell-setup">
+  <figure>
+    <img loading="lazy" src="setup/binder7.png" alt="setup binder7_never"/>
+    <figcaption>wooden binder</figcaption>
+  </figure>
+</td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='binder7_never-Single'>
+                    <img class='spec' loading='lazy' src='spec/binder7_never_Single.svg' alt='spectrogram binder7_never Single' data-audio='#aud-binder7_never-Single'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-binder7_never-Single'>--:--</span>
+                    </div>
+                    <audio id='aud-binder7_never-Single' preload='none' src='wav/binder7_never_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='binder7_never-Avg'>
+                    <img class='spec' loading='lazy' src='spec/binder7_never_Avg.svg' alt='spectrogram binder7_never Avg' data-audio='#aud-binder7_never-Avg'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-binder7_never-Avg'>--:--</span>
+                    </div>
+                    <audio id='aud-binder7_never-Avg' preload='none' src='wav/binder7_never_Avg.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='binder7_never-DnS'>
+                    <img class='spec' loading='lazy' src='spec/binder7_never_DnS.svg' alt='spectrogram binder7_never DnS' data-audio='#aud-binder7_never-DnS'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-binder7_never-DnS'>--:--</span>
+                    </div>
+                    <audio id='aud-binder7_never-DnS' preload='none' src='wav/binder7_never_DnS.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='binder7_never-Ours'>
+                    <img class='spec' loading='lazy' src='spec/binder7_never_Ours.svg' alt='spectrogram binder7_never Ours' data-audio='#aud-binder7_never-Ours'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-binder7_never-Ours'>--:--</span>
+                    </div>
+                    <audio id='aud-binder7_never-Ours' preload='none' src='wav/binder7_never_Ours.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='binder7_never-Input'>
+                    <img class='spec' loading='lazy' src='spec/binder7_never_Input.svg' alt='spectrogram binder7_never Input' data-audio='#aud-binder7_never-Input'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-binder7_never-Input'>--:--</span>
+                    </div>
+                    <audio id='aud-binder7_never-Input' preload='none' src='wav/binder7_never_Input.wav'></audio>
+                  </div>
+                </td>
+                </tr><tr><td class="cell-setup">
+  <figure>
+    <img loading="lazy" src="setup/plate9.png" alt="setup plate9_stariway"/>
+    <figcaption>plastic plate</figcaption>
+  </figure>
+</td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='plate9_stariway-Single'>
+                    <img class='spec' loading='lazy' src='spec/plate9_stariway_Single.svg' alt='spectrogram plate9_stariway Single' data-audio='#aud-plate9_stariway-Single'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-plate9_stariway-Single'>--:--</span>
+                    </div>
+                    <audio id='aud-plate9_stariway-Single' preload='none' src='wav/plate9_stariway_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='plate9_stariway-Avg'>
+                    <img class='spec' loading='lazy' src='spec/plate9_stariway_Avg.svg' alt='spectrogram plate9_stariway Avg' data-audio='#aud-plate9_stariway-Avg'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-plate9_stariway-Avg'>--:--</span>
+                    </div>
+                    <audio id='aud-plate9_stariway-Avg' preload='none' src='wav/plate9_stariway_Avg.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='plate9_stariway-DnS'>
+                    <img class='spec' loading='lazy' src='spec/plate9_stariway_DnS.svg' alt='spectrogram plate9_stariway DnS' data-audio='#aud-plate9_stariway-DnS'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-plate9_stariway-DnS'>--:--</span>
+                    </div>
+                    <audio id='aud-plate9_stariway-DnS' preload='none' src='wav/plate9_stariway_DnS.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='plate9_stariway-Ours'>
+                    <img class='spec' loading='lazy' src='spec/plate9_stariway_Ours.svg' alt='spectrogram plate9_stariway Ours' data-audio='#aud-plate9_stariway-Ours'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-plate9_stariway-Ours'>--:--</span>
+                    </div>
+                    <audio id='aud-plate9_stariway-Ours' preload='none' src='wav/plate9_stariway_Ours.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='plate9_stariway-Input'>
+                    <img class='spec' loading='lazy' src='spec/plate9_stariway_Input.svg' alt='spectrogram plate9_stariway Input' data-audio='#aud-plate9_stariway-Input'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-plate9_stariway-Input'>--:--</span>
+                    </div>
+                    <audio id='aud-plate9_stariway-Input' preload='none' src='wav/plate9_stariway_Input.wav'></audio>
+                  </div>
+                </td>
+                </tr><tr><td class="cell-setup">
+  <figure>
+    <img loading="lazy" src="setup/drum14.png" alt="setup drum14_beatles"/>
+    <figcaption>drum (stereo)</figcaption>
+  </figure>
+</td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum14_beatles-Single'>
+                    <img class='spec' loading='lazy' src='spec/drum14_beatles_Single.svg' alt='spectrogram drum14_beatles Single' data-audio='#aud-drum14_beatles-Single'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-drum14_beatles-Single'>--:--</span>
+                    </div>
+                    <audio id='aud-drum14_beatles-Single' preload='none' src='wav/drum14_beatles_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum14_beatles-Avg'>
+                    <img class='spec' loading='lazy' src='spec/drum14_beatles_Avg.svg' alt='spectrogram drum14_beatles Avg' data-audio='#aud-drum14_beatles-Avg'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-drum14_beatles-Avg'>--:--</span>
+                    </div>
+                    <audio id='aud-drum14_beatles-Avg' preload='none' src='wav/drum14_beatles_Avg.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum14_beatles-DnS'>
+                    <img class='spec' loading='lazy' src='spec/drum14_beatles_DnS.svg' alt='spectrogram drum14_beatles DnS' data-audio='#aud-drum14_beatles-DnS'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-drum14_beatles-DnS'>--:--</span>
+                    </div>
+                    <audio id='aud-drum14_beatles-DnS' preload='none' src='wav/drum14_beatles_DnS.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum14_beatles-Ours'>
+                    <img class='spec' loading='lazy' src='spec/drum14_beatles_Ours.svg' alt='spectrogram drum14_beatles Ours' data-audio='#aud-drum14_beatles-Ours'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-drum14_beatles-Ours'>--:--</span>
+                    </div>
+                    <audio id='aud-drum14_beatles-Ours' preload='none' src='wav/drum14_beatles_Ours.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum14_beatles-Input'>
+                    <img class='spec' loading='lazy' src='spec/drum14_beatles_Input.svg' alt='spectrogram drum14_beatles Input' data-audio='#aud-drum14_beatles-Input'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-drum14_beatles-Input'>--:--</span>
+                    </div>
+                    <audio id='aud-drum14_beatles-Input' preload='none' src='wav/drum14_beatles_Input.wav'></audio>
+                  </div>
+                </td>
+                </tr><tr><td class="cell-setup">
+  <figure>
+    <img loading="lazy" src="setup/yoga.png" alt="setup yoga_hotel"/>
+    <figcaption>yoga foam</figcaption>
+  </figure>
+</td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='yoga_hotel-Single'>
+                    <img class='spec' loading='lazy' src='spec/yoga_hotel_Single.svg' alt='spectrogram yoga_hotel Single' data-audio='#aud-yoga_hotel-Single'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-yoga_hotel-Single'>--:--</span>
+                    </div>
+                    <audio id='aud-yoga_hotel-Single' preload='none' src='wav/yoga_hotel_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='yoga_hotel-Avg'>
+                    <img class='spec' loading='lazy' src='spec/yoga_hotel_Avg.svg' alt='spectrogram yoga_hotel Avg' data-audio='#aud-yoga_hotel-Avg'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-yoga_hotel-Avg'>--:--</span>
+                    </div>
+                    <audio id='aud-yoga_hotel-Avg' preload='none' src='wav/yoga_hotel_Avg.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='yoga_hotel-DnS'>
+                    <img class='spec' loading='lazy' src='spec/yoga_hotel_DnS.svg' alt='spectrogram yoga_hotel DnS' data-audio='#aud-yoga_hotel-DnS'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-yoga_hotel-DnS'>--:--</span>
+                    </div>
+                    <audio id='aud-yoga_hotel-DnS' preload='none' src='wav/yoga_hotel_DnS.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='yoga_hotel-Ours'>
+                    <img class='spec' loading='lazy' src='spec/yoga_hotel_Ours.svg' alt='spectrogram yoga_hotel Ours' data-audio='#aud-yoga_hotel-Ours'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-yoga_hotel-Ours'>--:--</span>
+                    </div>
+                    <audio id='aud-yoga_hotel-Ours' preload='none' src='wav/yoga_hotel_Ours.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='yoga_hotel-Input'>
+                    <img class='spec' loading='lazy' src='spec/yoga_hotel_Input.svg' alt='spectrogram yoga_hotel Input' data-audio='#aud-yoga_hotel-Input'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-yoga_hotel-Input'>--:--</span>
+                    </div>
+                    <audio id='aud-yoga_hotel-Input' preload='none' src='wav/yoga_hotel_Input.wav'></audio>
+                  </div>
+                </td>
+                </tr><tr><td class="cell-setup">
+  <figure>
+    <img loading="lazy" src="setup/physio.png" alt="setup physio_-27dBgun"/>
+    <figcaption>physio ball</figcaption>
+  </figure>
+</td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='physio_-27dBgun-Single'>
+                    <img class='spec' loading='lazy' src='spec/physio_-27dBgun_Single.svg' alt='spectrogram physio_-27dBgun Single' data-audio='#aud-physio_-27dBgun-Single'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-physio_-27dBgun-Single'>--:--</span>
+                    </div>
+                    <audio id='aud-physio_-27dBgun-Single' preload='none' src='wav/physio_-27dBgun_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='physio_-27dBgun-Avg'>
+                    <img class='spec' loading='lazy' src='spec/physio_-27dBgun_Avg.svg' alt='spectrogram physio_-27dBgun Avg' data-audio='#aud-physio_-27dBgun-Avg'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-physio_-27dBgun-Avg'>--:--</span>
+                    </div>
+                    <audio id='aud-physio_-27dBgun-Avg' preload='none' src='wav/physio_-27dBgun_Avg.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='physio_-27dBgun-DnS'>
+                    <img class='spec' loading='lazy' src='spec/physio_-27dBgun_DnS.svg' alt='spectrogram physio_-27dBgun DnS' data-audio='#aud-physio_-27dBgun-DnS'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-physio_-27dBgun-DnS'>--:--</span>
+                    </div>
+                    <audio id='aud-physio_-27dBgun-DnS' preload='none' src='wav/physio_-27dBgun_DnS.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='physio_-27dBgun-Ours'>
+                    <img class='spec' loading='lazy' src='spec/physio_-27dBgun_Ours.svg' alt='spectrogram physio_-27dBgun Ours' data-audio='#aud-physio_-27dBgun-Ours'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-physio_-27dBgun-Ours'>--:--</span>
+                    </div>
+                    <audio id='aud-physio_-27dBgun-Ours' preload='none' src='wav/physio_-27dBgun_Ours.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='physio_-27dBgun-Input'>
+                    <img class='spec' loading='lazy' src='spec/physio_-27dBgun_Input.svg' alt='spectrogram physio_-27dBgun Input' data-audio='#aud-physio_-27dBgun-Input'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-physio_-27dBgun-Input'>--:--</span>
+                    </div>
+                    <audio id='aud-physio_-27dBgun-Input' preload='none' src='wav/physio_-27dBgun_Input.wav'></audio>
+                  </div>
+                </td>
+                </tr><tr><td class="cell-setup">
+  <figure>
+    <img loading="lazy" src="setup/balloon.png" alt="setup balloon_-27dBclap"/>
+    <figcaption>balloon</figcaption>
+  </figure>
+</td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='balloon_-27dBclap-Single'>
+                    <img class='spec' loading='lazy' src='spec/balloon_-27dBclap_Single.svg' alt='spectrogram balloon_-27dBclap Single' data-audio='#aud-balloon_-27dBclap-Single'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-balloon_-27dBclap-Single'>--:--</span>
+                    </div>
+                    <audio id='aud-balloon_-27dBclap-Single' preload='none' src='wav/balloon_-27dBclap_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='balloon_-27dBclap-Avg'>
+                    <img class='spec' loading='lazy' src='spec/balloon_-27dBclap_Avg.svg' alt='spectrogram balloon_-27dBclap Avg' data-audio='#aud-balloon_-27dBclap-Avg'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-balloon_-27dBclap-Avg'>--:--</span>
+                    </div>
+                    <audio id='aud-balloon_-27dBclap-Avg' preload='none' src='wav/balloon_-27dBclap_Avg.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='balloon_-27dBclap-DnS'>
+                    <img class='spec' loading='lazy' src='spec/balloon_-27dBclap_DnS.svg' alt='spectrogram balloon_-27dBclap DnS' data-audio='#aud-balloon_-27dBclap-DnS'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-balloon_-27dBclap-DnS'>--:--</span>
+                    </div>
+                    <audio id='aud-balloon_-27dBclap-DnS' preload='none' src='wav/balloon_-27dBclap_DnS.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='balloon_-27dBclap-Ours'>
+                    <img class='spec' loading='lazy' src='spec/balloon_-27dBclap_Ours.svg' alt='spectrogram balloon_-27dBclap Ours' data-audio='#aud-balloon_-27dBclap-Ours'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-balloon_-27dBclap-Ours'>--:--</span>
+                    </div>
+                    <audio id='aud-balloon_-27dBclap-Ours' preload='none' src='wav/balloon_-27dBclap_Ours.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='balloon_-27dBclap-Input'>
+                    <img class='spec' loading='lazy' src='spec/balloon_-27dBclap_Input.svg' alt='spectrogram balloon_-27dBclap Input' data-audio='#aud-balloon_-27dBclap-Input'/>
+                    <div class='meta'>
+                      <span class='duration' id='dur-balloon_-27dBclap-Input'>--:--</span>
+                    </div>
+                    <audio id='aud-balloon_-27dBclap-Input' preload='none' src='wav/balloon_-27dBclap_Input.wav'></audio>
+                  </div>
+                </td>
+                </tr></tbody>
+    </table>
+    <div class="explanations" id="methods-explanations">
+        <div id="single-explanation" class="explanation-item">
+            <h3>Single point</h3>
+            <p>This is a baseline method where the audio is recovered from the vibrations of a single point on the surface of the object. This often results in a noisy and distorted signal as it fails to capture the full spatial dynamics of the vibrations.</p>
+        </div>
+        <div id="average-explanation" class="explanation-item">
+            <h3>Average</h3>
+            <p>This method involves taking a simple average of the vibration signals from all measurement points. While it can reduce some uncorrelated noise, it does not account for phase differences or the modal behavior of the object, leading to signal cancellation and suboptimal recovery.</p>
+        </div>
+        <div id="delay-and-sum-explanation" class="explanation-item">
+            <h3>Delay & Sum</h3>
+            <p>Delay-and-sum beamforming shifts each signal by a single propagation delay so they align at a reference point before summation. This works when the difference between signals is well-modeled by a uniform time shift. Applying this procedure to our speckle measurements yields low-pass-filtered audio, since the global shifts `lock' onto the dominant lower frequencies. In contrast, the high frequencies are not aligned and might be nullified.</p>
+        </div>
+        <div id="ours-explanation" class="explanation-item">
+            <h3>Ours</h3>
+            <p>Our proposed modal-guided method. We first estimate the object's modal basis from the multi-point vibration data. Then, we use this physical prior to guide the extraction of the sound source from the structural vibrations, resulting in a significantly clearer and more accurate audio recovery.</p>
+        </div>
+        <div id="input-explanation" class="explanation-item">
+            <h3>Input</h3>
+            <p>This is the ground truth audio signal that was played in the room, causing the object to vibrate. It serves as the reference for evaluating the quality of the recovered audio from the different methods.</p>
+        </div>
+    </div>
+  </div>
+  <script>
+    (function() {
+      const audios = Array.from(document.querySelectorAll('audio'));
+      let activeTimer = null;
+
+      function fmt(t) { if (!isFinite(t)) return '--:--'; const m=Math.floor(t/60); const s=Math.round(t%60); return `${m}:${s.toString().padStart(2,'0')}`; }
+
+      audios.forEach(a=>{const id=a.id.replace('aud-','');const durEl=document.getElementById('dur-'+id);const setDur=()=>{durEl&&(durEl.textContent=fmt(a.duration));};a.addEventListener('loadedmetadata',setDur,{once:true});if(a.readyState>=1)setDur();a.addEventListener('error', () => durEl.textContent = 'Error');});
+
+      function playAudio(audioElement) {
+        if (!audioElement) return;
+
+        if (!audioElement.paused) { // If it's already playing, pause and reset it
+          audioElement.pause();
+          audioElement.currentTime = 0;
+        } else { // If it's paused, play it.
+          // Pause all other audio elements first
+          audios.forEach(otherAudio => {
+            if (otherAudio !== audioElement && !otherAudio.paused) {
+              otherAudio.pause();
+              otherAudio.currentTime = 0; // Also reset other paused tracks
+            }
+          });
+          audioElement.play();
+        }
+      }
+
+      document.querySelectorAll('img.spec, button.play-btn').forEach(el => {
+        el.addEventListener('click', () => {
+          const sel = el.getAttribute('data-audio');
+          const audio = document.querySelector(sel);
+          playAudio(audio);
+        });
+      });
+
+      audios.forEach(a => {
+        const btn = document.querySelector(`.play-btn[data-audio="#${a.id}"]`);
+        if (!btn) return;
+        a.addEventListener('play', () => btn.textContent = '❚❚');
+        a.addEventListener('pause', () => btn.textContent = '▶');
+
+        const id = a.id.replace('aud-', '');
+        const durEl = document.getElementById('dur-' + id);
+
+        function updateTime() {
+          const remaining = a.duration - a.currentTime;
+          durEl.textContent = fmt(remaining);
+        }
+
+        a.addEventListener('play', () => {
+          activeTimer = setInterval(updateTime, 250);
+        });
+
+        a.addEventListener('pause', () => {
+          clearInterval(activeTimer);
+          durEl.textContent = fmt(a.duration);
+        });
+        a.addEventListener('ended', () => durEl.textContent = fmt(a.duration));
+      });
+      function bindSetupHeight(row) {
+        const spec = row.querySelector('img.spec');
+        const setupImg = row.querySelector('.cell-setup img');
+        if(!spec || !setupImg) return;
+        const apply = () => { setupImg.style.maxHeight = spec.clientHeight ? (spec.clientHeight + 'px') : ''; };
+        if (spec.complete) apply(); else spec.addEventListener('load', apply, { once: true });
+        const ro = new ResizeObserver(apply);
+        ro.observe(spec);
+      }
+      document.querySelectorAll('tbody tr').forEach(bindSetupHeight);
+    })();
+
+    // Handle anchor links inside iframe to scroll the parent window
+    document.querySelectorAll('thead a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          // Get position of target relative to the iframe's document
+          const targetRect = targetElement.getBoundingClientRect();
+          // Tell parent to scroll
+          window.parent.postMessage({ type: 'scrollTo', y: window.scrollY + targetRect.top }, '*');
+        }
+      });
+    });
+
+    // Listen for scroll requests from the parent
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'scrollToAnchor') {
+            const targetElement = document.querySelector(event.data.anchor);
+            if (targetElement) {
+                const targetRect = targetElement.getBoundingClientRect();
+                window.parent.postMessage({ type: 'scrollTo', y: window.scrollY + targetRect.top }, '*');
+            }
+        }
+    });
+
+    // --- Robust Iframe Resizing Logic ---
+
+    let resizeTimer;
+
+    // 1. Debounced function to calculate and send the document's full height.
+    // Debouncing prevents firing on intermediate layout states, which can cause issues in Firefox.
+    function sendHeightToParent() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const body = document.body;
+            const html = document.documentElement;
+            // Use scrollHeight to get the full height of the content.
+            const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+            window.parent.postMessage({ type: 'iframeHeight', height: height, iframeId: 'results-iframe' }, '*');
+        }, 10); // A small 10ms delay is enough for the browser to settle.
+    }
+
+    // 2. Trigger an initial height send when the DOM is ready.
+    document.addEventListener('DOMContentLoaded', sendHeightToParent);
+
+    // 3. Use ResizeObserver to automatically send height when content changes (e.g., images load).
+    if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(sendHeightToParent);
+        observer.observe(document.body);
+    }
+
+    // 4. Also listen for a height request from the parent, as a fallback.
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'requestHeight') {
+            sendHeightToParent();
+        }
+    });
+
+    // 5. As a final safety net, re-calculate height after the entire window (including images) has loaded.
+    window.addEventListener('load', sendHeightToParent);
+  </script>
+</body>
+</html>

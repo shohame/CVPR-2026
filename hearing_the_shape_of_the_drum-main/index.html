@@ -1,0 +1,2036 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap&family=Noto+Sans:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            href="https://media.ffycdn.net/eu/weizmann-institute-of-science/5SSgY1f6a5BZBKn35sbW.png?width={width}&amp;rect=62.979048224771,59.508966336584,281.30046091262,281.30046091262&amp;reference_width=400"
+            type="image/png"
+        />
+        <title>
+            Hearing the Room Through the Shape of the Drum: Modal-Guided Sound Recovery from Multi-Point Surface Vibrations
+        </title>
+
+        <style>
+            body {
+                font-family: 'Inter', Helvetica, Arial, sans-serif;
+                font-size: 1em;
+                font-weight: 400;
+                line-height: 1.5;
+                color: #4a4a4a;
+                margin: 0;
+                padding: 0;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            .container {
+                max-width: 1040px;
+                margin: 0px auto;
+                padding: 60px 80px;
+                background-color: #ffffff;
+                border-radius: 24px;
+                box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.06);
+            }
+
+            .title,
+            .subtitle {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+            }
+
+            .title {
+                font-size: 2.5em;
+                font-weight: 800;
+                letter-spacing: -0.03em;
+                color: #000;
+                margin: 0;
+                line-height: 1.3;
+            }
+            
+            .subtitle {
+                font-size: 1.7em;
+                font-weight: 700;
+                color: #0f172a;
+                margin-top: 0.5em;
+                margin-bottom: 0.2em;
+                position: relative;
+                display: inline-block;
+                line-height: 1.5;
+            }
+
+            .authors{
+                margin-top: 7px;
+                font-size: 1.6em;
+                color: #8B0000;
+            }
+            .affiliation {      
+                font-size: 1.6em;
+                color: #475569;
+            }
+
+            .conference {
+                font-size: 1.8em;
+                font-weight: 600;
+                color: #64748b;
+                margin-bottom: 25px;
+            }
+
+            .author-video {
+                height: 140px;
+                border-radius: 16px;
+                border: 3px solid #f1f5f9;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+                pointer-events: none;
+                object-fit: cover;
+            }
+
+            .authors a {
+                color: #8B0000;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.2s;
+            }
+
+            .authors a:hover {
+                color: #00cc30;
+                text-decoration: underline;
+            }
+
+            .publication-links {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+                margin-top: 65px;
+                margin-bottom: 0px;
+            }
+
+            .link-block {
+                display: inline-block;
+            }
+
+            .external-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 20px;
+                background: #1e293b;
+                color: #ffffff !important;
+                text-decoration: none;
+                border-radius: 99px;
+                font-size: 0.95em;
+                font-weight: 600;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                border: none;
+                cursor: pointer;
+            }
+
+            .external-link:hover {
+                background: #00ee39;
+                transform: translateY(-2px);
+                box-shadow: 0 10px 15px -3px rgba(0, 238, 57, 0.25);
+            }
+
+            .external-link svg {
+                transition: transform 0.3s ease;
+            }
+
+            .external-link:hover svg {
+                transform: scale(1.1);
+            }
+
+            .external-link .icon {
+                width: 22px;
+                height: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .external-link .icon svg {
+                width: 25px;
+                height: 18px;
+                fill: currentColor;
+            }
+
+            .teaser-image {
+                text-align: center;
+                margin: 40px 0;
+            }
+
+            .teaser-image img:not(.raw-svg), .side-image:not(.raw-svg) {
+                max-width: 100%;
+                height: auto;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+                border: 1px solid #f1f5f9;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .teaser-image img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .side-image.raw-svg {
+                max-width: 750px;
+                height: auto;
+            }
+
+            .section {
+                margin-bottom: 50px;
+            }
+
+            .section h2 {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 1.8em;
+                font-weight: 700;
+                margin-bottom: 20px;
+                color: #0f172a;
+            }
+
+            p {
+                font-size: 1.05em;
+                line-height: 1.5;
+                text-align: justify;
+                margin-bottom: 15px;
+                color: #475569;
+            }
+
+            .abstract-box {
+                background: #f8fafc;
+                border-left: 4px solid #cbd5e1;
+                border-radius: 0 8px 8px 0;
+                padding: 24px;
+                color: #334155;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+                margin: 20px 0;
+                font-size: 1em;
+                line-height: 1.7;
+                text-align: justify;
+            }
+
+            .bibtex-container {
+                position: relative;
+            }
+
+            .copy-button {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background: #cbd5e1;
+                color: #0f172a;
+                font-weight: 600;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 0.8em;
+                transition: background-color 0.2s;
+            }
+
+            .copy-button:hover {
+                background: #94a3b8;
+            }
+
+            .copy-button.copied {
+                background: #00ee39;
+                color: white;
+            }
+
+            hr {
+                border: 0;
+                height: 2px;
+                background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,238,57,0.5) 20%, rgba(0,238,57,0.5) 80%, rgba(0,0,0,0));
+                margin: 40px 0;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    margin: 0;
+                    border-radius: 0;
+                    padding: 30px 20px;
+                }
+
+                .title {
+                    font-size: 1.5em;
+                    line-height: 1.25;
+                }
+                
+                .subtitle {
+                    font-size: 1.3em;
+                }
+
+                .authors a {
+                    margin-right: 0px; 
+                }
+
+                /* 2. Increase sizes and strictly center the text blocks */
+                .authors {
+                    font-size: 1.1em;
+                    white-space: normal; /* Changed from nowrap to normal to allow wrapping */
+                    text-align: center;
+                    display: block;
+                    width: 100%;
+                }
+
+                .affiliation {
+                    font-size: 1.2em;
+                    white-space: normal; /* Changed from nowrap to normal to allow wrapping */
+                    text-align: center;
+                    display: block;
+                    width: 100%;
+                }
+
+                .conference {
+                    font-size: 1.05em; /* Kept proportional */
+                    text-align: center;
+                    display: block;
+                    width: 100%;
+                }
+
+                /* Adjust header info container spacing on mobile */
+                .header-info-container {
+                    margin-bottom: 15px; 
+                }
+
+                /* 3. Aggressively reduce the gap below the buttons */
+                .header {
+                    min-height: auto;
+                    padding: 20px 10px 0px 10px;
+                    margin-bottom: -40px; /* Strong negative margin to pull the TL;DR section up */
+                }
+
+                .publication-links {
+                    gap: 8px;
+                    margin-top: 15px;
+                    margin-bottom: 0px; /* Squeezed the bottom margin */
+                }
+    
+                .header::before {
+                        display: none !important; 
+                    }
+                
+                .center-text {
+                    width: 100%;
+                }
+
+                .external-link {
+                    padding: 8px 12px;
+                    font-size: 0.85em;
+                }
+                
+                /* Fix for out-of-bounds side-by-side images */
+                .side-by-side, .side-by-side2 {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                .side-image, .side-image.raw-svg {
+                    max-width: 100% !important;
+                    height: auto;
+                    margin-top: 15px;
+                }
+
+                /* Mobile stacking for cards */
+                .card-container {
+                    grid-template-columns: 1fr;
+                }
+                .card-content {
+                    grid-template-columns: 1fr;
+                }
+                .card {
+                    padding: 16px;
+                }
+
+                /* Mobile table adjustments */
+                table.grid {
+                    display: block;
+                    overflow-x: auto;
+                    padding-bottom: 10px;
+                }
+                .bottom-labels th {
+                    font-size: 0.85em;
+                    transform: translateY(-20px);
+                }
+            }
+                
+.header-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.side-gif {
+    width: 15%;
+    height: auto;
+}
+
+.center-text {
+    width: 60%;
+    text-align: center;
+}
+
+.header {
+    position: relative;
+    text-align: center;
+    margin-bottom: -30px;
+    padding: 40px 20px 10px 20px;
+    min-height: 500px; 
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("graphics/title_graphic/lasers_and_table.png");
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 1;
+    z-index: 0;
+}
+
+.header > * {
+    position: relative;
+    z-index: 1;
+}
+
+            .card-container {
+                max-width: 100%;
+                margin: 20px auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .card {
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 16px;
+                padding: 24px;
+                box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
+                transition: box-shadow 0.3s ease;
+            }
+            .card:hover {
+                box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.08);
+            }
+            .card-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                align-items: start;
+            }
+            .card .caption {
+                padding-top: 16px;
+                border-top: 1px solid #e2e8f0;
+                margin-top: -20px;
+                color: #64748b;
+                font-weight: 500;
+                font-size: 0.95em;
+                text-align: center;
+            }
+
+            .spectrum-img {
+                width: 100%;
+                display: block;
+                border: 1px solid #e2e8f0;
+                border-radius: 6px;
+            }
+
+            .side-by-side {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                margin: 20px 0;
+            }
+
+            .side-by-side p {
+                flex: 1;
+                margin: 0;
+            }
+
+            .side-by-side2 {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                margin: 20px 0;
+            }
+
+            .side-by-side2 p {
+                flex: 1;
+                margin: 0;
+            }
+
+            .side-image {
+                max-width: 750px;
+                height: auto;
+            }
+            /*
+            .col-setup {
+                width: 300px;
+            }*/
+            .col-setup { width: 28% }
+            .col-method { width: 36% }
+
+            table.grid {
+                width: 100%;
+                table-layout: fixed;   /* CRITICAL */
+                border-collapse: separate;
+                border-spacing: 0 0;
+            }
+            table.grid td {
+                vertical-align: top;
+            }    
+            .grid img {
+                clip-path: inset(0% 0% 0% 0%);
+            }
+
+            .setup-wrap {
+                display: flex;
+                align-items: flex-start;
+            }
+            .cell-setup {
+                vertical-align: top;
+            }
+            .cell-setup img {
+                width: 100%;
+                height: auto;
+                max-height: 100%;   /* safety */
+                object-fit: contain;
+                display: block;
+                margin-bottom: 12px;
+            }
+            .spec {
+                width: 100%;
+                height: auto;          /* preserve aspect ratio */
+                display: block;                
+                margin-bottom: 12px;   /* your “extra margin” knob */
+            } 
+            .cell-setup figcaption { margin-top: 4px; color: #64748b; font-size: 1em; text-align:center; font-weight: 500; }          
+            
+            .bottom-labels th {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 1.05em;
+                font-weight: 600; 
+                color: #334155;
+                text-align: center;
+                transform: translateY(-50px); 
+                padding-top: 0;
+                /*padding-bottom: 5px; 
+                padding-left: 25px;*/
+            }
+            .bottom-labels th:nth-child(2)
+            {
+                padding-left: 17px;
+            }
+            .bottom-labels th:last-child {
+                position: relative;
+                left: 19px; /* adjust as needed */
+            }
+            table tbody tr td {
+                padding-bottom: 0; 
+            }
+
+            .spec-wrap { position: relative; display: grid; grid-template-rows: auto 22px; gap: 6px; align-items: start/*center*/; }
+
+            .spec { 
+                width: 100%; 
+                max-width: none;
+                /* margin-left: -10%; */
+                /* margin-top: -3.37%; */
+                /* margin-bottom: -10.1%; */
+                display: block; 
+                border: none; 
+                clip-path: none;
+            }
+            
+            .meta { display: flex; justify-content: center; color: #64748b; font-size: 12px; margin-top: 6px; }
+            .duration { padding: 4px 10px; border: 1px solid #cbd5e1; border-radius: 99px; font-weight: 600; background: #f8fafc; color: #475569; }
+            
+            .play-buttons-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 10;
+                pointer-events: none;
+            }
+
+            .play-btn-static {
+                position: absolute;
+                top: 12px;
+                left: 12px;
+                pointer-events: auto;
+                
+                background: rgba(255, 255, 255, 0.9);
+                border: none;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+                color: #0f172a;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                font-size: 14px;
+                padding: 0;
+                line-height: 1;
+                z-index: 10;
+            }
+
+            .play-btn-static:hover {
+                background: #00ee39;
+                color: #ffffff;
+                scale: 1.15;
+                box-shadow: 0 6px 14px rgba(0, 238, 57, 0.4);
+            }
+
+            .audio-dial {
+                position: absolute;
+                width: 5px; 
+                background-color: red;
+                box-shadow: 0 0 6px rgba(255, 0, 0, 0.8);
+                z-index: 9; 
+                opacity: 0; 
+                transition: opacity 0.2s ease-in-out; 
+                pointer-events: none; 
+                transform: translateX(-50%); 
+            }
+        </style>
+
+        <script>
+            let currentlyPlayingButton = null; // Global variable to track the button that initiated playback
+            function copyBibTeX(button) {
+                const bibtexText =
+                    document.getElementById("bibtex-text").textContent;
+
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard
+                        .writeText(bibtexText)
+                        .then(function () {
+                            const originalText = button.textContent;
+                            button.textContent = "Copied!";
+                            button.classList.add("copied");
+
+                            setTimeout(function () {
+                                button.textContent = originalText;
+                                button.classList.remove("copied");
+                            }, 2000);
+                        })
+                        .catch(function () {
+                            fallbackCopy(bibtexText, button);
+                        });
+                } else {
+                    fallbackCopy(bibtexText, button);
+                }
+            }
+
+            function fallbackCopy(text, button) {
+                const textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px";
+                textArea.style.top = "-999999px";
+                document.body.appendChild(textArea);
+
+                textArea.focus();
+                textArea.select();
+
+                try {
+                    document.execCommand("copy");
+                    const originalText = button.textContent;
+                    button.textContent = "Copied!";
+                    button.classList.add("copied");
+
+                    setTimeout(function () {
+                        button.textContent = originalText;
+                        button.classList.remove("copied");
+                    }, 2000);
+                } catch (err) {
+                    button.textContent = "Copy failed";
+                    setTimeout(function () {
+                        button.textContent = "Copy";
+                    }, 2000);
+                } finally {
+                    document.body.removeChild(textArea);
+                }
+            }
+        </script>
+
+        </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1 class="title">
+                    Hearing the Room Through the Shape of the Drum:<br />
+                    Modal-Guided Sound Recovery from Multi-Point Surface
+                    Vibrations
+                </h1>
+
+<div class="header-info-container">
+    <div class="center-text">
+        <div class="authors">
+            <a href="https://www.weizmann.ac.il/math/bagon/home">Shai Bagon</a>,
+            <a href="https://matankic.github.io">Matan Kichler</a>,
+            <a href="https://www.marksheinin.com/about">Mark Sheinin</a>
+        </div>
+
+        <div class="affiliation">Weizmann Institute of Science</div>
+        <div class="conference" style="margin-bottom: 0; margin-top: 10px;">CVPR 2026 (Award Candidate&#127942;)</div>
+    </div>
+    </div>
+
+                <div class="publication-links">
+                    <span class="link-block">
+                        <a href="html_assets/Hearing_the_Drum_Through_Its_Shape__CVPR26_.pdf" class="external-link" target="_blank">
+                            <span class="icon">
+                                <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
+                                    data-icon="file-pdf"
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 384 512"
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <span>Paper</span>
+                        </a>
+                    </span>
+
+                    <span class="link-block">
+                        <a href="https://www.dropbox.com/scl/fi/mnkngs214gku21uhcog2s/video_with_names.mp4?rlkey=9usahrbg4kcbor4tbxs8i3cwf&raw=1" class="external-link"  target="_blank">
+                            <span class="icon">
+                                <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fab"
+                                    data-icon="youtube"
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 576 512"
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <span>Video</span>
+                        </a>
+                    </span>
+                    <span class="link-block">
+                        <a
+                            href="html_assets/results.html" class="external-link" target="_blank">
+                            <span class="icon">
+                                <svg
+                                    aria-hidden="true" 
+                                    focusable="false"
+                                    data-prefix="fab"
+                                    data-icon="headphones"
+                                    role="img"    
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    viewBox="0 0 640 640"
+                                >
+                                    <path 
+                                        fill="currentColor"
+                                        d="M160 288C160 199.6 231.6 128 320 128C408.4 128 480 199.6 480 288L480 325.5C470 322 459.2 320 448 320L432 320C405.5 320 384 341.5 384 368L384 496C384 522.5 405.5 544 432 544L448 544C501 544 544 501 544 448L544 288C544 164.3 443.7 64 320 64C196.3 64 96 164.3 96 288L96 448C96 501 139 544 192 544L208 544C234.5 544 256 522.5 256 496L256 368C256 341.5 234.5 320 208 320L192 320C180.8 320 170 321.9 160 325.5L160 288z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <span>Audio</span>
+                        </a>
+                    </span>
+                    <span class="link-block">
+                        <a
+                            href=""
+                            class="external-link"
+                            style="background-color: #e3e3e3"
+                        >
+                            <span class="icon">
+                                <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fab"
+                                    data-icon="github"
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 496 512"
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <span>Code</span>
+                        </a>
+                    </span>
+                    <span class="link-block">
+                        <a
+                            href="html_assets/43134_supp.pdf"
+                            class="external-link"
+                            target="_blank"
+                        >
+                            <span class="icon">
+                                <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
+                                    data-icon="file-pdf"
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 384 512"
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <span>Supp</span>
+                        </a>
+                    </span>
+
+                    <span class="link-block">
+                        <a href="#BibTeX" class="external-link">
+                            <span class="icon">
+                                <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fa"
+                                    data-icon="quote-right"
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                >
+                                    <path
+                                        fill="currentColor"
+                                        d="M464 32H336c-26.5 0-48 21.5-48 48v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48zm-288 0H48C21.5 32 0 53.5 0 80v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <span>BibTeX</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+            <div class="section">
+                <h1 class="subtitle">
+                    <b>TL;DR:</b> We significantly improve speckle-based sound recovery from ordinary, acoustically poor objects by fusing signals from many surface points using a physics-guided vibration model.
+                </h1>
+                <p> Prior visual vibrometry focused on “easy” objects with strong, clean vibration responses (e.g., a chip bag <b>(click the left spectrogram)</b>). But most real-world objects behave very differently: they <i>resonate, distort, and suppress</i> large parts of the sound signal spectrum <b>(click the middle spectrogram)</b>. </p> <p> We introduce a physics-guided model that links <b>multi-point, multi-axis surface vibrations</b> to the underlying sound, and invert it to recover clear audio. By fusing many weak, distorted vibration signals, we reconstruct sound from everyday solid objects that previously yeilded poor recordings.
+            </div>
+            <div class="teaser-image" style="position: relative;">
+            <div class="play-buttons-overlay">
+                <button class="play-btn-static" 
+                    style="left: 27%; top: 2.5%;" 
+                    data-audio="#aud-chips_golden-single" 
+                    data-dial-start="0.5" 
+                    data-dial-width="30" 
+                    data-dial-top="1%" 
+                    data-dial-height="21.5%">▶</button>
+                
+                <button class="play-btn-static" 
+                    style="left: 61.4%; top: 2.5%;" 
+                    data-audio="#aud-drum_golden-single" 
+                    data-dial-start="35.5" 
+                    data-dial-width="29.7" 
+                    data-dial-top="1%" 
+                    data-dial-height="21.5%">▶</button>
+                
+                <button class="play-btn-static" 
+                    style="left: 96%; top: 2.5%;" 
+                    data-audio="#aud-drum_golden-our" 
+                    data-dial-start="70" 
+                    data-dial-width="29.9" 
+                    data-dial-top="1%" 
+                    data-dial-height="21.5%">▶</button>
+                
+                <div id="audio-dial" class="audio-dial"></div>
+                <audio id='aud-chips_golden-single' preload='metadata' src='html_assets/OFFICIAL_AUDIO_RESULTS/Golden_chips_bag/Golden_from_chips.wav'></audio>
+                <audio id='aud-drum_golden-single' preload='metadata' src='html_assets/OFFICIAL_AUDIO_RESULTS/Golden/golden_single_point_raw.wav'></audio>
+                <audio id='aud-drum_golden-our' preload='metadata' src='html_assets/OFFICIAL_AUDIO_RESULTS/Golden/golden_our_raw.wav'></audio>
+            </div>
+            <img src="graphics/website_top_figure/top_graphic.svg" alt="teaser figure" />
+        </div>
+            <div class="side-by-side" style="position: relative;">
+
+                <div class="play-buttons-overlay">
+                    <button class="play-btn-static" 
+                        style="left: 96%; top: 6%;" 
+                        data-audio="#aud-drum_golden-single_vs_our"
+                        data-dial-start="39"
+                        data-dial-end="99.8" 
+                        data-dial-width="29.9" 
+                        data-dial-top="1%" 
+                        data-dial-height="83%">▶</button>
+
+                    <div id="audio-dial" class="audio-dial"></div>
+
+                    <audio id='aud-drum_golden-single_vs_our' preload='metadata' src='html_assets/OFFICIAL_AUDIO_RESULTS/Golden_SPLIT_single_point_vs_our/half_and_half.wav'></audio>
+                </div>
+
+                <p>
+                    Click on the side-by-side spectrogram to appreciate the difference in quality.
+                </p>
+                <img src="html_assets/OFFICIAL_AUDIO_RESULTS/Golden_SPLIT_single_point_vs_our/golden_SPLIT_single_pnt_vs_our.svg" alt="spectrogram example" class="side-image raw-svg">
+            </div>
+            <div class="side-by-side" style="position: relative;">
+
+    <div class="play-buttons-overlay">
+        <button class="play-btn-static" 
+            style="left: 96%; top: 6%;" 
+            data-audio="#aud-drum_golden-avg_vs_our"
+            data-dial-start="39"
+            data-dial-end="99.8" 
+            data-dial-width="29.9" 
+            data-dial-top="1%" 
+            data-dial-height="83%">▶</button>
+
+        <div class="audio-dial"></div>
+
+        <audio id="aud-drum_golden-avg_vs_our"
+            preload="metadata"
+            src="html_assets/OFFICIAL_AUDIO_RESULTS/Golden_SPLIT_AVG_vs_our/avg_vs_our.wav"></audio>
+    </div>
+
+    <p></p>
+
+    <img src="html_assets/OFFICIAL_AUDIO_RESULTS/Golden_SPLIT_AVG_vs_our/golden_SPLIT_avg_vs_our.svg"
+         alt="average vs our method spectrogram example"
+         class="side-image raw-svg">
+</div>
+            <hr>
+            <div class="section">
+                <h1 class="subtitle">
+                    Can't you just average the point signals?
+                </h1>
+                <p>
+                    <b>Short answer: NO!</b><br />
+                    The degradation is not just measurement noise -- it is
+                    inherent to the physical nature of a vibrating surface. Naively averaging the signal from multiple points, or even
+                    using classic delay-and-sum approaches may yeild even worse sounding results <b>(click below to hear)</b>. In the next Section, we explain the intuition for why that is.
+                </p>
+                <div class="teaser-image" style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 20.3%; top: 8.5%;" 
+                            data-audio="#aud-drum_golden-single"
+                            data-dial-start="3.3"
+                            data-dial-end="24.1" 
+                            data-dial-width="29.9" 
+                            data-dial-top="5%" 
+                            data-dial-height="67.5%">▶</button>
+
+                        <button class="play-btn-static" 
+                            style="left: 45.3%; top: 8.5%;" 
+                            data-audio="#aud-drum_golden-avg"
+                            data-dial-start="28.3"
+                            data-dial-end="49.1" 
+                            data-dial-width="29.9" 
+                            data-dial-top="5%" 
+                            data-dial-height="67.5%">▶</button>
+
+                        <button class="play-btn-static" 
+                            style="left: 70.3%; top: 8.5%;" 
+                            data-audio="#aud-drum_golden-DNS"
+                            data-dial-start="53.3"
+                            data-dial-end="74.1" 
+                            data-dial-width="29.9" 
+                            data-dial-top="5%" 
+                            data-dial-height="67.5%">▶</button>
+
+                        <button class="play-btn-static" 
+                            style="left: 95.3%; top: 8.5%;" 
+                            data-audio="#aud-drum_golden-our"
+                            data-dial-start="78.3"
+                            data-dial-end="99.1" 
+                            data-dial-width="29.9" 
+                            data-dial-top="5%" 
+                            data-dial-height="67.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+
+                        <audio id='aud-drum_golden-avg' preload='metadata' src='html_assets/results/wav/drum6_golden_Avg.wav'></audio>
+                        <audio id='aud-drum_golden-DNS' preload='metadata' src='html_assets/results/wav/drum6_golden_DnS.wav'></audio>
+                    </div>
+
+                    <img
+
+                        src="html_assets/OFFICIAL_AUDIO_RESULTS/Golden_comparison_to_AVG_and_DnS/golden_comparison_to_Avg_and_DnS.svg"
+                        alt="Comparison of single point, average, delay-and-sum, and our method"
+                        class="raw-svg"
+                    />
+                </div>
+            </div>
+
+            <hr>
+            <div class="section">
+                <h1 class="subtitle">
+                    Physics-guided surface vibration model
+                </h1>
+                <p>
+                    The vibrations we measure on the object's surface can
+                    be modeled as a combination of the object's resonant
+                    modes.
+                    Each mode comprises a shape and a frequency, determining its temporal
+                    oscillations. The mode coefficients q(t) determine the instantaneous shape deformation at time t.
+                </p>
+            </div>
+                        <div class="teaser-image">
+                <img src="graphics/videos/modes.gif" alt="modal vibration" width="750px" />
+            </div>
+                <div class="side-by-side2">
+                <p>
+                Our camera measures a quantity proportional to the <i>spatial surface gradients</i> at a grid of surface points.
+                </p>
+                <img src="graphics/ppt_based_graphics/our_meas.png" alt="spectrogram example" class="side-image" width=500px>
+            </div>
+            <p>
+            The graphics below illustrate the challenge we face when fusing signals from multiple points and the intuition behind our solution. In general, all modes may be active simultaneously when the drum vibrates, but below we focus on only two modes having frequencies 198Hz and 411Hz (taken from real data). Our camera measured vibrations at 100 grid points on the drumhead’s surface, with each point providing a 2D signal illustrated by the quiver plots below.</p>
+            <p> 
+           Now, let’s focus on the yellow and cyan grid points. In the first mode (198Hz), these two points have opposite phases, while in the second mode, their phases are in sync. This means that if we sum the raw signals from these two points, as is, the 198Hz component of our signal will be squashed by destructive interference, while the 411Hz component will be constructively amplified. This is why simple averaging yields a poor recovery.</p>
+
+            Moreover, notice that there isn’t a simple global delay (as in Delay-and-Sum) that synchronizes both frequencies, since synchronizing one frequency will nullify the synchronization in the other. 
+           
+            <div class="teaser-image">
+                <img src="graphics/ppt_based_graphics/slide_2.gif" alt="modal vibration" />
+            </div>
+
+            The captured point signals differ not only in phase but also in magnitude. This is illustrated by the second pair of points in the graphic below. Notice that in the first mode, the orange point falls near the mode’s peak. Because we measure the surface gradients, which vanish near peaks or valleys, the signal from the orange point at this frequency (198Hz) is weak. But in the second mode, the situation is reversed, and here the cyan point falls on a mode peak. Consequently, different surface points provide different transfer functions (filters) to the scene sound depending on their geometric location.
+
+            <div class="teaser-image">
+                <img src="graphics/ppt_based_graphics/slide_3.gif" alt="modal vibration" />
+            </div>
+            <hr>
+
+            <div class="section">
+                <h1 class="subtitle" style="color: #8b1e1e;">
+                    Our solution: Modal-Guided Sound Recovery
+                </h1>
+                <p>
+                    In this paper, we introduce a principled physics-based solution to recover a denoised estimate of the scene sound from the multi-point multi-axis vibration signals. We rely on the insight illustrated in the visualization above: that the relative phase and magnitude information required to optimally fuse the various 1D signals is provided by the objects' measured modes. Our solution comprises recovering the modes from the data and using them to optimize the extraction of the denoised scene sound, while relying on an analytical approximation of how these modes span the object’s vibration space. See the paper for full technical details.
+                </p>
+
+                <div class="teaser-image" style="position: relative;">
+                        
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 95.5%; top: 4%;" 
+                            data-audio="#aud-drum_golden-single"
+                            data-dial-start="70.3"
+                            data-dial-end="99" 
+                            data-dial-width="29.9" 
+                            data-dial-top="2.3%" 
+                            data-dial-height="18.5%">▶</button>
+
+                        <button class="play-btn-static" 
+                            style="left: 95.5%; top: 28.1%;" 
+                            data-audio="#aud-drum_golden-avg"
+                            data-dial-start="70.3"
+                            data-dial-end="99" 
+                            data-dial-width="29.9" 
+                            data-dial-top="26.7%" 
+                            data-dial-height="18%.5">▶</button>
+
+                        <button class="play-btn-static" 
+                            style="left: 95.5%; top: 52.3%;" 
+                            data-audio="#aud-drum_golden-our"
+                            data-dial-start="70.3"
+                            data-dial-end="99" 
+                            data-dial-width="29.9" 
+                            data-dial-top="50.9%" 
+                            data-dial-height="18%.5">▶</button>
+
+                        <button class="play-btn-static" 
+                            style="left: 95.5%; top: 76.5%;" 
+                            data-audio="#aud-fig7-source"
+                            data-dial-start="70.3"
+                            data-dial-end="99" 
+                            data-dial-width="29.9" 
+                            data-dial-top="75.1%" 
+                            data-dial-height="18.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+
+                        <audio id='aud-drum_golden-avg' preload='metadata' src='html_assets/results/wav/drum6_golden_Avg.wav'></audio>
+                    </div>
+                    
+                    <img src="graphics/website_method_fig/teaser_figure.svg" />
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="section">
+                <h1 class="subtitle">
+                    SELECTED RESULTS
+                </h1>
+            <p>
+                We tested our framework on <a href="html_assets/results/results.html" target="_blank">a varaiety of objects</a>. 
+                We show a representative selection here. 
+                From well-covered surfaces:
+            </p>
+                <table class='grid'>
+                <colgroup>
+                    <col class='col-setup'/>
+                    <col class="col-method" /><col class="col-method" />
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td class="cell-setup">
+                            <div class="setup-wrap">
+                            <img loading='lazy' src="html_assets/results/setup/drum14.png" alt="setup drum6_golden"/>                            
+                            </div>                            
+                        </td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum6_golden-Single' style="position: relative;">
+                    <div class="play-buttons-overlay">
+
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-drum6_golden-Single" 
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/drum6_golden_Single.svg' alt='spectrogram drum6_golden Single' />
+                    <audio id='aud-drum6_golden-Single' preload='none' src='html_assets/results/wav/drum6_golden_Single.wav'></audio>
+                  </div>
+                </td>
+                
+               
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum6_golden-Ours' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-drum6_golden-Ours"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/drum6_golden_Ours.svg' alt='spectrogram drum6_golden Ours' />
+                    <audio id='aud-drum6_golden-Ours' preload='none' src='html_assets/results/wav/drum6_golden_Ours.wav'></audio>
+                  </div>
+                </td>              
+                </tr>
+                <tr class="bottom-labels">
+                    <th>drum</th>
+                    <th>single point</th>
+                    <th>ours</th>
+                </tr>
+                <tr>
+                    <td class="cell-setup">                    
+                    <div class="setup-wrap">
+                    <img loading="lazy" src="html_assets/results/setup/frame10.png" alt="setup frame10_stairway" data-extra-margin="20"/>
+                    </div>                        
+                </td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='frame10_stairway-Single' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-frame10_stairway-Single"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/frame10_stairway_Single.svg' alt='spectrogram frame10_stairway Single' />
+                    <audio id='aud-frame10_stairway-Single' preload='none' src='html_assets/results/wav/frame10_stairway_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='frame10_stairway-Ours' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-frame10_stairway-Ours"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/frame10_stairway_Ours.svg' alt='spectrogram frame10_stairway Ours' />
+                    <audio id='aud-frame10_stairway-Ours' preload='none' src='html_assets/results/wav/frame10_stairway_Ours.wav'></audio>
+                  </div>
+                </td>
+                </tr>
+                <tr class="bottom-labels">
+                    <th>picture frame</th>
+                    <th>single point</th>
+                    <th>ours</th>
+                </tr>
+
+            </tbody>
+            </table>            
+            <p>
+                to partially covered ones:
+            </p>
+                <table class='grid'>
+                <colgroup>
+                    <col class='col-setup'/>
+                    <col class="col-method" /><col class="col-method" />
+                </colgroup>
+                <tbody>
+                <tr>
+                <td class="cell-setup">
+                    <div class="setup-wrap">
+                    <img loading="lazy" src="html_assets/results/setup/guitar11.png" alt="setup guitar11_polyphia"/>
+                    </div>
+                </td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='guitar11_polyphia-Single' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-guitar11_polyphia-Single"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/guitar11_polyphia_Single.svg' alt='spectrogram guitar11_polyphia Single' />
+                    <audio id='aud-guitar11_polyphia-Single' preload='none' src='html_assets/results/wav/guitar11_polyphia_Single.wav'></audio>
+                  </div>
+                </td>
+
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='guitar11_polyphia-Ours' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                          <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-guitar11_polyphia-Ours"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/guitar11_polyphia_Ours.svg' alt='spectrogram guitar11_polyphia Ours' />
+                    <audio id='aud-guitar11_polyphia-Ours' preload='none' src='html_assets/results/wav/guitar11_polyphia_Ours.wav'></audio>
+                  </div>
+                </td>
+                </tr>
+                <tr class="bottom-labels">
+                    <th>guitar</th>
+                    <th>single point</th>
+                    <th>ours</th>
+                </tr>
+                </tbody>
+            </table>            
+            <p>
+                Our method can also handle non-planar objects:
+            </p>                  
+                <table class='grid'>
+                <colgroup>
+                    <col class='col-setup'/>
+                    <col class="col-method" /><col class="col-method" />
+                </colgroup>
+                <tbody>
+                <tr>
+                <td class="cell-setup">
+                    <div class="setup-wrap">
+                    <img loading="lazy" src="html_assets/results/setup/physio.png" alt="setup physio_-27dBgun"  data-extra-margin="20"/>
+                    </div>                    
+                </td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='physio_-27dBgun-Single' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-physio_-27dBgun-Single"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/physio_-27dBgun_Single.svg' alt='spectrogram physio_-27dBgun Single' />
+                    <audio id='aud-physio_-27dBgun-Single' preload='none' src='html_assets/results/wav/physio_-27dBgun_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='physio_-27dBgun-Ours' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-physio_-27dBgun-Ours"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/physio_-27dBgun_Ours.svg' alt='spectrogram physio_-27dBgun Ours' />
+                    <audio id='aud-physio_-27dBgun-Ours' preload='none' src='html_assets/results/wav/physio_-27dBgun_Ours.wav'></audio>
+                  </div>
+                </td>
+                </tr>
+                <tr class="bottom-labels">
+                    <th>physio ball</th>
+                    <th>single point</th>
+                    <th>ours</th>
+                </tr>
+                <tr>
+                <td class="cell-setup">
+                    <div class="setup-wrap">
+                    <img loading="lazy" src="html_assets/results/setup/balloon.png" alt="setup balloon_-27dBclap"  data-extra-margin="20"/>
+                    </div>
+                </td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='balloon_-27dBclap-Single' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-balloon_-27dBclap-Single"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/balloon_-27dBclap_Single.svg' alt='spectrogram balloon_-27dBclap Single' />
+                    <audio id='aud-balloon_-27dBclap-Single' preload='none' src='html_assets/results/wav/balloon_-27dBclap_Single.wav'></audio>
+                  </div>
+                </td>
+                
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='balloon_-27dBclap-Ours' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-balloon_-27dBclap-Ours"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/balloon_-27dBclap_Ours.svg' alt='spectrogram balloon_-27dBclap Ours' />
+                    <audio id='aud-balloon_-27dBclap-Ours' preload='none' src='html_assets/results/wav/balloon_-27dBclap_Ours.wav'></audio>
+                  </div>
+                </td>
+                </tr>                    
+                <tr class="bottom-labels">
+                    <th>balloon</th>
+                    <th>single point</th>
+                    <th>ours</th>
+                </tr>
+                </tbody>
+            </table>            
+
+            <p>
+                and various materials, like metal:
+            </p>                  
+                <table class='grid'>
+                <colgroup>
+                    <col class='col-setup'/>
+                    <col class="col-method" /><col class="col-method" />
+                </colgroup>
+                <tbody>
+                <tr>
+                <td class="cell-setup">
+                    <div class="setup-wrap">
+                    <img loading="lazy" src="html_assets/results/setup/trash15.png" alt="setup trash15"  data-extra-margin="20"/>
+                    </div>
+                </td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='trash15-Single' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-trash15-Single"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/trash15_hotel_Single.svg' alt='spectrogram trash15 Single' />
+                    <audio id='aud-trash15-Single' preload='none' src='html_assets/results/wav/trash15_hotel_Single.wav'></audio>
+                  </div>
+                </td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='trash15-Ours' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-trash15-Ours"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/trash15_hotel_Ours.svg' alt='spectrogram trash15 Ours' />
+                    <audio id='aud-trash15-Ours' preload='none' src='html_assets/results/wav/trash15_hotel_Ours.wav'></audio>
+                  </div>
+                </td>
+                </tr>                    
+                <tr class="bottom-labels">
+                    <th>trash can</th>
+                    <th>single point</th>
+                    <th>ours</th>
+                </tr>
+                </tbody>
+            </table>            
+
+            <p>
+                Our system can also handle multiple sound sources:
+            </p>                  
+                <table class='grid'>
+                <colgroup>
+                    <col class='col-setup'/>
+                    <col class="col-method" /><col class="col-method" />
+                </colgroup>
+                <tbody>
+                <tr>
+                <td class="cell-setup">
+                  <div class='spec-wrap' id='drum14-Single' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 60%;" 
+                            data-audio="#aud-drum_stereo_right">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 5%; top: 60%;" 
+                            data-audio="#aud-drum_stereo_left">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <div class="setup-wrap">
+                    <img loading="lazy" src="html_assets/results/setup/drum14_blk.png" alt="setup drum14"/>
+                    </div>
+                    <audio id='aud-drum_stereo_left' preload='none' src='html_assets/OFFICIAL_AUDIO_RESULTS/Two_channel_How_can_I_dance_input/left.wav'></audio>
+                    <audio id='aud-drum_stereo_right' preload='none' src='html_assets/OFFICIAL_AUDIO_RESULTS/Two_channel_How_can_I_dance_input/right.wav'></audio>
+                </td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum14-Single' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-drum14-Single"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/drum14_beatles_Single.svg' alt='spectrogram drum14 Single' />
+                    <audio id='aud-drum14-Single' preload='none' src='html_assets/results/wav/drum14_beatles_Single.wav'></audio>
+                  </div>
+                </td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='drum14-Ours' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-drum14-Ours"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/drum14_beatles_Ours.svg' alt='spectrogram drum14 Ours' />
+                    <audio id='aud-drum14-Ours' preload='none' src='html_assets/results/wav/drum14_beatles_Ours.wav'></audio>
+                  </div>
+                </td>
+                </tr>                    
+                <tr class="bottom-labels">
+                    <th>drum (stereo)</th>
+                    <th>single point</th>
+                    <th>ours</th>
+                </tr>
+                </tbody>
+            </table>            
+
+
+            <p>
+                and even provides denoised recordings beyond thin plates (our model's assumption):
+            </p>                  
+                <table class='grid'>
+                <colgroup>
+                    <col class='col-setup'/>
+                    <col class="col-method" /><col class="col-method" />
+                </colgroup>
+                <tbody>
+                <tr>
+                <td class="cell-setup">
+                    <div class="setup-wrap">
+                    <img loading="lazy" src="html_assets/results/setup/yoga.png" alt="setup yoga"  data-extra-margin="30"/>
+                    </div>
+                </td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='yoga-Single' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-yoga-Single"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/yoga_hotel_Single.svg' alt='spectrogram yoga Single' />
+                    <audio id='aud-yoga-Single' preload='none' src='html_assets/results/wav/yoga_hotel_Single.wav'></audio>
+                  </div>
+                </td>
+                <td class='cell-spec'>
+                  <div class='spec-wrap' id='yoga-Ours' style="position: relative;">
+                    <div class="play-buttons-overlay">
+                        <button class="play-btn-static" 
+                            style="left: 85%; top: 9%;" 
+                            data-audio="#aud-yoga-Ours"
+                            data-dial-start="13.5"
+                            data-dial-end="96.5" 
+                            data-dial-width="29.9" 
+                            data-dial-top="4.5%" 
+                            data-dial-height="65.5%">▶</button>
+                        <div id="audio-dial" class="audio-dial"></div>
+                    </div>
+                    <img class='spec' loading='lazy' src='html_assets/results/spec/yoga_hotel_Ours.svg' alt='spectrogram yoga Ours' />
+                    <audio id='aud-yoga-Ours' preload='none' src='html_assets/results/wav/yoga_hotel_Ours.wav'></audio>
+                  </div>
+                </td>
+                </tr>                    
+                <tr class="bottom-labels">
+                    <th>yoga foam (solid)</th>
+                    <th>single point</th>
+                    <th>ours</th>
+                </tr>
+                </tbody>
+            </table>            
+
+            <hr>
+
+            <div class="section">
+                <h1 class="subtitle">How far are we from <i>best possible recovery?</i></h1>
+                <p>
+                    So have we solved speckle-based sound recovery? Short answer: No.<br />
+                    To answer the question above, we developed a procedure to estimate the transfer function between the sound source and each 1D measurement directly. 
+                    This can be achieved by playing a known reference <it>calibration</it> sound in the scene, while recording its resulting vibrations. 
+                    The known reference signal allows us to invert the response at each point independently, then average the inverted signals to reconstruct the audio.
+                </p>
+                    <table>
+                        <colgroup>
+                            <col style="width: 33.33%"><col style="width: 33.33%"><col style="width: 33.33%">
+                        </colgroup>
+                        <tbody>                
+                            <tr>
+                                <td>
+                                    <div class='spec-wrap' id='fig7-ours' style="position: relative;">
+                                        <div class="play-buttons-overlay">
+                                            <button class="play-btn-static" 
+                                                style="left: 85.5%; top: 9%;" 
+                                                data-audio="#aud-fig7-ours" 
+                                                data-dial-start="13.5"
+                                                data-dial-end="96.5" 
+                                                data-dial-width="29.9" 
+                                                data-dial-top="3.4%" 
+                                                data-dial-height="69%">▶</button>
+                                            <div id="audio-dial" class="audio-dial"></div>
+                                       </div> 
+                                        <img class='spec' loading='lazy' src='html_assets/results/fig_7_html/ours.png' alt='spectrogram of our recovered audio' />
+                                        <audio id='aud-fig7-ours' preload='metadata' src='html_assets/results/fig_7_html/ours.wav'></audio>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class='spec-wrap' id='fig7-calibrated' style="position: relative;">
+                                        <div class="play-buttons-overlay">
+                                            <button class="play-btn-static" 
+                                                style="left: 85.5%; top: 9%;" 
+                                                data-audio="#aud-fig7-calibrated" 
+                                                data-dial-start="13.5"
+                                                data-dial-end="96.5" 
+                                                data-dial-width="29.9" 
+                                                data-dial-top="3.4%" 
+                                                data-dial-height="69%">▶</button>
+                                            <div id="audio-dial" class="audio-dial"></div>
+                                       </div> 
+                                        <img class='spec' loading='lazy' src='html_assets/results/fig_7_html/calibrated.png' alt='spectrogram of calibrated baseline' />
+                                        <audio id='aud-fig7-calibrated' preload='metadata' src='html_assets/results/fig_7_html/calibrated.wav'></audio>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class='spec-wrap' id='fig7-source' style="position: relative;">
+                                        <div class="play-buttons-overlay">
+                                            <button class="play-btn-static" 
+                                                style="left: 85.5%; top: 9%;" 
+                                                data-audio="#aud-fig7-source" 
+                                                data-dial-start="13.5"
+                                                data-dial-end="96.5" 
+                                                data-dial-width="29.9" 
+                                                data-dial-top="3.4%" 
+                                                data-dial-height="69%">▶</button>
+                                            <div id="audio-dial" class="audio-dial"></div>
+                                       </div> 
+                                        <img class='spec' loading='lazy' src='html_assets/results/fig_7_html/source.png' alt='spectrogram of source audio' />
+                                        <audio id='aud-fig7-source' preload='metadata' src='html_assets/results/fig_7_html/source.wav'></audio>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="bottom-labels">
+                                <th>our recovery</th>
+                                <th>calibrated recovery</th>
+                                <th>source signal</th>
+                            </tr>
+                        </tbody>
+                    </table>
+            <p>
+                As you can hear, the calibrated recovery is slightly better, especially in recovering high-frequencies. 
+                So there's still room for improvement. Can <b>you</b> slay this challenge?
+            </p>
+
+            </div>
+            <hr>
+            <div class="section">
+                <h1 class="subtitle">BTW: How sensitive are you to the recovered modes?</h1>
+                <p>
+                    Our method is affected by the quality of the estimated modes. Recovering the modes is easiest from a broadband signal, such as a “clap”, “snap”, or “bang” sound  <b>(click spectrogram (a))</b>. However, using the original recording may work just as well <b>(click spectrogram (b))</b>. </br>Failing to detect some of the modes, may somewhat degrade the reconstruction quality <b>(click spectrogram (c))</b>.
+                    Yet, falsely adding spurious mode frequencies introduces pronounced artifacts and unnatural resonances  <b>(click spectrogram (d))</b>.</br>In other words, having the right frequencies matters more than having all of them.
+                </p>
+                </div>
+
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-content">
+                        <img class="spectrum-img" src="html_assets/results/fig_6_html/clap_spectrum_all_modes.png" alt="vibration spectrum from clap">
+                        <div class='spec-wrap' id='fig6-clap' style="position: relative;">
+                            <div class="play-buttons-overlay">
+
+                                <button class="play-btn-static" 
+                                    style="left: 80.5%; top: 9%;" 
+                                    data-audio="#aud-fig6-clap" 
+                                    data-dial-start="13.5"
+                                    data-dial-end="96.5" 
+                                    data-dial-width="29.9" 
+                                    data-dial-top="3%" 
+                                    data-dial-height="63%">▶</button>
+                                <div id="audio-dial" class="audio-dial"></div>
+
+                            </div>
+                            <img class='spec' loading='lazy' src='html_assets/results/fig_6_html/drum6_golden_clap_specgram.png' alt='Our result with modes from clap' />
+                            <audio id='aud-fig6-clap' preload='metadata' src='html_assets/results/fig_6_html/u_hat_from_clap.wav'></audio>
+                        </div>
+                    </div>
+                    <div class="caption">(a) sound recovery using modes from a "clap" sound</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <img class="spectrum-img" src="html_assets/results/fig_6_html/golden_spectrum_all_modes.png" alt="vibration spectrum from clap">
+                        <div class='spec-wrap' id='fig6-golden' style="position: relative;">
+                            <div class="play-buttons-overlay">
+
+
+                                <button class="play-btn-static" 
+                                    style="left: 80.5%; top: 9%;" 
+                                    data-audio="#aud-fig6-golden" 
+                                    data-dial-start="13.5"
+                                    data-dial-end="96.5" 
+                                    data-dial-width="29.9" 
+                                    data-dial-top="3.2%" 
+                                    data-dial-height="63%">▶</button>
+                                <div id="audio-dial" class="audio-dial"></div>
+  
+                            </div>
+                            <img class='spec' loading='lazy' src='html_assets/results/fig_6_html/drum6_golden_golden_specgram.png' alt='Our result with modes from signal itself' />
+                            <audio id='aud-fig6-golden' preload='metadata' src='html_assets/results/fig_6_html/u_hat_from_golden.wav'></audio>
+                        </div>
+                    </div>
+                    <div class="caption">(b) sound recovery using modes from the signal itself</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <img class="spectrum-img" src="html_assets/results/fig_6_html/clap_spectrum_excl_modes.png" alt="vibration spectrum from clap - excluding 20% of modes">
+                        <div class='spec-wrap' id='fig6-excl' style="position: relative;">
+                            <div class="play-buttons-overlay">
+
+                                <button class="play-btn-static" 
+                                    style="left: 80.5%; top: 9%;" 
+                                    data-audio="#aud-fig6-excl" 
+                                    data-dial-start="13.5"
+                                    data-dial-end="96.5" 
+                                    data-dial-width="29.9" 
+                                    data-dial-top="3.2%" 
+                                    data-dial-height="63%">▶</button>
+                                <div id="audio-dial" class="audio-dial"></div>
+
+                            </div>
+                            <img class='spec' loading='lazy' src='html_assets/results/fig_6_html/drum6_golden_excl_modes_specgram.png' alt='Our result excluding 20% of the modes' />
+                            <audio id='aud-fig6-excl' preload='metadata' src='html_assets/results/fig_6_html/u_hat_excl_modes.wav'></audio>
+                        </div>
+                    </div>
+                    <div class="caption">(c) removing 20% of the modes</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <img class="spectrum-img" src="html_assets/results/fig_6_html/clap_spectrum_incl_modes.png" alt="vibration spectrum from clap - including additional 20% modes">
+                        <div class='spec-wrap' id='fig6-incl' style="position: relative;">
+                            <div class="play-buttons-overlay">
+
+                                <button class="play-btn-static" 
+                                    style="left: 80.5%; top: 9%;" 
+                                    data-audio="#aud-fig6-incl" 
+                                    data-dial-start="13.5"
+                                    data-dial-end="96.5" 
+                                    data-dial-width="29.9" 
+                                    data-dial-top="3.2%" 
+                                    data-dial-height="63%">▶</button>
+                                <div id="audio-dial" class="audio-dial"></div>
+                            </div>
+                            <img class='spec' loading='lazy' src='html_assets/results/fig_6_html/drum6_golden_incl_modes_specgram.png' alt='Our result with additional 20% modes' />
+                            <audio id='aud-fig6-incl' preload='metadata' src='html_assets/results/fig_6_html/u_hat_incl_modes.wav'></audio>
+                        </div>
+                    </div>
+                    <div class="caption">(d) adding 20% modes at random</div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="section" id="BibTeX">
+                <h2>BibTeX</h2>
+                <div class="abstract-box bibtex-container">
+                    <button class="copy-button" onclick="copyBibTeX(this)">
+                        Copy
+                    </button>
+                    <pre
+                        id="bibtex-text"
+                        style="
+                            font-family: 'Courier New', monospace;
+                            font-size: 0.9em;
+                            line-height: 1.4;
+                            margin: 15px 0 auto;
+                            white-space: pre-wrap;
+                        "
+                    >
+@inproceedings{bagon:2026:hearingShape,
+    title={Hearing the Room Through the Shape of the Drum: Modal-Guided Sound Recovery from Multi-Point Surface Vibrations},
+    author={Bagon, Shai and Kichler, Matan and Sheinin, Mark},
+    booktitle={Proceedings of the The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    year={2026}
+}</pre
+                    >
+                </div>
+            </div>
+        </div>
+  <script>
+    (function() {
+      const audios = Array.from(document.querySelectorAll('audio'));
+      let activeTimer = null;
+      let currentlyPlayingButton = null; // Global variable to track the button that initiated playback
+      let animationFrameId = null; // To store the ID of the requestAnimationFrame
+      let activeAudioElement = null; // Track the audio that is supposed to be playing
+
+      // Deprecated from this HTML
+      function fmt(t) { if (!isFinite(t)) return '--:--'; const m=Math.floor(t/60); const s=Math.round(t%60); return `${m}:${s.toString().padStart(2,'0')}`; }
+
+      audios.forEach(a=>{const id=a.id.replace('aud-','');const durEl=document.getElementById('dur-'+id);const setDur=()=>{durEl&&(durEl.textContent=fmt(a.duration));};a.addEventListener('loadedmetadata',setDur,{once:true});if(a.readyState>=1)setDur();a.addEventListener('error', () => durEl.textContent = 'Error');});
+
+      // Function to update the dial's position
+      function updateDialPosition(audio, dialElement, startPercent, widthPercent) {
+          if (!audio || !dialElement || audio.paused || audio.ended) {
+              // Stop animation if audio is not playing
+              if (animationFrameId) {
+                  cancelAnimationFrame(animationFrameId);
+                  animationFrameId = null;
+              }
+              dialElement.style.opacity = 0; // Hide dial
+              return;
+          }
+
+          const progress = audio.currentTime / audio.duration;
+          const currentPositionPercent = startPercent + (progress * widthPercent);
+          dialElement.style.left = `${currentPositionPercent}%`;
+          dialElement.style.opacity = 1; // Ensure dial is visible
+
+          animationFrameId = requestAnimationFrame(() => updateDialPosition(audio, dialElement, startPercent, widthPercent));
+      }
+
+      function playAudio(audioElement, clickedElement = null) {
+        if (!audioElement) return;
+
+        // Get the dial element
+        let audioDial = null;
+        if (clickedElement && clickedElement.parentElement) {
+            audioDial = clickedElement.parentElement.querySelector('.audio-dial');
+        }
+        if (!audioDial) {
+            audioDial = document.getElementById('audio-dial');
+        }
+        if (!audioDial) {
+            console.warn("Audio dial element not found.");
+            return;
+        }
+
+        // Reset all play buttons to '▶' first
+        document.querySelectorAll('.play-btn-static').forEach(btn => {
+            btn.textContent = '▶';
+        });
+        // Also reset the currently playing button if it exists
+        if (currentlyPlayingButton) {
+            currentlyPlayingButton.textContent = '▶';
+            currentlyPlayingButton = null;
+        }
+
+        // Stop any ongoing dial animation and hide all dials
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+        document.querySelectorAll('.audio-dial').forEach(dial => {
+            dial.style.opacity = 0;
+        }); // Hide dials immediately
+
+        if (!audioElement.paused) { // If the audio is currently playing (and it's the one clicked)
+          audioElement.pause();
+          audioElement.currentTime = 0;
+        } else { // If the audio is paused, play it.
+          // Pause all other audio elements first
+          audios.forEach(otherAudio => {
+            if (otherAudio !== audioElement && !otherAudio.paused) {
+              otherAudio.pause();
+              otherAudio.currentTime = 0; // Also reset other paused tracks
+            }
+          }); // End audios.forEach
+
+          activeAudioElement = audioElement;
+          audioElement.play();
+          // Set the clicked button's text to '❚❚' and track it
+          if (clickedElement && clickedElement.tagName === 'BUTTON') {
+              clickedElement.textContent = '❚❚';
+              currentlyPlayingButton = clickedElement;
+
+            // Grab the start, width (optional fallback), and end values
+            const startPercent = parseFloat(clickedElement.dataset.dialStart);
+            const endPercent = parseFloat(clickedElement.dataset.dialEnd);
+            let widthPercent = parseFloat(clickedElement.dataset.dialWidth);
+
+            // If data-dial-end is provided, calculate the width dynamically
+            if (!isNaN(endPercent) && !isNaN(startPercent)) {
+                widthPercent = endPercent - startPercent;
+            }
+
+            // Read top and height for the dial (defaults to 0% top and 100% height)
+            const dialTop = clickedElement.dataset.dialTop || "0%";
+            const dialHeight = clickedElement.dataset.dialHeight || "100%";
+
+            if (!isNaN(startPercent) && !isNaN(widthPercent)) {
+                // Apply custom top and height to the dial
+                audioDial.style.top = dialTop;
+                audioDial.style.height = dialHeight;
+                
+                // Set initial progress position
+                audioDial.style.left = `${startPercent}%`;
+                audioDial.style.opacity = 1;
+                animationFrameId = requestAnimationFrame(() => updateDialPosition(audioElement, audioDial, startPercent, widthPercent));
+            }
+          }
+        }
+      }
+
+      document.querySelectorAll('.play-btn-static').forEach(el => {
+        el.addEventListener('click', () => {
+          const sel = el.getAttribute('data-audio');
+          const audio = document.querySelector(sel);
+          playAudio(audio, el); // Pass the clicked element
+        });
+      });
+
+       audios.forEach(a => {
+            const id = a.id.replace('aud-', '');
+            const durEl = document.getElementById('dur-' + id);
+            let activeTimer = null; // Initialize activeTimer for this scope
+
+            a.addEventListener('play', () => {
+                if (durEl) {
+                    activeTimer = setInterval(() => {
+                        const remaining = a.duration - a.currentTime;
+                        if (durEl) durEl.textContent = fmt(remaining);
+                    }, 250);
+                }
+            });
+
+            const onPauseOrEnd = () => {
+                // If this audio element is the one currently being tracked, reset its button
+                if (currentlyPlayingButton && currentlyPlayingButton.getAttribute('data-audio') === `#${a.id}`) {
+                    currentlyPlayingButton.textContent = '▶';
+                    currentlyPlayingButton = null;
+                }
+                if (durEl) {
+                    clearInterval(activeTimer);
+                    if (durEl) durEl.textContent = fmt(a.duration);
+                }
+                // Only stop the dial if the audio that is pausing/ending
+                // is the one we consider to be the active one.
+                if (activeAudioElement === a) {
+                    document.querySelectorAll('.audio-dial').forEach(dial => {
+                        dial.style.opacity = 0;
+                    });
+                    if (animationFrameId) {
+                        cancelAnimationFrame(animationFrameId);
+                        animationFrameId = null;
+                    }
+                    activeAudioElement = null; // It's no longer active
+                }
+            };
+
+            a.addEventListener('pause', onPauseOrEnd);
+            a.addEventListener('ended', onPauseOrEnd);
+       });
+      /*function bindSetupHeight(row) {
+        const spec = row.querySelector('img.spec');
+        const setupImg = row.querySelector('.cell-setup img');
+        if(!spec || !setupImg) return;
+        const apply = () => { setupImg.style.maxHeight = spec.clientHeight ? (spec.clientHeight + 'px') : ''; };
+        if (spec.complete) apply(); else spec.addEventListener('load', apply, { once: true });
+        const ro = new ResizeObserver(apply);
+        ro.observe(spec);
+      }
+      document.querySelectorAll('tbody tr').forEach(bindSetupHeight);*/
+        function bindSetupHeight(row) {
+            const spec = row.querySelector('img.spec');
+            const setupImg = row.querySelector('.cell-setup img');
+            if (!spec || !setupImg) return;
+
+            const apply = () => {
+                if (!spec.clientHeight) return;
+
+                const baseMargin = 12; // must match CSS margin-bottom
+                const extraMargin = parseFloat(setupImg.dataset.extraMargin || 0);
+                const totalMargin = baseMargin + extraMargin;
+
+                setupImg.style.maxHeight = (spec.clientHeight - totalMargin) + 'px';
+            };
+
+            if (spec.complete) apply();
+            else spec.addEventListener('load', apply, { once: true });
+
+            const ro = new ResizeObserver(apply);
+            ro.observe(spec);
+        }
+
+        document.querySelectorAll('tbody tr').forEach(bindSetupHeight);
+    })();
+
+    // Handle anchor links inside iframe to scroll the parent window
+    document.querySelectorAll('thead a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          // Get position of target relative to the iframe's document
+          const targetRect = targetElement.getBoundingClientRect();
+          // Tell parent to scroll
+          window.parent.postMessage({ type: 'scrollTo', y: window.scrollY + targetRect.top }, '*');
+        }
+      });
+    });
+
+    // Listen for scroll requests from the parent
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'scrollToAnchor') {
+            const targetElement = document.querySelector(event.data.anchor);
+            if (targetElement) {
+                const targetRect = targetElement.getBoundingClientRect();
+                window.parent.postMessage({ type: 'scrollTo', y: window.scrollY + targetRect.top }, '*');
+            }
+        }
+    });
+
+    // --- Robust Iframe Resizing Logic ---
+
+    let resizeTimer;
+
+    // 1. Debounced function to calculate and send the document's full height.
+    // Debouncing prevents firing on intermediate layout states, which can cause issues in Firefox.
+    function sendHeightToParent() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const body = document.body;
+            const html = document.documentElement;
+            // Use scrollHeight to get the full height of the content.
+            const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+            window.parent.postMessage({ type: 'iframeHeight', height: height, iframeId: 'results-iframe' }, '*');
+        }, 10); // A small 10ms delay is enough for the browser to settle.
+    }
+
+    // 2. Trigger an initial height send when the DOM is ready.
+    document.addEventListener('DOMContentLoaded', sendHeightToParent);
+
+    // 3. Use ResizeObserver to automatically send height when content changes (e.g., images load).
+    if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(sendHeightToParent);
+        observer.observe(document.body);
+    }
+
+    // 4. Also listen for a height request from the parent, as a fallback.
+    window.addEventListener('message', function(event) {
+        if (event.data && event.data.type === 'requestHeight') {
+            sendHeightToParent();
+        }
+    });
+
+    // 5. As a final safety net, re-calculate height after the entire window (including images) has loaded.
+    window.addEventListener('load', sendHeightToParent);
+  </script>
+
+    </body>
+</html>

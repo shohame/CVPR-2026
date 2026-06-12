@@ -1,0 +1,149 @@
+
+<html lang="en">
+    <head>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap&family=Noto+Sans:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link href="../style.css" rel="stylesheet"/>
+        <!-- for latex in html -->
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                tex2jax: {inlineMath: [['$','$'], ['\(','\)']]}
+            });
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Fig 3. Finding mode shapes and their frequencies
+        </title>
+        <style>
+            body {
+                background-color: #121212; /* Match main page background */
+                color: #e0e0e0; /* Match main page text color */
+                font-family: 'Open Sans', 'Noto Sans', sans-serif;
+            }
+            .title {
+                font-size: 26px !important; /* Match results.html title size */
+            }
+            .authors {
+                font-size: 1.1em !important; /* Reduce author text size */
+            }
+            table {
+                margin: 20px auto; /* Center the table */
+                width: 80%; /* Reduce table width */
+            }
+            img {
+                max-width: 100%; /* Ensure images scale down */
+            }
+            table img {
+                border-radius: 8px; /* Rounded corners for images in the table */
+                display: block; /* Remove extra space below image */
+            }
+            td {
+                color: #a9a9a9; /* Muted text color for captions */
+                text-align: center; /* Center align text in all table cells */
+                padding: 0 10px; /* Add horizontal padding for spacing */
+                vertical-align: top;
+            }
+            .image-cell .caption {
+                padding-top: 8px; /* Space between image and caption */
+            }
+            img.crop-to-fit {
+                object-fit: cover; /* Crop image to fit container */
+                object-position: top; /* Crop from the bottom */
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1 class="title">
+                    Finding mode shapes and their frequencies (Figure 3)
+                </h1>
+            </div>            
+            <table>
+                <tbody>
+                <tr>
+                    <td style="width: 50%;">
+                        <div class="image-cell">
+                            <img id="left-image" src="spectrum.png" alt="Vibration Spectrum">
+                            <div class="caption">the smoothed vibration spectrum \(\sigma(\omega)\)</div>
+                        </div>
+                    </td>
+                    <td style="width: 50%;">
+                        <div class="image-cell">
+                            <img id="right-image" src="tv.png" alt="Total Variation of Mode Shapes" class="crop-to-fit">
+                            <div class="caption">total variation (TV) of mode shapes</div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!-- all modes -->
+            <img src="all_modes.png" alt="All mode shapes" style="width: 80%; margin: 0 auto; display: block;">
+        </div>
+    </body>
+    <script>
+        // --- Image Height Equalizer ---
+        function equalizeImageHeights() {
+            const leftImg = document.getElementById('left-image');
+            const rightImg = document.getElementById('right-image');
+
+            if (leftImg && rightImg) {
+                // Function to apply height
+                const applyHeight = () => {
+                    rightImg.style.height = leftImg.clientHeight + 'px';
+                };
+
+                // Apply height after the left image has loaded
+                if (leftImg.complete) {
+                    applyHeight();
+                } else {
+                    leftImg.addEventListener('load', applyHeight, { once: true });
+                }
+            }
+        }
+        window.addEventListener('load', equalizeImageHeights);
+        window.addEventListener('resize', equalizeImageHeights); // Re-run on resize
+
+        // --- Robust Iframe Resizing Logic ---
+        (function() {
+            const iframeId = 'fig-3-iframe';
+            let resizeTimer;
+
+            function sendHeightToParent() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    const height = document.body.scrollHeight;
+                    window.parent.postMessage({ type: 'iframeHeight', height: height, iframeId: iframeId }, '*');
+                }, 50);
+            }
+
+            // Use ResizeObserver to automatically send height when content changes.
+            if ('ResizeObserver' in window) {
+                const observer = new ResizeObserver(sendHeightToParent);
+                observer.observe(document.body);
+            }
+
+            // Also listen for a height request from the parent.
+            window.addEventListener('message', function(event) {
+                if (event.data && event.data.type === 'requestHeight') {
+                    sendHeightToParent();
+                }
+            });
+
+            // Trigger on load as a fallback.
+            window.addEventListener('load', sendHeightToParent);
+
+            // Initial send in case content is already loaded
+            sendHeightToParent();
+        })();
+    </script>
+</html>
+
+        

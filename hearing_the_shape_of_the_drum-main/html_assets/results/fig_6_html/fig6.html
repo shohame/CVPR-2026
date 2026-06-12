@@ -1,0 +1,216 @@
+
+<html lang="en">
+    <head>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap&family=Noto+Sans:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link href="../style.css" rel="stylesheet"/>
+        <!-- for latex in html -->
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                tex2jax: {inlineMath: [['$','$'], ['\(','\)']]}
+            });
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Fig 6. Testing different mode extractions
+        </title>
+        <style>
+            body {
+                background-color: #121212; /* Match main page background */
+                color: #e0e0e0; /* Match main page text color */
+                font-family: 'Open Sans', 'Noto Sans', sans-serif;
+            }
+            .title {
+                font-size: 26px !important; /* Match results.html title size */
+                margin-bottom: -40px; /*keep -40px*/
+            }
+            .authors {
+                font-size: 1.1em !important; /* Reduce author text size */
+            }
+            table {
+                margin: 20px auto;
+                width: 60%; /* Adjust table width to match fig7 */
+                border-collapse: separate;
+                border-spacing: 0;
+                table-layout: fixed;
+            }
+            img {
+                max-width: 100%; /* Ensure images scale down */
+            }
+            th {
+                text-align: center;
+                padding: 12px;
+                font-size: 16px;
+                font-weight: 600;
+                border-bottom: 1px solid #333333;
+            }
+            td { padding: 10px 12px; vertical-align: top; }
+            td + td { border-left: 1px solid #333333; }
+            .caption { color: #a9a9a9; font-size: 14px; text-align: center; padding-top: 0; }
+
+            /* Card layout styles */
+            .card-container {
+                max-width: 100%;
+                margin: 20px auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .card {
+                background: #1a1a1a;
+                border: 1px solid #333333;
+                border-radius: 10px;
+                padding: 16px;
+            }
+            .card-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+                align-items: start;
+            }
+            .card .caption {
+                padding-top: 10px;
+                border-top: 1px solid #333333;
+                margin-top: 16px;
+            }
+
+            /* Styles copied from results.html */
+            .spectrum-img {
+                width: 100%;
+                display: block;
+                border: 1px solid #333333;
+                border-radius: 6px;
+            }
+            .spec-wrap { position: relative; display: grid; grid-template-rows: auto 22px; gap: 6px; align-items: center; }
+            .spec { width: 100%; display: block; background: #000; border: 1px solid #333333; border-radius: 6px; cursor: pointer; }
+            .spec:active { transform: translateY(0.5px); }
+            .meta { display: flex; justify-content: center; color: #a9a9a9; font-size: 12px; }
+            .duration { padding: 2px 6px; border: 1px solid #333333; border-radius: 999px; }
+            .spec-wrap:hover .spec { border-color: #20eec1; box-shadow: 0 0 0 1px #20eec1 inset; }
+            .play-btn { position: absolute; bottom: 22px; left: 8px; transform: translateY(50%); background: rgba(18, 18, 18, 0.8); border: 1px solid #333333; color: #e0e0e0; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); transition: all 0.2s ease; }
+            .play-btn:hover { border-color: #20eec1; color: #20eec1; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1 class="title">
+                    Testing different mode extractions (Figure 6)
+                </h1>
+            </div>
+            <p style="text-align:center; color: #a9a9a9; margin: 0 0 20px 0;">Click on a result to hear it</p>
+            <div class="card-container">
+                <!-- Card 1: Reconstruction using modes from a clap -->
+                <div class="card">
+                    <div class="card-content">
+                        <img class="spectrum-img" src="clap_spectrum_all_modes.png" alt="vibration spectrum from clap">
+                        <div class='spec-wrap' id='fig6-clap'>
+                            <img class='spec' loading='lazy' src='drum6_golden_clap_specgram.png' alt='Our result with modes from clap' data-audio='#aud-fig6-clap'/>
+                            <button class='play-btn' data-audio='#aud-fig6-clap'>▶</button>
+                            <div class='meta'>
+                              <span class='duration' id='dur-fig6-clap'>--:--</span>
+                            </div>
+                            <audio id='aud-fig6-clap' preload='metadata' src='u_hat_from_clap.wav'></audio>
+                        </div>
+                    </div>
+                    <div class="caption">Reconstruction using modes from a clap</div>
+                </div>
+
+                <!-- Card 2: Reconstruction using modes from signal itself -->
+                <div class="card">
+                    <div class="card-content">
+                        <img class="spectrum-img" src="golden_spectrum_all_modes.png" alt="vibration spectrum from clap">
+                        <div class='spec-wrap' id='fig6-golden'>
+                            <img class='spec' loading='lazy' src='drum6_golden_golden_specgram.png' alt='Our result with modes from signal itself' data-audio='#aud-fig6-golden'/>
+                            <button class='play-btn' data-audio='#aud-fig6-golden'>▶</button>
+                            <div class='meta'>
+                              <span class='duration' id='dur-fig6-golden'>--:--</span>
+                            </div>
+                            <audio id='aud-fig6-golden' preload='metadata' src='u_hat_from_golden.wav'></audio>
+                        </div>
+                    </div>
+                    <div class="caption">Reconstruction using modes from signal itself</div>
+                </div>
+
+                <!-- Card 3: Removing 20% of the modes -->
+                <div class="card">
+                    <div class="card-content">
+                        <img class="spectrum-img" src="clap_spectrum_excl_modes.png" alt="vibration spectrum from clap - excluding 20% of modes">
+                        <div class='spec-wrap' id='fig6-excl'>
+                            <img class='spec' loading='lazy' src='drum6_golden_excl_modes_specgram.png' alt='Our result excluding 20% of the modes' data-audio='#aud-fig6-excl'/>
+                            <button class='play-btn' data-audio='#aud-fig6-excl'>▶</button>
+                            <div class='meta'>
+                              <span class='duration' id='dur-fig6-excl'>--:--</span>
+                            </div>
+                            <audio id='aud-fig6-excl' preload='metadata' src='u_hat_excl_modes.wav'></audio>
+                        </div>
+                    </div>
+                    <div class="caption">Removing 20% of the modes</div>
+                </div>
+
+                <!-- Card 4: Adding 20% modes at random -->
+                <div class="card">
+                    <div class="card-content">
+                        <img class="spectrum-img" src="clap_spectrum_incl_modes.png" alt="vibration spectrum from clap - including additional 20% modes">
+                        <div class='spec-wrap' id='fig6-incl'>
+                            <img class='spec' loading='lazy' src='drum6_golden_incl_modes_specgram.png' alt='Our result with additional 20% modes' data-audio='#aud-fig6-incl'/>
+                            <button class='play-btn' data-audio='#aud-fig6-incl'>▶</button>
+                            <div class='meta'>
+                              <span class='duration' id='dur-fig6-incl'>--:--</span>
+                            </div>
+                            <audio id='aud-fig6-incl' preload='metadata' src='u_hat_incl_modes.wav'></audio>
+                        </div>
+                    </div>
+                    <div class="caption">Adding 20% modes at random</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // --- Audio Player Logic (from results.html) ---
+            (function() {
+              const audios = Array.from(document.querySelectorAll('audio'));
+              function fmt(t) { if (!isFinite(t)) return '--:--'; const m=Math.floor(t/60); const s=Math.round(t%60); return `${m}:${s.toString().padStart(2,'0')}`; }
+              audios.forEach(a=>{const id=a.id.replace('aud-','');const durEl=document.getElementById('dur-'+id);const setDur=()=>{durEl&&(durEl.textContent=fmt(a.duration));};a.addEventListener('loadedmetadata',setDur,{once:true});if(a.readyState>=1)setDur();});
+              document.querySelectorAll('img.spec, button.play-btn').forEach(el => { el.addEventListener('click', () => { const sel = el.getAttribute('data-audio'); const audio = document.querySelector(sel); if (!audio) return; if (!audio.paused) { audio.pause(); audio.currentTime = 0; } else { audios.forEach(o => { if (o !== audio && !o.paused) { o.pause(); o.currentTime = 0; }}); audio.play(); }}); });
+              audios.forEach(a => { const btn = document.querySelector(`.play-btn[data-audio="#${a.id}"]`); if (!btn) return; a.addEventListener('play', () => btn.textContent = '❚❚'); a.addEventListener('pause', () => btn.textContent = '▶'); const id = a.id.replace('aud-', ''); const durEl = document.getElementById('dur-' + id); let activeTimer; function updateTime() { const remaining = a.duration - a.currentTime; durEl.textContent = fmt(remaining); } a.addEventListener('play', () => { activeTimer = setInterval(updateTime, 250); }); a.addEventListener('pause', () => { clearInterval(activeTimer); durEl.textContent = fmt(a.duration); }); a.addEventListener('ended', () => durEl.textContent = fmt(a.duration)); });
+            })();
+
+            // --- Robust Iframe Resizing Logic ---
+            (function() {
+                const iframeId = 'fig-6-iframe';
+                let resizeTimer;
+
+                function sendHeightToParent() {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => {
+                        const height = document.body.scrollHeight;
+                        window.parent.postMessage({ type: 'iframeHeight', height: height, iframeId: iframeId }, '*');
+                    }, 50);
+                }
+
+                // Use ResizeObserver to automatically send height when content changes.
+                if ('ResizeObserver' in window) {
+                    const observer = new ResizeObserver(sendHeightToParent);
+                    observer.observe(document.body);
+                }
+
+                // Also listen for a height request from the parent.
+                window.addEventListener('message', function(event) {
+                    if (event.data && event.data.type === 'requestHeight') {
+                        sendHeightToParent();
+                    }
+                });
+
+                // Trigger on load as a fallback.
+                window.addEventListener('load', sendHeightToParent);
+            })();
+        </script>
+    </body>
+</html>
+        

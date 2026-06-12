@@ -1,0 +1,296 @@
+body {
+    font-family: "Helvetica", Arial, sans-serif;
+    line-height: 1.5;
+    color: #e0e0e0;
+    font-size: 1em;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+}
+.gradient-text {
+    /* Make the text bold */
+    font-weight: bold;
+
+    /* Define the gradient background */
+    background: linear-gradient(
+        to right,
+        rgb(135, 39, 87),
+        rgb(216, 89, 49)
+    );
+
+    /* Clip the background to the text (for Webkit browsers) */
+    -webkit-background-clip: text;
+
+    /* Clip the background to the text (standard) */
+    background-clip: text;
+
+    /* Make the text color transparent to reveal the gradient */
+    color: transparent;
+}
+.sv-wrap {
+    max-width: 64rem;
+    margin: 70px 80px 50px 80px;
+}
+
+.sv-card {
+    position: relative;
+    overflow-x: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+.sv-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.sv-table thead th {
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    background: #f3f4f6;
+    color: #4a4a4a;
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid #d1d5db;
+    border-right: 1px solid #d1d5db;
+}
+.sv-table thead th.sv-left {
+    text-align: center;
+}
+.sv-table tbody th,
+.sv-table tbody td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #d1d5db;
+}
+.sv-table tbody th {
+    white-space: nowrap;
+    text-align: left;
+    color: #4a4a4a;
+    font-weight: 600;
+}
+.sv-table tr:hover {
+    background: #f9fafb;
+    transition: background-color 0.2s;
+}
+.sv-table th:last-child,
+.sv-table td:last-child {
+    border-right: none;
+}
+.sv-table tbody tr:last-child th,
+.sv-table tbody tr:last-child td {
+    border-bottom: none;
+}
+.sv-caption {
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+}
+.below-figure-cta {
+    margin-top: 1rem;
+    text-align: center;
+}
+.cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: -10px 0px 10px 0px;
+    padding: 0.5rem 0.9rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    color: #209cee;
+    font-weight: 600;
+}
+.cta-link:focus {
+    outline: 2px solid;
+    outline-offset: 2px;
+}
+.cta-link:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-family:
+        helvetica,
+        "Open Sans",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    color: #ebebeb;
+}
+
+.subtitle {
+    font-family:
+        helvetica,
+        "Open Sans",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #4a4a4a;
+    margin-top: 1.2em;
+    margin-bottom: -0.2em;
+}
+
+.authors {
+    font-size: 1.5em;
+    color: #a9a9a9;
+}
+
+.authors a {
+    color: #209cee;
+    text-decoration: none;
+}
+
+.authors a:hover {
+    text-decoration: underline;
+}
+
+.link {
+    color: #209cee;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+.affiliation {
+    font-size: 1.5em;
+}
+
+.conference {
+    font-size: 1.7em;
+    margin-bottom: 25px;
+}
+
+.publication-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.link-block {
+    display: inline-block;
+}
+
+.external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #363636;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.external-link:hover {
+    background: #4a4a4a;
+    color: white;
+}
+
+.external-link .icon {
+    width: 22px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.external-link .icon svg {
+    width: 25px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.external-link-model {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #363636;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.external-link-model:hover {
+    background: #4a4a4a;
+    color: white;
+}
+
+.external-link-model .icon {
+    width: 22px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.external-link-model .icon svg {
+    width: 25px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.teaser-image {
+    text-align: center;
+    margin: 40px 0;
+}
+.video-container {
+    margin: 50px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+.video-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ebebeb;
+    font-weight: bold;
+}
+
+video {
+    max-width: 100%;
+    border-radius: 10px;
+    border: 1px solid #333333;
+}
