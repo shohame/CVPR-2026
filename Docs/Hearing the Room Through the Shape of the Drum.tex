@@ -1,0 +1,517 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Equations and Variable Descriptions\\
+\large Hearing the Room Through the Shape of the Drum}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Surface Vibration Model}
+
+\subsection{General wave equation}
+
+\begin{equation}
+\rho \frac{\partial^2 u}{\partial t^2}
++
+c(\bm{x}) \frac{\partial u}{\partial t}
+-
+T \nabla^2 u
++
+D \nabla^4 u
+=
+f(\bm{x},t)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $u(\bm{x},t)$: out-of-plane displacement of the surface at spatial location $\bm{x}$ and time $t$.
+    \item $\rho$: areal mass density of the surface.
+    \item $c(\bm{x})$: spatially dependent damping coefficient.
+    \item $T$: in-plane tension of the surface, dominant for membranes.
+    \item $D$: flexural rigidity, dominant for thin plates.
+    \item $\nabla^2 u$: Laplacian of the displacement, related to membrane-like wave behavior.
+    \item $\nabla^4 u$: biharmonic operator, related to bending behavior of plates.
+    \item $f(\bm{x},t)$: external forcing per unit area, induced by acoustic pressure.
+\end{itemize}
+
+For membranes:
+
+\begin{equation}
+D = 0
+\end{equation}
+
+For thin plates under negligible tension:
+
+\begin{equation}
+T = 0
+\end{equation}
+
+\section{Modal Decomposition}
+
+\subsection{Expansion into vibration modes}
+
+\begin{equation}
+u(\bm{x},t)
+=
+\sum_{k=1}^{K}
+\phi_k(\bm{x}) q_k(t)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\phi_k(\bm{x})$: spatial eigenfunction, also called the $k$-th mode shape.
+    \item $q_k(t)$: temporal modal coordinate of the $k$-th mode.
+    \item $K$: number of modes used in the approximation.
+\end{itemize}
+
+\subsection{Second-order modal oscillator}
+
+\begin{equation}
+\ddot{q}_k(t)
++
+2\zeta_k \omega_k \dot{q}_k(t)
++
+\omega_k^2 q_k(t)
+=
+\alpha_k p(t)
++
+\eta_k(t)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $q_k(t)$: temporal activation of the $k$-th mode.
+    \item $\dot{q}_k(t)$: first temporal derivative, modal velocity.
+    \item $\ddot{q}_k(t)$: second temporal derivative, modal acceleration.
+    \item $\omega_k$: natural angular frequency of the $k$-th mode.
+    \item $\zeta_k$: damping ratio of the $k$-th mode.
+    \item $\alpha_k$: coupling coefficient between acoustic pressure and the $k$-th mode.
+    \item $p(t)$: acoustic pressure signal driving the surface.
+    \item $\eta_k(t)$: noise or modeling error for the $k$-th mode.
+\end{itemize}
+
+\section{Frequency-Domain Modal Transfer Function}
+
+\subsection{Modal response in the frequency domain}
+
+\begin{equation}
+Q_k(\omega)
+=
+G_k(\omega) P(\omega)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $Q_k(\omega)$: Fourier transform of the modal coordinate $q_k(t)$.
+    \item $P(\omega)$: Fourier transform of the acoustic pressure $p(t)$.
+    \item $G_k(\omega)$: transfer function of the $k$-th vibration mode.
+    \item $\omega$: angular frequency.
+\end{itemize}
+
+\subsection{Second-order oscillator transfer function}
+
+\begin{equation}
+G_k(\omega)
+=
+\frac{\alpha_k}
+{-\omega^2
++
+j 2 \zeta_k \omega_k \omega
++
+\omega_k^2}
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $G_k(\omega)$: frequency response of the $k$-th mode.
+    \item $\alpha_k$: modal coupling coefficient.
+    \item $j$: imaginary unit.
+    \item $\zeta_k$: damping ratio.
+    \item $\omega_k$: natural angular frequency of the mode.
+    \item $\omega$: evaluated angular frequency.
+\end{itemize}
+
+\section{Surface Displacement as a Modal Convolution}
+
+\begin{equation}
+u(\bm{x},t)
+=
+\sum_{k=1}^{K}
+\phi_k(\bm{x})
+\left(
+p(t) * g_k(t)
+\right)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $g_k(t)$: impulse response of the $k$-th mode.
+    \item $*$: convolution operator.
+    \item $p(t) * g_k(t)$: acoustic pressure filtered by the mechanical response of the $k$-th mode.
+\end{itemize}
+
+\section{Sound Pressure and Source Signal}
+
+\begin{equation}
+p(t)
+=
+\gamma s(t)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $s(t) \in [-1,1]$: dimensionless source audio signal.
+    \item $p(t)$: physical acoustic pressure in Pascals.
+    \item $\gamma$: scale factor accounting for source amplitude and acoustic attenuation.
+\end{itemize}
+
+\section{Speckle-Based Vibration Measurements}
+
+\subsection{Speckle shifts as surface gradients}
+
+\begin{equation}
+\bm{v}(\bm{x}_n,t)
+=
+\beta \nabla_{\bm{x}} u(\bm{x}_n,t)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\bm{v}(\bm{x}_n,t) \in \mathbb{R}^2$: measured two-axis speckle shift at surface point $\bm{x}_n$.
+    \item $\bm{x}_n$: the $n$-th measured surface point.
+    \item $\beta$: optical transfer scale factor.
+    \item $\nabla_{\bm{x}} u(\bm{x}_n,t)$: spatial gradient of the surface displacement.
+\end{itemize}
+
+\subsection{Forward model from sound to measured speckle shifts}
+
+\begin{equation}
+\bm{v}(\bm{x}_n,t)
+\approx
+\gamma \beta
+\sum_{k=1}^{K}
+\nabla \phi_k(\bm{x}_n)
+\left(
+s(t) * g_k(t)
+\right)
++
+\bm{\eta}(\bm{x}_n,t)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\bm{v}(\bm{x}_n,t)$: measured two-axis vibration signal at point $\bm{x}_n$.
+    \item $\nabla \phi_k(\bm{x}_n)$: spatial gradient of the $k$-th mode shape at point $\bm{x}_n$.
+    \item $s(t)$: latent source sound signal to be recovered.
+    \item $g_k(t)$: impulse response of the $k$-th mode.
+    \item $\bm{\eta}(\bm{x}_n,t)$: measurement noise or modeling error.
+    \item $\gamma \beta$: combined acoustic and optical scale factor.
+\end{itemize}
+
+\section{Fourier Transform of the Measured Vibrations}
+
+\begin{equation}
+\bm{V}(\bm{x}_n,\omega)
+\equiv
+\mathcal{F}
+\left\{
+\bm{v}(\bm{x}_n,t)
+\right\},
+\qquad
+\bm{V}(\bm{x}_n,\omega)
+\in
+\mathbb{C}^2
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\mathcal{F}\{\cdot\}$: Fourier transform operator.
+    \item $\bm{V}(\bm{x}_n,\omega)$: complex frequency-domain representation of the two-axis vibration signal.
+    \item $\mathbb{C}^2$: two-dimensional complex vector space.
+\end{itemize}
+
+\section{Mode Frequency Estimation}
+
+\begin{equation}
+\left\{
+\hat{\omega}_k
+\right\}_{k=1}^{K}
+\leftarrow
+\operatorname{robustfindpeaks}
+\left(
+\left|
+\bm{V}(\bm{x}_n,\omega)
+\right|
+\right)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\hat{\omega}_k$: estimated natural frequency of the $k$-th mode.
+    \item $\operatorname{robustfindpeaks}(\cdot)$: robust peak detection procedure used to identify modal frequencies.
+    \item $|\bm{V}(\bm{x}_n,\omega)|$: magnitude spectrum of the measured vibration signal.
+\end{itemize}
+
+\section{Mode Shape Gradient Estimation}
+
+\begin{equation}
+\nabla \hat{\phi}_k(\bm{x}_n)
+=
+\operatorname{Re}
+\left\{
+\frac{
+\bm{V}(\bm{x}_n,\hat{\omega}_k)
+\cdot
+V_1(\bm{x}_0,\hat{\omega}_k)^*
+}{
+\mathbb{E}_{n,a}
+\left[
+\left|
+\bm{V}(\bm{x}_n,\hat{\omega}_k)
+\right|
+\right]
+\cdot
+\left|
+V_1(\bm{x}_0,\hat{\omega}_k)
+\right|
+}
+\right\}
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\nabla \hat{\phi}_k(\bm{x}_n)$: estimated gradient of the $k$-th mode shape at point $\bm{x}_n$.
+    \item $\operatorname{Re}\{\cdot\}$: real part operator.
+    \item $\bm{V}(\bm{x}_n,\hat{\omega}_k)$: measured vibration spectrum at the estimated modal frequency.
+    \item $V_1(\bm{x}_0,\hat{\omega}_k)$: first-axis vibration measurement at reference point $\bm{x}_0$.
+    \item $(\cdot)^*$: complex conjugate.
+    \item $\mathbb{E}_{n,a}[\cdot]$: average over all points $n$ and vibration axes $a$.
+\end{itemize}
+
+\section{Sound Recovery Optimization}
+
+\begin{equation}
+\hat{s}^{\mathrm{inv}}(t)
+=
+\arg\min_{s(t),\alpha_k}
+\left\|
+\bm{v}(\bm{x}_n,t)
+-
+\sum_{k=1}^{K}
+\nabla \hat{\phi}_k(\bm{x}_n)
+\left(
+s(t) * \hat{g}_k(t)
+\right)
+\right\|_2^2
++
+\lambda
+\left\|
+\dot{s}(t)
+\right\|_2^2
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\hat{s}^{\mathrm{inv}}(t)$: recovered source sound signal.
+    \item $s(t)$: latent sound signal optimized during recovery.
+    \item $\alpha_k$: modal coupling coefficient optimized jointly with the signal.
+    \item $\nabla \hat{\phi}_k(\bm{x}_n)$: estimated gradient of the $k$-th mode shape.
+    \item $\hat{g}_k(t)$: estimated impulse response of the $k$-th mode.
+    \item $\lambda$: regularization weight.
+    \item $\dot{s}(t)$: temporal derivative of the recovered sound signal.
+    \item $\|\cdot\|_2^2$: squared Euclidean norm.
+\end{itemize}
+
+\subsection{Impulse response from the transfer function}
+
+\begin{equation}
+\hat{g}_k(t)
+\leftarrow
+\operatorname{iFFT}
+\left(
+G_k(\omega)
+\right)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\operatorname{iFFT}(\cdot)$: inverse Fast Fourier Transform.
+    \item $G_k(\omega)$: analytical modal transfer function.
+    \item $\hat{g}_k(t)$: estimated time-domain modal impulse response.
+\end{itemize}
+
+\section{Robust Mode Estimation}
+
+\subsection{Spectral standard deviation across surface points}
+
+\begin{equation}
+\sigma(\omega)
+=
+\operatorname{std}_n
+\left(
+\left|
+\bm{V}(\bm{x}_n,\omega)
+\right|
+\right)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\sigma(\omega)$: standard deviation of spectral magnitudes across surface points.
+    \item $\operatorname{std}_n(\cdot)$: standard deviation over measured points $n$.
+    \item $|\bm{V}(\bm{x}_n,\omega)|$: magnitude spectrum of the vibration signal at point $\bm{x}_n$.
+\end{itemize}
+
+\subsection{Total variation of a mode-shape gradient}
+
+\begin{equation}
+\operatorname{TV}
+\left(
+\nabla \phi_k
+\right)
+=
+\sum_{x,y}
+\left\|
+\frac{\partial}{\partial x}
+\nabla \phi_k(x,y)
+\right\|_2
++
+\left\|
+\frac{\partial}{\partial y}
+\nabla \phi_k(x,y)
+\right\|_2
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\operatorname{TV}(\nabla \phi_k)$: total variation of the gradient field of the $k$-th mode shape.
+    \item $\frac{\partial}{\partial x}\nabla \phi_k(x,y)$: spatial derivative of the mode-gradient field along the $x$ direction.
+    \item $\frac{\partial}{\partial y}\nabla \phi_k(x,y)$: spatial derivative of the mode-gradient field along the $y$ direction.
+    \item $\|\cdot\|_2$: Euclidean norm.
+\end{itemize}
+
+\section{Calibration-Based Baseline}
+
+\subsection{Reference convolution model}
+
+\begin{equation}
+v_a^{\mathrm{ref}}(\bm{x}_n,t)
+\approx
+s^{\mathrm{ref}}(t)
+*
+h_{n,a}(t)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $v_a^{\mathrm{ref}}(\bm{x}_n,t)$: reference vibration signal at point $\bm{x}_n$ and axis $a$.
+    \item $s^{\mathrm{ref}}(t)$: known reference audio signal used for calibration.
+    \item $h_{n,a}(t)$: impulse response from the reference sound to point $\bm{x}_n$ and vibration axis $a$.
+    \item $a \in \{1,2\}$: vibration axis index.
+\end{itemize}
+
+\subsection{Inverse filter estimation}
+
+\begin{equation}
+\hat{h}_{n,a}^{-1}(t)
+=
+\arg\min_{h(t)}
+\left\|
+v_a^{\mathrm{ref}}(\bm{x}_n,t)
+*
+h(t)
+-
+s^{\mathrm{ref}}(t)
+\right\|_2^2
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\hat{h}_{n,a}^{-1}(t)$: estimated inverse filter for point $\bm{x}_n$ and axis $a$.
+    \item $h(t)$: candidate inverse filter optimized by least squares.
+    \item $v_a^{\mathrm{ref}}(\bm{x}_n,t) * h(t)$: calibrated reconstruction of the reference signal.
+\end{itemize}
+
+\subsection{Recovered signal using calibrated inverse filters}
+
+\begin{equation}
+\hat{s}^{\mathrm{new}}(t)
+=
+\frac{1}{2N}
+\sum_{a=1}^{2}
+\sum_{n=1}^{N}
+v_a^{\mathrm{new}}(\bm{x}_n,t)
+*
+\hat{h}_{n,a}^{-1}(t)
+\end{equation}
+
+\textbf{Description of terms:}
+
+\begin{itemize}
+    \item $\hat{s}^{\mathrm{new}}(t)$: recovered signal for a new measurement.
+    \item $v_a^{\mathrm{new}}(\bm{x}_n,t)$: new measured vibration signal at point $\bm{x}_n$ and axis $a$.
+    \item $\hat{h}_{n,a}^{-1}(t)$: calibrated inverse filter.
+    \item $N$: number of measured surface points.
+    \item $2N$: total number of measurement channels, since each point has two vibration axes.
+\end{itemize}
+
+\section{Implementation Constants}
+
+\begin{equation}
+\zeta_k = 0.01
+\end{equation}
+
+\textbf{Description of term:}
+
+\begin{itemize}
+    \item $\zeta_k$: damping ratio fixed to $0.01$ in the experiments.
+\end{itemize}
+
+\begin{equation}
+\lambda = 1
+\end{equation}
+
+\textbf{Description of term:}
+
+\begin{itemize}
+    \item $\lambda$: regularization weight used in the sound recovery optimization.
+\end{itemize}
+
+\begin{equation}
+T_{\mathrm{conv}} = 4096
+\end{equation}
+
+\textbf{Description of term:}
+
+\begin{itemize}
+    \item $T_{\mathrm{conv}}$: number of taps used for the inverse filters in the calibration baseline.
+\end{itemize}
+
+\end{document}
