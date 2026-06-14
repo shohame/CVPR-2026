@@ -17,7 +17,8 @@ import html as H, json, re, sys
 
 def flags(virtual_path):
     norm = lambda s: re.sub(r"[^a-z0-9]", "", s.lower())
-    virt = json.load(open(virtual_path))["results"]
+    with open(virtual_path, encoding="utf-8") as f:
+        virt = json.load(f)["results"]
     flag = {}
     for r in virt:
         dec = r.get("decision") or ""
@@ -27,10 +28,11 @@ def flags(virtual_path):
         n = norm(r.get("name") or "")
         if n:
             flag[n] = max(flag.get(n, 0), f)
-    papers = json.load(open("papers.json", encoding="utf-8"))
+    with open("papers.json", encoding="utf-8") as f:
+        papers = json.load(f)
     out = [[p[0], p[1], p[2], p[3], p[4], flag.get(norm(p[0]), 0)] for p in papers]
-    json.dump(out, open("papers.json", "w", encoding="utf-8"),
-              ensure_ascii=False, separators=(",", ":"))
+    with open("papers.json", "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
     import collections
     print("flag distribution:", collections.Counter(p[5] for p in out).most_common())
 

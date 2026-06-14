@@ -139,7 +139,8 @@ SEED = 7
 
 def parse_listing(path):
     """Yield (title, cvf_stub, authors) per paper from a CVF Open Access listing."""
-    doc = open(path, encoding="utf-8", errors="ignore").read()
+    with open(path, encoding="utf-8", errors="ignore") as f:
+        doc = f.read()
     papers = []
     for block in re.split(r'<dt class="ptitle">', doc)[1:]:
         m = re.search(r'href="/content/[^/]+/html/(.*?)_paper\.html"[^>]*>(.*?)</a>', block, re.S)
@@ -211,7 +212,8 @@ def main():
         "nodes": [{"id": k, "count": node_count[k], "community": comm[k]} for k in nodes],
         "links": [{"source": a, "target": b, "weight": w} for a, b, w in edges],
     }
-    json.dump(graph, open("graph.json", "w"))
+    with open("graph.json", "w", encoding="utf-8") as f:
+        json.dump(graph, f)
 
     def paper_comm(kws):
         votes = Counter(comm[k] for k in kws if k in comm)
@@ -219,7 +221,8 @@ def main():
 
     out = [[t, s, [idx[k] for k in kws if k in idx], paper_comm(kws), au]
            for (t, s, au), kws in zip(papers, paper_kws)]
-    json.dump(out, open("papers.json", "w"), ensure_ascii=False, separators=(",", ":"))
+    with open("papers.json", "w", encoding="utf-8") as f:
+        json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
     print("wrote graph.json + papers.json")
     print("NOTE: if the keyword set changed, update COMM names / TOPIC_OF in index.html")
 

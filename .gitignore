@@ -25,4 +25,6 @@ ENV/
 Thumbs.db
 
 # Generated output
-downloaded_pdfs/
+downloads/
+failed_links.txt
+[0-9]*/
