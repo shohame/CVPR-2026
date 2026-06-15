@@ -1,40 +1,22 @@
 import json
 from pathlib import Path
-
+from tqdm import tqdm
 import requests
+from Paper_Dataset import Paper_Dataset
 
-JSON_FILE_PATH = 'cvpr-constellation.github.io-main/papers.json'
-URL_BASE = 'https://openaccess.thecvf.com/content/CVPR2026/'
-URL_HTML = 'html/'
-URL_PDF = 'papers/'
-URL_SUFFIX = '_CVPR_2026_paper.'
-DOWNLOAD_PATH = './downloads/papers/'
+class Download_Papers(Paper_Dataset):
 
-
-class Download_Papers:
     def __init__(self):
-        self._all_papers_file_ath = JSON_FILE_PATH
-        self._url_base = URL_BASE
-        self._url_suffix = URL_SUFFIX
-        self._url_html = URL_HTML
-        self._url_pdf = URL_PDF
-        self._download_path = DOWNLOAD_PATH
+        super().__init__()
 
-        with open(self._all_papers_file_ath, encoding="utf-8") as f:
-            self._all_papers = json.load(f)
-        print(f'Number of papers: {len(self._all_papers)}')
-
-    def get_number_of_papers(self):
-        return len(self._all_papers)
 
     def download_paper(self, index):
-        paper = self._all_papers[index]
-        paper_name = paper[1]
-        paper_url = self._url_base + self._url_pdf + paper_name + self._url_suffix + 'pdf'
-        html_url = self._url_base + self._url_html + paper_name + self._url_suffix + 'html'
 
-        paper_download_path = self._download_path + self._url_pdf + paper_name + self._url_suffix + 'pdf'
-        html_download_path = self._download_path + self._url_html + paper_name + self._url_suffix + 'html'
+        paper_prop = self.get_paper_properties(index)
+        paper_url = paper_prop['urls']['pdf']
+        html_url = paper_prop['urls']['html']
+        paper_download_path = paper_prop['download_paths']['pdf']
+        html_download_path = paper_prop['download_paths']['html']
 
         Path(paper_download_path).parent.mkdir(parents=True, exist_ok=True)
         Path(html_download_path).parent.mkdir(parents=True, exist_ok=True)
@@ -66,5 +48,5 @@ class Download_Papers:
 if __name__ == "__main__":
     downloader = Download_Papers()
     N = downloader.get_number_of_papers()
-    for index in range(N):
+    for index in tqdm(range(N)):
         downloader.download_paper(index)  # Download the first paper as an example
