@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import sys
 
 CURRENT_PATH = Path(__file__).resolve().parent
 JSON_FILE_PATH = CURRENT_PATH.as_posix() + '/papers_all.json'
@@ -20,7 +21,10 @@ class Paper_Dataset:
 
         with open(self._all_papers_json, encoding="utf-8") as f:
             self._all_papers = json.load(f)
-        print(f'Number of papers: {len(self._all_papers)}')
+
+        # Only print if not running in Streamlit
+        if "streamlit" not in sys.modules:
+            print(f'Number of papers: {len(self._all_papers)}')
 
     def get_number_of_papers(self):
         return len(self._all_papers)

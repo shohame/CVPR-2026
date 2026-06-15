@@ -1,29 +1,46 @@
 import numpy as np
 import torch
 import os
+import sys
+from pathlib import Path
 from sentence_transformers import SentenceTransformer, util
-from Parer_Utils.Paper_Dataset import Paper_Dataset
+
+# Add parent directory to path so we can import Parer_Utils
+parent_dir = str(Path(__file__).parent.parent)
+if parent_dir not in sys.path:
+    sys.path.insert(0, parent_dir)
+
+from Parer_Utils.Abstract_Reader import Abstract_Reader
 
 
-class Run_Semantic_Search(Paper_Dataset):
+class Run_Semantic_Search(Abstract_Reader):
     def __init__(self):
         super().__init__()
-        MODEL_PATH = "./my_local_model"
-        VECTORS_PATH = "cvpr2026_semantic_vectors.npy"
+        SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+        MODEL_PATH = os.path.join(SCRIPT_DIR, "my_local_model")
+        VECTORS_PATH = os.path.join(SCRIPT_DIR, "cvpr2026_semantic_vectors.npy")
 
         if not os.path.exists(MODEL_PATH) or not os.path.exists(VECTORS_PATH):
             raise FileNotFoundError("Missing local model files or pre-computed vectors matrix.")
 
-        print("Loading upgraded local embedding model...")
+        # Only print if not running in Streamlit
+        is_streamlit = "streamlit" in sys.modules
+
+        if not is_streamlit:
+            print("Loading upgraded local embedding model...")
         device = "cuda" if torch.cuda.is_available() else "cpu"
-        print(f"Using device: {device}")
+        if not is_streamlit:
+            print(f"Using device: {device}")
 
         self._model = SentenceTransformer(MODEL_PATH, device=device)
-        print("Loading dataset and semantic matrix...")
+        if not is_streamlit:
+            print("Loading dataset and semantic matrix...")
         self._all_vectors = np.load(VECTORS_PATH)
 
     def get_semantic_search_top_indices(self, query_text, top_k=5):
-        print(f"\nProcessing search query: '{query_text}'")
+        is_streamlit = "streamlit" in sys.modules
+        if not is_streamlit:
+            print(f"\nProcessing search query: '{query_text}'")
 
         # BAAI BGE models do not strictly require task prefixes in newer SentenceTransformer releases,
         # but normalizing input text ensures stable cosine distances.
@@ -41,12 +58,15 @@ class Run_Semantic_Search(Paper_Dataset):
         return top_results_indices
 
     def print_indices(self, indices):
-        print("\nTop search results (Upgraded Model):")
-        print("=" * 60)
+        is_streamlit = "streamlit" in sys.modules
+        if not is_streamlit:
+            print("\nTop search results (Upgraded Model):")
+            print("=" * 60)
         for rank, idx in enumerate(indices, start=1):
             paper_prop = self.get_paper_properties(idx)
             title = paper_prop.get('paper_name', 'Unknown Title')
-            print(f"Rank {rank} | Index: {idx} - Title: {title}")
+            if not is_streamlit:
+                print(f"Rank {rank} | Index: {idx} - Title: {title}")
 
 
 if __name__ == "__main__":
