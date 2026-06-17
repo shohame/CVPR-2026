@@ -5,12 +5,12 @@ import sys
 from pathlib import Path
 from sentence_transformers import SentenceTransformer, util
 
-# Add parent directory to path so we can import Parer_Utils
+# Add parent directory to path so we can import Paper_Utils
 parent_dir = str(Path(__file__).parent.parent)
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
 
-from Parer_Utils.Abstract_Reader import Abstract_Reader
+from Paper_Utils.Abstract_Reader import Abstract_Reader
 
 
 class Run_Semantic_Search(Abstract_Reader):
@@ -29,6 +29,7 @@ class Run_Semantic_Search(Abstract_Reader):
         if not is_streamlit:
             print("Loading upgraded local embedding model...")
         device = "cuda" if torch.cuda.is_available() else "cpu"
+        # device = "cpu"
         if not is_streamlit:
             print(f"Using device: {device}")
 

@@ -3,7 +3,7 @@ import re
 from html import unescape
 from pathlib import Path
 
-from Parer_Utils.Paper_Dataset import Paper_Dataset
+from Paper_Utils.Paper_Dataset import Paper_Dataset
 
 class Abstract_Reader(Paper_Dataset):
     def __init__(self):

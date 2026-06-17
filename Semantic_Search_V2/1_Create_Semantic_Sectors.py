@@ -5,7 +5,7 @@ from tqdm import tqdm
 from sentence_transformers import SentenceTransformer
 
 # Importing your project utils
-from Parer_Utils.Abstract_Reader import Abstract_Reader
+from Paper_Utils.Abstract_Reader import Abstract_Reader
 
 
 def main():

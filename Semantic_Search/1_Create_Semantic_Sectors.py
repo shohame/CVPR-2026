@@ -5,7 +5,7 @@ from huggingface_hub.utils import tqdm
 from sentence_transformers import SentenceTransformer
 
 # 1. Import your Abstract_Reader class
-from Parer_Utils.Abstract_Reader import Abstract_Reader
+from Paper_Utils.Abstract_Reader import Abstract_Reader
 
 
 def main():

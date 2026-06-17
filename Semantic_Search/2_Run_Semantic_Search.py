@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from sentence_transformers import SentenceTransformer, util
-from Parer_Utils.Paper_Dataset import Paper_Dataset
+from Paper_Utils.Paper_Dataset import Paper_Dataset
 
 class Run_Semantic_Search(Paper_Dataset):
     def __init__(self):
