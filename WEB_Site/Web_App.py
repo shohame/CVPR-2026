@@ -191,3 +191,34 @@ if query:
 st.sidebar.markdown("### Instructions")
 st.sidebar.info(
     "1. Type a query in the box.\n2. Click a title to expand and read the abstract.\n3. Click **Open PDF in New Tab** to view it; save from the browser if needed.")
+
+import torch
+import torch.nn.functional as F
+
+def info_nce_loss(query_emb, pos_emb, neg_embs, temperature=0.02):
+    """
+    query_emb:  Embeddings of the queries (shape: [batch_size, dim])
+    pos_emb:    Embeddings of the positive passages (shape: [batch_size, dim])
+    neg_embs:   Embeddings of the negative passages (shape: [batch_size, num_neg, dim])
+    temperature: Temperature parameter (usually 0.01-0.02 in BGE models)
+    """
+    # Normalize embeddings (important for cosine similarity)
+    query_emb = F.normalize(query_emb, dim=-1)
+    pos_emb = F.normalize(pos_emb, dim=-1)
+    neg_embs = F.normalize(neg_embs, dim=-1)
+
+    # Compute similarity between query and positive
+    pos_scores = (query_emb * pos_emb).sum(dim=-1) / temperature  # [batch_size]
+
+    # Compute similarity between query and all negatives
+    neg_scores = torch.einsum('bd,bnd->bn', query_emb, neg_embs) / temperature  # [batch_size, num_neg]
+
+    # Concatenate positives + negatives for the loss
+    logits = torch.cat([pos_scores.unsqueeze(1), neg_scores], dim=1)  # [batch_size, 1 + num_neg]
+
+    # Labels: the positive is always at index 0
+    labels = torch.zeros(logits.shape[0], dtype=torch.long, device=logits.device)
+
+    # Cross-entropy loss
+    loss = F.cross_entropy(logits, labels)
+    return loss

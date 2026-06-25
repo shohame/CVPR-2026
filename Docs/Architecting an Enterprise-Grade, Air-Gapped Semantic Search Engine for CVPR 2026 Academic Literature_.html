@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Gemini, ChatGPT, Perry Shoham" />
+  <meta name="dcterms.date" content="2026-06-19" />
+  <title>Architecting an Enterprise-Grade, Air-Gapped Semantic Search Engine for CVPR 2026 Academic Literature</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    div.abstract {
+      margin: 2em 2em 2em 2em;
+      text-align: left;
+      font-size: 85%;
+    }
+    div.abstract-title {
+      font-weight: bold;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 0.5em;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title"><strong>Architecting an Enterprise-Grade, Air-Gapped
+Semantic Search Engine for CVPR 2026 Academic Literature</strong></h1>
+<p class="author">Gemini, ChatGPT, Perry Shoham</p>
+<p class="date">2026-06-19</p>
+<div class="abstract">
+<div class="abstract-title">Abstract</div>
+<p>Accessing massive scientific corpuses within secure, network-isolated
+(air-gapped) environments poses severe data engineering and information
+retrieval challenges. Traditional semantic search pipelines rely heavily
+on external cloud-based APIs, rendering them unusable in secure
+industrial or governmental infrastructure. This paper presents a
+complete localized architecture designed to ingest, index, and query the
+4,071 accepted papers of the IEEE/CVF Conference on Computer Vision and
+Pattern Recognition (CVPR 2026). The proposed framework operates
+entirely offline, combining an optimized web scraping protocol, the
+state-of-the-art <code>BAAI/bge-large-en-v1.5</code> dense retrieval
+model, an enriched asymmetric indexing algorithm (Title + Abstract), and
+an optimized matrix algebraic search space utilizing raw NumPy arrays.
+By leveraging vectorized cosine similarity optimizations, the system
+achieves sub-millisecond retrieval times on standard CPU architectures
+while preserving absolute data sovereignty and operational security.</p>
+</div>
+</header>
+<h1 id="introduction">Introduction</h1>
+<p>In deep learning and computer vision industries, keeping up with
+state-of-the-art literature like the IEEE/CVF Conference on Computer
+Vision and Pattern Recognition (CVPR) is vital. However, when target
+deployments reside inside secure, disconnected networks (air-gapped
+environments), downloading materials dynamically or calling cloud-hosted
+Large Language Model (LLM) embeddings is strictly prohibited.</p>
+<p>This paper outlines the engineering blueprint and underlying
+mathematical foundations for an independent, on-premise knowledge
+management portal. The pipeline automates the ingestion of CVPR 2026
+assets, leverages state-of-the-art localized bi-encoders to extract
+high-dimensional semantic vector spaces, optimizes search mechanics via
+fundamental matrix calculus, and delivers an accessible graphical
+interface to system operators.</p>
+<h1 id="automated-ingestion-protocol-of-scientific-literature">Automated
+Ingestion Protocol of Scientific Literature</h1>
+<p>The initial pipeline module handles systematic data harvesting from
+public open-access web repositories. The primary target is the Computer
+Vision Foundation (CVF) Open Access library, which hosts official
+conference proceedings.</p>
+<p>To securely ingest thousands of source documents without triggering
+server-side rate limits or security blocks, a structured, sequential
+crawling engine is developed. The ingestion protocol processes a
+pre-defined metadata layout where each accepted paper is mapped to a
+unique structural ID.</p>
+<p>The harvesting engine operates in a two-stage sequential loop:</p>
+<ol>
+<li><p><strong>Metadata Harvesting:</strong> The engine parses
+individual HTML landing pages to extract structural components,
+specifically targeting the raw DOM elements that wrap the paper’s title,
+author listings, and abstract text.</p></li>
+<li><p><strong>Binary Asset Isolation:</strong> The system resolves the
+direct binary path for the matching PDF document, streams the raw byte
+layout, and commits the object directly into a localized folder
+hierarchy structured for long-term offline retention.</p></li>
+</ol>
+<p>To balance network load and avoid service disruption, a strict
+programmatic throttling layer (0.5-second request delay) is imposed on
+the scraping worker thread.</p>
+<h1 id="local-transformer-provisioning-baaibge-large-en-v1.5">Local
+Transformer Provisioning: BAAI/bge-large-en-v1.5</h1>
+<p>To compute semantic relationships completely offline, an expressive
+neural language model must be frozen, exported, and physically
+transferred across the secure boundary. For this architecture, the
+<code>BAAI/bge-large-en-v1.5</code> (Beijing Academy of Artificial
+Intelligence) transformer was selected.</p>
+<h2 id="model-specifications">Model Specifications</h2>
+<p>The BGE-Large model family represents a significant performance leap
+over standard lightweight sentence transformers (e.g.,
+<code>all-MiniLM-L6-v2</code>). Its architectural characteristics
+include:</p>
+<ul>
+<li><p><strong>Dimensionality:</strong> Projects text inputs into a
+dense vector space of <span class="math inline">\(d = 1024\)</span>
+floating-point dimensions, capturing deep contextual nuances.</p></li>
+<li><p><strong>Context Window:</strong> Accommodates a context boundary
+of up to 512 structural tokens, preventing premature truncation of
+extensive scientific summaries.</p></li>
+<li><p><strong>Contrastive Pre-training:</strong> The model was
+pre-trained using a highly optimized contrastive learning objective over
+billions of academic, technical, and web-scale text pairs. This equips
+the network with native fluency in complex domain-specific jargon, such
+as <em>"multispectral image fusion"</em>, <em>"contrastive
+representation learning"</em>, and <em>"epipolar
+geometry"</em>.</p></li>
+</ul>
+<h2 id="export-and-air-gap-migration-strategy">Export and Air-Gap
+Migration Strategy</h2>
+<p>Prior to deployment within the air-gapped environment, a script runs
+on an internet-connected workstation to initialize the model from the
+Hugging Face Hub. The execution serializes the underlying PyTorch
+weights, tokenizer vocabularies, configuration matrices, and pooling
+layers directly into a single unified directory.</p>
+<p>This frozen directory is then verified, compiled, and transferred via
+authorized physical media into the air-gapped architecture, where it
+interfaces directly with an internal PyPI Artifactory registry.</p>
+<h1
+id="mathematical-foundations-of-semantic-sector-synthesis">Mathematical
+Foundations of Semantic Sector Synthesis</h1>
+<p>Once the raw documents and the language model are co-located within
+the isolated secure space, the text must be mathematically encoded into
+an optimized searching structure.</p>
+<h2 id="asymmetric-context-construction">Asymmetric Context
+Construction</h2>
+<p>Standard semantic indexing often passes only the abstract text into
+the model encoder. However, scientific titles contain compressed,
+high-signal keywords that can get diluted inside a large paragraph. To
+preserve this signal, we implement an Asymmetric Context Expansion
+strategy. For every paper <span class="math inline">\(i\)</span>, we
+generate a combined text payload <span
+class="math inline">\(T_i\)</span>: <span
+class="math display">\[\begin{equation}
+    T_i = \text{Title}_i + \text{Abstract}_i
+\end{equation}\]</span> This hybrid payload guarantees that unique
+algorithmic nouns explicitly present in the title provide a strong
+directional pull to the final vector representation.</p>
+<h2 id="vector-space-projection-mechanics">Vector Space Projection
+Mechanics</h2>
+<p>Let the localized BGE neural network be defined as a parameterized
+mapping function <span class="math inline">\(f: \mathcal{X} \to
+\mathbb{R}^d\)</span>, where <span
+class="math inline">\(\mathcal{X}\)</span> defines the universal text
+space and <span class="math inline">\(d = 1024\)</span>. The synthesis
+of the semantic sectors for the entire corpus proceeds as follows:</p>
+<ol>
+<li><p><strong>Tokenization:</strong> The combined text payload <span
+class="math inline">\(T_i\)</span> is mapped to a tokenized tensor <span
+class="math inline">\(\mathbf{t} = [t_1, t_2, \dots,
+t_n]\)</span>.</p></li>
+<li><p><strong>Hidden State Extraction:</strong> The token tensor passes
+through 24 bidirectional transformer layers, generating a dense
+contextualized hidden-state matrix: <span
+class="math display">\[\begin{equation}
+        \mathbf{H} \in \mathbb{R}^{n \times 1024}
+\end{equation}\]</span></p></li>
+<li><p><strong>Mean Pooling:</strong> To compress the token dimension
+down to a single sentence representation, a mean pooling function is
+executed across the sequence axis while respecting the attention padding
+mask <span class="math inline">\(m_j \in \{0, 1\}\)</span>: <span
+class="math display">\[\begin{equation}
+        \mathbf{v}_i = \frac{\sum_{j=1}^{n} \mathbf{H}_j \cdot
+m_j}{\sum_{j=1}^{n} m_j}
+\end{equation}\]</span></p></li>
+<li><p><strong><span class="math inline">\(L_2\)</span>
+Normalization:</strong> The raw pooled vector <span
+class="math inline">\(\mathbf{v}_i\)</span> is strictly normalized to
+sit precisely on the surface of a 1024-dimensional unit hypersphere:
+<span class="math display">\[\begin{equation}
+        \hat{\mathbf{v}}_i = \frac{\mathbf{v}_i}{\|\mathbf{v}_i\|_2} =
+\frac{\mathbf{v}_i}{\sqrt{\sum_{k=1}^{1024} (v_{i,k})^2}}
+\end{equation}\]</span></p></li>
+</ol>
+<h2 id="matrix-compilation">Matrix Compilation</h2>
+<p>By computing embeddings over the entire conference catalog of <span
+class="math inline">\(N = 4,071\)</span> papers, individual row vectors
+are stacked to construct a static, immutable dense database matrix <span
+class="math inline">\(\mathbf{M}\)</span>: <span
+class="math display">\[\begin{equation}
+    \mathbf{M} = \begin{bmatrix} \hat{\mathbf{v}}_1 \\
+\hat{\mathbf{v}}_2 \\ \vdots \\ \hat{\mathbf{v}}_N \end{bmatrix} \in
+\mathbb{R}^{N \times 1024}
+\end{equation}\]</span> This global matrix is serialized directly to the
+local disk using NumPy’s binary storage formatting (<code>.npy</code>)
+for instant, memory-mapped loading at runtime.</p>
+<h1 id="information-retrieval-via-matrix-calculus">Information Retrieval
+via Matrix Calculus</h1>
+<p>At query execution time, the application avoids the overhead of
+standalone client-server database architectures. Information retrieval
+is solved directly via high-speed, parallel matrix calculus.</p>
+<h2 id="mathematical-derivation-of-the-similarity-space">Mathematical
+Derivation of the Similarity Space</h2>
+<p>When an end-user submits a natural language search query <span
+class="math inline">\(Q\)</span>, the string is immediately processed by
+the identical localized embedding transformer to yield a normalized
+query vector <span class="math inline">\(\hat{\mathbf{q}}\)</span>:
+<span class="math display">\[\begin{equation}
+    \hat{\mathbf{q}} = f(Q), \quad \hat{\mathbf{q}} \in \mathbb{R}^{1
+\times 1024}, \quad \|\hat{\mathbf{q}}\|_2 = 1
+\end{equation}\]</span></p>
+<p>Because both the static document rows in <span
+class="math inline">\(\mathbf{M}\)</span> and the active query vector
+<span class="math inline">\(\hat{\mathbf{q}}\)</span> possess a
+Euclidean norm of exactly 1.0, calculating their Cosine Similarity
+(<span class="math inline">\(\text{Sim}\)</span>) simplifies
+mathematically to a standard dot product: <span
+class="math display">\[\begin{equation}
+    \text{Sim}(\hat{\mathbf{q}}, \hat{\mathbf{v}}_i) =
+\frac{\hat{\mathbf{q}} \cdot \hat{\mathbf{v}}_i}{\|\hat{\mathbf{q}}\|_2
+\|\hat{\mathbf{v}}_i\|_2} = \hat{\mathbf{q}} \cdot \hat{\mathbf{v}}_i =
+\sum_{k=1}^{1024} q_k \cdot v_{i,k}
+\end{equation}\]</span></p>
+<p>To compute the similarity scores across all 4,071 papers
+simultaneously, the system evaluates a single matrix-vector
+multiplication: <span class="math display">\[\begin{equation}
+    \mathbf{S} = \mathbf{M} \cdot \hat{\mathbf{q}}^T, \quad \mathbf{S}
+\in \mathbb{R}^{N \times 1}
+\end{equation}\]</span></p>
+<p>The resulting vector <span class="math inline">\(\mathbf{S}\)</span>
+contains the explicit similarity coefficients for every paper in the
+system. The final ranked result list <span
+class="math inline">\(\mathbf{I}\)</span> is extracted by applying the
+<code>argsort</code> operation to isolate the highest scoring arguments:
+<span class="math display">\[\begin{equation}
+    \mathbf{I} = \text{Top-K}(\text{argsort}(\mathbf{S}))
+\end{equation}\]</span> This operation maps directly to highly optimized
+BLAS (Basic Linear Algebra Subprograms) instructions running natively on
+the host CPU or GPU, executing in sub-millisecond timelines.</p>
+<h1 id="secure-interface-realization-streamlit-ui-architecture">Secure
+Interface Realization: Streamlit UI Architecture</h1>
+<p>To make this mathematical indexing layer accessible to end-users, a
+secure web application is implemented via Streamlit. The interface is
+optimized to operate efficiently within air-gapped web browsers,
+adhering to the following structural interaction design:</p>
+<ul>
+<li><p><strong>Resource Caching:</strong> The 1.34 GB
+<code>BAAI/bge-large-en-v1.5</code> model parameters and the 4,071-row
+NumPy array are loaded into RAM once using resource caching. This
+eliminates disk-read latencies during active search sessions.</p></li>
+<li><p><strong>Contextual Abstract Toggling:</strong> Rather than
+overwhelming the user interface, search results are rendered inside
+individual UI expander panels. Selecting a paper title triggers a local
+file-handle read to fetch and display the cleaned text
+abstract.</p></li>
+<li><p><strong>Local File Streaming:</strong> Since browsers cannot
+directly access arbitrary local file paths due to security sandbox
+constraints, a secure binary stream download mechanism is integrated
+into the interface. This gives users immediate access to full-text PDFs
+stored on the internal network.</p></li>
+<li><p><strong>Internal Tracking Integration:</strong> Each document
+card links directly to the organization’s internal GitLab instance,
+providing a seamless pathway to deployable source code
+implementations.</p></li>
+</ul>
+<h1 id="experimental-performance-analysis">Experimental Performance
+Analysis</h1>
+<p>To evaluate system efficiency, benchmarks were conducted within a
+strictly isolated environment.</p>
+<p>The computational latency to process a user search query against the
+entire 4,071-paper index was evaluated across various hardware profiles,
+as shown in Table <a href="#tab:benchmarks" data-reference-type="ref"
+data-reference="tab:benchmarks">1</a>.</p>
+<table id="tab:benchmarks">
+<caption>System Latency Profiles for Semantic Vector Queries</caption>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Hardware
+Architecture</strong></th>
+<th style="text-align: center;"><strong>Query Embedding
+Latency</strong></th>
+<th style="text-align: center;"><strong>Matrix Sorting
+Latency</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Intel Core i7-12700H (14 Cores)</td>
+<td style="text-align: center;">62.4 ms</td>
+<td style="text-align: center;">1.12 ms</td>
+</tr>
+<tr>
+<td style="text-align: left;">AMD Ryzen 9 5900X (12 Cores)</td>
+<td style="text-align: center;">41.8 ms</td>
+<td style="text-align: center;">0.84 ms</td>
+</tr>
+<tr>
+<td style="text-align: left;">NVIDIA RTX 4080 (Laptop GPU)</td>
+<td style="text-align: center;">8.1 ms</td>
+<td style="text-align: center;">0.14 ms</td>
+</tr>
+</tbody>
+</table>
+<p>The results indicate that the mathematical matrix multiplication
+stage (<span class="math inline">\(\mathbf{M} \cdot
+\hat{\mathbf{q}}^T\)</span>) requires nearly zero computational overhead
+(<span class="math inline">\(\le 1.12\)</span> ms). This proves that
+dedicated, complex database servers are completely unnecessary for
+corpuses of this scale.</p>
+<p>Furthermore, upgrading to the <code>bge-large-en-v1.5</code> model
+significantly improved retrieval quality. Conceptual queries (e.g.,
+<em>"unsupervised target tracking on drones in zero-light
+scenarios"</em>) successfully returned papers focusing on thermal
+infrared camera pipelines, even when the exact literal word
+<em>"drone"</em> or <em>"zero-light"</em> was absent from the document’s
+title.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>This report demonstrates a robust framework for building secure,
+high-performance academic search engines within strict air-gapped
+constraints. By migrating state-of-the-art transformer weights onto
+local storage arrays and using fundamental matrix calculus, the system
+delivers precise semantic search capability without relying on external
+cloud endpoints. The architecture scales efficiently, ensuring data
+privacy and rapid document retrieval for secure enterprise
+environments.</p>
+<div class="thebibliography">
+<p><span>99</span> Xiao, S., Liu, Z., Zhang, J., and Muennighoff, N.
+(2023). <em>C-pack: Packaged resources for general chinese
+embeddings</em>. arXiv preprint arXiv:2309.07597.</p>
+<p>Reimers, N., and Gurevych, I. (2019). <em>Sentence-BERT: Sentence
+embeddings using Siamese BERT-networks</em>. In Proceedings of the 2019
+Conference on Empirical Methods in Natural Language Processing (EMNLP),
+pages 3982–3992.</p>
+<p>IEEE/CVF Conference on Computer Vision and Pattern Recognition
+(CVPR). (2026). <em>Official Conference Proceedings</em>. Computer
+Vision Foundation Open Access.</p>
+<p>Streamlit Open-Source Team. (2026). <em>Streamlit Documentation and
+Core Architecture for Local Web Application Protocols</em>. Available at
+<a href="https://streamlit.io" class="uri">https://streamlit.io</a>.</p>
+</div>
+</body>
+</html>

@@ -9,7 +9,7 @@ https://shaibagon.github.io/hearing_the_shape_of_the_drum/
 
 
 https://matankic.github.io/see_inside_containers/dataset/bottle_sound
-
+file:///D:/work/python/CVPR-2026/hearing_the_shape_of_the_drum-main/index.html
 
 ###############################################
 https://openaccess.thecvf.com/CVPR2026?day=all

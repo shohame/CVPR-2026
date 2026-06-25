@@ -1,0 +1,1 @@
+pandoc "%~1" --from=latex+raw_tex --to=html5 --standalone --mathjax --output="%~dpn1.html"
