@@ -11,18 +11,13 @@ from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.enum.shapes import MSO_SHAPE
-from pptx.oxml.xmlchemy import OxmlElement
 from pptx.dml.color import RGBColor
-from PIL import Image
-import io
 import subprocess
-from io import BytesIO
-from pptx.util import Pt
 
 # Paths
 results_dir = Path(r"d:\work\python\CVPR-2026\hearing_the_shape_of_the_drum-main\html_assets\results")
 html_file = results_dir / "results.html"
-output_pptx = results_dir / "Recovered_Audio_Results.pptx"
+output_pptx = results_dir / "Recovered_Audio_Results_centered.pptx"
 
 # Parse HTML
 with open(html_file, 'r', encoding='utf-8') as f:
@@ -70,13 +65,6 @@ def svg_to_png(svg_path, png_path):
         except:
             print(f"  Warning: Could not convert {svg_path}")
             return None
-
-# Helper function to embed audio
-def embed_audio(audio_path):
-    """Returns the audio file path for embedding"""
-    if Path(audio_path).exists():
-        return audio_path
-    return None
 
 # Process each row
 for row_idx, row in enumerate(data_rows):
@@ -127,33 +115,50 @@ for row_idx, row in enumerate(data_rows):
     blank_layout = prs.slide_layouts[6]  # Blank layout
     slide = prs.slides.add_slide(blank_layout)
     
-    # Add title with setup name
-    title_box = slide.shapes.add_textbox(Inches(0.5), Inches(0.3), Inches(12), Inches(0.5))
+    # Main title in black
+    title_box = slide.shapes.add_textbox(Inches(0.4), Inches(0.2), Inches(12.2), Inches(0.5))
     title_frame = title_box.text_frame
     title_frame.word_wrap = True
     p = title_frame.paragraphs[0]
-    p.text = f"Setup: {setup_name}"
-    p.font.size = Pt(32)
+    p.text = "Recovered Audio Results"
+    p.font.size = Pt(24)
     p.font.bold = True
-    p.font.color.rgb = RGBColor(32, 238, 193)
-    
-    # Add setup image on the left
+    p.font.color.rgb = RGBColor(0, 0, 0)
+    p.alignment = PP_ALIGN.CENTER
+
+    # Instrument image centered under the title
     try:
-        slide.shapes.add_picture(str(setup_img_path), Inches(0.5), Inches(1.0), 
-                                height=Inches(2.0))
-        print(f"   Added setup image")
+        slide.shapes.add_picture(
+            str(setup_img_path),
+            Inches(5.2),
+            Inches(0.9),
+            width=Inches(2.6),
+            height=Inches(1.5),
+        )
+        print("   Added setup image")
     except Exception as e:
         print(f"   Warning: Could not add setup image - {e}")
-    
-    # Add spectrograms and audio indicators in grid
-    # 5 columns x 1 row for the methods
-    spec_width = Inches(2.0)
-    spec_height = Inches(1.8)
-    start_left = Inches(3.0)
-    start_top = Inches(1.0)
+
+    # Large instrument name centered below the image
+    instrument_box = slide.shapes.add_textbox(Inches(0.4), Inches(2.45), Inches(12.2), Inches(0.5))
+    instrument_frame = instrument_box.text_frame
+    instrument_frame.word_wrap = True
+    p = instrument_frame.paragraphs[0]
+    p.text = setup_name.upper()
+    p.font.size = Pt(34)
+    p.font.bold = True
+    p.font.color.rgb = RGBColor(0, 0, 0)
+    p.alignment = PP_ALIGN.CENTER
+
+    # Large spectrogram grid that covers most of the slide width
+    spec_width = Inches(2.4)
+    spec_height = Inches(2.7)
+    col_gap = Inches(0.08)
+    start_left = Inches(0.34)
+    start_top = Inches(3.0)
     
     for method_idx, method in enumerate(method_data):
-        left = start_left + (method_idx * Inches(1.9))
+        left = start_left + (method_idx * (spec_width + col_gap))
         top = start_top
         
         # Add spectrogram
@@ -174,15 +179,16 @@ for row_idx, row in enumerate(data_rows):
         except Exception as e:
             print(f"   Warning: Could not add {method['name']} spectrogram - {e}")
         
-        # Add text label
-        label_box = slide.shapes.add_textbox(left, top + spec_height + Inches(0.1), 
-                                            spec_width, Inches(0.4))
+        # Add method label
+        label_box = slide.shapes.add_textbox(left, top + spec_height + Inches(0.08),
+                            spec_width, Inches(0.35))
         label_frame = label_box.text_frame
         label_frame.word_wrap = True
         p = label_frame.paragraphs[0]
         p.text = method['name']
-        p.font.size = Pt(10)
+        p.font.size = Pt(13)
         p.font.bold = True
+        p.font.color.rgb = RGBColor(0, 0, 0)
         p.alignment = PP_ALIGN.CENTER
         
         # Add embedded audio player
@@ -191,10 +197,10 @@ for row_idx, row in enumerate(data_rows):
             try:
                 # Add embedded audio/movie object
                 # This creates a clickable media player on the slide
-                audio_left = left + Inches(0.4)
-                audio_top = top + spec_height + Inches(0.3)
-                audio_width = Inches(1.1)
-                audio_height = Inches(0.4)
+                audio_left = left + Inches(0.35)
+                audio_top = top + spec_height + Inches(0.45)
+                audio_width = Inches(1.7)
+                audio_height = Inches(0.42)
                 
                 # Add movie/audio shape with embedded file
                 movie = slide.shapes.add_movie(
@@ -215,10 +221,10 @@ for row_idx, row in enumerate(data_rows):
                 try:
                     audio_button = slide.shapes.add_shape(
                         MSO_SHAPE.ROUNDED_RECTANGLE,
-                        left + Inches(0.55), 
-                        top + spec_height + Inches(0.35),
-                        Inches(0.9),
-                        Inches(0.35)
+                        left + Inches(0.35),
+                        top + spec_height + Inches(0.45),
+                        Inches(1.7),
+                        Inches(0.42)
                     )
                     audio_button.fill.solid()
                     audio_button.fill.fore_color.rgb = RGBColor(32, 238, 193)
@@ -231,7 +237,7 @@ for row_idx, row in enumerate(data_rows):
                     text_frame.vertical_anchor = MSO_ANCHOR.MIDDLE
                     p = text_frame.paragraphs[0]
                     p.text = "🔊 Play"
-                    p.font.size = Pt(8)
+                    p.font.size = Pt(11)
                     p.font.bold = True
                     p.font.color.rgb = RGBColor(18, 18, 18)
                     p.alignment = PP_ALIGN.CENTER
