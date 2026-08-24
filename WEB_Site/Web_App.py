@@ -8,6 +8,9 @@ import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs, unquote, quote
 
+# streamlit.exe run .\Web_App.py
+
+
 # Add parent directory to path so we can import Semantic_Search_V2
 parent_dir = str(Path(__file__).parent.parent)
 if parent_dir not in sys.path:
@@ -50,7 +53,7 @@ for logger_name in ["streamlit", "urllib3", "torch"]:
     logger.propagate = False
 
 import streamlit as st
-from Semantic_Search_V2.Run_Semantic_Search import Run_Semantic_Search
+from Semantic_Search_V3.Run_Semantic_Search import Run_Semantic_Search
 
 # Set page config
 st.set_page_config(page_title="CVPR 2026 Search Engine", layout="wide")
@@ -63,7 +66,8 @@ def get_searcher():
     old_stderr = sys.stderr
     sys.stderr = StringIO()
     try:
-        searcher = Run_Semantic_Search()
+        device = 'cpu'
+        searcher = Run_Semantic_Search(device)
         return searcher
     finally:
         sys.stderr = old_stderr
