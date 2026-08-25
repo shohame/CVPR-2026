@@ -10,11 +10,11 @@ parent_dir = str(Path(__file__).parent.parent)
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
 
-from Paper_Utils.Abstract_Reader import Abstract_Reader
+from Paper_Utils.Paper_Dataset import Paper_Dataset
 
 
-class Run_Semantic_Search(Abstract_Reader):
-    def __init__(self):
+class Run_Semantic_Search(Paper_Dataset):
+    def __init__(self, device=None):
         super().__init__()
         SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
         MODEL_PATH = os.path.join(SCRIPT_DIR, "my_local_model")
@@ -28,8 +28,9 @@ class Run_Semantic_Search(Abstract_Reader):
 
         if not is_streamlit:
             print("Loading upgraded local embedding model...")
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        # device = "cpu"
+        if device is None:
+            device = "cuda" if torch.cuda.is_available() else "cpu"
+
         if not is_streamlit:
             print(f"Using device: {device}")
 

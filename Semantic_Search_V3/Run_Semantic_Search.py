@@ -5,17 +5,15 @@ import sys
 from pathlib import Path
 from sentence_transformers import SentenceTransformer, util
 
-
-
 # Add parent directory to path so we can import Paper_Utils
 parent_dir = str(Path(__file__).parent.parent)
 if parent_dir not in sys.path:
     sys.path.insert(0, parent_dir)
 
-from Paper_Utils.Abstract_Reader import Abstract_Reader
+from Paper_Utils.Paper_Dataset import Paper_Dataset
 
 
-class Run_Semantic_Search(Abstract_Reader):
+class Run_Semantic_Search(Paper_Dataset):
     def __init__(self, device=None):
         super().__init__()
         SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))

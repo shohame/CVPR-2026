@@ -5,8 +5,7 @@ from tqdm import tqdm
 from sentence_transformers import SentenceTransformer
 
 # Importing your project utils
-from Paper_Utils.Abstract_Reader import Abstract_Reader
-
+from Paper_Utils.Paper_Dataset import Paper_Dataset
 
 def main():
     MODEL_PATH = "./my_local_model"
@@ -19,9 +18,9 @@ def main():
         )
 
     # Initialize data reader
-    print("Initializing Abstract Reader...")
-    reader = Abstract_Reader()
-    num_papers = reader.get_number_of_papers()
+    print("Initializing Paper Dataset...")
+    paper_db = Paper_Dataset()
+    num_papers = paper_db.get_number_of_papers()
     print(f"Found {num_papers} papers to process.")
 
     # Initialize upgraded model
@@ -36,14 +35,9 @@ def main():
 
     for idx in tqdm(range(num_papers)):
         # Get title from your existing JSON data mapping
-        try:
-            paper_prop = reader.get_paper_properties(idx)
-            paper_title = paper_prop["paper_name"]
-            abstract_text = reader.read_abstract(idx)
-            if not abstract_text or not isinstance(abstract_text, str) or abstract_text.strip() == "":
-                abstract_text = ""
-        except (FileNotFoundError, ValueError) as e:
-            abstract_text = ""
+        paper_prop = paper_db.get_paper_properties(idx)
+        paper_title = paper_prop["paper_name"]
+        abstract_text = paper_prop["abstract"]
 
         # Strategic improvement: Combine Title and Abstract for a stronger semantic signal
         combined_context = f"Title: {paper_title}. Abstract: {abstract_text}"

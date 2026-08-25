@@ -17,6 +17,6 @@ snapshot_download(repo_id=model_id,
                 ignore_patterns=["*.h5", "*.ot", "*.msgpack", "*.rust_model"],
                 # local_dir_use_symlinks=False is generally recommended to avoid symlink confusion on some OS
                 local_dir_use_symlinks=False
-            )
+                    )
 
 print("Download complete!")

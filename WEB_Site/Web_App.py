@@ -7,9 +7,19 @@ from pathlib import Path
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse, parse_qs, unquote, quote
+import torch
+import torch.nn.functional as F
 
 # streamlit.exe run .\Web_App.py
 
+# Add parent directory to path so we can import Paper_Utils
+parent_dir = str(Path(__file__).parent.parent)
+if parent_dir not in sys.path:
+    sys.path.insert(0, parent_dir)
+
+from Semantic_Search_V2.Run_Semantic_Search import Run_Semantic_Search
+DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
+DEVICE = 'cpu'  # Force CPU for Streamlit deployment
 
 # Add parent directory to path so we can import Semantic_Search_V2
 parent_dir = str(Path(__file__).parent.parent)
@@ -53,7 +63,6 @@ for logger_name in ["streamlit", "urllib3", "torch"]:
     logger.propagate = False
 
 import streamlit as st
-from Semantic_Search_V3.Run_Semantic_Search import Run_Semantic_Search
 
 # Set page config
 st.set_page_config(page_title="CVPR 2026 Search Engine", layout="wide")
@@ -66,7 +75,7 @@ def get_searcher():
     old_stderr = sys.stderr
     sys.stderr = StringIO()
     try:
-        device = 'cpu'
+        device = DEVICE
         searcher = Run_Semantic_Search(device)
         return searcher
     finally:
@@ -173,10 +182,10 @@ if query:
     # Display results
     for rank, idx in enumerate(indices, start=1):
         paper_prop = searcher.get_paper_properties(idx)
-        title = paper_prop.get('paper_name', 'Unknown Title').replace("_", " ")
+        title = paper_prop.get('paper_name', 'Unknown Title')
         # Use an expander for the abstract
         with st.expander(f"{rank}. {title}"):
-            abstract = searcher.read_abstract(idx)
+            abstract = paper_prop.get('abstract', 'No abstract available.')
             st.write("**Abstract:**")
             st.write(abstract)
 
@@ -196,8 +205,6 @@ st.sidebar.markdown("### Instructions")
 st.sidebar.info(
     "1. Type a query in the box.\n2. Click a title to expand and read the abstract.\n3. Click **Open PDF in New Tab** to view it; save from the browser if needed.")
 
-import torch
-import torch.nn.functional as F
 
 def info_nce_loss(query_emb, pos_emb, neg_embs, temperature=0.02):
     """
